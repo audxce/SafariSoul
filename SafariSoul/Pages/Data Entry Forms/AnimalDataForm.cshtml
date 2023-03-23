@@ -1,0 +1,52 @@
+﻿@page
+@model SafariSoul.Pages.AnimalData
+@{
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<form method="post">
+    <div class="form-group">
+        <label for="AnimalName">Animal Name:</label>
+        <input type="text" class="form-control" id="AnimalName" name="AnimalName" required>
+    </div>
+    <div class="form-group">
+        <label for="Genus">Genus:</label>
+        <input type="text" class="form-control" id="Genus" name="Genus" required>
+    </div>
+    <div class="form-group">
+        <label for="Species">Species:</label>
+        <input type="text" class="form-control" id="Species" name="Species" required>
+    </div>
+    <div class="form-group">
+        <label for="UniqueDescriptors">Unique Descriptors:</label>
+        <textarea class="form-control" id="UniqueDescriptors" name="UniqueDescriptors"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="DOB">Date of Birth:</label>
+        <input type="date" class="form-control" id="DOB" name="DOB" required>
+    </div>
+    <div class="form-group">
+        <label for="Gender">Gender:</label>
+        <select class="form-control" id="Gender" name="Gender" required>
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="DietaryRestrictions">Dietary Restrictions:</label>
+        <textarea class="form-control" id="DietaryRestrictions" name="DietaryRestrictions"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Recreation">Recreation:</label>
+        <textarea class="form-control" id="Recreation" name="Recreation"></textarea>
+    </div>
+    <div style="height: 20px;"></div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
