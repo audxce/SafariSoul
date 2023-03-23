@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -42,7 +43,7 @@ namespace SafariSoul.Pages
 
         public string? UniqueDescriptors { get; set; }
 
-        public DateTime DOB { get; set; }
+        public DateOnly DOB { get; set; }
 
         [Required]
         public string Gender { get; set; }
