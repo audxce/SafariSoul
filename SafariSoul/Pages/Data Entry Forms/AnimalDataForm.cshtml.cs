@@ -22,6 +22,33 @@ namespace SafariSoul.Pages
             }
 
             // Store the input in the database or any other storage mechanism here
+            Random rnd = new Random();
+            int animalID = rnd.Next();
+
+            string animalName = "";
+            string genus = "";
+            string species = "";
+            string desc = "";
+            DateTime dob = DateTime.Now;
+            string gender = "";
+            string diet = "";
+            string rec = "";
+
+            if (isPost)
+            {
+                animalName = Request.Form["AnimalName"];
+                genus = Request.Form["Genus"];
+                species = Request.Form["Species"];
+                desc = Request.Form["UniqueDescriptors"];
+                dob = Request.Form["DOB"];
+                gender = Request.Form["gender"];
+                diet = Request.Form["DietaryRestrictions"];
+                rec = Request.Form["Recreation"];
+
+                var db = Database.Open("zoo-db-server");
+                var insertCommand = "INSERT INTO animal (Animal_ID, Animal_Name, Date_of_Birth, Dietary_Restrictions, Genus, Recreation, Species, Unique_Descriptors VALUES (@0, @1, @2, @3, @4, @5, @6, @7)";
+                db.Execute(insertCommand, animalID, animalName, dob, diet, genus, rec, species, desc);
+            }
 
             return RedirectToPage("/Index");
         }
