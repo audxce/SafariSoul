@@ -1,0 +1,33 @@
+@page
+@model SafariSoul.Pages.Data_Entry_Forms.LocationData
+@{
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<form method="post">
+    <div class ="form-group">
+        <label for="Location_Name">Location Name:</label>
+        <input type="text" class="form-control" id="Location_Name" name="Location_Name" required maxlength="45">
+    </div>
+    <div class="form-group">
+        <label for="Max_Capacity">Max Capacity:</label>
+        <input type="number" class="form-control" id="Max_Capacity" name="Max_Capacity">
+    </div>
+    <div class="form-group">
+        <label for="Opening_Time">Opening Time:</label>
+        <input type="time" class="form-control" id="Opening_Time" name="Opening_Time">
+    </div>
+    <div class="form-group">
+        <label for="Closing_Time">Closing Time:</label>
+        <input type="time" class="form-control" id="Closing_Time" name="Closing_Time">
+    </div>
+    <div style="height: 20px;"></div>
+    <button type="submit" class="btn btn-primary">Submit</button>.
+</form>
