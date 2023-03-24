@@ -1,62 +1,45 @@
-using System;
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 
-namespace SafariSoul.Pages
+namespace SafariSoul.Pages.Data_Entry_Forms
 {
     public class AnimalData : PageModel
     {
+        private readonly ZooDbContext _context;
+        private readonly ILogger<AnimalData> _logger;
+
+        public AnimalData(ZooDbContext context, ILogger<AnimalData> logger)
+        {
+            _context = context;
+            _logger = logger;
+        }
+
         [BindProperty]
-        public AnimalData AnimalInput { get; set; }
+        public Animal Animal { get; set; }
 
         public void OnGet()
         {
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            // Store the input in the database or any other storage mechanism here
-            Random rnd = new Random();
-            int animalID = rnd.Next();
+            _context.animal.Add(Animal);
+            await _context.SaveChangesAsync();
 
-            string animalName = "";
-            string genus = "";
-            string species = "";
-            string desc = "";
-            DateTime dob = DateTime.Now;
-            string gender = "";
-            string diet = "";
-            string rec = "";
-
-            if (isPost)
-            {
-                animalName = Request.Form["AnimalName"];
-                genus = Request.Form["Genus"];
-                species = Request.Form["Species"];
-                desc = Request.Form["UniqueDescriptors"];
-                dob = Request.Form["DOB"];
-                gender = Request.Form["gender"];
-                diet = Request.Form["DietaryRestrictions"];
-                rec = Request.Form["Recreation"];
-
-                var db = Database.Open("zoo-db-server");
-                var insertCommand = "INSERT INTO animal (Animal_ID, Animal_Name, Date_of_Birth, Dietary_Restrictions, Genus, Recreation, Species, Unique_Descriptors VALUES (@0, @1, @2, @3, @4, @5, @6, @7)";
-                db.Execute(insertCommand, animalID, animalName, dob, diet, genus, rec, species, desc);
-            }
+            _logger.LogInformation("Animal {AnimalName} added.", Animal.AnimalName);
 
             return RedirectToPage("/Index");
         }
     }
 
-    public class AnimaInput
+    public class Animal
     {
-        [Required] // part of the System.ComponentModel.DataAnnotations namespace, and it is used to perform server-side validation of user input
         [StringLength(30)]
         public string AnimalName { get; set; }
 
