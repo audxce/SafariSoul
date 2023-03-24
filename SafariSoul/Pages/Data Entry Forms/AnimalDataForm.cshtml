@@ -1,5 +1,5 @@
 ﻿@page
-@model SafariSoul.Pages.AnimalData
+@model SafariSoul.Pages.Data_Entry_Forms.AnimalData
 @{
 }
 
@@ -14,15 +14,15 @@
 <form method="post">
     <div class="form-group">
         <label for="AnimalName">Animal Name:</label>
-        <input type="text" class="form-control" id="AnimalName" name="AnimalName" required>
+        <input type="text" class="form-control" id="AnimalName" name="AnimalName" maxlength="30" required>
     </div>
     <div class="form-group">
         <label for="Genus">Genus:</label>
-        <input type="text" class="form-control" id="Genus" name="Genus" required>
+        <input type="text" class="form-control" id="Genus" name="Genus" maxlength="30" required>
     </div>
     <div class="form-group">
         <label for="Species">Species:</label>
-        <input type="text" class="form-control" id="Species" name="Species" required>
+        <input type="text" class="form-control" id="Species" name="Species" maxlength="30" required>
     </div>
     <div class="form-group">
         <label for="UniqueDescriptors">Unique Descriptors:</label>

@@ -20,3 +20,50 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+:root {
+    --primary-color: #00563F; /* dark green */
+    --secondary-color: #DDE9DF; /* light greyish-green */
+    --text-color: #000; /* black text */
+    --secondary-text-color: #fff; /* white text */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Navbar link styling */
+.navbar-nav .nav-link {
+    color: var(--text-color);
+}
+
+    .navbar-nav .nav-link:hover {
+        color: var(--secondary-color);
+    }
+
+/* Body styling */
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Form input styling */
+.form-control {
+    background-color: var(--secondary-text-color);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Submit button styling */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--secondary-text-color);
+}
+    .btn-primary:hover {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+}
