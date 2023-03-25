@@ -12,41 +12,55 @@
 </head>
 
 <form method="post">
+    <h3>Add Animal</h3>
     <div class="form-group">
-        <label for="Animal_Name">Animal Name:</label>
-        <input type="text" class="form-control" id="Animal_Name" name="Animal_Name" maxlength="30" required>
+        <label for="AnimalName">Animal Name:</label>
+        <input type="text" class="form-control" id="AnimalName" name="AnimalName" required>
     </div>
     <div class="form-group">
         <label for="Genus">Genus:</label>
-        <input type="text" class="form-control" id="Genus" name="Genus" maxlength="30" required>
+        <input type="text" class="form-control" id="Genus" name="Genus" required>
     </div>
     <div class="form-group">
         <label for="Species">Species:</label>
-        <input type="text" class="form-control" id="Species" name="Species" maxlength="30" required>
+        <input type="text" class="form-control" id="Species" name="Species" required>
     </div>
     <div class="form-group">
-        <label for="Unique_Descriptors">Unique Descriptors:</label>
-        <textarea class="form-control" id="Unique_Descriptors" name="Unique_Descriptors"></textarea>
+        <label for="MotherId">Mother ID:</label>
+        <input type="number" class="form-control" id="MotherId" name="MotherId">
     </div>
     <div class="form-group">
-        <label for="Date_Of_Birth">Date of Birth:</label>
-        <input type="date" class="form-control" id="Date_Of_Birth" name="Date_Of_Birth" required>
+        <label for="FatherId">Father ID:</label>
+        <input type="number" class="form-control" id="FatherId" name="FatherId">
+    </div>
+    <div class="form-group">
+        <label for="UniqueDescriptors">Unique Descriptors:</label>
+        <input type="text" class="form-control" id="UniqueDescriptors" name="UniqueDescriptors">
+    </div>
+    <div class="form-group">
+        <label for="DateOfBirth">Date of Birth:</label>
+        <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" required>
     </div>
     <div class="form-group">
         <label for="Gender">Gender:</label>
         <select class="form-control" id="Gender" name="Gender" required>
-            <option value="m">Male</option>
-            <option value="f">Female</option>
+            <option value="">-- Select Gender --</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
         </select>
     </div>
     <div class="form-group">
         <label for="DietaryRestrictions">Dietary Restrictions:</label>
-        <textarea class="form-control" id="DietaryRestrictions" name="DietaryRestrictions"></textarea>
+        <input type="text" class="form-control" id="DietaryRestrictions" name="DietaryRestrictions">
     </div>
     <div class="form-group">
         <label for="Recreation">Recreation:</label>
-        <textarea class="form-control" id="Recreation" name="Recreation"></textarea>
+        <input type="text" class="form-control" id="Recreation" name="Recreation">
     </div>
-    <div style="height: 20px;"></div>
+    <div class="form-group">
+        <label for="Notes">Notes:</label>
+        <textarea class="form-control" id="Notes" name="Notes"></textarea>
+    </div>
+      <div style="height: 20px;"></div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

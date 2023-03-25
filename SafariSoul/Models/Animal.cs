@@ -5,6 +5,7 @@ namespace SafariSoul.Models;
 
 public partial class Animal
 {
+
     public int AnimalId { get; set; }
 
     public string AnimalName { get; set; } = null!;
