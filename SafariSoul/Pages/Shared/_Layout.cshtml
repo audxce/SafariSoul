@@ -17,8 +17,8 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Animal
@@ -28,6 +28,42 @@
                                 <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Edit">Edit Animal</a>
                                 <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Delete">Delete Animal</a>
                                 <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Index">View Animals</a>
+                                <!-- add more links to other data entry forms as needed -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Species
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Create">Create</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Edit">Edit</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Delete">Delete</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Index">View</a>
+                                <!-- add more links to other data entry forms as needed -->
+                            </div>
+                        </li>  
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Exhibit
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Create">Create</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Edit">Edit</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Delete">Delete</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Index">View</a>
+                                <!-- add more links to other data entry forms as needed -->
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Location
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Create">Create</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Edit">Edit</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Delete">Delete</a>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Index">View</a>
                                 <!-- add more links to other data entry forms as needed -->
                             </div>
                         </li>

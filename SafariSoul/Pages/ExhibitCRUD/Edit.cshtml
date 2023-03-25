@@ -1,0 +1,80 @@
+﻿@page
+@model SafariSoul.Pages.ExhibitCRUD.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Exhibit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Exhibit.ExhibitNo" />
+            <div class="form-group">
+                <label asp-for="Exhibit.Location" class="control-label"></label>
+                <select asp-for="Exhibit.Location" class="form-control" asp-items="ViewBag.Location"></select>
+                <span asp-validation-for="Exhibit.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Exhibit.IsIndoors" /> @Html.DisplayNameFor(model => model.Exhibit.IsIndoors)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.Zookeeper" class="control-label"></label>
+                <input asp-for="Exhibit.Zookeeper" class="form-control" />
+                <span asp-validation-for="Exhibit.Zookeeper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.ExhibitSponsor" class="control-label"></label>
+                <input asp-for="Exhibit.ExhibitSponsor" class="form-control" />
+                <span asp-validation-for="Exhibit.ExhibitSponsor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.UpperTemperature" class="control-label"></label>
+                <input asp-for="Exhibit.UpperTemperature" class="form-control" />
+                <span asp-validation-for="Exhibit.UpperTemperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.LowerTemperature" class="control-label"></label>
+                <input asp-for="Exhibit.LowerTemperature" class="form-control" />
+                <span asp-validation-for="Exhibit.LowerTemperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.Humidity" class="control-label"></label>
+                <input asp-for="Exhibit.Humidity" class="form-control" />
+                <span asp-validation-for="Exhibit.Humidity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.Sunlight" class="control-label"></label>
+                <input asp-for="Exhibit.Sunlight" class="form-control" />
+                <span asp-validation-for="Exhibit.Sunlight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.Water" class="control-label"></label>
+                <input asp-for="Exhibit.Water" class="form-control" />
+                <span asp-validation-for="Exhibit.Water" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.Flora" class="control-label"></label>
+                <input asp-for="Exhibit.Flora" class="form-control" />
+                <span asp-validation-for="Exhibit.Flora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

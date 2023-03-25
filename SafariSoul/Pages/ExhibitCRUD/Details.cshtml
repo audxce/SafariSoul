@@ -1,0 +1,79 @@
+﻿@page
+@model SafariSoul.Pages.ExhibitCRUD.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Exhibit</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.IsIndoors)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.IsIndoors)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.Zookeeper)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.Zookeeper)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.ExhibitSponsor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.ExhibitSponsor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.UpperTemperature)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.UpperTemperature)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.LowerTemperature)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.LowerTemperature)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.Humidity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.Humidity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.Sunlight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.Sunlight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.Water)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.Water)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.Flora)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.Flora)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.LocationNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.LocationNavigation.LocationNum)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Exhibit?.ExhibitNo">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
