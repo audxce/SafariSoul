@@ -1,13 +1,11 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using MySqlConnector;
-using SafariSoul.Pages.Data_Entry_Forms;
+using SafariSoul;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<ZooDbContext>(options => options.UseMySql("DefaultConnection", ServerVersion.AutoDetect("DefaultConnection")));
+//builder.Services.AddDbContext<ZooDbContext>(options => options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"],ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"])));
 
 var app = builder.Build();
 
@@ -30,14 +28,3 @@ app.MapRazorPages();
 
 app.Run();
 
-public class ZooDbContext : DbContext
-{
-    static readonly string connectionString = "DefaultConnection";
-
-    public DbSet<Animal> animal { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-    }
-}
