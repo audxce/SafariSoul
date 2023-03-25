@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-//builder.Services.AddDbContext<ZooDbContext>(options => options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"],ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"])));
+builder.Services.AddDbContext<OfficalZooDbContext>(options => options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"],ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"])));
 
 var app = builder.Build();
 
