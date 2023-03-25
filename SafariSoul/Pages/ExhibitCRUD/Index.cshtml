@@ -1,0 +1,90 @@
+﻿@page
+@model SafariSoul.Pages.ExhibitCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].IsIndoors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].Zookeeper)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].ExhibitSponsor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].UpperTemperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].LowerTemperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].Humidity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].Sunlight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].Water)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].Flora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].LocationNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Exhibit) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsIndoors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zookeeper)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExhibitSponsor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpperTemperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LowerTemperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Humidity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sunlight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Water)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationNum)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ExhibitNo">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ExhibitNo">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ExhibitNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

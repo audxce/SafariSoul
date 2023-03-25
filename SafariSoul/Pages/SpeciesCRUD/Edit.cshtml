@@ -1,0 +1,116 @@
+﻿@page
+@model SafariSoul.Pages.SpeciesCRUD.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Species</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Species.SpeciesKingdom" class="control-label"></label>
+                <input asp-for="Species.SpeciesKingdom" class="form-control" />
+                <span asp-validation-for="Species.SpeciesKingdom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.SpeciesPhylum" class="control-label"></label>
+                <input asp-for="Species.SpeciesPhylum" class="form-control" />
+                <span asp-validation-for="Species.SpeciesPhylum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.SpeciesClass" class="control-label"></label>
+                <input asp-for="Species.SpeciesClass" class="form-control" />
+                <span asp-validation-for="Species.SpeciesClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.SpeciesOrder" class="control-label"></label>
+                <input asp-for="Species.SpeciesOrder" class="form-control" />
+                <span asp-validation-for="Species.SpeciesOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.SpeciesFamily" class="control-label"></label>
+                <input asp-for="Species.SpeciesFamily" class="form-control" />
+                <span asp-validation-for="Species.SpeciesFamily" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Species.SpeciesGenus" />
+            <input type="hidden" asp-for="Species.SpeciesSpecies" />
+            <div class="form-group">
+                <label asp-for="Species.ExhibitNo" class="control-label"></label>
+                <select asp-for="Species.ExhibitNo" class="form-control" asp-items="ViewBag.ExhibitNo"></select>
+                <span asp-validation-for="Species.ExhibitNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.LifeExpectancy" class="control-label"></label>
+                <input asp-for="Species.LifeExpectancy" class="form-control" />
+                <span asp-validation-for="Species.LifeExpectancy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.NormalBodyTemperature" class="control-label"></label>
+                <input asp-for="Species.NormalBodyTemperature" class="form-control" />
+                <span asp-validation-for="Species.NormalBodyTemperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.RegionsFound" class="control-label"></label>
+                <input asp-for="Species.RegionsFound" class="form-control" />
+                <span asp-validation-for="Species.RegionsFound" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.Diet" class="control-label"></label>
+                <input asp-for="Species.Diet" class="form-control" />
+                <span asp-validation-for="Species.Diet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.Humidity" class="control-label"></label>
+                <input asp-for="Species.Humidity" class="form-control" />
+                <span asp-validation-for="Species.Humidity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.UpperTemperature" class="control-label"></label>
+                <input asp-for="Species.UpperTemperature" class="form-control" />
+                <span asp-validation-for="Species.UpperTemperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.LowerTemperature" class="control-label"></label>
+                <input asp-for="Species.LowerTemperature" class="form-control" />
+                <span asp-validation-for="Species.LowerTemperature" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.ActiveHours" class="control-label"></label>
+                <input asp-for="Species.ActiveHours" class="form-control" />
+                <span asp-validation-for="Species.ActiveHours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.ConservationStatus" class="control-label"></label>
+                <input asp-for="Species.ConservationStatus" class="form-control" />
+                <span asp-validation-for="Species.ConservationStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.SpeciesInfo" class="control-label"></label>
+                <input asp-for="Species.SpeciesInfo" class="form-control" />
+                <span asp-validation-for="Species.SpeciesInfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.CommonName" class="control-label"></label>
+                <input asp-for="Species.CommonName" class="form-control" />
+                <span asp-validation-for="Species.CommonName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

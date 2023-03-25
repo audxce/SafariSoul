@@ -1,0 +1,125 @@
+﻿@page
+@model SafariSoul.Pages.SpeciesCRUD.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Species</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.SpeciesKingdom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.SpeciesKingdom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.SpeciesPhylum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.SpeciesPhylum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.SpeciesClass)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.SpeciesClass)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.SpeciesOrder)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.SpeciesOrder)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.SpeciesFamily)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.SpeciesFamily)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.LifeExpectancy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.LifeExpectancy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.NormalBodyTemperature)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.NormalBodyTemperature)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.RegionsFound)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.RegionsFound)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.Diet)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.Diet)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.Humidity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.Humidity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.UpperTemperature)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.UpperTemperature)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.LowerTemperature)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.LowerTemperature)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.ActiveHours)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.ActiveHours)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.ConservationStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.ConservationStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.SpeciesInfo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.SpeciesInfo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.CommonName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.CommonName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.ExhibitNoNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.ExhibitNoNavigation.ExhibitNo)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Species.SpeciesGenus" />
+        <input type="hidden" asp-for="Species.SpeciesSpecies" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
