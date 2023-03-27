@@ -33,7 +33,7 @@ namespace SafariSoul.Pages.AnimalCRUD
                                               select a;
                 if(!String.IsNullOrEmpty(searchString))
                 {
-                    animalIQ = animalIQ.Where(a => a.AnimalID.Contains(searchString) || a => a.AnimalID.Contains(searchString) || a => a.Species.Contains(searchString));
+                    animalIQ = animalIQ.Where(a => a.AnimalName.Contains(searchString) || animalIQ.Where(a => a.Species.Contains(searchString) || animalIQ.Where(a => a.AnimalId.Contains(searchString));
                 }
                 Animal = await _context.Animals
                 .Include(a => a.SpeciesNavigation).ToListAsync();
