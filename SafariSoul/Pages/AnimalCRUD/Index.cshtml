@@ -14,8 +14,18 @@
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            Search:
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            Name:
+            <input type="text" name="SearchString" value="@Model.nameFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Species:
+            <input type="text" name="SearchString" value="@Model.speciesFilter" />
             <input type="submit" value="Search" class="btn btn-primary" />
             <a asp-page="./Index">Back to full list</a>
         </p>
