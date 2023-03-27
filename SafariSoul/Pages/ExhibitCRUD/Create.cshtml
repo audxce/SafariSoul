@@ -5,16 +5,22 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>Exhibit</h4>
+<h4>Create Exhibit</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Exhibit.ExhibitNo" class="control-label"></label>
+                <label asp-for="Exhibit.ExhibitNo" class="control-label">Exhibit Number</label>
                 <input asp-for="Exhibit.ExhibitNo" class="form-control" />
                 <span asp-validation-for="Exhibit.ExhibitNo" class="text-danger"></span>
             </div>
@@ -24,43 +30,30 @@
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Exhibit.IsIndoors" /> @Html.DisplayNameFor(model => model.Exhibit.IsIndoors)
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Exhibit.IsIndoors" />
+                        Is Indoors?
+                    </label>
                 </label>
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.Zookeeper" class="control-label"></label>
-                <input asp-for="Exhibit.Zookeeper" class="form-control" />
-                <span asp-validation-for="Exhibit.Zookeeper" class="text-danger"></span>
+                <select asp-for="Exhibit.Zookeeper" class ="form-control" asp-items="ViewBag.Zookeeper"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Exhibit.ExhibitSponsor" class="control-label"></label>
-                <input asp-for="Exhibit.ExhibitSponsor" class="form-control" />
-                <span asp-validation-for="Exhibit.ExhibitSponsor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Exhibit.UpperTemperature" class="control-label"></label>
+                <label asp-for="Exhibit.UpperTemperature" class="control-label">Upper Temperature (00.00°F)</label>
                 <input asp-for="Exhibit.UpperTemperature" class="form-control" />
                 <span asp-validation-for="Exhibit.UpperTemperature" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Exhibit.LowerTemperature" class="control-label"></label>
+                <label asp-for="Exhibit.LowerTemperature" class="control-label">Lower Temperature (00.00°F)</label>
                 <input asp-for="Exhibit.LowerTemperature" class="form-control" />
                 <span asp-validation-for="Exhibit.LowerTemperature" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Exhibit.Humidity" class="control-label"></label>
+                <label asp-for="Exhibit.Humidity" class="control-label">Humidity (00.00%)</label>
                 <input asp-for="Exhibit.Humidity" class="form-control" />
                 <span asp-validation-for="Exhibit.Humidity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Exhibit.Sunlight" class="control-label"></label>
-                <input asp-for="Exhibit.Sunlight" class="form-control" />
-                <span asp-validation-for="Exhibit.Sunlight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Exhibit.Water" class="control-label"></label>
-                <input asp-for="Exhibit.Water" class="form-control" />
-                <span asp-validation-for="Exhibit.Water" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.Flora" class="control-label"></label>

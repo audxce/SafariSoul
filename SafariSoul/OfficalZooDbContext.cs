@@ -79,7 +79,7 @@ public partial class OfficalZooDbContext : DbContext
     public virtual DbSet<ZooUser> ZooUsers { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=zoo-db-server.mysql.database.azure.com;userid=audace;password=37PE&CWYy9e@;database=offical_zoo_db", ServerVersion.Parse("8.0.31-mysql"));
+        => optionsBuilder.UseMySql("server=zoo-db-server.mysql.database.azure.com;userid=audace;password=37PE&CWYy9e@;database=offical_zoo_db", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.31-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -153,9 +153,6 @@ public partial class OfficalZooDbContext : DbContext
             entity.Property(e => e.ProgramResults)
                 .HasColumnType("mediumtext")
                 .HasColumnName("Program_Results");
-            entity.Property(e => e.ProgramSchedule)
-                .HasColumnType("datetime")
-                .HasColumnName("Program_Schedule");
 
             entity.HasMany(d => d.Animals).WithMany(p => p.AnimalProgramNums)
                 .UsingEntity<Dictionary<string, object>>(
@@ -399,10 +396,6 @@ public partial class OfficalZooDbContext : DbContext
             entity.Property(e => e.ProgramName)
                 .HasMaxLength(45)
                 .HasColumnName("Program_Name");
-            entity.Property(e => e.ProgramSchedule)
-                .HasColumnType("datetime")
-                .HasColumnName("Program_Schedule");
-            entity.Property(e => e.RequiredInventory).HasColumnName("Required_Inventory");
 
             entity.HasMany(d => d.Animals).WithMany(p => p.ProgramNos)
                 .UsingEntity<Dictionary<string, object>>(
@@ -567,12 +560,13 @@ public partial class OfficalZooDbContext : DbContext
 
             entity.ToTable("exhibit");
 
+            entity.HasIndex(e => e.Zookeeper, "HAS_ZOOKEEPER");
+
             entity.HasIndex(e => e.Location, "IS_LOCATED_IN");
 
             entity.Property(e => e.ExhibitNo)
                 .ValueGeneratedNever()
                 .HasColumnName("Exhibit_No");
-            entity.Property(e => e.ExhibitSponsor).HasColumnName("Exhibit_Sponsor");
             entity.Property(e => e.Flora).HasMaxLength(20);
             entity.Property(e => e.Humidity)
                 .HasComment("Humidity in percentage")
@@ -591,6 +585,11 @@ public partial class OfficalZooDbContext : DbContext
                 .HasForeignKey(d => d.Location)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("IS_LOCATED_IN");
+
+            entity.HasOne(d => d.ZookeeperNavigation).WithMany(p => p.Exhibits)
+                .HasForeignKey(d => d.Zookeeper)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("HAS_ZOOKEEPER");
         });
 
         modelBuilder.Entity<ExhibitFeedingSchedule>(entity =>
@@ -631,12 +630,15 @@ public partial class OfficalZooDbContext : DbContext
 
             entity.HasIndex(e => e.EmployeeNum, "EMPLOYEE_PAID");
 
+            entity.HasIndex(e => e.DeptId, "FOR_DEPT");
+
             entity.HasIndex(e => e.VendorId, "VENDOR_PAID");
 
             entity.Property(e => e.ExpenseId)
                 .ValueGeneratedNever()
                 .HasColumnName("Expense_ID");
             entity.Property(e => e.Category).HasColumnType("enum('Employee','Vendor')");
+            entity.Property(e => e.DeptId).HasColumnName("Dept_ID");
             entity.Property(e => e.EmployeeNum).HasColumnName("Employee_Num");
             entity.Property(e => e.ExpenseAccount)
                 .HasMaxLength(20)
@@ -655,6 +657,11 @@ public partial class OfficalZooDbContext : DbContext
                 .HasColumnType("mediumblob")
                 .HasColumnName("Receipt_Image");
             entity.Property(e => e.VendorId).HasColumnName("Vendor_ID");
+
+            entity.HasOne(d => d.Dept).WithMany(p => p.Expenses)
+                .HasForeignKey(d => d.DeptId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FOR_DEPT");
 
             entity.HasOne(d => d.EmployeeNumNavigation).WithMany(p => p.Expenses)
                 .HasForeignKey(d => d.EmployeeNum)

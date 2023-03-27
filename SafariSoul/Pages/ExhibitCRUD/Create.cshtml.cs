@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SafariSoul;
-using SafariSoul.Models;
 
 namespace SafariSoul.Pages.ExhibitCRUD
 {
@@ -22,6 +21,7 @@ namespace SafariSoul.Pages.ExhibitCRUD
         public IActionResult OnGet()
         {
         ViewData["Location"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
+        ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
             return Page();
         }
 

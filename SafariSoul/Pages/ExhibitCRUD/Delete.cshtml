@@ -19,18 +19,6 @@
             @Html.DisplayFor(model => model.Exhibit.IsIndoors)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.Zookeeper)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.Zookeeper)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.ExhibitSponsor)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.ExhibitSponsor)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Exhibit.UpperTemperature)
         </dt>
         <dd class="col-sm-10">
@@ -49,18 +37,6 @@
             @Html.DisplayFor(model => model.Exhibit.Humidity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.Sunlight)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.Sunlight)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.Water)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.Water)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Exhibit.Flora)
         </dt>
         <dd class="col-sm-10">
@@ -71,6 +47,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Exhibit.LocationNavigation.LocationNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.ZookeeperNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.ZookeeperNavigation.EmployeeId)
         </dd>
     </dl>
     

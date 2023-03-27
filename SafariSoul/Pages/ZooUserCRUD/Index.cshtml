@@ -1,0 +1,60 @@
+﻿@page
+@model SafariSoul.Pages.ZooUserCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooUser[0].AuthenticationKey)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooUser[0].UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooUser[0].UserType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooUser[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooUser[0].Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ZooUser) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthenticationKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

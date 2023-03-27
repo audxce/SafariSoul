@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SafariSoul.Models;
 
-namespace SafariSoul.Models;
+namespace SafariSoul;
 
 public partial class Vendor
 {

@@ -11,6 +11,8 @@ public partial class Expense
 
     public string Category { get; set; } = null!;
 
+    public int? DeptId { get; set; }
+
     public string? ExpenseDescription { get; set; }
 
     public string? ExpenseAccount { get; set; }
@@ -24,6 +26,8 @@ public partial class Expense
     public int? InvoiceNo { get; set; }
 
     public byte[]? ReceiptImage { get; set; }
+
+    public virtual Department? Dept { get; set; }
 
     public virtual Employee? EmployeeNumNavigation { get; set; }
 

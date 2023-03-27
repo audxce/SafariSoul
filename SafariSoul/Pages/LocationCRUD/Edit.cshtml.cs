@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul;
-using SafariSoul.Models;
 
 namespace SafariSoul.Pages.LocationCRUD
 {

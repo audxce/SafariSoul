@@ -17,59 +17,72 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Animal
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Create">Createl</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Edit">Edit</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Delete">Delete</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Index">View</a>
-                                <!-- add more links to other data entry forms as needed -->
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Species
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Create">Create</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Edit">Edit</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Delete">Delete</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Index">View</a>
-                                <!-- add more links to other data entry forms as needed -->
-                            </div>
-                        </li>  
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Exhibit
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Create">Create</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Edit">Edit</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Delete">Delete</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Index">View</a>
-                                <!-- add more links to other data entry forms as needed -->
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Location
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Create">Create</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Edit">Edit</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Delete">Delete</a>
-                                <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Index">View</a>
-                                <!-- add more links to other data entry forms as needed -->
-                            </div>
-                        </li>
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Data Entry Forms
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCareProgramCRUD/Create">Animal Care Program</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Create">Animal</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/CustomerCRUD/Create">Customer</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/DepartmentCRUD/Create">Department</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/DependentCRUD/Create">Dependent</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/DisountCRUD/Create">Discount</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/DonationCRUD/Create">Donation</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/EducationProgramCRUD/Create">Education Program</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/EmployeeCRUD/Create">Employee</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/EmployeeShiftCRUD/Create">Employee Shift</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Create">Exhibit</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/ExpenseCRUD/Create">Expense</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/InventoryCRUD/Create">Inventory</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Create">Location</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/MaintenanceRequestCRUD/Create">Maintenance Request</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/MembershipCRUD/Create">Membership</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/OccupationCRUD/Create">Occupation</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/RoomCRUD/Create">Room</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Create">Species</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/VendorCRUD/Create">Vendor</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/VeterinaryVisitCRUD/Create">Veterinary Visit</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/ZooEventCRUD/Create">Zoo Event</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/ZooTransactionCRUD/Create">Zoo Transaction</a>
+                        <a class="nav-link text-dark" asp-area="" asp-page="/ZooUserCRUD/Create">Zoo User</a>
+                    </div>
+                </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Indexes
+                        </a>
+                        <div class ="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCareProgramCRUD/Index">Animal Care Program</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AnimalCRUD/Index">Animal</a><a class="nav-link text-dark" asp-area="" asp-page="/CustomerCRUD/Create">Customer</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/DepartmentCRUD/Index">Department</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/DependentCRUD/Index">Dependent</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/DisountCRUD/Index">Discount</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/DonationCRUD/Index">Donation</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/EducationProgramCRUD/Index">Education Program</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/EmployeeCRUD/Index">Employee</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/EmployeeShiftCRUD/Index">Employee Shift</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ExpenseCRUD/Index">Expense</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ExhibitCRUD/Index">Exhibit</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/InventoryCRUD/Index">Inventory</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/LocationCRUD/Index">Location</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/MaintenanceRequestCRUD/Index">Maintenance Request</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/MembershipCRUD/Index">Membership</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/OccupationCRUD/Index">Occupation</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/RoomCRUD/Index">Room</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/SpeciesCRUD/Index">Species</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/VendorCRUD/Index">Vendor</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/VeterinaryVisitCRUD/Index">Veterinary Visit</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ZooEventCRUD/Index">Zoo Event</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ZooTransactionCRUD/Index">Zoo Transaction</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ZooUserCRUD/Index">Zoo User</a>
+                        </div>
+                    </li>
                     </ul>
-                </div>
-            </div>
+               </div>
         </nav>
     </header>
     <div class="container">
@@ -80,7 +93,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - SafariSoul - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; 2023 - SafariSoul 
         </div>
     </footer>
 

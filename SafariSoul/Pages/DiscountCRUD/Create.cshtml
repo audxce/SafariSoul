@@ -1,0 +1,45 @@
+﻿@page
+@model SafariSoul.Pages.DiscountCRUD.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<h4>Create Discount</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Discount.DiscountName" class="control-label">Discount Name</label>
+                <input asp-for="Discount.DiscountName" class="form-control" />
+                <span asp-validation-for="Discount.DiscountName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Discount.DiscountPercentage" class="control-label">Discount Percentage (%)</label>
+                <input asp-for="Discount.DiscountPercentage" class="form-control" />
+                <span asp-validation-for="Discount.DiscountPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

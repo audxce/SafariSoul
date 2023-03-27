@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using SafariSoul.Pages.AnimalCRUD;
 
 namespace SafariSoul.Models;
 
@@ -69,6 +70,8 @@ public partial class Employee
     public virtual Department DeptNoNavigation { get; set; } = null!;
 
     public virtual ICollection<EmployeeShift> EmployeeShifts { get; } = new List<EmployeeShift>();
+
+    public virtual ICollection<Exhibit> Exhibits { get; } = new List<Exhibit>();
 
     public virtual ICollection<Expense> Expenses { get; } = new List<Expense>();
 

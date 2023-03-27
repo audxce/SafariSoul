@@ -1,0 +1,108 @@
+﻿@page
+@model SafariSoul.Pages.InventoryCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].ItemDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].RefrigerationNeeds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].HumidityRequirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].MeasurementUnits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].ReorderThreshold)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].ReorderQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].DateLastOrdered)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].DestinationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].SupplierNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Inventory) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefrigerationNeeds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HumidityRequirements)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MeasurementUnits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReorderThreshold)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReorderQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateLastOrdered)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DestinationNavigation.LocationNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupplierNavigation.VendorId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ItemId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ItemId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ItemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SafariSoul.Models;
 
-namespace SafariSoul.Models;
+namespace SafariSoul;
 
 public partial class EducationProgram
 {
@@ -10,8 +11,6 @@ public partial class EducationProgram
     public string ProgramName { get; set; } = null!;
 
     public string? ProgramDescription { get; set; }
-
-    public DateTime? ProgramSchedule { get; set; }
 
     public int? RequiredInventory { get; set; }
 

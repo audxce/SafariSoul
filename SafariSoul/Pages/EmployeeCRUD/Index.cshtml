@@ -1,0 +1,186 @@
+﻿@page
+@model SafariSoul.Pages.EmployeeCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Minit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Bdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].TrainingAndCerts)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].TimeBasedBenefits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].OccupationBasedBenefits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Wage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Bonus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Insurance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].InsurancePlan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].WorkPhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].MobilePhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].EmergencyContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].EmergencyContactPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].EmergencyContactEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].DateJoined)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].DateLeft)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].VacationDaysLeft)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].SickDaysLeft)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].DeptNoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].LocationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].OccupationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee[0].Sup)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Employee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Minit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrainingAndCerts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeBasedBenefits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OccupationBasedBenefits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Insurance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InsurancePlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkPhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobilePhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmergencyContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmergencyContactPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmergencyContactEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateJoined)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationDaysLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SickDaysLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptNoNavigation.DeptId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OccupationNavigation.JobTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sup.EmployeeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.EmployeeId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.EmployeeId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
