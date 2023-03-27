@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SafariSoul;
+namespace SafariSoul.Models;
 
 public partial class Inventory
 {

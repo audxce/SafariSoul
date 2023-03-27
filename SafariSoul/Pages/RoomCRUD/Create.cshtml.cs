@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SafariSoul;
+using SafariSoul.Models;
+
 
 namespace SafariSoul.Pages.RoomCRUD
 {
