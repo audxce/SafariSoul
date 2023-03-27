@@ -10,6 +10,35 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            First Name:
+            <input type="text" name="SearchFname" value="@Model.fnameFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>    
+</form>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Last Name:
+            <input type="text" name="SearchLname" value="@Model.lnameFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>    
+</form>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        Occupation:
+        <input type="text" name="SearchOccupation" value="@Model.occupationFilter" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-page="./Index">Back to full list</a>
+    </div>    
+</form>
 <table class="table">
     <thead>
         <tr>
