@@ -25,7 +25,7 @@ namespace SafariSoul.Pages.AnimalCRUD
 
         public async Task OnGetAsync(string searchString)
         {
-            CurrentFilter = searchString
+            CurrentFilter = searchString;
 
             if (_context.Animals != null)
             {
