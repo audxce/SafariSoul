@@ -33,15 +33,11 @@ namespace SafariSoul.Pages.AnimalCRUD
             {
                 IQueryable<Animal> animalIQ = from a in _context.Animals
                                               select a;
-                if(!String.IsNullOrEmpty(nameSearch) && !String.IsNullOrEmpty(speciesSearch))
-                {
-                    animalIQ = animalIQ.Where(a => a.AnimalName.Contains(nameSearch) && a.Species.Contains(speciesSearch));
-                }
-                else if (!String.IsNullOrEmpty(nameSearch))
+                if (!String.IsNullOrEmpty(nameSearch))
                 {
                     animalIQ = animalIQ.Where(a => a.AnimalName.Contains(nameSearch));
                 }
-                else if (!String.IsNullOrEmpty(speciesSearch))
+                if (!String.IsNullOrEmpty(speciesSearch))
                 {
                     animalIQ = animalIQ.Where(a => a.Species.Contains(speciesSearch));
                 }
