@@ -25,7 +25,7 @@ namespace SafariSoul.Pages.AnimalCRUD
 
         public async Task OnGetAsync(string searchString)
         {
-            CurrentFilter = searchString
+            CurrentFilter = searchString;
 
             if (_context.Animals != null)
             {
@@ -33,7 +33,7 @@ namespace SafariSoul.Pages.AnimalCRUD
                                               select a;
                 if(!String.IsNullOrEmpty(searchString))
                 {
-                    animalIQ = animalIQ.Where(a => a.AnimalID.Contains(searchString) || a => a.AnimalID.Contains(searchString) || a => a.Species.Contains(searchString));
+                    animalIQ = animalIQ.Where(a => a.AnimalName.Contains(searchString) || a.Species.Contains(searchString));
                 }
                 Animal = await _context.Animals
                 .Include(a => a.SpeciesNavigation).ToListAsync();
