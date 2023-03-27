@@ -19,21 +19,31 @@ namespace SafariSoul.Pages.AnimalCRUD
             _context = context;
         }
 
-        public string CurrentFilter { get; set; }
+        public string nameFilter { get; set; }
+        public string speciesFilter { get; set;  }
 
         public IList<Animal> Animal { get;set; } = default!;
 
-        public async Task OnGetAsync(string searchString)
+        public async Task OnGetAsync(string nameSearch, string speciesSearch)
         {
-            CurrentFilter = searchString;
+            nameFilter = nameSearch;
+            speciesFilter = speciesSearch;
 
             if (_context.Animals != null)
             {
                 IQueryable<Animal> animalIQ = from a in _context.Animals
                                               select a;
-                if(!String.IsNullOrEmpty(searchString))
+                if(!String.IsNullOrEmpty(nameSearch) && !String.IsNullOrEmpty(speciesSearch))
                 {
-                    animalIQ = animalIQ.Where(a => a.AnimalName.Contains(searchString) || a.Species.Contains(searchString));
+                    animalIQ = animalIQ.Where(a => a.AnimalName.Contains(nameSearch) && a.Species.Contains(speciesSearch));
+                }
+                else if (!String.IsNullOrEmpty(nameSearch))
+                {
+                    animalIQ = animalIQ.Where(a => a.AnimalName.Contains(nameSearch));
+                }
+                else if (!String.IsNullOrEmpty(speciesSearch))
+                {
+                    animalIQ = animalIQ.Where(a => a.Species.Contains(speciesSearch));
                 }
                 Animal = await _context.Animals
                 .Include(a => a.SpeciesNavigation).ToListAsync();
