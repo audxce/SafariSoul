@@ -1,0 +1,90 @@
+﻿@page
+@model SafariSoul.Pages.ExpenseCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].ExpenseTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].ExpenseDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].ExpenseAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].ExpenseAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].InvoiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].ReceiptImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].Dept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].EmployeeNumNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Expense[0].Vendor)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Expense) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpenseTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpenseDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpenseAccount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpenseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InvoiceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiptImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dept.DeptId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeNumNavigation.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.VendorId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ExpenseId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ExpenseId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ExpenseId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

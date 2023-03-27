@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul;
-using SafariSoul.Models;
 
 namespace SafariSoul.Pages.ExhibitCRUD
 {
@@ -26,7 +25,8 @@ namespace SafariSoul.Pages.ExhibitCRUD
             if (_context.Exhibits != null)
             {
                 Exhibit = await _context.Exhibits
-                .Include(e => e.LocationNavigation).ToListAsync();
+                .Include(e => e.LocationNavigation)
+                .Include(e => e.ZookeeperNavigation).ToListAsync();
             }
         }
     }

@@ -1,0 +1,36 @@
+﻿@page
+@model SafariSoul.Pages.DiscountCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount[0].DiscountPercentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Discount) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountPercentage)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DiscountName">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DiscountName">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DiscountName">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

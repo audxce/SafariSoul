@@ -17,12 +17,6 @@
                 @Html.DisplayNameFor(model => model.Exhibit[0].IsIndoors)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].Zookeeper)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].ExhibitSponsor)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Exhibit[0].UpperTemperature)
             </th>
             <th>
@@ -32,16 +26,13 @@
                 @Html.DisplayNameFor(model => model.Exhibit[0].Humidity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].Sunlight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].Water)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Exhibit[0].Flora)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Exhibit[0].LocationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].ZookeeperNavigation)
             </th>
             <th></th>
         </tr>
@@ -53,12 +44,6 @@
                 @Html.DisplayFor(modelItem => item.IsIndoors)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Zookeeper)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExhibitSponsor)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.UpperTemperature)
             </td>
             <td>
@@ -68,16 +53,13 @@
                 @Html.DisplayFor(modelItem => item.Humidity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Sunlight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Water)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Flora)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LocationNavigation.LocationNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZookeeperNavigation.EmployeeId)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ExhibitNo">Edit</a> |

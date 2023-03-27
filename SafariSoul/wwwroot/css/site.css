@@ -32,6 +32,7 @@ body {
 .navbar {
     background-color: var(--primary-color);
     color: var(--text-color);
+    position: sticky;
 }
 
 /* Navbar link styling */
@@ -66,4 +67,4 @@ body {
         background-color: var(--primary-color);
         border-color: var(--primary-color);
     }
-}
+

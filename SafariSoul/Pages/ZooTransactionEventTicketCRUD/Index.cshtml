@@ -1,0 +1,48 @@
+﻿@page
+@model SafariSoul.Pages.ZooTransactionEventTicketCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransactionEventTicket[0].TicketQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransactionEventTicket[0].Event)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransactionEventTicket[0].Transaction)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ZooTransactionEventTicket) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TicketQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.EventId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.TransactionId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

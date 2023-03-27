@@ -1,0 +1,78 @@
+﻿@page
+@model SafariSoul.Pages.VeterinaryVisitCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].TimeScheduled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].TimeAdmitted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].TimeDischarged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].Urgency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].AnimalCondition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].AnimalTreatment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].FollowupNeeded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].AnimalNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.VeterinaryVisit) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeScheduled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeAdmitted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeDischarged)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urgency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalTreatment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollowupNeeded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalNavigation.AnimalId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.VetVisitId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.VetVisitId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.VetVisitId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

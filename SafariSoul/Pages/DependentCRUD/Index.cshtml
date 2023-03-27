@@ -1,0 +1,60 @@
+﻿@page
+@model SafariSoul.Pages.DependentCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Dependent[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dependent[0].PhoneNum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dependent[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dependent[0].Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dependent[0].Employee)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Dependent) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.EmployeeId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

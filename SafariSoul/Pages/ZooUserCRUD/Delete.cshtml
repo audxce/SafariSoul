@@ -1,0 +1,52 @@
+﻿@page
+@model SafariSoul.Pages.ZooUserCRUD.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ZooUser</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooUser.AuthenticationKey)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooUser.AuthenticationKey)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooUser.UserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooUser.UserName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooUser.UserType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooUser.UserType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooUser.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooUser.Customer.CustomerId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooUser.Employee)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooUser.Employee.EmployeeId)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="ZooUser.UserId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

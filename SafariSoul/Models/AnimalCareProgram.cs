@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using SafariSoul.Models;
 
-namespace SafariSoul.Models;
+namespace SafariSoul;
 
 public partial class AnimalCareProgram
 {
     public int AnimalProgramNum { get; set; }
 
     public string ProgramName { get; set; } = null!;
-
-    public DateTime? ProgramSchedule { get; set; }
 
     public string? ProgramDescription { get; set; }
 

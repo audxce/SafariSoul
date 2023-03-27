@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SafariSoul.Models;
+namespace SafariSoul;
 
 public partial class Animal
 {
-
     public int AnimalId { get; set; }
 
     public string AnimalName { get; set; } = null!;

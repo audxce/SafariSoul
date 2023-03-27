@@ -1,0 +1,84 @@
+﻿@page
+@model SafariSoul.Pages.MaintenanceRequestCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].TimeRequested)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].TimeFulfilled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Urgency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].ExhibitNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].FulfillerNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].LocationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].RequesterNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MaintenanceRequest) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeRequested)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeFulfilled)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Urgency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExhibitNavigation.ExhibitNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FulfillerNavigation.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequesterNavigation.EmployeeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TicketNo">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TicketNo">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TicketNo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

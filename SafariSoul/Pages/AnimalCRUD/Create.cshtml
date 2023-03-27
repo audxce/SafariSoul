@@ -5,21 +5,27 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>Animal</h4>
+<h4>Create Animal</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Animal.AnimalId" class="control-label"></label>
+                <label asp-for="Animal.AnimalId" class="control-label">Animal ID</label>
                 <input asp-for="Animal.AnimalId" class="form-control" />
                 <span asp-validation-for="Animal.AnimalId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.AnimalName" class="control-label"></label>
+                <label asp-for="Animal.AnimalName" class="control-label">Animal Name</label>
                 <input asp-for="Animal.AnimalName" class="form-control" />
                 <span asp-validation-for="Animal.AnimalName" class="text-danger"></span>
             </div>
@@ -32,42 +38,46 @@
                 <select asp-for="Animal.Species" class ="form-control" asp-items="ViewBag.Species"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.MotherId" class="control-label"></label>
+                <label asp-for="Animal.MotherId" class="control-label">Mother ID</label>
                 <input asp-for="Animal.MotherId" class="form-control" />
                 <span asp-validation-for="Animal.MotherId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.FatherId" class="control-label"></label>
+                <label asp-for="Animal.FatherId" class="control-label">Father ID</label>
                 <input asp-for="Animal.FatherId" class="form-control" />
                 <span asp-validation-for="Animal.FatherId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.UniqueDescriptors" class="control-label"></label>
+                <label asp-for="Animal.UniqueDescriptors" class="control-label">Unique Descriptors</label>
                 <input asp-for="Animal.UniqueDescriptors" class="form-control" />
                 <span asp-validation-for="Animal.UniqueDescriptors" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.DateOfBirth" class="control-label"></label>
-                <input asp-for="Animal.DateOfBirth" class="form-control" />
+                <label asp-for="Animal.DateOfBirth" class="control-label">Date of Birth</label>
+                <input asp-for="Animal.DateOfBirth" type="date" class="form-control" />
                 <span asp-validation-for="Animal.DateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.DateOfDeath" class="control-label"></label>
+                <label asp-for="Animal.DateOfDeath" class="control-label">Date of Death</label>
                 <input asp-for="Animal.DateOfDeath" class="form-control" />
                 <span asp-validation-for="Animal.DateOfDeath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.CauseOfDeath" class="control-label"></label>
+                <label asp-for="Animal.CauseOfDeath" class="control-label">Cause of Death</label>
                 <input asp-for="Animal.CauseOfDeath" class="form-control" />
                 <span asp-validation-for="Animal.CauseOfDeath" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Animal.Gender" class="control-label"></label>
-                <input asp-for="Animal.Gender" class="form-control" />
+                <select asp-for="Animal.Gender" class="form-control">
+                    <option value="">-- Select Gender --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
                 <span asp-validation-for="Animal.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.DietaryRestrictions" class="control-label"></label>
+                <label asp-for="Animal.DietaryRestrictions" class="control-label">Dietary Restrictions</label>
                 <input asp-for="Animal.DietaryRestrictions" class="form-control" />
                 <span asp-validation-for="Animal.DietaryRestrictions" class="text-danger"></span>
             </div>
@@ -86,10 +96,6 @@
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

@@ -1,0 +1,60 @@
+﻿@page
+@model SafariSoul.Pages.AnimalCareProgramCRUD.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<h4>Create Animal Care Program</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AnimalCareProgram.AnimalProgramNum" class="control-label">Animal Program Number</label>
+                <input asp-for="AnimalCareProgram.AnimalProgramNum" class="form-control" />
+                <span asp-validation-for="AnimalCareProgram.AnimalProgramNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnimalCareProgram.ProgramName" class="control-label">Program Name</label>
+                <input asp-for="AnimalCareProgram.ProgramName" class="form-control" />
+                <span asp-validation-for="AnimalCareProgram.ProgramName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnimalCareProgram.ProgramDescription" class="control-label">Program Description</label>
+                <input asp-for="AnimalCareProgram.ProgramDescription" class="form-control" />
+                <span asp-validation-for="AnimalCareProgram.ProgramDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnimalCareProgram.ProgramResults" class="control-label">Program Results</label>
+                <input asp-for="AnimalCareProgram.ProgramResults" class="form-control" />
+                <span asp-validation-for="AnimalCareProgram.ProgramResults" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnimalCareProgram.Feedback" class="control-label"></label>
+                <input asp-for="AnimalCareProgram.Feedback" class="form-control" />
+                <span asp-validation-for="AnimalCareProgram.Feedback" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

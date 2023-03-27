@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SafariSoul.Models;
+namespace SafariSoul;
 
 public partial class Donation
 {

@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using SafariSoul.Models;
 
-namespace SafariSoul.Models;
+namespace SafariSoul;
 
 public partial class Exhibit
 {
@@ -12,8 +13,6 @@ public partial class Exhibit
     public bool IsIndoors { get; set; }
 
     public int Zookeeper { get; set; }
-
-    public int? ExhibitSponsor { get; set; }
 
     /// <summary>
     /// Temperature in Fahrenheit
@@ -30,10 +29,6 @@ public partial class Exhibit
     /// </summary>
     public float? Humidity { get; set; }
 
-    public bool? Sunlight { get; set; }
-
-    public bool? Water { get; set; }
-
     public string? Flora { get; set; }
 
     public virtual ICollection<ExhibitFeedingSchedule> ExhibitFeedingSchedules { get; } = new List<ExhibitFeedingSchedule>();
@@ -43,4 +38,6 @@ public partial class Exhibit
     public virtual ICollection<MaintenanceRequest> MaintenanceRequests { get; } = new List<MaintenanceRequest>();
 
     public virtual ICollection<Species> Species { get; } = new List<Species>();
+
+    public virtual Employee ZookeeperNavigation { get; set; } = null!;
 }

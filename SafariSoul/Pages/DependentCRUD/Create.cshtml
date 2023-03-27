@@ -1,0 +1,67 @@
+﻿@page
+@model SafariSoul.Pages.DependentCRUD.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<h4>Create Dependent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Dependent.EmployeeId" class="control-label">Employee ID</label>
+                <select asp-for="Dependent.EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Fname" class="control-label">First Name</label>
+                <input asp-for="Dependent.Fname" class="form-control" />
+                <span asp-validation-for="Dependent.Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Bdate" class="control-label">Date of Birth</label>
+                <input asp-for="Dependent.Bdate" class="form-control" />
+                <span asp-validation-for="Dependent.Bdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Gender" class="control-label"></label>
+                <input asp-for="Dependent.Gender" class="form-control" />
+                <span asp-validation-for="Dependent.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.PhoneNum" class="control-label">Phone Number</label>
+                <input asp-for="Dependent.PhoneNum" class="form-control" />
+                <span asp-validation-for="Dependent.PhoneNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Email" class="control-label"></label>
+                <input asp-for="Dependent.Email" class="form-control" />
+                <span asp-validation-for="Dependent.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Address" class="control-label"></label>
+                <input asp-for="Dependent.Address" class="form-control" />
+                <span asp-validation-for="Dependent.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

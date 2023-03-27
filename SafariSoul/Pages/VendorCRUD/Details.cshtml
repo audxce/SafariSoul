@@ -1,0 +1,37 @@
+﻿@page
+@model SafariSoul.Pages.VendorCRUD.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Vendor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vendor.VendorName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vendor.VendorName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vendor.ProductsAndServices)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vendor.ProductsAndServices)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vendor.ContractInformation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vendor.ContractInformation)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Vendor?.VendorId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

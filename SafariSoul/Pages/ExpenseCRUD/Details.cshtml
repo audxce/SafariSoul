@@ -1,0 +1,79 @@
+﻿@page
+@model SafariSoul.Pages.ExpenseCRUD.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Expense</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.ExpenseTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.ExpenseTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.ExpenseDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.ExpenseDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.ExpenseAccount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.ExpenseAccount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.ExpenseAmount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.ExpenseAmount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.InvoiceNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.InvoiceNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.ReceiptImage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.ReceiptImage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.Dept)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.Dept.DeptId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.EmployeeNumNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.EmployeeNumNavigation.EmployeeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expense.Vendor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expense.Vendor.VendorId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Expense?.ExpenseId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

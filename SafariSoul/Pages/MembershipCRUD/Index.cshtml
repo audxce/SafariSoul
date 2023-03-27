@@ -1,0 +1,42 @@
+﻿@page
+@model SafariSoul.Pages.MembershipCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].MembershipFee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].Benefits)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Membership) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MembershipFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Benefits)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MembershipLevel">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MembershipLevel">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MembershipLevel">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
