@@ -564,6 +564,9 @@ public partial class OfficalZooDbContext : DbContext
 
             entity.HasIndex(e => e.Location, "IS_LOCATED_IN");
 
+            entity.Property(e => e.ExhibitName)
+                .HasMaxLength(30)
+                .HasColumnName("Exhibit_Name");
             entity.Property(e => e.ExhibitNo)
                 .ValueGeneratedNever()
                 .HasColumnName("Exhibit_No");
