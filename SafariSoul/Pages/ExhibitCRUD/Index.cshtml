@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].ExhibitName)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Exhibit[0].IsIndoors)
             </th>
             <th>
@@ -40,6 +43,9 @@
     <tbody>
 @foreach (var item in Model.Exhibit) {
         <tr>
+            <td>
+                @Html.DisplayNameFor(model => item.ExhibitName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsIndoors)
             </td>

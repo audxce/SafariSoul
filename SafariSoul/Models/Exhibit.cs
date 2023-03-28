@@ -7,6 +7,8 @@ public partial class Exhibit
 {
     public int ExhibitNo { get; set; }
 
+    public string ExhibitName { get; set; }
+
     public int Location { get; set; }
 
     public bool IsIndoors { get; set; }
