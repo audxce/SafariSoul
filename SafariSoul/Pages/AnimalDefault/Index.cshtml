@@ -1,15 +1,11 @@
-﻿@page
-@model SafariSoul.Pages.AnimalCRUD.IndexModel
+@page
+@model SafariSoul.Pages.AnimalDefault.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Animals";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<h1>Animals</h1>
 
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
@@ -54,7 +50,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Animal) {
+        @foreach (var item in Model.Animal) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.AnimalName)
@@ -72,9 +68,7 @@
                 @Html.DisplayFor(modelItem => item.SpeciesNavigation.SpeciesGenus)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.AnimalId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.AnimalId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.AnimalId">Delete</a>
             </td>
         </tr>
 }
