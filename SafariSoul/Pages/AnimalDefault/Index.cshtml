@@ -44,7 +44,7 @@
                 @Html.DisplayNameFor(model => model.Animal[0].Gender)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Animal[0].SpeciesNavigation)
+                @Html.DisplayNameFor(model => model.Animal[0].Species)
             </th>
             <th></th>
         </tr>
@@ -65,7 +65,7 @@
                 @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SpeciesNavigation.SpeciesGenus)
+                @Html.DisplayFor(modelItem => item.Species.SpeciesGenus)
             </td>
             <td>
                 <a asp-page="./Details" asp-route-id="@item.AnimalId">Details</a> |
