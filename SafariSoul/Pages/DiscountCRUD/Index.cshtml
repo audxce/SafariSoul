@@ -14,6 +14,9 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Discount[0].DiscountName)           <!--I added this, might not work-->
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Discount[0].DiscountPercentage)
             </th>
             <th></th>
@@ -22,6 +25,9 @@
     <tbody>
 @foreach (var item in Model.Discount) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiscountName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DiscountPercentage)
             </td>

@@ -16,15 +16,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.AnimalCareProgram[0].ProgramName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].ProgramDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].ProgramResults)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].Feedback)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -33,15 +24,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.ProgramName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProgramDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProgramResults)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Feedback)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AnimalProgramNum">Edit</a> |

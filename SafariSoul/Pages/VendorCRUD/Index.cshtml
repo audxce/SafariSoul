@@ -16,12 +16,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Vendor[0].VendorName)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vendor[0].ProductsAndServices)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Vendor[0].ContractInformation)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -30,12 +24,6 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.VendorName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductsAndServices)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContractInformation)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.VendorId">Edit</a> |

@@ -1,15 +1,12 @@
-﻿@page
-@model SafariSoul.Pages.ZooEventCRUD.IndexModel
+@page
+@model SafariSoul.Pages.ZooEventDefault.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Events";
 }
 
-<h1>Index</h1>
+<h1>Events</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -17,7 +14,7 @@
                 @Html.DisplayNameFor(model => model.ZooEvent[0].EventName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooEvent[0].EventType)
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EventTime)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ZooEvent[0].AdmissionPrice)
@@ -35,13 +32,13 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ZooEvent) {
+        @foreach (var item in Model.ZooEvent) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.EventName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EventType)
+                @Html.DisplayFor(modelItem => item.EventTime)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AdmissionPrice)
@@ -56,9 +53,7 @@
                 @Html.DisplayFor(modelItem => item.EventLocationNavigation.LocationNum)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.EventId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.EventId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.EventId">Delete</a>
             </td>
         </tr>
 }

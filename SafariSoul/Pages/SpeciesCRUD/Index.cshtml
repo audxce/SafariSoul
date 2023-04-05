@@ -14,25 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Species[0].SpeciesKingdom)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].SpeciesPhylum)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].SpeciesClass)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].SpeciesOrder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].SpeciesFamily)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].LifeExpectancy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].NormalBodyTemperature)
+                @Html.DisplayNameFor(model => model.Species[0].CommonName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Species[0].RegionsFound)
@@ -41,25 +23,10 @@
                 @Html.DisplayNameFor(model => model.Species[0].Diet)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Species[0].Humidity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].UpperTemperature)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].LowerTemperature)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Species[0].ActiveHours)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Species[0].ConservationStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].SpeciesInfo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Species[0].CommonName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Species[0].ExhibitNoNavigation)
@@ -71,26 +38,8 @@
 @foreach (var item in Model.Species) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.SpeciesKingdom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpeciesPhylum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpeciesClass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpeciesOrder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpeciesFamily)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LifeExpectancy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NormalBodyTemperature)
-            </td>
+                @Html.DisplayFor(modelItem => item.CommonName)
+            </td>\
             <td>
                 @Html.DisplayFor(modelItem => item.RegionsFound)
             </td>
@@ -98,25 +47,10 @@
                 @Html.DisplayFor(modelItem => item.Diet)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Humidity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpperTemperature)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LowerTemperature)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.ActiveHours)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ConservationStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SpeciesInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CommonName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ExhibitNoNavigation.ExhibitNo)

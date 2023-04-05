@@ -1,15 +1,12 @@
-﻿@page
-@model SafariSoul.Pages.MembershipCRUD.IndexModel
+@page
+@model SafariSoul.Pages.MembershipDefault.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Membership Levels";
 }
 
-<h1>Index</h1>
+<h1>Membership Levels</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -23,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Membership) {
+@foreach (var item in Model.Membership) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.MembershipLevel) <!-- I added this one, might not work-->
@@ -32,9 +29,7 @@
                 @Html.DisplayFor(modelItem => item.MembershipFee)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.MembershipLevel">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.MembershipLevel">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.MembershipLevel">Delete</a>
+                <a asp-page="./Details" asp-route-id="@item.MembershipLevel">Details</a> 
             </td>
         </tr>
 }
