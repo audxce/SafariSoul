@@ -6,7 +6,7 @@ namespace SafariSoul.Views
     {
         public IActionResult Index()
         {
-            return View();
+            return View("_LayoutDefault");
         }
     }
 }
