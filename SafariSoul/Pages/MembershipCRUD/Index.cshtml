@@ -14,22 +14,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Membership[0].MembershipFee)
+                @Html.DisplayNameFor(model => model.Membership[0].MembershipLevel)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Membership[0].Benefits)
+                @Html.DisplayNameFor(model => model.Membership[0].MembershipFee)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Membership) {
+        @foreach (var item in Model.Membership) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MembershipFee)
+                @Html.DisplayFor(modelItem => item.MembershipLevel) <!-- I added this one, might not work-->
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Benefits)
+                @Html.DisplayFor(modelItem => item.MembershipFee)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.MembershipLevel">Edit</a> |

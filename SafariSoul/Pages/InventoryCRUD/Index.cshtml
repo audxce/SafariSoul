@@ -17,19 +17,10 @@
                 @Html.DisplayNameFor(model => model.Inventory[0].ItemName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Inventory[0].ItemDescription)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Inventory[0].Price)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Inventory[0].Category)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Inventory[0].RefrigerationNeeds)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Inventory[0].HumidityRequirements)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Inventory[0].Quantity)
@@ -47,9 +38,6 @@
                 @Html.DisplayNameFor(model => model.Inventory[0].DateLastOrdered)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Inventory[0].DestinationNavigation)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Inventory[0].SupplierNavigation)
             </th>
             <th></th>
@@ -62,19 +50,10 @@
                 @Html.DisplayFor(modelItem => item.ItemName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ItemDescription)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Category)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RefrigerationNeeds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HumidityRequirements)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
@@ -90,9 +69,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateLastOrdered)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DestinationNavigation.LocationNum)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SupplierNavigation.VendorId)
