@@ -19,5 +19,9 @@ public partial class Donation
 
     public string? Recognition { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Customer Donor { get; set; } = null!;
 }

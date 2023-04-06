@@ -32,6 +32,12 @@
                 @Html.DisplayNameFor(model => model.Exhibit[0].Flora)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exhibit[0].UpdatedAt)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Exhibit[0].LocationNavigation)
             </th>
             <th>
@@ -44,7 +50,7 @@
 @foreach (var item in Model.Exhibit) {
         <tr>
             <td>
-                @Html.DisplayNameFor(model => item.ExhibitName)
+                @Html.DisplayFor(modelItem => item.ExhibitName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsIndoors)
@@ -60,6 +66,12 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Flora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LocationNavigation.LocationNum)

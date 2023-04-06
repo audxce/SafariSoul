@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace SafariSoul.Models;
 
 public partial class ExpenseItem
@@ -13,6 +12,10 @@ public partial class ExpenseItem
     public float ItemQuantity { get; set; }
 
     public double ItemCost { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
 
     public virtual Expense Expense { get; set; } = null!;
 

@@ -15,5 +15,9 @@ public partial class Occupation
 
     public double UpperSalaryRange { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual ICollection<Employee> Employees { get; } = new List<Employee>();
 }

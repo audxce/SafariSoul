@@ -20,10 +20,13 @@
                 @Html.DisplayNameFor(model => model.EducationProgram[0].ProgramDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EducationProgram[0].RequiredInventory)
+                @Html.DisplayNameFor(model => model.EducationProgram[0].Feedback)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EducationProgram[0].Feedback)
+                @Html.DisplayNameFor(model => model.EducationProgram[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EducationProgram[0].UpdatedAt)
             </th>
             <th></th>
         </tr>
@@ -38,10 +41,13 @@
                 @Html.DisplayFor(modelItem => item.ProgramDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RequiredInventory)
+                @Html.DisplayFor(modelItem => item.Feedback)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Feedback)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ProgramNo">Edit</a> |

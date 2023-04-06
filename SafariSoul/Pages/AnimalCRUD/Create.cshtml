@@ -38,14 +38,12 @@
                 <select asp-for="Animal.Species" class ="form-control" asp-items="ViewBag.Species"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.MotherId" class="control-label">Mother ID</label>
-                <input asp-for="Animal.MotherId" class="form-control" />
-                <span asp-validation-for="Animal.MotherId" class="text-danger"></span>
+                <label asp-for="Animal.MotherId" class="control-label">Mother Name</label>
+                <select asp-for="Animal.MotherId" class="form-control" asp-items="ViewBag.MotherId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.FatherId" class="control-label">Father ID</label>
-                <input asp-for="Animal.FatherId" class="form-control" />
-                <span asp-validation-for="Animal.FatherId" class="text-danger"></span>
+                 <label asp-for="Animal.FatherId" class="control-label">Father Name</label>
+                 <select asp-for="Animal.FatherId" class="form-control" asp-items="ViewBag.FatherId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Animal.UniqueDescriptors" class="control-label">Unique Descriptors</label>

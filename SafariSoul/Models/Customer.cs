@@ -31,6 +31,10 @@ public partial class Customer
 
     public bool? IsDonor { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual ICollection<Donation> Donations { get; } = new List<Donation>();
 
     public virtual Membership? MembershipLevelNavigation { get; set; }

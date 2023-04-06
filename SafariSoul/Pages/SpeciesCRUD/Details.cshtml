@@ -108,6 +108,18 @@
             @Html.DisplayFor(model => model.Species.CommonName)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.UpdatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.UpdatedAt)
+        </dd>
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Species.ExhibitNoNavigation)
         </dt>
         <dd class="col-sm-10">
@@ -116,6 +128,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-page="./Edit" asp-route-Id1="@Model.Species.SpeciesSpecies" asp-route-Id2="@Model.Species.SpeciesGenus">Edit</a>
     <a asp-page="./Index">Back to List</a>
 </div>

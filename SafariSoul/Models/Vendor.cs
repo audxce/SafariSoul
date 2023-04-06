@@ -13,6 +13,10 @@ public partial class Vendor
 
     public string? ContractInformation { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual ICollection<Expense> Expenses { get; } = new List<Expense>();
 
     public virtual ICollection<Inventory> Inventories { get; } = new List<Inventory>();

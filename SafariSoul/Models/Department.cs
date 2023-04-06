@@ -21,13 +21,17 @@ public partial class Department
 
     public string? Description { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public virtual ICollection<DepartmentAnimalProgram> DepartmentAnimalPrograms { get; } = new List<DepartmentAnimalProgram>();
+
+    public virtual ICollection<DepartmentEducationProgram> DepartmentEducationPrograms { get; } = new List<DepartmentEducationProgram>();
+
     public virtual ICollection<Employee> Employees { get; } = new List<Employee>();
 
     public virtual ICollection<Expense> Expenses { get; } = new List<Expense>();
 
     public virtual Employee Manager { get; set; } = null!;
-
-    public virtual ICollection<AnimalCareProgram> AnimalProgramNums { get; } = new List<AnimalCareProgram>();
-
-    public virtual ICollection<EducationProgram> ProgramNos { get; } = new List<EducationProgram>();
 }

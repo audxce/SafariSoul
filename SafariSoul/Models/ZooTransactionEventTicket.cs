@@ -11,6 +11,10 @@ public partial class ZooTransactionEventTicket
 
     public int TicketQuantity { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual ZooEvent Event { get; set; } = null!;
 
     public virtual ZooTransaction Transaction { get; set; } = null!;

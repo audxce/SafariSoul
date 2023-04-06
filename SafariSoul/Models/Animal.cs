@@ -33,13 +33,17 @@ public partial class Animal
 
     public string? Notes { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public virtual ICollection<AnimalCareProgramAnimalsInvolved> AnimalCareProgramAnimalsInvolveds { get; } = new List<AnimalCareProgramAnimalsInvolved>();
+
+    public virtual ICollection<EducationProgramAnimalsInvolved> EducationProgramAnimalsInvolveds { get; } = new List<EducationProgramAnimalsInvolved>();
+
     public virtual Species SpeciesNavigation { get; set; } = null!;
 
     public virtual ICollection<VeterinaryVisit> VeterinaryVisits { get; } = new List<VeterinaryVisit>();
 
-    public virtual ICollection<AnimalCareProgram> AnimalProgramNums { get; } = new List<AnimalCareProgram>();
-
-    public virtual ICollection<ZooEvent> Events { get; } = new List<ZooEvent>();
-
-    public virtual ICollection<EducationProgram> ProgramNos { get; } = new List<EducationProgram>();
+    public virtual ICollection<ZooEventAnimalsInvolved> ZooEventAnimalsInvolveds { get; } = new List<ZooEventAnimalsInvolved>();
 }

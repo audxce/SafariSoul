@@ -15,11 +15,15 @@ public partial class AnimalCareProgram
 
     public string? Feedback { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public virtual ICollection<AnimalCareProgramAnimalsInvolved> AnimalCareProgramAnimalsInvolveds { get; } = new List<AnimalCareProgramAnimalsInvolved>();
+
+    public virtual ICollection<AnimalCareProgramStaffInvolved> AnimalCareProgramStaffInvolveds { get; } = new List<AnimalCareProgramStaffInvolved>();
+
+    public virtual ICollection<DepartmentAnimalProgram> DepartmentAnimalPrograms { get; } = new List<DepartmentAnimalProgram>();
+
     public virtual ICollection<ZooEvent> ZooEvents { get; } = new List<ZooEvent>();
-
-    public virtual ICollection<Animal> Animals { get; } = new List<Animal>();
-
-    public virtual ICollection<Department> Depts { get; } = new List<Department>();
-
-    public virtual ICollection<Employee> Employees { get; } = new List<Employee>();
 }

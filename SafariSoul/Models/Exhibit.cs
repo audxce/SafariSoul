@@ -7,13 +7,15 @@ public partial class Exhibit
 {
     public int ExhibitNo { get; set; }
 
-    public string ExhibitName { get; set; }
+    public string? ExhibitName { get; set; }
 
     public int Location { get; set; }
 
     public bool IsIndoors { get; set; }
 
     public int Zookeeper { get; set; }
+
+    public int? ExhibitSponsor { get; set; }
 
     /// <summary>
     /// Temperature in Fahrenheit
@@ -31,6 +33,10 @@ public partial class Exhibit
     public float? Humidity { get; set; }
 
     public string? Flora { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
 
     public virtual ICollection<ExhibitFeedingSchedule> ExhibitFeedingSchedules { get; } = new List<ExhibitFeedingSchedule>();
 

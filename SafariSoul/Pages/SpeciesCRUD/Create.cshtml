@@ -13,7 +13,6 @@
     </style>
 </head>
 
-
 <h4>Create Species</h4>
 <hr />
 <div class="row">
@@ -60,12 +59,12 @@
                 <select asp-for="Species.ExhibitNo" class ="form-control" asp-items="ViewBag.ExhibitNo"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Species.LifeExpectancy" class="control-label">Life Expectancy (years)</label>
+                <label asp-for="Species.LifeExpectancy" class="control-label">Life Expectancy</label>
                 <input asp-for="Species.LifeExpectancy" class="form-control" />
                 <span asp-validation-for="Species.LifeExpectancy" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.NormalBodyTemperature" class="control-label">Normal Body Temperature (00.00°F)</label>
+                <label asp-for="Species.NormalBodyTemperature" class="control-label">Normal Body Temperature</label>
                 <input asp-for="Species.NormalBodyTemperature" class="form-control" />
                 <span asp-validation-for="Species.NormalBodyTemperature" class="text-danger"></span>
             </div>
@@ -75,7 +74,7 @@
                 <span asp-validation-for="Species.RegionsFound" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.Diet" class="control-label">Diet</label>
+                <label asp-for="Species.Diet" class="control-label"></label>
                 <input asp-for="Species.Diet" class="form-control" />
                 <span asp-validation-for="Species.Diet" class="text-danger"></span>
             </div>
@@ -85,12 +84,12 @@
                 <span asp-validation-for="Species.Humidity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.UpperTemperature" class="control-label">Upper Temperature (00.00°F)</label>
+                <label asp-for="Species.UpperTemperature" class="control-label">Upper Temperature</label>
                 <input asp-for="Species.UpperTemperature" class="form-control" />
                 <span asp-validation-for="Species.UpperTemperature" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.LowerTemperature" class="control-label">Lower Temperature (00.00°F)</label>
+                <label asp-for="Species.LowerTemperature" class="control-label">Lower Temperature</label>
                 <input asp-for="Species.LowerTemperature" class="form-control" />
                 <span asp-validation-for="Species.LowerTemperature" class="text-danger"></span>
             </div>
@@ -102,7 +101,6 @@
                     <option value="Diurnal">Diurnal</option>
                     <option value="Any Time">Any Time</option>
                 </select>
-
                 <span asp-validation-for="Species.ActiveHours" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -121,7 +119,7 @@
                 <span asp-validation-for="Species.ConservationStatus" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesInfo" class="control-label">Species Info</label>
+                <label asp-for="Species.SpeciesInfo" class="control-label">Info</label>
                 <input asp-for="Species.SpeciesInfo" class="form-control" />
                 <span asp-validation-for="Species.SpeciesInfo" class="text-danger"></span>
             </div>

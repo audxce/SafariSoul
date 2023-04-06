@@ -11,6 +11,10 @@ public partial class ZooTransactionItem
 
     public float? ItemQuantity { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Inventory Item { get; set; } = null!;
 
     public virtual ZooTransaction Transaction { get; set; } = null!;

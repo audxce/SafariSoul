@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using SafariSoul.Models;
+namespace SafariSoul.Models;
 
 public partial class ZooEventRequiredInventory
 {

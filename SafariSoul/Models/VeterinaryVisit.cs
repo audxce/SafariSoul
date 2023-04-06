@@ -23,7 +23,11 @@ public partial class VeterinaryVisit
 
     public bool? FollowupNeeded { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Animal AnimalNavigation { get; set; } = null!;
 
-    public virtual ICollection<Employee> Vets { get; } = new List<Employee>();
+    public virtual ICollection<VeterinaryVisitVetId> VeterinaryVisitVetIds { get; } = new List<VeterinaryVisitVetId>();
 }

@@ -25,6 +25,10 @@ public partial class MaintenanceRequest
 
     public string? Urgency { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Exhibit? ExhibitNavigation { get; set; }
 
     public virtual Employee? FulfillerNavigation { get; set; }

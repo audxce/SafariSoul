@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace SafariSoul.Models;
 
 public partial class EducationProgram
@@ -12,15 +11,17 @@ public partial class EducationProgram
 
     public string? ProgramDescription { get; set; }
 
-    public int? RequiredInventory { get; set; }
-
     public string? Feedback { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public virtual ICollection<DepartmentEducationProgram> DepartmentEducationPrograms { get; } = new List<DepartmentEducationProgram>();
+
+    public virtual ICollection<EducationProgramAnimalsInvolved> EducationProgramAnimalsInvolveds { get; } = new List<EducationProgramAnimalsInvolved>();
+
+    public virtual ICollection<EducationProgramStaffInvolvled> EducationProgramStaffInvolvleds { get; } = new List<EducationProgramStaffInvolvled>();
+
     public virtual ICollection<ZooEvent> ZooEvents { get; } = new List<ZooEvent>();
-
-    public virtual ICollection<Animal> Animals { get; } = new List<Animal>();
-
-    public virtual ICollection<Department> Depts { get; } = new List<Department>();
-
-    public virtual ICollection<Employee> Employees { get; } = new List<Employee>();
 }

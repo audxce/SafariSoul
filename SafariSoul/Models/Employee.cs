@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace SafariSoul.Models;
 
 public partial class Employee
@@ -63,11 +62,19 @@ public partial class Employee
 
     public int SickDaysLeft { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
+    public virtual ICollection<AnimalCareProgramStaffInvolved> AnimalCareProgramStaffInvolveds { get; } = new List<AnimalCareProgramStaffInvolved>();
+
     public virtual Department? Department { get; set; }
 
     public virtual ICollection<Dependent> Dependents { get; } = new List<Dependent>();
 
     public virtual Department DeptNoNavigation { get; set; } = null!;
+
+    public virtual ICollection<EducationProgramStaffInvolvled> EducationProgramStaffInvolvleds { get; } = new List<EducationProgramStaffInvolvled>();
 
     public virtual ICollection<EmployeeShift> EmployeeShifts { get; } = new List<EmployeeShift>();
 
@@ -87,15 +94,11 @@ public partial class Employee
 
     public virtual Employee? Sup { get; set; }
 
+    public virtual ICollection<VeterinaryVisitVetId> VeterinaryVisitVetIds { get; } = new List<VeterinaryVisitVetId>();
+
+    public virtual ICollection<ZooEventStaffInvolved> ZooEventStaffInvolveds { get; } = new List<ZooEventStaffInvolved>();
+
     public virtual ICollection<ZooTransaction> ZooTransactions { get; } = new List<ZooTransaction>();
 
     public virtual ICollection<ZooUser> ZooUsers { get; } = new List<ZooUser>();
-
-    public virtual ICollection<AnimalCareProgram> AnimalProgramNums { get; } = new List<AnimalCareProgram>();
-
-    public virtual ICollection<ZooEvent> Events { get; } = new List<ZooEvent>();
-
-    public virtual ICollection<EducationProgram> ProgramNos { get; } = new List<EducationProgram>();
-
-    public virtual ICollection<VeterinaryVisit> VetVisits { get; } = new List<VeterinaryVisit>();
 }

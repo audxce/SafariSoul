@@ -21,6 +21,13 @@ namespace SafariSoul.Pages.AnimalCRUD
         public IActionResult OnGet()
         {
         ViewData["Genus"] = new SelectList(_context.Species, "SpeciesGenus", "SpeciesGenus");
+
+        ViewData["Species"] = new SelectList(_context.Species, "SpeciesSpecies", "SpeciesSpecies");
+
+        ViewData["MotherId"] = new SelectList(_context.Animals.Where(a => a.Gender == "Female"), "AnimalId", "AnimalName");
+
+        ViewData["FatherId"] = new SelectList(_context.Animals.Where(a => a.Gender == "Male"), "AnimalId", "AnimalName");
+
             return Page();
         }
 
@@ -33,6 +40,7 @@ namespace SafariSoul.Pages.AnimalCRUD
         {
           if (!ModelState.IsValid || _context.Animals == null || Animal == null)
             {
+                
                 return Page();
             }
 

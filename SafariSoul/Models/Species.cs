@@ -55,6 +55,10 @@ public partial class Species
 
     public string CommonName { get; set; } = null!;
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual ICollection<Animal> Animals { get; } = new List<Animal>();
 
     public virtual Exhibit? ExhibitNoNavigation { get; set; }

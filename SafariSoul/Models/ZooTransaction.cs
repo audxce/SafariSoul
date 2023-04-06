@@ -17,6 +17,12 @@ public partial class ZooTransaction
 
     public string? Discount { get; set; }
 
+    public bool HasProcessed { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Customer? CustomerNavigation { get; set; }
 
     public virtual Discount? DiscountNavigation { get; set; }

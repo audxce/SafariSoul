@@ -16,6 +16,10 @@ public partial class ExhibitFeedingSchedule
     /// </summary>
     public float? MealQuantity { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Exhibit ExhibitNoNavigation { get; set; } = null!;
 
     public virtual Inventory MealContentNavigation { get; set; } = null!;

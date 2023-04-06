@@ -9,5 +9,9 @@ public partial class Discount
 
     public float DiscountPercentage { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual ICollection<ZooTransaction> ZooTransactions { get; } = new List<ZooTransaction>();
 }

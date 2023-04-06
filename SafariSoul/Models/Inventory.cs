@@ -33,6 +33,10 @@ public partial class Inventory
 
     public DateOnly? DateLastOrdered { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Location DestinationNavigation { get; set; } = null!;
 
     public virtual ICollection<ExhibitFeedingSchedule> ExhibitFeedingSchedules { get; } = new List<ExhibitFeedingSchedule>();

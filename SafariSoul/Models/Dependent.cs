@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
 namespace SafariSoul.Models;
 
 public partial class Dependent
@@ -19,6 +18,10 @@ public partial class Dependent
     public string? Email { get; set; }
 
     public string? Address { get; set; }
+
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
 
     public virtual Employee Employee { get; set; } = null!;
 }

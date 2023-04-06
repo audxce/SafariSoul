@@ -27,6 +27,10 @@ public partial class Expense
 
     public byte[]? ReceiptImage { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Department? Dept { get; set; }
 
     public virtual Employee? EmployeeNumNavigation { get; set; }

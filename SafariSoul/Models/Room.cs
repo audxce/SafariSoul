@@ -13,5 +13,9 @@ public partial class Room
 
     public int? LocationNum { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual Location? LocationNumNavigation { get; set; }
 }

@@ -35,17 +35,21 @@ public partial class ZooEvent
 
     public int? EventLocation { get; set; }
 
+    public DateTime? CreatedAt { get; set; }
+
+    public DateTime? UpdatedAt { get; set; }
+
     public virtual AnimalCareProgram? AnimalProgramNoNavigation { get; set; }
 
     public virtual EducationProgram? EducationalProgramNoNavigation { get; set; }
 
     public virtual Location? EventLocationNavigation { get; set; }
 
+    public virtual ICollection<ZooEventAnimalsInvolved> ZooEventAnimalsInvolveds { get; } = new List<ZooEventAnimalsInvolved>();
+
     public virtual ICollection<ZooEventRequiredInventory> ZooEventRequiredInventories { get; } = new List<ZooEventRequiredInventory>();
 
+    public virtual ICollection<ZooEventStaffInvolved> ZooEventStaffInvolveds { get; } = new List<ZooEventStaffInvolved>();
+
     public virtual ICollection<ZooTransactionEventTicket> ZooTransactionEventTickets { get; } = new List<ZooTransactionEventTicket>();
-
-    public virtual ICollection<Animal> Animals { get; } = new List<Animal>();
-
-    public virtual ICollection<Employee> Employees { get; } = new List<Employee>();
 }
