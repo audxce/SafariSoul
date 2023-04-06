@@ -1,0 +1,44 @@
+﻿@page
+@model SafariSoul.Pages.ZooTransactionCustomer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].DateAndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].DiscountNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ZooTransaction)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DiscountNavigation.DiscountName)
+                </td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.TransactionId">Details</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

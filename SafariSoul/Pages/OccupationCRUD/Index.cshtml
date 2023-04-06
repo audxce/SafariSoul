@@ -14,10 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Occupation[0].JobDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Occupation[0].QualificationsRequired)
+                @Html.DisplayNameFor(model => model.Occupation[0].JobTitle)     <!--I added this, might not work-->
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Occupation[0].LowerSalaryRange)
@@ -32,10 +29,7 @@
 @foreach (var item in Model.Occupation) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.JobDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.QualificationsRequired)
+                @Html.DisplayFor(modelItem => item.JobTitle)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LowerSalaryRange)

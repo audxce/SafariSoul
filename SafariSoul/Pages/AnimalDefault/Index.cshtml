@@ -1,0 +1,76 @@
+@page
+@model SafariSoul.Pages.AnimalDefault.IndexModel
+
+@{
+    ViewData["Title"] = "Animals";
+}
+
+<h1>Animals</h1>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Name:
+            <input type="text" name="SearchName" value="@Model.nameFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+        </p>
+    </div>
+</form>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Species:
+            <input type="text" name="SearchSpecies" value="@Model.speciesFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+            <a asp-page="./Index">Back to full list</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].AnimalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].DateOfBirth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].DateOfDeath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].SpeciesNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Animal) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfDeath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SpeciesNavigation.SpeciesGenus)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.AnimalId">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

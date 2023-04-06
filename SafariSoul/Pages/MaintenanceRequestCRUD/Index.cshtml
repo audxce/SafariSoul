@@ -14,9 +14,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Details)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Room)
             </th>
             <th>
@@ -46,9 +43,6 @@
     <tbody>
 @foreach (var item in Model.MaintenanceRequest) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Details)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Room)
             </td>
