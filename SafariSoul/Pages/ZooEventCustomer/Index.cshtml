@@ -1,0 +1,62 @@
+@page
+@model SafariSoul.Pages.ZooEventCustomer.IndexModel
+
+@{
+    ViewData["Title"] = "Events";
+    Layout = "_LayoutCustomer";
+}
+
+<h1>Events</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EventTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooEvent[0].AdmissionPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooEvent[0].AnimalProgramNoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EducationalProgramNoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EventLocationNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ZooEvent) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdmissionPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalProgramNoNavigation.AnimalProgramNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationalProgramNoNavigation.ProgramNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventLocationNavigation.LocationNum)
+            </td>
+            <td>
+                <a asp-page="./Details" asp-route-id="@item.EventId">Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

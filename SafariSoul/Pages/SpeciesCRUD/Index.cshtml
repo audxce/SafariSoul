@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "_Layout";
 }
 
 <h1>Index</h1>
@@ -39,7 +40,7 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CommonName)
-            </td>\
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RegionsFound)
             </td>
@@ -56,6 +57,9 @@
                 @Html.DisplayFor(modelItem => item.ExhibitNoNavigation.ExhibitNo)
             </td>
             <td>
+                <a asp-page="./Edit" asp-route-id="@item.SpeciesGenus,SpeciesSpecies">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SpeciesSpecies">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SpeciesSpecies">Delete</a>
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })

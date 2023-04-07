@@ -1,0 +1,38 @@
+@page
+@model SafariSoul.Pages.SpeciesCustomer.IndexModel
+
+@{
+    ViewData["Title"] = "Species Exhibited";
+    Layout = "_LayoutCustomer";
+}
+
+<h1>Species Exhibited</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].CommonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].ExhibitNoNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Species) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExhibitNoNavigation.ExhibitNo)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
