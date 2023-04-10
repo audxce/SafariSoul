@@ -5,61 +5,45 @@ namespace SafariSoul.Models;
 
 public partial class Species
 {
-    public string? SpeciesKingdom { get; set; }
+    public int SpeciesId { get; set; }
 
-    public string? SpeciesPhylum { get; set; }
+    public string? Kingdom { get; set; }
 
-    public string? SpeciesClass { get; set; }
+    public string? Phylum { get; set; }
 
-    public string? SpeciesOrder { get; set; }
+    public string? Class { get; set; }
 
-    public string? SpeciesFamily { get; set; }
+    public string? Order { get; set; }
 
-    public string SpeciesGenus { get; set; } = null!;
+    public string? Family { get; set; }
 
-    public string SpeciesSpecies { get; set; } = null!;
+    public string Genus { get; set; } = null!;
 
-    public int? ExhibitNo { get; set; }
+    public string Species1 { get; set; } = null!;
 
-    public float? LifeExpectancy { get; set; }
+    public int? ExhibitId { get; set; }
 
-    /// <summary>
-    /// Body Temperature in Fahrenheit
-    /// </summary>
+    public int? LifeExpectancy { get; set; }
+
     public float? NormalBodyTemperature { get; set; }
 
     public string? RegionsFound { get; set; }
 
     public string? Diet { get; set; }
 
-    /// <summary>
-    /// Humidity in percentage
-    /// </summary>
     public float? Humidity { get; set; }
-
-    /// <summary>
-    /// Temperature in Fahrenheit
-    /// </summary>
-    public float? UpperTemperature { get; set; }
-
-    /// <summary>
-    /// Temperature in Fahrenheit
-    /// </summary>
-    public float? LowerTemperature { get; set; }
 
     public string? ActiveHours { get; set; }
 
     public string? ConservationStatus { get; set; }
 
-    public string? SpeciesInfo { get; set; }
-
-    public string CommonName { get; set; } = null!;
-
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
+    public string? CommonName { get; set; }
+
     public virtual ICollection<Animal> Animals { get; } = new List<Animal>();
 
-    public virtual Exhibit? ExhibitNoNavigation { get; set; }
+    public virtual Exhibit? Exhibit { get; set; }
 }

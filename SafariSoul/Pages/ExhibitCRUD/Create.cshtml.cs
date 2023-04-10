@@ -5,24 +5,24 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.ExhibitCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["Location"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
-        ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+        ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+        ViewData["MealContent"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
+        ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -35,6 +35,9 @@ namespace SafariSoul.Pages.ExhibitCRUD
         {
           if (!ModelState.IsValid || _context.Exhibits == null || Exhibit == null)
             {
+                ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+                ViewData["MealContent"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
+                ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

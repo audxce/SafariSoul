@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.ExhibitCRUD
 {
     public class DeleteModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DeleteModel(SafariSoul.OfficalZooDbContext context)
+        public DeleteModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -29,7 +28,7 @@ namespace SafariSoul.Pages.ExhibitCRUD
                 return NotFound();
             }
 
-            var exhibit = await _context.Exhibits.FirstOrDefaultAsync(m => m.ExhibitNo == id);
+            var exhibit = await _context.Exhibits.FirstOrDefaultAsync(m => m.ExhibitId == id);
 
             if (exhibit == null)
             {

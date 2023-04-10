@@ -11,9 +11,9 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -25,8 +25,8 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
             if (_context.ZooTransactions != null)
             {
                 ZooTransaction = await _context.ZooTransactions
-                .Include(z => z.CustomerNavigation)
-                .Include(z => z.DiscountNavigation)
+                .Include(z => z.Customer)
+                .Include(z => z.Location)
                 .Include(z => z.Seller).ToListAsync();
             }
         }

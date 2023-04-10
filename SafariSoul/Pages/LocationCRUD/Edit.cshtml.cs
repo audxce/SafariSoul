@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.LocationCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -30,7 +29,7 @@ namespace SafariSoul.Pages.LocationCRUD
                 return NotFound();
             }
 
-            var location =  await _context.Locations.FirstOrDefaultAsync(m => m.LocationNum == id);
+            var location =  await _context.Locations.FirstOrDefaultAsync(m => m.LocationId == id);
             if (location == null)
             {
                 return NotFound();
@@ -56,7 +55,7 @@ namespace SafariSoul.Pages.LocationCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LocationExists(Location.LocationNum))
+                if (!LocationExists(Location.LocationId))
                 {
                     return NotFound();
                 }
@@ -71,7 +70,7 @@ namespace SafariSoul.Pages.LocationCRUD
 
         private bool LocationExists(int id)
         {
-          return (_context.Locations?.Any(e => e.LocationNum == id)).GetValueOrDefault();
+          return (_context.Locations?.Any(e => e.LocationId == id)).GetValueOrDefault();
         }
     }
 }

@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -20,13 +21,10 @@
                 @Html.DisplayNameFor(model => model.Expense[0].Category)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Expense[0].ExpenseAccount)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Expense[0].ExpenseAmount)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Expense[0].Dept)
+                @Html.DisplayNameFor(model => model.Expense[0].Employee)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Expense[0].Vendor)
@@ -50,10 +48,19 @@
                 @Html.DisplayFor(modelItem => item.ExpenseAmount)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Dept.DeptId)
+                @Html.DisplayFor(modelItem => item.InvoiceId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Vendor.VendorId)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.FullName) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vendor.VendorName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ExpenseId">Edit</a> |

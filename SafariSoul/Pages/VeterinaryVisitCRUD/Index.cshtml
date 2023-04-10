@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -14,13 +15,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].TimeScheduled)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].Urgency)
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].Vet)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.VeterinaryVisit[0].AnimalNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].TimeScheduled)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].AnimalCondition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].AnimalTreatment)
             </th>
             <th></th>
         </tr>
@@ -32,10 +39,34 @@
                 @Html.DisplayFor(modelItem => item.TimeScheduled)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.TimeAdmitted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeDischarged)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Urgency)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AnimalNavigation.AnimalId)
+                @Html.DisplayFor(modelItem => item.AnimalCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalTreatment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FollowupNeeded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalNavigation.AnimalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vet.Fname) @Html.DisplayFor(modelItem => item.Vet.Lname)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.VetVisitId">Edit</a> |

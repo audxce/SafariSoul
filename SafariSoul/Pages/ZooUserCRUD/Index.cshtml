@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -17,10 +18,13 @@
                 @Html.DisplayNameFor(model => model.ZooUser[0].AuthenticationKey)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooUser[0].UserName)
+                @Html.DisplayNameFor(model => model.ZooUser[0].UserType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooUser[0].UserType)
+                @Html.DisplayNameFor(model => model.ZooUser[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooUser[0].UpdatedAt)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ZooUser[0].Customer)
@@ -38,21 +42,24 @@
                 @Html.DisplayFor(modelItem => item.AuthenticationKey)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UserName)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.UserType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Employee.EmployeeId)
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.UserId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.UserId">Delete</a>
+                @Html.DisplayFor(modelItem => item.Customer.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.FullName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.UserName">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.UserName">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.UserName">Delete</a>
             </td>
         </tr>
 }

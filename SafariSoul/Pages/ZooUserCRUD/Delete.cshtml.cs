@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.ZooUserCRUD
 {
     public class DeleteModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DeleteModel(SafariSoul.OfficalZooDbContext context)
+        public DeleteModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -22,14 +21,14 @@ namespace SafariSoul.Pages.ZooUserCRUD
         [BindProperty]
       public ZooUser ZooUser { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null || _context.ZooUsers == null)
             {
                 return NotFound();
             }
 
-            var zoouser = await _context.ZooUsers.FirstOrDefaultAsync(m => m.UserId == id);
+            var zoouser = await _context.ZooUsers.FirstOrDefaultAsync(m => m.UserName == id);
 
             if (zoouser == null)
             {
@@ -42,7 +41,7 @@ namespace SafariSoul.Pages.ZooUserCRUD
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(string id)
         {
             if (id == null || _context.ZooUsers == null)
             {

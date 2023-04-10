@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -19,40 +20,10 @@
             @Html.DisplayFor(model => model.ZooEvent.EventName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EventType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EventType)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ZooEvent.Capacity)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ZooEvent.Capacity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.NumberAttending)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.NumberAttending)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.HostName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.HostName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.HostEmail)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.HostEmail)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.HostPhoneNum)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.HostPhoneNum)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ZooEvent.EventTime)
@@ -73,28 +44,34 @@
             @Html.DisplayFor(model => model.ZooEvent.RegistrationDeadline)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EventDescription)
+            @Html.DisplayNameFor(model => model.ZooEvent.AnimalProgram)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EventDescription)
+            @Html.DisplayFor(model => model.ZooEvent.AnimalProgram.ProgramName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.AnimalProgramNoNavigation)
+            @Html.DisplayNameFor(model => model.ZooEvent.EducationalProgram)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.AnimalProgramNoNavigation.AnimalProgramNum)
+            @Html.DisplayFor(model => model.ZooEvent.EducationalProgram.ProgramName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EducationalProgramNoNavigation)
+            @Html.DisplayNameFor(model => model.ZooEvent.EventLocation)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EducationalProgramNoNavigation.ProgramNo)
+            @Html.DisplayFor(model => model.ZooEvent.EventLocation.LocationName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EventLocationNavigation)
+            @Html.DisplayNameFor(model => model.ZooEvent.CreatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EventLocationNavigation.LocationNum)
+            @Html.DisplayFor(model => model.ZooEvent.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooEvent.UpdatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooEvent.UpdatedAt)
         </dd>
     </dl>
     

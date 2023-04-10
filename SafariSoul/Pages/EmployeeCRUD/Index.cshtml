@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -10,55 +11,26 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            First Name:
-            <input type="text" name="SearchFname" value="@Model.fnameFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" />
-        </p>
-    </div>    
-</form>
-
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Last Name:
-            <input type="text" name="SearchLname" value="@Model.lnameFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" />
-        </p>
-    </div>    
-</form>
-
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        Occupation:
-        <input type="text" name="SearchOccupation" value="@Model.occupationFilter" />
-        <input type="submit" value="Search" class="btn btn-primary" />
-        <a asp-page="./Index">Back to full list</a>
-    </div>    
-</form>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].Fname)
+                @Html.DisplayNameFor(model => model.Employee[0].FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].Minit)
+                @Html.DisplayNameFor(model => model.Employee[0].Occupation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].Lname)
+                @Html.DisplayNameFor(model => model.Employee[0].MobilePhoneNum)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].Bdate)
+                @Html.DisplayNameFor(model => model.Employee[0].Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].DeptNoNavigation)
+                @Html.DisplayNameFor(model => model.Employee[0].Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].OccupationNavigation)
+                @Html.DisplayNameFor(model => model.Employee[0].DeptNameNavigation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Employee[0].Sup)
@@ -69,6 +41,9 @@
     <tbody>
 @foreach (var item in Model.Employee) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Fname)
             </td>
@@ -82,10 +57,49 @@
                 @Html.DisplayFor(modelItem => item.Bdate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DeptNoNavigation.DeptId)
+                @Html.DisplayFor(modelItem => item.Occupation)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OccupationNavigation.JobTitle)
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobilePhoneNum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmergencyContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmergencyContactPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmergencyContactEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateJoined)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VacationDaysLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SickDaysLeft)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeptNameNavigation.DeptName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Sup.EmployeeId)

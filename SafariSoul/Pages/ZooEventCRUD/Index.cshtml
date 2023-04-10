@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -17,19 +18,16 @@
                 @Html.DisplayNameFor(model => model.ZooEvent[0].EventName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooEvent[0].EventType)
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EventTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooEvent[0].AdmissionPrice)
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EventLocation)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooEvent[0].AnimalProgramNoNavigation)
+                @Html.DisplayNameFor(model => model.ZooEvent[0].AnimalProgram)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooEvent[0].EducationalProgramNoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ZooEvent[0].EventLocationNavigation)
+                @Html.DisplayNameFor(model => model.ZooEvent[0].EducationalProgram)
             </th>
             <th></th>
         </tr>
@@ -41,19 +39,31 @@
                 @Html.DisplayFor(modelItem => item.EventName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EventType)
+                @Html.DisplayFor(modelItem => item.Capacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventTime)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AdmissionPrice)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AnimalProgramNoNavigation.AnimalProgramNum)
+                @Html.DisplayFor(modelItem => item.RegistrationDeadline)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EducationalProgramNoNavigation.ProgramNo)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.EventLocationNavigation.LocationNum)
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalProgram.ProgramName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationalProgram.ProgramName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventLocation.LocationName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.EventId">Edit</a> |

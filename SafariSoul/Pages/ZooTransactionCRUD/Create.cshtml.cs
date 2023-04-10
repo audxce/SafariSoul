@@ -11,18 +11,18 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["Customer"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-        ViewData["Discount"] = new SelectList(_context.Discounts, "DiscountName", "DiscountName");
-        ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+            ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -35,6 +35,9 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
         {
           if (!ModelState.IsValid || _context.ZooTransactions == null || ZooTransaction == null)
             {
+                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+                ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+                ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

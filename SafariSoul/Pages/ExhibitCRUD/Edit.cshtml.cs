@@ -6,16 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.ExhibitCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -30,14 +29,15 @@ namespace SafariSoul.Pages.ExhibitCRUD
                 return NotFound();
             }
 
-            var exhibit =  await _context.Exhibits.FirstOrDefaultAsync(m => m.ExhibitNo == id);
+            var exhibit =  await _context.Exhibits.FirstOrDefaultAsync(m => m.ExhibitId == id);
             if (exhibit == null)
             {
                 return NotFound();
             }
             Exhibit = exhibit;
-           ViewData["Location"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
-           ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+           ViewData["MealContent"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
+           ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -47,6 +47,9 @@ namespace SafariSoul.Pages.ExhibitCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+                ViewData["MealContent"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
+                ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 
@@ -58,7 +61,7 @@ namespace SafariSoul.Pages.ExhibitCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ExhibitExists(Exhibit.ExhibitNo))
+                if (!ExhibitExists(Exhibit.ExhibitId))
                 {
                     return NotFound();
                 }
@@ -73,7 +76,7 @@ namespace SafariSoul.Pages.ExhibitCRUD
 
         private bool ExhibitExists(int id)
         {
-          return (_context.Exhibits?.Any(e => e.ExhibitNo == id)).GetValueOrDefault();
+          return (_context.Exhibits?.Any(e => e.ExhibitId == id)).GetValueOrDefault();
         }
     }
 }

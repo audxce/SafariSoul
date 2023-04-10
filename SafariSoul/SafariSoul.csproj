@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Pages\Shared\_LayoutCustomer.cshtml.css" />
+    <None Remove="Pages\Shared\_NewLayout.cshtml.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Pages\Shared\_LayoutCustomer.cshtml.css" />
+    <Compile Include="Pages\Shared\_NewLayout.cshtml.css" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +23,10 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.5" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>

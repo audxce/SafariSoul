@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <head>
@@ -20,43 +21,48 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesKingdom" class="control-label">Kingdom</label>
-                <input asp-for="Species.SpeciesKingdom" class="form-control" />
-                <span asp-validation-for="Species.SpeciesKingdom" class="text-danger"></span>
+                <label asp-for="Species.Kingdom" class="control-label"></label>
+                <input asp-for="Species.Kingdom" class="form-control" />
+                <span asp-validation-for="Species.Kingdom" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesPhylum" class="control-label">Phylum</label>
-                <input asp-for="Species.SpeciesPhylum" class="form-control" />
-                <span asp-validation-for="Species.SpeciesPhylum" class="text-danger"></span>
+                <label asp-for="Species.Phylum" class="control-label"></label>
+                <input asp-for="Species.Phylum" class="form-control" />
+                <span asp-validation-for="Species.Phylum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesClass" class="control-label">Class</label>
-                <input asp-for="Species.SpeciesClass" class="form-control" />
-                <span asp-validation-for="Species.SpeciesClass" class="text-danger"></span>
+                <label asp-for="Species.Class" class="control-label"></label>
+                <input asp-for="Species.Class" class="form-control" />
+                <span asp-validation-for="Species.Class" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesOrder" class="control-label">Order</label>
-                <input asp-for="Species.SpeciesOrder" class="form-control" />
-                <span asp-validation-for="Species.SpeciesOrder" class="text-danger"></span>
+                <label asp-for="Species.Order" class="control-label"></label>
+                <input asp-for="Species.Order" class="form-control" />
+                <span asp-validation-for="Species.Order" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesFamily" class="control-label">Family</label>
-                <input asp-for="Species.SpeciesFamily" class="form-control" />
-                <span asp-validation-for="Species.SpeciesFamily" class="text-danger"></span>
+                <label asp-for="Species.Family" class="control-label"></label>
+                <input asp-for="Species.Family" class="form-control" />
+                <span asp-validation-for="Species.Family" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesGenus" class="control-label">Genus</label>
-                <input asp-for="Species.SpeciesGenus" class="form-control" />
-                <span asp-validation-for="Species.SpeciesGenus" class="text-danger"></span>
+                <label asp-for="Species.Genus" class="control-label"></label>
+                <input asp-for="Species.Genus" class="form-control" />
+                <span asp-validation-for="Species.Genus" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.SpeciesSpecies" class="control-label">Species</label>
-                <input asp-for="Species.SpeciesSpecies" class="form-control" />
-                <span asp-validation-for="Species.SpeciesSpecies" class="text-danger"></span>
+                <label asp-for="Species.Species1" class="control-label">Species</label>
+                <input asp-for="Species.Species1" class="form-control" />
+                <span asp-validation-for="Species.Species1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.ExhibitNo" class="control-label">Exhibit Number</label>
-                <select asp-for="Species.ExhibitNo" class ="form-control" asp-items="ViewBag.ExhibitNo"></select>
+                <label asp-for="Species.CommonName" class="control-label">Common Name</label>
+                <input asp-for="Species.CommonName" class="form-control" />
+                <span asp-validation-for="Species.CommonName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Species.ExhibitId" class="control-label">Exhibit</label>
+                <select asp-for="Species.ExhibitId" class="form-control" asp-items="ViewBag.ExhibitId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Species.LifeExpectancy" class="control-label">Life Expectancy</label>
@@ -64,7 +70,7 @@
                 <span asp-validation-for="Species.LifeExpectancy" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.NormalBodyTemperature" class="control-label">Normal Body Temperature</label>
+                <label asp-for="Species.NormalBodyTemperature" class="control-label">Normal Body Temperature (°F)</label>
                 <input asp-for="Species.NormalBodyTemperature" class="form-control" />
                 <span asp-validation-for="Species.NormalBodyTemperature" class="text-danger"></span>
             </div>
@@ -79,19 +85,9 @@
                 <span asp-validation-for="Species.Diet" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Species.Humidity" class="control-label"></label>
+                <label asp-for="Species.Humidity" class="control-label">Humidity (%)</label>
                 <input asp-for="Species.Humidity" class="form-control" />
                 <span asp-validation-for="Species.Humidity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Species.UpperTemperature" class="control-label">Upper Temperature</label>
-                <input asp-for="Species.UpperTemperature" class="form-control" />
-                <span asp-validation-for="Species.UpperTemperature" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Species.LowerTemperature" class="control-label">Lower Temperature</label>
-                <input asp-for="Species.LowerTemperature" class="form-control" />
-                <span asp-validation-for="Species.LowerTemperature" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Species.ActiveHours" class="control-label">Active Hours</label>
@@ -117,16 +113,6 @@
                     <option value="EX">EX</option>
                 </select>
                 <span asp-validation-for="Species.ConservationStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Species.SpeciesInfo" class="control-label">Info</label>
-                <input asp-for="Species.SpeciesInfo" class="form-control" />
-                <span asp-validation-for="Species.SpeciesInfo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Species.CommonName" class="control-label">Common Name</label>
-                <input asp-for="Species.CommonName" class="form-control" />
-                <span asp-validation-for="Species.CommonName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

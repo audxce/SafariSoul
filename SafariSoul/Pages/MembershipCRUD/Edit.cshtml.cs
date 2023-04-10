@@ -6,16 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.MembershipCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }

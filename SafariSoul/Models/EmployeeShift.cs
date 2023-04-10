@@ -5,6 +5,8 @@ namespace SafariSoul.Models;
 
 public partial class EmployeeShift
 {
+    public int ShiftId { get; set; }
+
     public int EmployeeId { get; set; }
 
     public DateTime ShiftStart { get; set; }

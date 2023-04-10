@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -17,13 +18,7 @@
                 @Html.DisplayNameFor(model => model.Location[0].LocationName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Location[0].MaxCapacity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].OpeningTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location[0].ClosingTime)
+                @Html.DisplayNameFor(model => model.Location[0].Capacity)
             </th>
             <th></th>
         </tr>
@@ -35,18 +30,18 @@
                 @Html.DisplayFor(modelItem => item.LocationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MaxCapacity)
+                @Html.DisplayFor(modelItem => item.Capacity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OpeningTime)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ClosingTime)
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.LocationNum">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.LocationNum">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.LocationNum">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.LocationId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.LocationId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.LocationId">Delete</a>
             </td>
         </tr>
 }

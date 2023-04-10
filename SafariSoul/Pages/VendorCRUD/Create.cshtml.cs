@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.VendorCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }

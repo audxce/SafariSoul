@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Details</h1>
@@ -17,27 +18,27 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Location.LocationName)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.MaxCapacity)
-        </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location.MaxCapacity)
+            @Html.DisplayFor(model => model.Location.Capacity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.OpeningTime)
+            @Html.DisplayNameFor(model => model.Location.CreatedAt)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Location.CreatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location.OpeningTime)
+            @Html.DisplayFor(model => model.Location.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.ClosingTime)
+            @Html.DisplayNameFor(model => model.Location.UpdatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location.ClosingTime)
+            @Html.DisplayFor(model => model.Location.UpdatedAt)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Location?.LocationNum">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Location?.LocationId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -14,6 +15,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.EmployeeShift[0].Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeShift[0].ShiftStart)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.EmployeeShift[0].ShiftEnd)
             </th>
             <th>
@@ -22,15 +29,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.EmployeeShift[0].LunchEnd)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmployeeShift[0].Employee)
-            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.EmployeeShift) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShiftStart)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ShiftEnd)
             </td>
@@ -41,12 +48,18 @@
                 @Html.DisplayFor(modelItem => item.LunchEnd)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Employee.EmployeeId)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Fname)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ShiftId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ShiftId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ShiftId">Delete</a>
             </td>
         </tr>
 }

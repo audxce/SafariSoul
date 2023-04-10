@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.EmployeeShiftCRUD
 {
     public class DeleteModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DeleteModel(SafariSoul.OfficalZooDbContext context)
+        public DeleteModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -29,7 +28,7 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
                 return NotFound();
             }
 
-            var employeeshift = await _context.EmployeeShifts.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            var employeeshift = await _context.EmployeeShifts.FirstOrDefaultAsync(m => m.ShiftId == id);
 
             if (employeeshift == null)
             {

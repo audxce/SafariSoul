@@ -1,0 +1,50 @@
+﻿@page
+@model SafariSoul.Pages.OperatingHoursCRUD.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>OperatingHour</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OperatingHour.DayOfWeek)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OperatingHour.DayOfWeek)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OperatingHour.OpeningTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OperatingHour.OpeningTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OperatingHour.ClosingTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OperatingHour.ClosingTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OperatingHour.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OperatingHour.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OperatingHour.UpdatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OperatingHour.UpdatedAt)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.OperatingHour?.DayId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

@@ -5,13 +5,13 @@ namespace SafariSoul.Models;
 
 public partial class ExpenseItem
 {
+    public int MultiItemsId { get; set; }
+
     public int ExpenseId { get; set; }
 
     public int ItemId { get; set; }
 
-    public float ItemQuantity { get; set; }
-
-    public double ItemCost { get; set; }
+    public int ItemQuantity { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 

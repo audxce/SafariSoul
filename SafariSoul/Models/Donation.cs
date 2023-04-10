@@ -15,10 +15,6 @@ public partial class Donation
 
     public DateOnly DateDonated { get; set; }
 
-    public string? Feedback { get; set; }
-
-    public string? Recognition { get; set; }
-
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }

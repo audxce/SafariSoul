@@ -15,32 +15,13 @@ public partial class Employee
 
     public DateOnly? Bdate { get; set; }
 
-    public string? TrainingAndCerts { get; set; }
-
     public string Occupation { get; set; } = null!;
 
-    public string? TimeBasedBenefits { get; set; }
-
-    public string? OccupationBasedBenefits { get; set; }
-
-    public int? Location { get; set; }
-
-    public int DeptNo { get; set; }
+    public string DeptName { get; set; } = null!;
 
     public int? SupId { get; set; }
 
-    /// <summary>
-    /// Enter an hourly salary
-    /// </summary>
-    public double? Wage { get; set; }
-
-    public double? Bonus { get; set; }
-
-    public double? Insurance { get; set; }
-
-    public string? InsurancePlan { get; set; }
-
-    public string? WorkPhoneNum { get; set; }
+    public double? Salary { get; set; }
 
     public string? MobilePhoneNum { get; set; }
 
@@ -66,15 +47,11 @@ public partial class Employee
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual ICollection<AnimalCareProgramStaffInvolved> AnimalCareProgramStaffInvolveds { get; } = new List<AnimalCareProgramStaffInvolved>();
-
     public virtual Department? Department { get; set; }
 
     public virtual ICollection<Dependent> Dependents { get; } = new List<Dependent>();
 
-    public virtual Department DeptNoNavigation { get; set; } = null!;
-
-    public virtual ICollection<EducationProgramStaffInvolvled> EducationProgramStaffInvolvleds { get; } = new List<EducationProgramStaffInvolvled>();
+    public virtual Department DeptNameNavigation { get; set; } = null!;
 
     public virtual ICollection<EmployeeShift> EmployeeShifts { get; } = new List<EmployeeShift>();
 
@@ -84,21 +61,19 @@ public partial class Employee
 
     public virtual ICollection<Employee> InverseSup { get; } = new List<Employee>();
 
-    public virtual Location? LocationNavigation { get; set; }
-
-    public virtual ICollection<MaintenanceRequest> MaintenanceRequestFulfillerNavigations { get; } = new List<MaintenanceRequest>();
-
-    public virtual ICollection<MaintenanceRequest> MaintenanceRequestRequesterNavigations { get; } = new List<MaintenanceRequest>();
-
-    public virtual Occupation OccupationNavigation { get; set; } = null!;
-
     public virtual Employee? Sup { get; set; }
 
-    public virtual ICollection<VeterinaryVisitVetId> VeterinaryVisitVetIds { get; } = new List<VeterinaryVisitVetId>();
+    public virtual ICollection<VeterinaryVisit> VeterinaryVisits { get; } = new List<VeterinaryVisit>();
 
     public virtual ICollection<ZooEventStaffInvolved> ZooEventStaffInvolveds { get; } = new List<ZooEventStaffInvolved>();
 
     public virtual ICollection<ZooTransaction> ZooTransactions { get; } = new List<ZooTransaction>();
 
     public virtual ICollection<ZooUser> ZooUsers { get; } = new List<ZooUser>();
+
+    public string FullName
+    {
+        get { return Fname + " " + Lname; }
+    }
 }
+

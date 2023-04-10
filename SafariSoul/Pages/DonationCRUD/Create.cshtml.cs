@@ -11,9 +11,9 @@ namespace SafariSoul.Pages.DonationCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }

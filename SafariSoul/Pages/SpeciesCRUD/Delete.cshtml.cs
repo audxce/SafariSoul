@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.SpeciesCRUD
 {
     public class DeleteModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DeleteModel(SafariSoul.OfficalZooDbContext context)
+        public DeleteModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -22,14 +21,14 @@ namespace SafariSoul.Pages.SpeciesCRUD
         [BindProperty]
       public Species Species { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Species == null)
             {
                 return NotFound();
             }
 
-            var species = await _context.Species.FirstOrDefaultAsync(m => m.SpeciesGenus == id);
+            var species = await _context.Species.FirstOrDefaultAsync(m => m.SpeciesId == id);
 
             if (species == null)
             {
@@ -42,7 +41,7 @@ namespace SafariSoul.Pages.SpeciesCRUD
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(string id)
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
             if (id == null || _context.Species == null)
             {

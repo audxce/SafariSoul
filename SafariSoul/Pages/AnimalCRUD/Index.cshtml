@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -10,33 +11,14 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Name:
-            <input type="text" name="SearchName" value="@Model.nameFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" />
-        </p>
-    </div>
-</form>
-
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Species:
-            <input type="text" name="SearchSpecies" value="@Model.speciesFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" />
-            <a asp-page="./Index">Back to full list</a>
-        </p>
-    </div>
-</form>
-
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Animal[0].AnimalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].Species)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Animal[0].DateOfBirth)
@@ -48,7 +30,10 @@
                 @Html.DisplayNameFor(model => model.Animal[0].Gender)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Animal[0].SpeciesNavigation)
+                @Html.DisplayNameFor(model => model.Animal[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Animal[0].UpdatedAt)
             </th>
             <th></th>
         </tr>
@@ -60,16 +45,40 @@
                 @Html.DisplayFor(modelItem => item.AnimalName)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.UniqueDescriptors)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.DateOfBirth)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateOfDeath)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.CauseOfDeath)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SpeciesNavigation.SpeciesGenus)
+                @Html.DisplayFor(modelItem => item.DietaryRestrictions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recreation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FatherNavigation.AnimalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotherNavigation.AnimalId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Species.SpeciesId)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AnimalId">Edit</a> |

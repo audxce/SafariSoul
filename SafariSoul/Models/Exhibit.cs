@@ -5,9 +5,9 @@ namespace SafariSoul.Models;
 
 public partial class Exhibit
 {
-    public int ExhibitNo { get; set; }
+    public int ExhibitId { get; set; }
 
-    public string? ExhibitName { get; set; }
+    public string ExhibitName { get; set; } = null!;
 
     public int Location { get; set; }
 
@@ -15,34 +15,25 @@ public partial class Exhibit
 
     public int Zookeeper { get; set; }
 
-    public int? ExhibitSponsor { get; set; }
+    public float? NormalTemperature { get; set; }
 
-    /// <summary>
-    /// Temperature in Fahrenheit
-    /// </summary>
-    public float? UpperTemperature { get; set; }
-
-    /// <summary>
-    /// Temperature in Fahrenheit
-    /// </summary>
-    public float? LowerTemperature { get; set; }
-
-    /// <summary>
-    /// Humidity in percentage
-    /// </summary>
     public float? Humidity { get; set; }
 
-    public string? Flora { get; set; }
+    public TimeOnly FeedingTime { get; set; }
+
+    public int MealContent { get; set; }
+
+    public int? MealQuantity { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual ICollection<ExhibitFeedingSchedule> ExhibitFeedingSchedules { get; } = new List<ExhibitFeedingSchedule>();
-
     public virtual Location LocationNavigation { get; set; } = null!;
 
     public virtual ICollection<MaintenanceRequest> MaintenanceRequests { get; } = new List<MaintenanceRequest>();
+
+    public virtual Inventory MealContentNavigation { get; set; } = null!;
 
     public virtual ICollection<Species> Species { get; } = new List<Species>();
 

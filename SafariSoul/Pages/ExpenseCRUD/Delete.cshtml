@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -25,12 +26,6 @@
             @Html.DisplayFor(model => model.Expense.Category)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.ExpenseDescription)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.ExpenseDescription)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Expense.ExpenseAccount)
         </dt>
         <dd class="col-sm-10">
@@ -43,28 +38,28 @@
             @Html.DisplayFor(model => model.Expense.ExpenseAmount)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.InvoiceNo)
+            @Html.DisplayNameFor(model => model.Expense.InvoiceId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.InvoiceNo)
+            @Html.DisplayFor(model => model.Expense.InvoiceId)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.ReceiptImage)
+            @Html.DisplayNameFor(model => model.Expense.CreatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.ReceiptImage)
+            @Html.DisplayFor(model => model.Expense.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.Dept)
+            @Html.DisplayNameFor(model => model.Expense.UpdatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.Dept.DeptId)
+            @Html.DisplayFor(model => model.Expense.UpdatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.EmployeeNumNavigation)
+            @Html.DisplayNameFor(model => model.Expense.Employee)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.EmployeeNumNavigation.EmployeeId)
+            @Html.DisplayFor(model => model.Expense.Employee.EmployeeId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Expense.Vendor)

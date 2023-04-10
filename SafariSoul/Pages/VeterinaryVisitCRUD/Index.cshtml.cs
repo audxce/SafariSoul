@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.VeterinaryVisitCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -26,7 +25,8 @@ namespace SafariSoul.Pages.VeterinaryVisitCRUD
             if (_context.VeterinaryVisits != null)
             {
                 VeterinaryVisit = await _context.VeterinaryVisits
-                .Include(v => v.AnimalNavigation).ToListAsync();
+                .Include(v => v.AnimalNavigation)
+                .Include(v => v.Vet).ToListAsync();
             }
         }
     }

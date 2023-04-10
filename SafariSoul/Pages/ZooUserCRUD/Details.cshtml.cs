@@ -7,28 +7,27 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.ZooUserCRUD
 {
     public class DetailsModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DetailsModel(SafariSoul.OfficalZooDbContext context)
+        public DetailsModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
       public ZooUser ZooUser { get; set; } = default!; 
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null || _context.ZooUsers == null)
             {
                 return NotFound();
             }
 
-            var zoouser = await _context.ZooUsers.FirstOrDefaultAsync(m => m.UserId == id);
+            var zoouser = await _context.ZooUsers.FirstOrDefaultAsync(m => m.UserName == id);
             if (zoouser == null)
             {
                 return NotFound();

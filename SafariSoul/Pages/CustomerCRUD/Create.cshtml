@@ -3,7 +3,9 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
+
 <head>
     <style>
         .form-group + .form-group {
@@ -11,17 +13,13 @@
         }
     </style>
 </head>
+
 <h4>Create Customer</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Customer.CustomerId" class="control-label">Customer ID</label>
-                <input asp-for="Customer.CustomerId" class="form-control" />
-                <span asp-validation-for="Customer.CustomerId" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Customer.Fname" class="control-label">First Name</label>
                 <input asp-for="Customer.Fname" class="form-control" />
@@ -40,16 +38,16 @@
             <div class="form-group">
                 <label asp-for="Customer.Gender" class="control-label"></label>
                 <select asp-for="Customer.Gender" class="form-control">
-                    <option value="">-- Select Gender --</option>
+                    <option value="">--Select Gender--</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                    <option value="NotSpecified">Do not wish to answer</option>
+                    <option value="N/A">Do not wish to answer</option>
                 </select>
                 <span asp-validation-for="Customer.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Customer.DateOfBirth" class="control-label">Date of Birth</label>
-                <input asp-for="Customer.DateOfBirth" class="form-control" />
+                <input asp-for="Customer.DateOfBirth" type ="date" class="form-control" />
                 <span asp-validation-for="Customer.DateOfBirth" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -58,7 +56,7 @@
                 <span asp-validation-for="Customer.PhoneNo" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Customer.Address" class="control-label"></label>
+                <label asp-for="Customer.Address" class="control-label">Address</label>
                 <input asp-for="Customer.Address" class="form-control" />
                 <span asp-validation-for="Customer.Address" class="text-danger"></span>
             </div>
@@ -66,20 +64,6 @@
                 <label asp-for="Customer.Email" class="control-label"></label>
                 <input asp-for="Customer.Email" class="form-control" />
                 <span asp-validation-for="Customer.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.CreditCardNo" class="control-label">Credit Card Number</label>
-                <input asp-for="Customer.CreditCardNo" class="form-control" />
-                <span asp-validation-for="Customer.CreditCardNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.MembershipLevel" class="control-label">Membership Level</label>
-                <select asp-for="Customer.MembershipLevel" class ="form-control" asp-items="ViewBag.MembershipLevel"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Customer.MembershipStartDate" class="control-label">Membership Start Date</label>
-                <input asp-for="Customer.MembershipStartDate" type =" "date" class="form-control" />
-                <span asp-validation-for="Customer.MembershipStartDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

@@ -12,9 +12,9 @@ namespace SafariSoul.Pages.EmployeeCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -35,10 +35,8 @@ namespace SafariSoul.Pages.EmployeeCRUD
                 return NotFound();
             }
             Employee = employee;
-           ViewData["DeptNo"] = new SelectList(_context.Departments, "DeptId", "DeptId");
-           ViewData["Location"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
-           ViewData["Occupation"] = new SelectList(_context.Occupations, "JobTitle", "JobTitle");
-           ViewData["SupId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["DeptName"] = new SelectList(_context.Departments, "DeptName", "DeptName");
+           ViewData["SupId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -48,6 +46,8 @@ namespace SafariSoul.Pages.EmployeeCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["DeptName"] = new SelectList(_context.Departments, "DeptName", "DeptName");
+                ViewData["SupId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

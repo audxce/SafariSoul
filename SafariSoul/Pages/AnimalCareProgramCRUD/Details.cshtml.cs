@@ -11,9 +11,9 @@ namespace SafariSoul.Pages.AnimalCareProgramCRUD
 {
     public class DetailsModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DetailsModel(SafariSoul.OfficalZooDbContext context)
+        public DetailsModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -27,7 +27,7 @@ namespace SafariSoul.Pages.AnimalCareProgramCRUD
                 return NotFound();
             }
 
-            var animalcareprogram = await _context.AnimalCarePrograms.FirstOrDefaultAsync(m => m.AnimalProgramNum == id);
+            var animalcareprogram = await _context.AnimalCarePrograms.FirstOrDefaultAsync(m => m.AnimalProgramId == id);
             if (animalcareprogram == null)
             {
                 return NotFound();

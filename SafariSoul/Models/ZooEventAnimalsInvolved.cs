@@ -5,6 +5,8 @@ namespace SafariSoul.Models;
 
 public partial class ZooEventAnimalsInvolved
 {
+    public int MultiAnimalId { get; set; }
+
     public int EventId { get; set; }
 
     public int AnimalId { get; set; }

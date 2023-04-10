@@ -12,9 +12,9 @@ namespace SafariSoul.Pages.AnimalCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -35,7 +35,9 @@ namespace SafariSoul.Pages.AnimalCRUD
                 return NotFound();
             }
             Animal = animal;
-           ViewData["Genus"] = new SelectList(_context.Species, "SpeciesGenus", "SpeciesGenus");
+            ViewData["Father"] = new SelectList(_context.Animals.Where(a => a.Gender == "Male"), "AnimalId", "AnimalName");
+            ViewData["Mother"] = new SelectList(_context.Animals.Where(a => a.Gender == "Female"), "AnimalId", "AnimalName");
+            ViewData["SpeciesId"] = new SelectList(_context.Species, "SpeciesId", "CommonName");
             return Page();
         }
 
@@ -45,6 +47,9 @@ namespace SafariSoul.Pages.AnimalCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["Father"] = new SelectList(_context.Animals.Where(a => a.Gender == "Male"), "AnimalId", "AnimalName");
+                ViewData["Mother"] = new SelectList(_context.Animals.Where(a => a.Gender == "Female"), "AnimalId", "AnimalName");
+                ViewData["SpeciesId"] = new SelectList(_context.Species, "SpeciesId", "CommonName");
                 return Page();
             }
 

@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Details</h1>
@@ -24,16 +25,10 @@
             @Html.DisplayFor(model => model.Exhibit.IsIndoors)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.UpperTemperature)
+            @Html.DisplayNameFor(model => model.Exhibit.NormalTemperature)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.UpperTemperature)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.LowerTemperature)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.LowerTemperature)
+            @Html.DisplayFor(model => model.Exhibit.NormalTemperature)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Exhibit.Humidity)
@@ -42,10 +37,16 @@
             @Html.DisplayFor(model => model.Exhibit.Humidity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.Flora)
+            @Html.DisplayNameFor(model => model.Exhibit.FeedingTime)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.Flora)
+            @Html.DisplayFor(model => model.Exhibit.FeedingTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.MealQuantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.MealQuantity)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Exhibit.CreatedAt)
@@ -63,7 +64,13 @@
             @Html.DisplayNameFor(model => model.Exhibit.LocationNavigation)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.LocationNavigation.LocationNum)
+            @Html.DisplayFor(model => model.Exhibit.LocationNavigation.LocationId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Exhibit.MealContentNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Exhibit.MealContentNavigation.ItemId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Exhibit.ZookeeperNavigation)
@@ -74,6 +81,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Exhibit?.ExhibitNo">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.Exhibit?.ExhibitId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

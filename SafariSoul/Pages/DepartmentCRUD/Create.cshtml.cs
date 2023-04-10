@@ -7,21 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.DepartmentCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["ManagerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+        ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
+        ViewData["ManagerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 

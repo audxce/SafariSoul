@@ -3,18 +3,28 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>EmployeeShift</h4>
+<h4>Edit Employee Shift</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="EmployeeShift.EmployeeId" />
-            <input type="hidden" asp-for="EmployeeShift.ShiftStart" />
+            <div class="form-group">
+                <label asp-for="EmployeeShift.ShiftStart" class="control-label"></label>
+                <input asp-for="EmployeeShift.ShiftStart" class="form-control" />
+                <span asp-validation-for="EmployeeShift.ShiftStart" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="EmployeeShift.ShiftEnd" class="control-label"></label>
                 <input asp-for="EmployeeShift.ShiftEnd" class="form-control" />
@@ -31,7 +41,7 @@
                 <span asp-validation-for="EmployeeShift.LunchEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

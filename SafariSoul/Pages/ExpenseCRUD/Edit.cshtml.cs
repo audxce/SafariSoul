@@ -12,15 +12,18 @@ namespace SafariSoul.Pages.ExpenseCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         [BindProperty]
         public Expense Expense { get; set; } = default!;
+
+        [BindProperty]
+        public List<ExpenseItem> ExpenseItems { get; set; } = new List<ExpenseItem>();
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -35,9 +38,9 @@ namespace SafariSoul.Pages.ExpenseCRUD
                 return NotFound();
             }
             Expense = expense;
-           ViewData["DeptId"] = new SelectList(_context.Departments, "DeptId", "DeptId");
-           ViewData["EmployeeNum"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
-           ViewData["VendorId"] = new SelectList(_context.Vendors, "VendorId", "VendorId");
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+            ViewData["VendorId"] = new SelectList(_context.Vendors, "VendorId", "VendorName");
+            ViewData["ItemId"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
             return Page();
         }
 
@@ -47,6 +50,9 @@ namespace SafariSoul.Pages.ExpenseCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+                ViewData["VendorId"] = new SelectList(_context.Vendors, "VendorId", "VendorName");
+                ViewData["ItemId"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
                 return Page();
             }
 

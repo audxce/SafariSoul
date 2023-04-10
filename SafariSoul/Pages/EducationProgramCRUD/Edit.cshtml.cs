@@ -6,16 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.EducationProgramCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -30,7 +29,7 @@ namespace SafariSoul.Pages.EducationProgramCRUD
                 return NotFound();
             }
 
-            var educationprogram =  await _context.EducationPrograms.FirstOrDefaultAsync(m => m.ProgramNo == id);
+            var educationprogram =  await _context.EducationPrograms.FirstOrDefaultAsync(m => m.EducationProgramId == id);
             if (educationprogram == null)
             {
                 return NotFound();
@@ -56,7 +55,7 @@ namespace SafariSoul.Pages.EducationProgramCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EducationProgramExists(EducationProgram.ProgramNo))
+                if (!EducationProgramExists(EducationProgram.EducationProgramId))
                 {
                     return NotFound();
                 }
@@ -71,7 +70,7 @@ namespace SafariSoul.Pages.EducationProgramCRUD
 
         private bool EducationProgramExists(int id)
         {
-          return (_context.EducationPrograms?.Any(e => e.ProgramNo == id)).GetValueOrDefault();
+          return (_context.EducationPrograms?.Any(e => e.EducationProgramId == id)).GetValueOrDefault();
         }
     }
 }

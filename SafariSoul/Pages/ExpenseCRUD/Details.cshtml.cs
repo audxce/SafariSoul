@@ -11,14 +11,14 @@ namespace SafariSoul.Pages.ExpenseCRUD
 {
     public class DetailsModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DetailsModel(SafariSoul.OfficalZooDbContext context)
+        public DetailsModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
-      public Expense Expense { get; set; } = default!; 
+      public Expense Expense { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

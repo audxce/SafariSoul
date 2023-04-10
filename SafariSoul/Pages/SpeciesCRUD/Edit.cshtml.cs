@@ -6,16 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.SpeciesCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -23,20 +22,20 @@ namespace SafariSoul.Pages.SpeciesCRUD
         [BindProperty]
         public Species Species { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(string id)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Species == null)
             {
                 return NotFound();
             }
 
-            var species =  await _context.Species.FirstOrDefaultAsync(m => m.SpeciesGenus == id);
+            var species =  await _context.Species.FirstOrDefaultAsync(m => m.SpeciesId == id);
             if (species == null)
             {
                 return NotFound();
             }
             Species = species;
-           ViewData["ExhibitNo"] = new SelectList(_context.Exhibits, "ExhibitNo", "ExhibitNo");
+           ViewData["ExhibitId"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
             return Page();
         }
 
@@ -46,6 +45,7 @@ namespace SafariSoul.Pages.SpeciesCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["ExhibitId"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
                 return Page();
             }
 
@@ -57,7 +57,7 @@ namespace SafariSoul.Pages.SpeciesCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SpeciesExists(Species.SpeciesGenus))
+                if (!SpeciesExists(Species.SpeciesId))
                 {
                     return NotFound();
                 }
@@ -70,9 +70,9 @@ namespace SafariSoul.Pages.SpeciesCRUD
             return RedirectToPage("./Index");
         }
 
-        private bool SpeciesExists(string id)
+        private bool SpeciesExists(int id)
         {
-          return (_context.Species?.Any(e => e.SpeciesGenus == id)).GetValueOrDefault();
+          return (_context.Species?.Any(e => e.SpeciesId == id)).GetValueOrDefault();
         }
     }
 }

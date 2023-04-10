@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -19,17 +20,29 @@
             <th>
                 @Html.DisplayNameFor(model => model.Membership[0].MembershipFee)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Membership[0].Benefits)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Membership) {
+@foreach (var item in Model.Membership) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MembershipLevel) <!-- I added this one, might not work-->
+                @Html.DisplayFor(modelItem => item.MembershipLevel)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MembershipFee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Benefits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.MembershipLevel">Edit</a> |

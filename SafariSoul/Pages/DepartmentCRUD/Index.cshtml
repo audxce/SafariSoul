@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -26,10 +27,13 @@
                 @Html.DisplayNameFor(model => model.Department[0].Location)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Department[0].Budget)
+                @Html.DisplayNameFor(model => model.Department[0].Manager)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Department[0].Manager)
+                @Html.DisplayNameFor(model => model.Department[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department[0].UpdatedAt)
             </th>
             <th></th>
         </tr>
@@ -47,18 +51,24 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location)
+                @Html.DisplayFor(modelItem => item.Budget)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Budget)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.LocationId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Manager.EmployeeId)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.DeptId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.DeptId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.DeptId">Delete</a>
+                <a asp-page="./Edit" asp-route-id="@item.DeptName">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DeptName">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DeptName">Delete</a>
             </td>
         </tr>
 }

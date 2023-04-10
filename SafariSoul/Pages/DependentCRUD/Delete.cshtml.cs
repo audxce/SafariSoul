@@ -11,9 +11,9 @@ namespace SafariSoul.Pages.DependentCRUD
 {
     public class DeleteModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DeleteModel(SafariSoul.OfficalZooDbContext context)
+        public DeleteModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -28,7 +28,7 @@ namespace SafariSoul.Pages.DependentCRUD
                 return NotFound();
             }
 
-            var dependent = await _context.Dependents.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            var dependent = await _context.Dependents.FirstOrDefaultAsync(m => m.DependentId == id);
 
             if (dependent == null)
             {

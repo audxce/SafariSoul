@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.ZooUserCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -23,21 +22,21 @@ namespace SafariSoul.Pages.ZooUserCRUD
         [BindProperty]
         public ZooUser ZooUser { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null || _context.ZooUsers == null)
             {
                 return NotFound();
             }
 
-            var zoouser =  await _context.ZooUsers.FirstOrDefaultAsync(m => m.UserId == id);
+            var zoouser =  await _context.ZooUsers.FirstOrDefaultAsync(m => m.UserName == id);
             if (zoouser == null)
             {
                 return NotFound();
             }
             ZooUser = zoouser;
-           ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-           ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+           ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -47,6 +46,8 @@ namespace SafariSoul.Pages.ZooUserCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+                ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 
@@ -58,7 +59,7 @@ namespace SafariSoul.Pages.ZooUserCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ZooUserExists(ZooUser.UserId))
+                if (!ZooUserExists(ZooUser.UserName))
                 {
                     return NotFound();
                 }
@@ -71,9 +72,9 @@ namespace SafariSoul.Pages.ZooUserCRUD
             return RedirectToPage("./Index");
         }
 
-        private bool ZooUserExists(int id)
+        private bool ZooUserExists(string id)
         {
-          return (_context.ZooUsers?.Any(e => e.UserId == id)).GetValueOrDefault();
+          return (_context.ZooUsers?.Any(e => e.UserName == id)).GetValueOrDefault();
         }
     }
 }

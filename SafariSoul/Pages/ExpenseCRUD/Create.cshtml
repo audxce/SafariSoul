@@ -3,16 +3,11 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <head>
-    <style>
-        .form-group + .form-group {
-            margin-top: 20px;
-        }
-    </style>
 </head>
-
 
 <h4>Create Expense</h4>
 <hr />
@@ -21,61 +16,71 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Expense.ExpenseId" class="control-label">Expense ID</label>
-                <input asp-for="Expense.ExpenseId" class="form-control" />
-                <span asp-validation-for="Expense.ExpenseId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Expense.ExpenseTime" class="control-label">Expense Time</label>
-                <input asp-for="Expense.ExpenseTime" class="form-control" />
+                <input asp-for="Expense.ExpenseTime" type = "datetime" class="form-control" />
                 <span asp-validation-for="Expense.ExpenseTime" class="text-danger"></span>
             </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
-                <label asp-for="Expense.Category" class="control-label"></label>
+                <label asp-for="Expense.Category" class="control-label">Category</label>
                 <select asp-for="Expense.Category" class="form-control">
                     <option value="">-- Select Category --</option>
-                    <option value="Employee">Employee</option>
-                    <option value="Vendor">Vendor</option>
+                    <option value="vendor">Vendor</option>
+                    <option value="employee">Employee</option>
                 </select>
                 <span asp-validation-for="Expense.Category" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Expense.DeptId" class="control-label">Department ID</label>
-                <select asp-for="Expense.DeptId" class ="form-control" asp-items="ViewBag.DeptId"></select>
+            <div style="height: 20px;"></div>
+            <div id="expenseItems">
+                @foreach (var expenseItem in Model.ExpenseItems)
+                {
+                    <div class="row expense-item">
+                        <div class="col-md-6 form-group">
+                            <label asp-for="@expenseItem.ItemId" class="control-label">Item</label>
+                            <select asp-for="@expenseItem.ItemId" class="form-control" asp-items="ViewBag.ItemId"></select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label asp-for="@expenseItem.ItemQuantity" class="control-label">Quantity</label>
+                            <input asp-for="@expenseItem.ItemQuantity" class="form-control" />
+                            <span asp-validation-for="@expenseItem.ItemQuantity" class="text-danger"></span>
+                        </div>
+                    </div>
+                }
             </div>
+
+            <div style="height: 20px;"></div>
             <div class="form-group">
-                <label asp-for="Expense.ExpenseDescription" class="control-label">Description</label>
-                <input asp-for="Expense.ExpenseDescription" class="form-control" />
-                <span asp-validation-for="Expense.ExpenseDescription" class="text-danger"></span>
+                <button type="button" id="addItem" class="btn btn-primary">Add Item</button>
             </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
-                <label asp-for="Expense.ExpenseAccount" class="control-label">Account</label>
+                <label asp-for="Expense.ExpenseAccount" class="control-label">Expense Account</label>
                 <input asp-for="Expense.ExpenseAccount" class="form-control" />
                 <span asp-validation-for="Expense.ExpenseAccount" class="text-danger"></span>
             </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
-                <label asp-for="Expense.ExpenseAmount" class="control-label">Amount</label>
+                <label asp-for="Expense.ExpenseAmount" class="control-label">Expense Amount</label>
                 <input asp-for="Expense.ExpenseAmount" class="form-control" />
                 <span asp-validation-for="Expense.ExpenseAmount" class="text-danger"></span>
             </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
-                <label asp-for="Expense.VendorId" class="control-label">Vendor ID</label>
+                <label asp-for="Expense.VendorId" class="control-label">Vendor</label>
                 <select asp-for="Expense.VendorId" class ="form-control" asp-items="ViewBag.VendorId"></select>
             </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
-                <label asp-for="Expense.EmployeeNum" class="control-label">Employee ID</label>
-                <select asp-for="Expense.EmployeeNum" class ="form-control" asp-items="ViewBag.EmployeeNum"></select>
+                <label asp-for="Expense.EmployeeId" class="control-label">Employee</label>
+                <select asp-for="Expense.EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
             </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
-                <label asp-for="Expense.InvoiceNo" class="control-label">Invoice No</label>
-                <input asp-for="Expense.InvoiceNo" class="form-control" />
-                <span asp-validation-for="Expense.InvoiceNo" class="text-danger"></span>
+                <label asp-for="Expense.InvoiceId" class="control-label">Invoice Number</label>
+                <input asp-for="Expense.InvoiceId" class="form-control" />
+                <span asp-validation-for="Expense.InvoiceId" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Expense.ReceiptImage" class="control-label">Reciept Image</label>
-                <input asp-for="Expense.ReceiptImage" class="form-control" />
-                <span asp-validation-for="Expense.ReceiptImage" class="text-danger"></span>
-            </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -88,5 +93,23 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        $(document).ready(function () {
+            let index = 0; // Initialize index counter
+            $("#addItem").click(function () {
+                let newItem = $(".expense-item").first().clone();
+                newItem.find("input").val(""); // Clear the input values
+                newItem.find("input").each(function () {
+                    let inputName = $(this).attr("name");
+                    $(this).attr("name", inputName.replace("[0]", "[" + (index + 1) + "]"));
+                });
+                index++; // Increment index counter
+                $("#expenseItems").append(newItem);
+            });
+        });
+    </script>
 }

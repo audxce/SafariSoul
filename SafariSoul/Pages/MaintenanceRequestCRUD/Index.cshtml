@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -14,7 +15,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Room)
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].ExhibitNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].LocationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Details)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.MaintenanceRequest[0].TimeRequested)
@@ -25,18 +32,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.MaintenanceRequest[0].Urgency)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].ExhibitNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].FulfillerNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].LocationNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaintenanceRequest[0].RequesterNavigation)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -44,7 +39,7 @@
 @foreach (var item in Model.MaintenanceRequest) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Room)
+                @Html.DisplayFor(modelItem => item.Details)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TimeRequested)
@@ -56,16 +51,16 @@
                 @Html.DisplayFor(modelItem => item.Urgency)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ExhibitNavigation.ExhibitNo)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FulfillerNavigation.EmployeeId)
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationNum)
+                @Html.DisplayFor(modelItem => item.ExhibitNavigation.ExhibitName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RequesterNavigation.EmployeeId)
+                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.TicketNo">Edit</a> |

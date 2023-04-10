@@ -3,22 +3,49 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>Dependent</h4>
+<h4>Edit Dependent</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Dependent.EmployeeId" />
-            <input type="hidden" asp-for="Dependent.Fname" />
-            <input type="hidden" asp-for="Dependent.Bdate" />
+            <div class="form-group">
+                <label asp-for="Dependent.EmployeeId" class="control-label">Dependent on which Employee?</label>
+                <select asp-for="Dependent.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Fname" class="control-label">First Name</label>
+                <input asp-for="Dependent.Fname" class="form-control" />
+                <span asp-validation-for="Dependent.Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Lname" class="control-label">Last Name</label>
+                <input asp-for="Dependent.Lname" class="form-control" />
+                <span asp-validation-for="Dependent.Lname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dependent.Bdate" class="control-label">Date of Birth</label>
+                <input asp-for="Dependent.Bdate" type="date" class="form-control" />
+                <span asp-validation-for="Dependent.Bdate" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Dependent.Gender" class="control-label"></label>
-                <input asp-for="Dependent.Gender" class="form-control" />
+                <select asp-for="Dependent.Gender" class="form-control">
+                    <option value="">--Select Gender--</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
                 <span asp-validation-for="Dependent.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -37,7 +64,7 @@
                 <span asp-validation-for="Dependent.Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

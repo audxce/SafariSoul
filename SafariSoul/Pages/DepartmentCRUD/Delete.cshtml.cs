@@ -11,9 +11,9 @@ namespace SafariSoul.Pages.DepartmentCRUD
 {
     public class DeleteModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DeleteModel(SafariSoul.OfficalZooDbContext context)
+        public DeleteModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -21,14 +21,14 @@ namespace SafariSoul.Pages.DepartmentCRUD
         [BindProperty]
       public Department Department { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null || _context.Departments == null)
             {
                 return NotFound();
             }
 
-            var department = await _context.Departments.FirstOrDefaultAsync(m => m.DeptId == id);
+            var department = await _context.Departments.FirstOrDefaultAsync(m => m.DeptName == id);
 
             if (department == null)
             {
@@ -41,7 +41,7 @@ namespace SafariSoul.Pages.DepartmentCRUD
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync(string id)
         {
             if (id == null || _context.Departments == null)
             {

@@ -5,9 +5,13 @@ namespace SafariSoul.Models;
 
 public partial class Dependent
 {
+    public int DependentId { get; set; }
+
     public int EmployeeId { get; set; }
 
     public string Fname { get; set; } = null!;
+
+    public string Lname { get; set; } = null!;
 
     public DateOnly Bdate { get; set; }
 

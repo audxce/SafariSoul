@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Edit</h1>
@@ -13,7 +14,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="AnimalCareProgram.AnimalProgramNum" />
+            <input type="hidden" asp-for="AnimalCareProgram.AnimalProgramId" />
             <div class="form-group">
                 <label asp-for="AnimalCareProgram.ProgramName" class="control-label"></label>
                 <input asp-for="AnimalCareProgram.ProgramName" class="form-control" />
@@ -23,16 +24,6 @@
                 <label asp-for="AnimalCareProgram.ProgramDescription" class="control-label"></label>
                 <input asp-for="AnimalCareProgram.ProgramDescription" class="form-control" />
                 <span asp-validation-for="AnimalCareProgram.ProgramDescription" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnimalCareProgram.ProgramResults" class="control-label"></label>
-                <input asp-for="AnimalCareProgram.ProgramResults" class="form-control" />
-                <span asp-validation-for="AnimalCareProgram.ProgramResults" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="AnimalCareProgram.Feedback" class="control-label"></label>
-                <input asp-for="AnimalCareProgram.Feedback" class="form-control" />
-                <span asp-validation-for="AnimalCareProgram.Feedback" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

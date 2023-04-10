@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.DepartmentCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -23,20 +22,21 @@ namespace SafariSoul.Pages.DepartmentCRUD
         [BindProperty]
         public Department Department { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(string id)
         {
             if (id == null || _context.Departments == null)
             {
                 return NotFound();
             }
 
-            var department =  await _context.Departments.FirstOrDefaultAsync(m => m.DeptId == id);
+            var department =  await _context.Departments.FirstOrDefaultAsync(m => m.DeptName == id);
             if (department == null)
             {
                 return NotFound();
             }
             Department = department;
-           ViewData["ManagerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+           ViewData["ManagerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -46,6 +46,8 @@ namespace SafariSoul.Pages.DepartmentCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+                ViewData["ManagerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 
@@ -57,7 +59,7 @@ namespace SafariSoul.Pages.DepartmentCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepartmentExists(Department.DeptId))
+                if (!DepartmentExists(Department.DeptName))
                 {
                     return NotFound();
                 }
@@ -70,9 +72,9 @@ namespace SafariSoul.Pages.DepartmentCRUD
             return RedirectToPage("./Index");
         }
 
-        private bool DepartmentExists(int id)
+        private bool DepartmentExists(string id)
         {
-          return (_context.Departments?.Any(e => e.DeptId == id)).GetValueOrDefault();
+          return (_context.Departments?.Any(e => e.DeptName == id)).GetValueOrDefault();
         }
     }
 }

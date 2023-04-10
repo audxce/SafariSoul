@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -20,18 +21,6 @@
                 @Html.DisplayNameFor(model => model.Exhibit[0].IsIndoors)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].UpperTemperature)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].LowerTemperature)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].Humidity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Exhibit[0].Flora)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Exhibit[0].LocationNavigation)
             </th>
             <th>
@@ -47,15 +36,39 @@
                 @Html.DisplayFor(modelItem => item.ExhibitName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationNum)
+                @Html.DisplayFor(modelItem => item.IsIndoors)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ZookeeperNavigation.EmployeeId)
+                @Html.DisplayFor(modelItem => item.NormalTemperature)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ExhibitNo">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ExhibitNo">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ExhibitNo">Delete</a>
+                @Html.DisplayFor(modelItem => item.Humidity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MealContentNavigation.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZookeeperNavigation.Fname) @Html.DisplayFor(modelItem => item.ZookeeperNavigation.Lname)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ExhibitId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ExhibitId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ExhibitId">Delete</a>
             </td>
         </tr>
 }

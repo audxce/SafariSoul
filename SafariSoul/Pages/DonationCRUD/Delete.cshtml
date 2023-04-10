@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -31,16 +32,16 @@
             @Html.DisplayFor(model => model.Donation.DateDonated)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Donation.Feedback)
+            @Html.DisplayNameFor(model => model.Donation.CreatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Donation.Feedback)
+            @Html.DisplayFor(model => model.Donation.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Donation.Recognition)
+            @Html.DisplayNameFor(model => model.Donation.UpdatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Donation.Recognition)
+            @Html.DisplayFor(model => model.Donation.UpdatedAt)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Donation.Donor)

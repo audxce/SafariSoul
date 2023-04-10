@@ -11,18 +11,16 @@ namespace SafariSoul.Pages.EmployeeCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["DeptNo"] = new SelectList(_context.Departments, "DeptId", "DeptId");
-        ViewData["Location"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
-        ViewData["Occupation"] = new SelectList(_context.Occupations, "JobTitle", "JobTitle");
+        ViewData["DeptName"] = new SelectList(_context.Departments, "DeptName", "DeptName");
         ViewData["SupId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
             return Page();
         }

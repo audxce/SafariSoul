@@ -3,26 +3,27 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>ZooEvent</h4>
+<h4>Edit Zoo Event</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ZooEvent.EventId" />
             <div class="form-group">
-                <label asp-for="ZooEvent.EventName" class="control-label"></label>
+                <label asp-for="ZooEvent.EventName" class="control-label">Event Name</label>
                 <input asp-for="ZooEvent.EventName" class="form-control" />
                 <span asp-validation-for="ZooEvent.EventName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ZooEvent.EventType" class="control-label"></label>
-                <input asp-for="ZooEvent.EventType" class="form-control" />
-                <span asp-validation-for="ZooEvent.EventType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ZooEvent.Capacity" class="control-label"></label>
@@ -30,62 +31,34 @@
                 <span asp-validation-for="ZooEvent.Capacity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ZooEvent.NumberAttending" class="control-label"></label>
-                <input asp-for="ZooEvent.NumberAttending" class="form-control" />
-                <span asp-validation-for="ZooEvent.NumberAttending" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ZooEvent.HostName" class="control-label"></label>
-                <input asp-for="ZooEvent.HostName" class="form-control" />
-                <span asp-validation-for="ZooEvent.HostName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ZooEvent.HostEmail" class="control-label"></label>
-                <input asp-for="ZooEvent.HostEmail" class="form-control" />
-                <span asp-validation-for="ZooEvent.HostEmail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ZooEvent.HostPhoneNum" class="control-label"></label>
-                <input asp-for="ZooEvent.HostPhoneNum" class="form-control" />
-                <span asp-validation-for="ZooEvent.HostPhoneNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ZooEvent.EventTime" class="control-label"></label>
+                <label asp-for="ZooEvent.EventTime" class="control-label">Event Time</label>
                 <input asp-for="ZooEvent.EventTime" class="form-control" />
                 <span asp-validation-for="ZooEvent.EventTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ZooEvent.AdmissionPrice" class="control-label"></label>
+                <label asp-for="ZooEvent.AdmissionPrice" class="control-label">Admission Price</label>
                 <input asp-for="ZooEvent.AdmissionPrice" class="form-control" />
                 <span asp-validation-for="ZooEvent.AdmissionPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ZooEvent.RegistrationDeadline" class="control-label"></label>
-                <input asp-for="ZooEvent.RegistrationDeadline" class="form-control" />
+                <label asp-for="ZooEvent.RegistrationDeadline" class="control-label">Registration Deadline</label>
+                <input asp-for="ZooEvent.RegistrationDeadline" type="date" class="form-control" />
                 <span asp-validation-for="ZooEvent.RegistrationDeadline" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ZooEvent.AnimalProgramNo" class="control-label"></label>
-                <select asp-for="ZooEvent.AnimalProgramNo" class="form-control" asp-items="ViewBag.AnimalProgramNo"></select>
-                <span asp-validation-for="ZooEvent.AnimalProgramNo" class="text-danger"></span>
+                <label asp-for="ZooEvent.AnimalProgramId" class="control-label">Animal Program</label>
+                <select asp-for="ZooEvent.AnimalProgramId" class="form-control" asp-items="ViewBag.AnimalProgramId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ZooEvent.EducationalProgramNo" class="control-label"></label>
-                <select asp-for="ZooEvent.EducationalProgramNo" class="form-control" asp-items="ViewBag.EducationalProgramNo"></select>
-                <span asp-validation-for="ZooEvent.EducationalProgramNo" class="text-danger"></span>
+                <label asp-for="ZooEvent.EducationalProgramId" class="control-label">Education Program</label>
+                <select asp-for="ZooEvent.EducationalProgramId" class="form-control" asp-items="ViewBag.EducationalProgramId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ZooEvent.EventDescription" class="control-label"></label>
-                <input asp-for="ZooEvent.EventDescription" class="form-control" />
-                <span asp-validation-for="ZooEvent.EventDescription" class="text-danger"></span>
+                <label asp-for="ZooEvent.EventLocationId" class="control-label">Event Location</label>
+                <select asp-for="ZooEvent.EventLocationId" class="form-control" asp-items="ViewBag.EventLocationId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ZooEvent.EventLocation" class="control-label"></label>
-                <select asp-for="ZooEvent.EventLocation" class="form-control" asp-items="ViewBag.EventLocation"></select>
-                <span asp-validation-for="ZooEvent.EventLocation" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

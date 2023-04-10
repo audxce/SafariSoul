@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.ZooEventCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -26,9 +25,9 @@ namespace SafariSoul.Pages.ZooEventCRUD
             if (_context.ZooEvents != null)
             {
                 ZooEvent = await _context.ZooEvents
-                .Include(z => z.AnimalProgramNoNavigation)
-                .Include(z => z.EducationalProgramNoNavigation)
-                .Include(z => z.EventLocationNavigation).ToListAsync();
+                .Include(z => z.AnimalProgram)
+                .Include(z => z.EducationalProgram)
+                .Include(z => z.EventLocation).ToListAsync();
             }
         }
     }

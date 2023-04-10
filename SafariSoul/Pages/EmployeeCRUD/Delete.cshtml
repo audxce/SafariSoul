@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -37,52 +38,16 @@
             @Html.DisplayFor(model => model.Employee.Bdate)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.TrainingAndCerts)
+            @Html.DisplayNameFor(model => model.Employee.Occupation)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.TrainingAndCerts)
+            @Html.DisplayFor(model => model.Employee.Occupation)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.TimeBasedBenefits)
+            @Html.DisplayNameFor(model => model.Employee.Salary)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.TimeBasedBenefits)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.OccupationBasedBenefits)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.OccupationBasedBenefits)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.Wage)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.Wage)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.Bonus)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.Bonus)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.Insurance)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.Insurance)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.InsurancePlan)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.InsurancePlan)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.WorkPhoneNum)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.WorkPhoneNum)
+            @Html.DisplayFor(model => model.Employee.Salary)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Employee.MobilePhoneNum)
@@ -145,22 +110,22 @@
             @Html.DisplayFor(model => model.Employee.SickDaysLeft)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.DeptNoNavigation)
+            @Html.DisplayNameFor(model => model.Employee.CreatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.DeptNoNavigation.DeptId)
+            @Html.DisplayFor(model => model.Employee.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.LocationNavigation)
+            @Html.DisplayNameFor(model => model.Employee.UpdatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.LocationNavigation.LocationNum)
+            @Html.DisplayFor(model => model.Employee.UpdatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Employee.OccupationNavigation)
+            @Html.DisplayNameFor(model => model.Employee.DeptNameNavigation)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Employee.OccupationNavigation.JobTitle)
+            @Html.DisplayFor(model => model.Employee.DeptNameNavigation.DeptName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Employee.Sup)

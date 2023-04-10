@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.DependentCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -30,13 +29,13 @@ namespace SafariSoul.Pages.DependentCRUD
                 return NotFound();
             }
 
-            var dependent =  await _context.Dependents.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            var dependent =  await _context.Dependents.FirstOrDefaultAsync(m => m.DependentId == id);
             if (dependent == null)
             {
                 return NotFound();
             }
             Dependent = dependent;
-           ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -46,6 +45,7 @@ namespace SafariSoul.Pages.DependentCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 
@@ -57,7 +57,7 @@ namespace SafariSoul.Pages.DependentCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DependentExists(Dependent.EmployeeId))
+                if (!DependentExists(Dependent.DependentId))
                 {
                     return NotFound();
                 }
@@ -72,7 +72,7 @@ namespace SafariSoul.Pages.DependentCRUD
 
         private bool DependentExists(int id)
         {
-          return (_context.Dependents?.Any(e => e.EmployeeId == id)).GetValueOrDefault();
+          return (_context.Dependents?.Any(e => e.DependentId == id)).GetValueOrDefault();
         }
     }
 }

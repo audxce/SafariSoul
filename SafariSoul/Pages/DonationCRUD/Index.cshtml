@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -17,10 +18,10 @@
                 @Html.DisplayNameFor(model => model.Donation[0].AmountDonated)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Donation[0].DateDonated)
+                @Html.DisplayNameFor(model => model.Donation[0].DonationPurpose)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Donation[0].Donor)
+                @Html.DisplayNameFor(model => model.Donation[0].DateDonated)
             </th>
             <th></th>
         </tr>
@@ -32,7 +33,16 @@
                 @Html.DisplayFor(modelItem => item.AmountDonated)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.DonationPurpose)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.DateDonated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Donor.CustomerId)

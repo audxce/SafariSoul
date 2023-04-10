@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <head>
@@ -20,30 +21,21 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Animal.AnimalId" class="control-label">Animal ID</label>
-                <input asp-for="Animal.AnimalId" class="form-control" />
-                <span asp-validation-for="Animal.AnimalId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Animal.AnimalName" class="control-label">Animal Name</label>
                 <input asp-for="Animal.AnimalName" class="form-control" />
                 <span asp-validation-for="Animal.AnimalName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.Genus" class="control-label"></label>
-                <select asp-for="Animal.Genus" class ="form-control" asp-items="ViewBag.Genus"></select>
+                <label asp-for="Animal.SpeciesId" class="control-label">Species</label>
+                <select asp-for="Animal.SpeciesId" class ="form-control" asp-items="ViewBag.SpeciesId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.Species" class="control-label"></label>
-                <select asp-for="Animal.Species" class ="form-control" asp-items="ViewBag.Species"></select>
+                <label asp-for="Animal.Mother" class="control-label"></label>
+                <select asp-for="Animal.Mother" class ="form-control" asp-items="ViewBag.Mother"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.MotherId" class="control-label">Mother Name</label>
-                <select asp-for="Animal.MotherId" class="form-control" asp-items="ViewBag.MotherId"></select>
-            </div>
-            <div class="form-group">
-                 <label asp-for="Animal.FatherId" class="control-label">Father Name</label>
-                 <select asp-for="Animal.FatherId" class="form-control" asp-items="ViewBag.FatherId"></select>
+                <label asp-for="Animal.Father" class="control-label"></label>
+                <select asp-for="Animal.Father" class ="form-control" asp-items="ViewBag.Father"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Animal.UniqueDescriptors" class="control-label">Unique Descriptors</label>
@@ -52,18 +44,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Animal.DateOfBirth" class="control-label">Date of Birth</label>
-                <input asp-for="Animal.DateOfBirth" type="date" class="form-control" />
+                <input asp-for="Animal.DateOfBirth" type = "date" class="form-control" />
                 <span asp-validation-for="Animal.DateOfBirth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Animal.DateOfDeath" class="control-label">Date of Death</label>
-                <input asp-for="Animal.DateOfDeath" class="form-control" />
-                <span asp-validation-for="Animal.DateOfDeath" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Animal.CauseOfDeath" class="control-label">Cause of Death</label>
-                <input asp-for="Animal.CauseOfDeath" class="form-control" />
-                <span asp-validation-for="Animal.CauseOfDeath" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Animal.Gender" class="control-label"></label>
@@ -85,15 +67,14 @@
                 <span asp-validation-for="Animal.Recreation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Animal.Notes" class="control-label"></label>
-                <input asp-for="Animal.Notes" class="form-control" />
-                <span asp-validation-for="Animal.Notes" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {

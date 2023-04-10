@@ -3,7 +3,16 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
 <h4>Create Employee Shift</h4>
 <hr />
@@ -12,26 +21,22 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="EmployeeShift.EmployeeId" class="control-label">Employee ID</label>
-                <select asp-for="EmployeeShift.EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="EmployeeShift.ShiftStart" class="control-label">Shift Start</label>
+                <label asp-for="EmployeeShift.ShiftStart" class="control-label"></label>
                 <input asp-for="EmployeeShift.ShiftStart" class="form-control" />
                 <span asp-validation-for="EmployeeShift.ShiftStart" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmployeeShift.ShiftEnd" class="control-label">Shift End</label>
+                <label asp-for="EmployeeShift.ShiftEnd" class="control-label"></label>
                 <input asp-for="EmployeeShift.ShiftEnd" class="form-control" />
                 <span asp-validation-for="EmployeeShift.ShiftEnd" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmployeeShift.LunchStart" class="control-label">Lunch Start</label>
+                <label asp-for="EmployeeShift.LunchStart" class="control-label"></label>
                 <input asp-for="EmployeeShift.LunchStart" class="form-control" />
                 <span asp-validation-for="EmployeeShift.LunchStart" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EmployeeShift.LunchEnd" class="control-label">Lunch End</label>
+                <label asp-for="EmployeeShift.LunchEnd" class="control-label"></label>
                 <input asp-for="EmployeeShift.LunchEnd" class="form-control" />
                 <span asp-validation-for="EmployeeShift.LunchEnd" class="text-danger"></span>
             </div>

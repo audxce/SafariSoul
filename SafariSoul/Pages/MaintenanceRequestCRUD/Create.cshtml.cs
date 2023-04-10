@@ -11,19 +11,17 @@ namespace SafariSoul.Pages.MaintenanceRequestCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["Exhibit"] = new SelectList(_context.Exhibits, "ExhibitNo", "ExhibitNo");
-        ViewData["Fulfiller"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
-        ViewData["Location"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
-        ViewData["Requester"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+            ViewData["Exhibit"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
+            ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
             return Page();
         }
 
@@ -36,6 +34,8 @@ namespace SafariSoul.Pages.MaintenanceRequestCRUD
         {
           if (!ModelState.IsValid || _context.MaintenanceRequests == null || MaintenanceRequest == null)
             {
+                ViewData["Exhibit"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
+                ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
                 return Page();
             }
 

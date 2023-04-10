@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <head>
@@ -20,31 +21,21 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="ZooTransaction.TransactionId" class="control-label">Transaction ID</label>
-                <input asp-for="ZooTransaction.TransactionId" class="form-control" />
-                <span asp-validation-for="ZooTransaction.TransactionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="ZooTransaction.DateAndTime" class="control-label">Date and Time</label>
                 <input asp-for="ZooTransaction.DateAndTime" class="form-control" />
                 <span asp-validation-for="ZooTransaction.DateAndTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ZooTransaction.Customer" class="control-label"></label>
-                <select asp-for="ZooTransaction.Customer" class ="form-control" asp-items="ViewBag.Customer"></select>
+                <label asp-for="ZooTransaction.CustomerId" class="control-label">Customer</label>
+                <select asp-for="ZooTransaction.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ZooTransaction.SellerId" class="control-label">Seller ID</label>
-                <select asp-for="ZooTransaction.SellerId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+                <label asp-for="ZooTransaction.SellerId" class="control-label">Seller</label>
+                <select asp-for="ZooTransaction.SellerId" class ="form-control" asp-items="ViewBag.SellerId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="ZooTransaction.Location" class="control-label"></label>
-                <input asp-for="ZooTransaction.Location" class="form-control" />
-                <span asp-validation-for="ZooTransaction.Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ZooTransaction.Discount" class="control-label"></label>
-                <select asp-for="ZooTransaction.Discount" class ="form-control" asp-items="ViewBag.Discount"></select>
+                <label asp-for="ZooTransaction.LocationId" class="control-label">Location</label>
+                <select asp-for="ZooTransaction.LocationId" class ="form-control" asp-items="ViewBag.LocationId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

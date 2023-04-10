@@ -12,9 +12,9 @@ namespace SafariSoul.Pages.AnimalCareProgramCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -29,7 +29,7 @@ namespace SafariSoul.Pages.AnimalCareProgramCRUD
                 return NotFound();
             }
 
-            var animalcareprogram =  await _context.AnimalCarePrograms.FirstOrDefaultAsync(m => m.AnimalProgramNum == id);
+            var animalcareprogram =  await _context.AnimalCarePrograms.FirstOrDefaultAsync(m => m.AnimalProgramId == id);
             if (animalcareprogram == null)
             {
                 return NotFound();
@@ -55,7 +55,7 @@ namespace SafariSoul.Pages.AnimalCareProgramCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AnimalCareProgramExists(AnimalCareProgram.AnimalProgramNum))
+                if (!AnimalCareProgramExists(AnimalCareProgram.AnimalProgramId))
                 {
                     return NotFound();
                 }
@@ -70,7 +70,7 @@ namespace SafariSoul.Pages.AnimalCareProgramCRUD
 
         private bool AnimalCareProgramExists(int id)
         {
-          return (_context.AnimalCarePrograms?.Any(e => e.AnimalProgramNum == id)).GetValueOrDefault();
+          return (_context.AnimalCarePrograms?.Any(e => e.AnimalProgramId == id)).GetValueOrDefault();
         }
     }
 }

@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.EmployeeShiftCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -30,13 +29,13 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
                 return NotFound();
             }
 
-            var employeeshift =  await _context.EmployeeShifts.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            var employeeshift =  await _context.EmployeeShifts.FirstOrDefaultAsync(m => m.ShiftId == id);
             if (employeeshift == null)
             {
                 return NotFound();
             }
             EmployeeShift = employeeshift;
-           ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -46,6 +45,7 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 
@@ -57,7 +57,7 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!EmployeeShiftExists(EmployeeShift.EmployeeId))
+                if (!EmployeeShiftExists(EmployeeShift.ShiftId))
                 {
                     return NotFound();
                 }
@@ -72,7 +72,7 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
 
         private bool EmployeeShiftExists(int id)
         {
-          return (_context.EmployeeShifts?.Any(e => e.EmployeeId == id)).GetValueOrDefault();
+          return (_context.EmployeeShifts?.Any(e => e.ShiftId == id)).GetValueOrDefault();
         }
     }
 }

@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <head>
@@ -13,37 +14,21 @@
     </style>
 </head>
 
-
 <h4>Create Location</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-             <div class="form-group">
-                <label asp-for="Location.LocationNum" class="control-label">Location Number</label>
-                <input asp-for="Location.LocationNum" class="form-control" />
-                <span asp-validation-for="Location.LocationNum" class="text-danger"></span>
-            </div>
             <div class="form-group">
                 <label asp-for="Location.LocationName" class="control-label">Location Name</label>
                 <input asp-for="Location.LocationName" class="form-control" />
                 <span asp-validation-for="Location.LocationName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Location.MaxCapacity" class="control-label">Max Capacity</label>
-                <input asp-for="Location.MaxCapacity" class="form-control" />
-                <span asp-validation-for="Location.MaxCapacity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location.OpeningTime" class="control-label">Opening Time</label>
-                <input asp-for="Location.OpeningTime" type ="time" class="form-control" />
-                <span asp-validation-for="Location.OpeningTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location.ClosingTime" class="control-label">Closing Time</label>
-                <input asp-for="Location.ClosingTime" type="time" class="form-control" />
-                <span asp-validation-for="Location.ClosingTime" class="text-danger"></span>
+                <label asp-for="Location.Capacity" class="control-label">Location Name</label>
+                <input asp-for="Location.Capacity" class="form-control" />
+                <span asp-validation-for="Location.Capacity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

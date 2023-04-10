@@ -9,13 +9,11 @@ public partial class Animal
 
     public string AnimalName { get; set; } = null!;
 
-    public string Genus { get; set; } = null!;
+    public int? SpeciesId { get; set; }
 
-    public string Species { get; set; } = null!;
+    public int? Mother { get; set; }
 
-    public int? MotherId { get; set; }
-
-    public int? FatherId { get; set; }
+    public int? Father { get; set; }
 
     public string? UniqueDescriptors { get; set; }
 
@@ -31,17 +29,19 @@ public partial class Animal
 
     public string? Recreation { get; set; }
 
-    public string? Notes { get; set; }
-
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual ICollection<AnimalCareProgramAnimalsInvolved> AnimalCareProgramAnimalsInvolveds { get; } = new List<AnimalCareProgramAnimalsInvolved>();
+    public virtual Animal? FatherNavigation { get; set; }
 
-    public virtual ICollection<EducationProgramAnimalsInvolved> EducationProgramAnimalsInvolveds { get; } = new List<EducationProgramAnimalsInvolved>();
+    public virtual ICollection<Animal> InverseFatherNavigation { get; } = new List<Animal>();
 
-    public virtual Species SpeciesNavigation { get; set; } = null!;
+    public virtual ICollection<Animal> InverseMotherNavigation { get; } = new List<Animal>();
+
+    public virtual Animal? MotherNavigation { get; set; }
+
+    public virtual Species? Species { get; set; }
 
     public virtual ICollection<VeterinaryVisit> VeterinaryVisits { get; } = new List<VeterinaryVisit>();
 

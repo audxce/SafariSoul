@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.ZooUserCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }

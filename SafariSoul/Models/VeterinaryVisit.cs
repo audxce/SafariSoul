@@ -7,13 +7,15 @@ public partial class VeterinaryVisit
 {
     public int VetVisitId { get; set; }
 
+    public int VetId { get; set; }
+
     public DateTime? TimeScheduled { get; set; }
 
     public DateTime? TimeAdmitted { get; set; }
 
     public DateTime? TimeDischarged { get; set; }
 
-    public string Urgency { get; set; } = null!;
+    public string? Urgency { get; set; }
 
     public int Animal { get; set; }
 
@@ -29,5 +31,5 @@ public partial class VeterinaryVisit
 
     public virtual Animal AnimalNavigation { get; set; } = null!;
 
-    public virtual ICollection<VeterinaryVisitVetId> VeterinaryVisitVetIds { get; } = new List<VeterinaryVisitVetId>();
+    public virtual Employee Vet { get; set; } = null!;
 }

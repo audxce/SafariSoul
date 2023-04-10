@@ -3,19 +3,30 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>Membership</h4>
+<h4>Edit Membership</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Membership.MembershipLevel" />
             <div class="form-group">
-                <label asp-for="Membership.MembershipFee" class="control-label"></label>
+                <label asp-for="Membership.MembershipLevel" class="control-label">Membership Level</label>
+                <input asp-for="Membership.MembershipLevel" class="form-control" />
+                <span asp-validation-for="Membership.MembershipLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Membership.MembershipFee" class="control-label">Membership Fee</label>
                 <input asp-for="Membership.MembershipFee" class="form-control" />
                 <span asp-validation-for="Membership.MembershipFee" class="text-danger"></span>
             </div>
@@ -25,7 +36,7 @@
                 <span asp-validation-for="Membership.Benefits" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

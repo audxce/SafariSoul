@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
-
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -18,18 +18,6 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Animal.AnimalName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Animal.MotherId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Animal.MotherId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Animal.FatherId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Animal.FatherId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Animal.UniqueDescriptors)
@@ -74,16 +62,34 @@
             @Html.DisplayFor(model => model.Animal.Recreation)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Animal.Notes)
+            @Html.DisplayNameFor(model => model.Animal.CreatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Animal.Notes)
+            @Html.DisplayFor(model => model.Animal.CreatedAt)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Animal.SpeciesNavigation)
+            @Html.DisplayNameFor(model => model.Animal.UpdatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Animal.SpeciesNavigation.SpeciesGenus)
+            @Html.DisplayFor(model => model.Animal.UpdatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.FatherNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.FatherNavigation.AnimalId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.MotherNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.MotherNavigation.AnimalId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Animal.Species)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Animal.Species.SpeciesId)
         </dd>
     </dl>
     

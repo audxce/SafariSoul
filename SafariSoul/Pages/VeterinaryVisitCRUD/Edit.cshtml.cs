@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.VeterinaryVisitCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -36,7 +35,8 @@ namespace SafariSoul.Pages.VeterinaryVisitCRUD
                 return NotFound();
             }
             VeterinaryVisit = veterinaryvisit;
-           ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalId");
+           ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
+           ViewData["VetId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -46,6 +46,8 @@ namespace SafariSoul.Pages.VeterinaryVisitCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
+                ViewData["VetId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

@@ -11,9 +11,9 @@ namespace SafariSoul.Pages.ExpenseCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -25,8 +25,7 @@ namespace SafariSoul.Pages.ExpenseCRUD
             if (_context.Expenses != null)
             {
                 Expense = await _context.Expenses
-                .Include(e => e.Dept)
-                .Include(e => e.EmployeeNumNavigation)
+                .Include(e => e.Employee)
                 .Include(e => e.Vendor).ToListAsync();
             }
         }

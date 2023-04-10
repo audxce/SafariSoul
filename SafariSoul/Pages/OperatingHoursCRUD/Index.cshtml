@@ -1,0 +1,55 @@
+﻿@page
+@model SafariSoul.Pages.OperatingHoursCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingHour[0].DayOfWeek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingHour[0].OpeningTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OperatingHour[0].ClosingTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.OperatingHour) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DayOfWeek)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpeningTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.DayId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.DayId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.DayId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

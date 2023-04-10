@@ -3,69 +3,64 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>MaintenanceRequest</h4>
+<h4>Edit Maintenance Request</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MaintenanceRequest.TicketNo" />
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.Details" class="control-label"></label>
                 <input asp-for="MaintenanceRequest.Details" class="form-control" />
                 <span asp-validation-for="MaintenanceRequest.Details" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MaintenanceRequest.Room" class="control-label"></label>
-                <input asp-for="MaintenanceRequest.Room" class="form-control" />
-                <span asp-validation-for="MaintenanceRequest.Room" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="MaintenanceRequest.Exhibit" class="control-label"></label>
                 <select asp-for="MaintenanceRequest.Exhibit" class="form-control" asp-items="ViewBag.Exhibit"></select>
-                <span asp-validation-for="MaintenanceRequest.Exhibit" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.Location" class="control-label"></label>
                 <select asp-for="MaintenanceRequest.Location" class="form-control" asp-items="ViewBag.Location"></select>
-                <span asp-validation-for="MaintenanceRequest.Location" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MaintenanceRequest.Requester" class="control-label"></label>
-                <select asp-for="MaintenanceRequest.Requester" class="form-control" asp-items="ViewBag.Requester"></select>
-                <span asp-validation-for="MaintenanceRequest.Requester" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaintenanceRequest.TimeRequested" class="control-label"></label>
-                <input asp-for="MaintenanceRequest.TimeRequested" class="form-control" />
+                <label asp-for="MaintenanceRequest.TimeRequested" class="control-label">Time Requested</label>
+                <input asp-for="MaintenanceRequest.TimeRequested" type="time" class="form-control" />
                 <span asp-validation-for="MaintenanceRequest.TimeRequested" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MaintenanceRequest.Fulfiller" class="control-label"></label>
-                <select asp-for="MaintenanceRequest.Fulfiller" class="form-control" asp-items="ViewBag.Fulfiller"></select>
-                <span asp-validation-for="MaintenanceRequest.Fulfiller" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaintenanceRequest.TimeFulfilled" class="control-label"></label>
-                <input asp-for="MaintenanceRequest.TimeFulfilled" class="form-control" />
+                <label asp-for="MaintenanceRequest.TimeFulfilled" class="control-label">Time Fulfilled</label>
+                <input asp-for="MaintenanceRequest.TimeFulfilled" type="time" class="form-control" />
                 <span asp-validation-for="MaintenanceRequest.TimeFulfilled" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.Urgency" class="control-label"></label>
-                <input asp-for="MaintenanceRequest.Urgency" class="form-control" />
+                <select asp-for="MaintenanceRequest.Urgency" class="form-control">
+                    <option value="">-- Select Urgency Level --</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
                 <span asp-validation-for="MaintenanceRequest.Urgency" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-
 <div>
     <a asp-page="./Index">Back to List</a>
 </div>

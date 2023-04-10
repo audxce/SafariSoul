@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -12,12 +13,6 @@
     <h4>Department</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Department.DeptName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Department.DeptName)
-        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Department.PhoneNum)
         </dt>
@@ -31,22 +26,28 @@
             @Html.DisplayFor(model => model.Department.Email)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Department.Location)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Department.Location)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Department.Budget)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Department.Budget)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Department.Description)
+            @Html.DisplayNameFor(model => model.Department.CreatedAt)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Department.Description)
+            @Html.DisplayFor(model => model.Department.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Department.UpdatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Department.UpdatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Department.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Department.Location.LocationId)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Department.Manager)
@@ -57,7 +58,7 @@
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="Department.DeptId" />
+        <input type="hidden" asp-for="Department.DeptName" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

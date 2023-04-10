@@ -3,7 +3,9 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
+
 <head>
     <style>
         .form-group + .form-group {
@@ -19,11 +21,6 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Employee.EmployeeId" class="control-label">Employee ID</label>
-                <input asp-for="Employee.EmployeeId" class="form-control" />
-                <span asp-validation-for="Employee.EmployeeId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Employee.Fname" class="control-label">First Name</label>
                 <input asp-for="Employee.Fname" class="form-control" />
                 <span asp-validation-for="Employee.Fname" class="text-danger"></span>
@@ -34,73 +31,35 @@
                 <span asp-validation-for="Employee.Minit" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.Lname" class="control-label">Last Nam</label>
+                <label asp-for="Employee.Lname" class="control-label">Last Name</label>
                 <input asp-for="Employee.Lname" class="form-control" />
                 <span asp-validation-for="Employee.Lname" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.Bdate" class="control-label">Date of Birth</label>
-                <input asp-for="Employee.Bdate" type ="date" class="form-control" />
+                <input asp-for="Employee.Bdate" type = "date" class="form-control" />
                 <span asp-validation-for="Employee.Bdate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.TrainingAndCerts" class="control-label">Training and Cerifications</label>
-                <input asp-for="Employee.TrainingAndCerts" class="form-control" />
-                <span asp-validation-for="Employee.TrainingAndCerts" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Employee.Occupation" class="control-label"></label>
-                <select asp-for="Employee.Occupation" class ="form-control" asp-items="ViewBag.Occupation"></select>
+                <input asp-for="Employee.Occupation" class="form-control" />
+                <span asp-validation-for="Employee.Occupation" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.TimeBasedBenefits" class="control-label">Time Based Benefits</label>
-                <input asp-for="Employee.TimeBasedBenefits" class="form-control" />
-                <span asp-validation-for="Employee.TimeBasedBenefits" class="text-danger"></span>
+                <label asp-for="Employee.DeptName" class="control-label">Department</label>
+                <select asp-for="Employee.DeptName" class ="form-control" asp-items="ViewBag.DeptName"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.OccupationBasedBenefits" class="control-label">Occupation Based Benefits</label>
-                <input asp-for="Employee.OccupationBasedBenefits" class="form-control" />
-                <span asp-validation-for="Employee.OccupationBasedBenefits" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.Location" class="control-label"></label>
-                <select asp-for="Employee.Location" class ="form-control" asp-items="ViewBag.Location"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.DeptNo" class="control-label">Department Number</label>
-                <select asp-for="Employee.DeptNo" class ="form-control" asp-items="ViewBag.DeptNo"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.SupId" class="control-label">Supervisor ID</label>
+                <label asp-for="Employee.SupId" class="control-label">Supervisor</label>
                 <select asp-for="Employee.SupId" class ="form-control" asp-items="ViewBag.SupId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.Wage" class="control-label">Wage (hourly)</label>
-                <input asp-for="Employee.Wage" class="form-control" />
-                <span asp-validation-for="Employee.Wage" class="text-danger"></span>
+                <label asp-for="Employee.Salary" class="control-label">Salary</label>
+                <input asp-for="Employee.Salary" class="form-control" />
+                <span asp-validation-for="Employee.Salary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.Bonus" class="control-label">Bonus</label>
-                <input asp-for="Employee.Bonus" class="form-control" />
-                <span asp-validation-for="Employee.Bonus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.Insurance" class="control-label">Insurance</label>
-                <input asp-for="Employee.Insurance" class="form-control" />
-                <span asp-validation-for="Employee.Insurance" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.InsurancePlan" class="control-label">Insurance Plan</label>
-                <input asp-for="Employee.InsurancePlan" class="form-control" />
-                <span asp-validation-for="Employee.InsurancePlan" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.WorkPhoneNum" class="control-label">Work Phone Number</label>
-                <input asp-for="Employee.WorkPhoneNum" class="form-control" />
-                <span asp-validation-for="Employee.WorkPhoneNum" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.MobilePhoneNum" class="control-label">Mobile Phone Number</label>
+                <label asp-for="Employee.MobilePhoneNum" class="control-label">Phone Number</label>
                 <input asp-for="Employee.MobilePhoneNum" class="form-control" />
                 <span asp-validation-for="Employee.MobilePhoneNum" class="text-danger"></span>
             </div>
@@ -120,7 +79,7 @@
                 <span asp-validation-for="Employee.EmergencyContactName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.EmergencyContactPhone" class="control-label">Emergency Contact Phone Number</label>
+                <label asp-for="Employee.EmergencyContactPhone" class="control-label">Emergency Contact Phone</label>
                 <input asp-for="Employee.EmergencyContactPhone" class="form-control" />
                 <span asp-validation-for="Employee.EmergencyContactPhone" class="text-danger"></span>
             </div>
@@ -136,16 +95,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Employee.DateLeft" class="control-label">Date Left</label>
-                <input asp-for="Employee.DateLeft" type="date" class="form-control" />
+                <input asp-for="Employee.DateLeft" type ="date" class="form-control" />
                 <span asp-validation-for="Employee.DateLeft" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.VacationDaysLeft" class="control-label">Vacation Days Left</label>
+                <label asp-for="Employee.VacationDaysLeft" class="control-label">Vacation Days</label>
                 <input asp-for="Employee.VacationDaysLeft" class="form-control" />
                 <span asp-validation-for="Employee.VacationDaysLeft" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.SickDaysLeft" class="control-label">Sick Days Left</label>
+                <label asp-for="Employee.SickDaysLeft" class="control-label">Sick Days</label>
                 <input asp-for="Employee.SickDaysLeft" class="form-control" />
                 <span asp-validation-for="Employee.SickDaysLeft" class="text-danger"></span>
             </div>

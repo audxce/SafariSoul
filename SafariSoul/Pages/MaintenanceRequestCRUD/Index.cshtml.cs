@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.MaintenanceRequestCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -27,9 +26,7 @@ namespace SafariSoul.Pages.MaintenanceRequestCRUD
             {
                 MaintenanceRequest = await _context.MaintenanceRequests
                 .Include(m => m.ExhibitNavigation)
-                .Include(m => m.FulfillerNavigation)
-                .Include(m => m.LocationNavigation)
-                .Include(m => m.RequesterNavigation).ToListAsync();
+                .Include(m => m.LocationNavigation).ToListAsync();
             }
         }
     }

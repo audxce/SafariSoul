@@ -7,21 +7,21 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.VeterinaryVisitCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalId");
+            ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
+            ViewData["VetId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -34,6 +34,8 @@ namespace SafariSoul.Pages.VeterinaryVisitCRUD
         {
           if (!ModelState.IsValid || _context.VeterinaryVisits == null || VeterinaryVisit == null)
             {
+                ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
+                ViewData["VetId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

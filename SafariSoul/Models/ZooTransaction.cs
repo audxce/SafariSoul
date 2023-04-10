@@ -9,25 +9,21 @@ public partial class ZooTransaction
 
     public DateTime DateAndTime { get; set; }
 
-    public int? Customer { get; set; }
+    public int CustomerId { get; set; }
 
-    public int? SellerId { get; set; }
+    public int SellerId { get; set; }
 
-    public int? Location { get; set; }
-
-    public string? Discount { get; set; }
-
-    public bool HasProcessed { get; set; }
+    public int LocationId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual Customer? CustomerNavigation { get; set; }
+    public virtual Customer Customer { get; set; } = null!;
 
-    public virtual Discount? DiscountNavigation { get; set; }
+    public virtual Location Location { get; set; } = null!;
 
-    public virtual Employee? Seller { get; set; }
+    public virtual Employee Seller { get; set; } = null!;
 
     public virtual ICollection<ZooTransactionEventTicket> ZooTransactionEventTickets { get; } = new List<ZooTransactionEventTicket>();
 

@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.MaintenanceRequestCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -36,10 +35,8 @@ namespace SafariSoul.Pages.MaintenanceRequestCRUD
                 return NotFound();
             }
             MaintenanceRequest = maintenancerequest;
-           ViewData["Exhibit"] = new SelectList(_context.Exhibits, "ExhibitNo", "ExhibitNo");
-           ViewData["Fulfiller"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
-           ViewData["Location"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
-           ViewData["Requester"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["Exhibit"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
+           ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
             return Page();
         }
 
@@ -49,6 +46,8 @@ namespace SafariSoul.Pages.MaintenanceRequestCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["Exhibit"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
+                ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
                 return Page();
             }
 

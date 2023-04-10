@@ -1,0 +1,60 @@
+﻿@page
+@model SafariSoul.Pages.OperatingHoursCRUD.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<h4>Edit Operating Hours</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="OperatingHour.DayOfWeek" class="control-label">Day of Week</label>
+                <select asp-for="OperatingHour.DayOfWeek" class="form-control">
+                    <option value="">--Select Day--</option>
+                    <option value="Monday">Mon</option>
+                    <option value="Tuesday">Tues</option>
+                    <option value="Wednesday">Wed</option>
+                    <option value="Thursday">Thurs</option>
+                    <option value="Friday">Fri</option>
+                    <option value="Saturday">Sat</option>
+                    <option value="Sunday">Sun</option>
+                </select>
+                <span asp-validation-for="OperatingHour.DayOfWeek" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperatingHour.OpeningTime" class="control-label">Opening Time</label>
+                <input asp-for="OperatingHour.OpeningTime" type="time" class="form-control" />
+                <span asp-validation-for="OperatingHour.OpeningTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OperatingHour.ClosingTime" class="control-label">Closing Time</label>
+                <input asp-for="OperatingHour.ClosingTime" type="time" class="form-control" />
+                <span asp-validation-for="OperatingHour.ClosingTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Set" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

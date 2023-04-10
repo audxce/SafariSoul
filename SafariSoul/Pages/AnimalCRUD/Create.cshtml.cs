@@ -11,23 +11,18 @@ namespace SafariSoul.Pages.AnimalCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["Genus"] = new SelectList(_context.Species, "SpeciesGenus", "SpeciesGenus");
-
-        ViewData["Species"] = new SelectList(_context.Species, "SpeciesSpecies", "SpeciesSpecies");
-
-        ViewData["MotherId"] = new SelectList(_context.Animals.Where(a => a.Gender == "Female"), "AnimalId", "AnimalName");
-
-        ViewData["FatherId"] = new SelectList(_context.Animals.Where(a => a.Gender == "Male"), "AnimalId", "AnimalName");
-
+        ViewData["Father"] = new SelectList(_context.Animals.Where(a => a.Gender == "Male"), "AnimalId", "AnimalName");
+        ViewData["Mother"] = new SelectList(_context.Animals.Where(a => a.Gender == "Female"), "AnimalId", "AnimalName");
+        ViewData["SpeciesId"] = new SelectList(_context.Species, "SpeciesId", "CommonName");
             return Page();
         }
 
@@ -40,7 +35,9 @@ namespace SafariSoul.Pages.AnimalCRUD
         {
           if (!ModelState.IsValid || _context.Animals == null || Animal == null)
             {
-                
+                ViewData["Father"] = new SelectList(_context.Animals.Where(a => a.Gender == "Male"), "AnimalId", "AnimalName");
+                ViewData["Mother"] = new SelectList(_context.Animals.Where(a => a.Gender == "Female"), "AnimalId", "AnimalName");
+                ViewData["SpeciesId"] = new SelectList(_context.Species, "SpeciesId", "CommonName");
                 return Page();
             }
 

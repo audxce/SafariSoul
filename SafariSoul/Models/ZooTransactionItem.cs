@@ -5,11 +5,13 @@ namespace SafariSoul.Models;
 
 public partial class ZooTransactionItem
 {
+    public int MultiItemsId { get; set; }
+
     public int TransactionId { get; set; }
 
     public int ItemId { get; set; }
 
-    public float? ItemQuantity { get; set; }
+    public int? ItemQuantity { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 

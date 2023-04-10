@@ -3,26 +3,27 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Edit</h1>
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
 
-<h4>Inventory</h4>
+<h4>Edit Inventory</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Inventory.ItemId" />
             <div class="form-group">
-                <label asp-for="Inventory.ItemName" class="control-label"></label>
+                <label asp-for="Inventory.ItemName" class="control-label">Item Name</label>
                 <input asp-for="Inventory.ItemName" class="form-control" />
                 <span asp-validation-for="Inventory.ItemName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Inventory.ItemDescription" class="control-label"></label>
-                <input asp-for="Inventory.ItemDescription" class="form-control" />
-                <span asp-validation-for="Inventory.ItemDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.Price" class="control-label"></label>
@@ -30,23 +31,28 @@
                 <span asp-validation-for="Inventory.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.Category" class="control-label"></label>
-                <input asp-for="Inventory.Category" class="form-control" />
-                <span asp-validation-for="Inventory.Category" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Inventory.Destination" class="control-label"></label>
                 <select asp-for="Inventory.Destination" class="form-control" asp-items="ViewBag.Destination"></select>
-                <span asp-validation-for="Inventory.Destination" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.RefrigerationNeeds" class="control-label"></label>
-                <input asp-for="Inventory.RefrigerationNeeds" class="form-control" />
+                <label asp-for="Inventory.RefrigerationNeeds" class="control-label">Refrigeration Needs</label>
+                <select asp-for="Inventory.RefrigerationNeeds" class="form-control">
+                    <option value="">-- Select Refrigeration Needs --</option>
+                    <option value="None">None</option>
+                    <option value="RoomTemp">Room Temp</option>
+                    <option value="Refrigerated">Refrigerated</option>
+                    <option value="Frozen">Frozen</option>
+                </select>
                 <span asp-validation-for="Inventory.RefrigerationNeeds" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.HumidityRequirements" class="control-label"></label>
-                <input asp-for="Inventory.HumidityRequirements" class="form-control" />
+                <label asp-for="Inventory.HumidityRequirements" class="control-label">Humdity Requirements</label>
+                <select asp-for="Inventory.HumidityRequirements" class="form-control">
+                    <option value="">-- Select Humidity Requirements --</option>
+                    <option value="Dry">Dry</option>
+                    <option value="Damp">Damp</option>
+                    <option value="Doesn't Matter">Doesn't Matter</option>
+                </select>
                 <span asp-validation-for="Inventory.HumidityRequirements" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -55,32 +61,36 @@
                 <span asp-validation-for="Inventory.Quantity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.MeasurementUnits" class="control-label"></label>
-                <input asp-for="Inventory.MeasurementUnits" class="form-control" />
+                <label asp-for="Inventory.MeasurementUnits" class="control-label">Measurement Units</label>
+                <select asp-for="Inventory.MeasurementUnits" class="form-control">
+                    <option value="">-- Select Measurement Units --</option>
+                    <option value="kg">kg</option>
+                    <option value="L">L</option>
+                    <option value="Units">Units</option>
+                </select>
                 <span asp-validation-for="Inventory.MeasurementUnits" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.ReorderThreshold" class="control-label"></label>
+                <label asp-for="Inventory.ReorderThreshold" class="control-label">Reorder Threshold</label>
                 <input asp-for="Inventory.ReorderThreshold" class="form-control" />
                 <span asp-validation-for="Inventory.ReorderThreshold" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.ReorderQuantity" class="control-label"></label>
+                <label asp-for="Inventory.ReorderQuantity" class="control-label">Reorder Quantity</label>
                 <input asp-for="Inventory.ReorderQuantity" class="form-control" />
                 <span asp-validation-for="Inventory.ReorderQuantity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.Supplier" class="control-label"></label>
                 <select asp-for="Inventory.Supplier" class="form-control" asp-items="ViewBag.Supplier"></select>
-                <span asp-validation-for="Inventory.Supplier" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.DateLastOrdered" class="control-label"></label>
-                <input asp-for="Inventory.DateLastOrdered" class="form-control" />
+                <label asp-for="Inventory.DateLastOrdered" class="control-label">Date Last Ordered</label>
+                <input asp-for="Inventory.DateLastOrdered" type="date" class="form-control" />
                 <span asp-validation-for="Inventory.DateLastOrdered" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

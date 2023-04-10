@@ -11,17 +11,17 @@ namespace SafariSoul.Pages.InventoryCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["Destination"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
-        ViewData["Supplier"] = new SelectList(_context.Vendors, "VendorId", "VendorId");
+        ViewData["Destination"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+        ViewData["Supplier"] = new SelectList(_context.Vendors, "VendorId", "VendorName");
             return Page();
         }
 
@@ -34,6 +34,8 @@ namespace SafariSoul.Pages.InventoryCRUD
         {
           if (!ModelState.IsValid || _context.Inventories == null || Inventory == null)
             {
+                ViewData["Destination"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+                ViewData["Supplier"] = new SelectList(_context.Vendors, "VendorId", "VendorName");
                 return Page();
             }
 

@@ -11,16 +11,16 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+        ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -33,6 +33,7 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
         {
           if (!ModelState.IsValid || _context.EmployeeShifts == null || EmployeeShift == null)
             {
+                ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

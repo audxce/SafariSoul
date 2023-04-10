@@ -8,14 +8,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.ZooEventCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -36,9 +35,9 @@ namespace SafariSoul.Pages.ZooEventCRUD
                 return NotFound();
             }
             ZooEvent = zooevent;
-           ViewData["AnimalProgramNo"] = new SelectList(_context.AnimalCarePrograms, "AnimalProgramNum", "AnimalProgramNum");
-           ViewData["EducationalProgramNo"] = new SelectList(_context.EducationPrograms, "ProgramNo", "ProgramNo");
-           ViewData["EventLocation"] = new SelectList(_context.Locations, "LocationNum", "LocationNum");
+           ViewData["AnimalProgramId"] = new SelectList(_context.AnimalCarePrograms, "AnimalProgramId", "ProgramName");
+           ViewData["EducationalProgramId"] = new SelectList(_context.EducationPrograms, "EducationProgramId", "ProgramName");
+           ViewData["EventLocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
             return Page();
         }
 
@@ -48,6 +47,9 @@ namespace SafariSoul.Pages.ZooEventCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["AnimalProgramId"] = new SelectList(_context.AnimalCarePrograms, "AnimalProgramId", "ProgramName");
+                ViewData["EducationalProgramId"] = new SelectList(_context.EducationPrograms, "EducationProgramId", "ProgramName");
+                ViewData["EventLocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
                 return Page();
             }
 

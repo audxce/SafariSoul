@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <head>
@@ -20,18 +21,13 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Exhibit.ExhibitNo" class="control-label"></label>
-                <input asp-for="Exhibit.ExhibitNo" class="form-control" />
-                <span asp-validation-for="Exhibit.ExhibitNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Exhibit.ExhibitName" class="control-label"></label>
+                <label asp-for="Exhibit.ExhibitName" class="control-label">Exhibit Name</label>
                 <input asp-for="Exhibit.ExhibitName" class="form-control" />
                 <span asp-validation-for="Exhibit.ExhibitName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.Location" class="control-label"></label>
-                <select asp-for="Exhibit.Location" class ="form-control" asp-items="ViewBag.Location"></select>
+                <select asp-for="Exhibit.Location" class="form-control" asp-items="ViewBag.Location"></select>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -40,27 +36,31 @@
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.Zookeeper" class="control-label"></label>
-                <select asp-for="Exhibit.Zookeeper" class ="form-control" asp-items="ViewBag.Zookeeper"></select>
+                <select asp-for="Exhibit.Zookeeper" class="form-control" asp-items="ViewBag.Zookeeper"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Exhibit.UpperTemperature" class="control-label"></label>
-                <input asp-for="Exhibit.UpperTemperature" class="form-control" />
-                <span asp-validation-for="Exhibit.UpperTemperature" class="text-danger"></span>
+                <label asp-for="Exhibit.NormalTemperature" class="control-label">Normal Temperature  (°F)</label>
+                <input asp-for="Exhibit.NormalTemperature" class="form-control" />
+                <span asp-validation-for="Exhibit.NormalTemperature" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Exhibit.LowerTemperature" class="control-label"></label>
-                <input asp-for="Exhibit.LowerTemperature" class="form-control" />
-                <span asp-validation-for="Exhibit.LowerTemperature" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Exhibit.Humidity" class="control-label"></label>
+                <label asp-for="Exhibit.Humidity" class="control-label">Humidity (%)</label>
                 <input asp-for="Exhibit.Humidity" class="form-control" />
                 <span asp-validation-for="Exhibit.Humidity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Exhibit.Flora" class="control-label"></label>
-                <input asp-for="Exhibit.Flora" class="form-control" />
-                <span asp-validation-for="Exhibit.Flora" class="text-danger"></span>
+                <label asp-for="Exhibit.FeedingTime" class="control-label">Feeding Time</label>
+                <input asp-for="Exhibit.FeedingTime" type="time" class="form-control" />
+                <span asp-validation-for="Exhibit.FeedingTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.MealContent" class="control-label">Meal Content</label>
+                <select asp-for="Exhibit.MealContent" class ="form-control" asp-items="ViewBag.MealContent"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Exhibit.MealQuantity" class="control-label"></label>
+                <input asp-for="Exhibit.MealQuantity" class="form-control" />
+                <span asp-validation-for="Exhibit.MealQuantity" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

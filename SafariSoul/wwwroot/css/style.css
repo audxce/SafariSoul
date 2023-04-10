@@ -124,7 +124,7 @@
 @media (min-width: 992px) {
     .navbar .nav-item .dropdown-menu {
         display: block;
-        border: none;
+        border: 1px solid #ccc;
         margin-top: 0;
         top: 150%;
         opacity: 0;
@@ -565,10 +565,13 @@
     box-shadow: none;
 }
 
-.footer .copyright {
-    padding: 25px 0;
-    font-size: 15px;
-    border-top: 1px solid rgba(256, 256, 256, .1);
+    .footer .copyright {
+        padding: 25px 0;
+        font-size: 15px;
+        border-top: 1px solid rgba(256, 256, 256, .1);
+        position: absolute;
+        bottom: 0;
+    }
 }
 
 .footer .copyright a {

@@ -5,17 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SafariSoul.Models;
 using Microsoft.EntityFrameworkCore;
-
+using SafariSoul.Models;
 
 namespace SafariSoul.Pages.DonationCRUD
 {
     public class EditModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public EditModel(SafariSoul.OfficalZooDbContext context)
+        public EditModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -36,7 +35,7 @@ namespace SafariSoul.Pages.DonationCRUD
                 return NotFound();
             }
             Donation = donation;
-           ViewData["DonorId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+           ViewData["DonorId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
             return Page();
         }
 

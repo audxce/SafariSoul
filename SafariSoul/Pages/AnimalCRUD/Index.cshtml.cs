@@ -11,37 +11,23 @@ namespace SafariSoul.Pages.AnimalCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
-        public string nameFilter { get; set; }
-        public string speciesFilter { get; set;  }
-
         public IList<Animal> Animal { get;set; } = default!;
 
-        public async Task OnGetAsync(string nameSearch, string speciesSearch)
+        public async Task OnGetAsync()
         {
-            nameFilter = nameSearch;
-            speciesFilter = speciesSearch;
-
             if (_context.Animals != null)
             {
-                IQueryable<Animal> animalIQ = from a in _context.Animals
-                                              select a;
-                if (!String.IsNullOrEmpty(nameSearch))
-                {
-                    animalIQ = animalIQ.Where(a => a.AnimalName.Contains(nameSearch));
-                }
-                if (!String.IsNullOrEmpty(speciesSearch))
-                {
-                    animalIQ = animalIQ.Where(a => a.Species.Contains(speciesSearch));
-                }
                 Animal = await _context.Animals
-                .Include(a => a.SpeciesNavigation).ToListAsync();
+                .Include(a => a.FatherNavigation)
+                .Include(a => a.MotherNavigation)
+                .Include(a => a.Species).ToListAsync();
             }
         }
     }

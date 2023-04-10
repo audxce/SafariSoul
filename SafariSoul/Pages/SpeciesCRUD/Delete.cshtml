@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -13,34 +14,46 @@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.SpeciesKingdom)
+            @Html.DisplayNameFor(model => model.Species.Kingdom)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.SpeciesKingdom)
+            @Html.DisplayFor(model => model.Species.Kingdom)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.SpeciesPhylum)
+            @Html.DisplayNameFor(model => model.Species.Phylum)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.SpeciesPhylum)
+            @Html.DisplayFor(model => model.Species.Phylum)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.SpeciesClass)
+            @Html.DisplayNameFor(model => model.Species.Class)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.SpeciesClass)
+            @Html.DisplayFor(model => model.Species.Class)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.SpeciesOrder)
+            @Html.DisplayNameFor(model => model.Species.Order)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.SpeciesOrder)
+            @Html.DisplayFor(model => model.Species.Order)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.SpeciesFamily)
+            @Html.DisplayNameFor(model => model.Species.Family)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.SpeciesFamily)
+            @Html.DisplayFor(model => model.Species.Family)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.Genus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.Genus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.Species1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.Species1)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Species.LifeExpectancy)
@@ -73,18 +86,6 @@
             @Html.DisplayFor(model => model.Species.Humidity)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.UpperTemperature)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.UpperTemperature)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.LowerTemperature)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.LowerTemperature)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Species.ActiveHours)
         </dt>
         <dd class="col-sm-10">
@@ -97,16 +98,16 @@
             @Html.DisplayFor(model => model.Species.ConservationStatus)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.SpeciesInfo)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.SpeciesInfo)
-        </dd>
-        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Species.CommonName)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Species.CommonName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Species.Exhibit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Species.Exhibit.ExhibitName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Species.CreatedAt)
@@ -120,17 +121,10 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Species.UpdatedAt)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Species.ExhibitNoNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Species.ExhibitNoNavigation.ExhibitNo)
-        </dd>
     </dl>
     
     <form method="post">
-        <input type="hidden" asp-for="Species.SpeciesGenus" />
-        <input type="hidden" asp-for="Species.SpeciesSpecies" />
+        <input type="hidden" asp-for="Species.SpeciesId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index">Back to List</a>
     </form>

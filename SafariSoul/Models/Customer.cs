@@ -42,4 +42,9 @@ public partial class Customer
     public virtual ICollection<ZooTransaction> ZooTransactions { get; } = new List<ZooTransaction>();
 
     public virtual ICollection<ZooUser> ZooUsers { get; } = new List<ZooUser>();
+
+    public string FullName
+    {
+        get { return Fname + " " + Lname; }
+    }
 }

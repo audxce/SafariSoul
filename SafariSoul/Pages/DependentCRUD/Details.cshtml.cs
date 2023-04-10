@@ -7,14 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-
 namespace SafariSoul.Pages.DependentCRUD
 {
     public class DetailsModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public DetailsModel(SafariSoul.OfficalZooDbContext context)
+        public DetailsModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -28,7 +27,7 @@ namespace SafariSoul.Pages.DependentCRUD
                 return NotFound();
             }
 
-            var dependent = await _context.Dependents.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            var dependent = await _context.Dependents.FirstOrDefaultAsync(m => m.DependentId == id);
             if (dependent == null)
             {
                 return NotFound();

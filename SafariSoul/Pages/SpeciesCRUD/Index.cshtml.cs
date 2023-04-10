@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.SpeciesCRUD
 {
     public class IndexModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public IndexModel(SafariSoul.OfficalZooDbContext context)
+        public IndexModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
@@ -26,7 +25,7 @@ namespace SafariSoul.Pages.SpeciesCRUD
             if (_context.Species != null)
             {
                 Species = await _context.Species
-                .Include(s => s.ExhibitNoNavigation).ToListAsync();
+                .Include(s => s.Exhibit).ToListAsync();
             }
         }
     }

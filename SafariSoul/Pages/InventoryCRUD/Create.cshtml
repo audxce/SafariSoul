@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <head>
@@ -13,7 +14,6 @@
     </style>
 </head>
 
-
 <h4>Create Inventory</h4>
 <hr />
 <div class="row">
@@ -21,19 +21,9 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Inventory.ItemId" class="control-label">Item ID</label>
-                <input asp-for="Inventory.ItemId" class="form-control" />
-                <span asp-validation-for="Inventory.ItemId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Inventory.ItemName" class="control-label">Item Name</label>
                 <input asp-for="Inventory.ItemName" class="form-control" />
                 <span asp-validation-for="Inventory.ItemName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Inventory.ItemDescription" class="control-label">Description</label>
-                <input asp-for="Inventory.ItemDescription" class="form-control" />
-                <span asp-validation-for="Inventory.ItemDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.Price" class="control-label"></label>
@@ -41,13 +31,8 @@
                 <span asp-validation-for="Inventory.Price" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Inventory.Category" class="control-label"></label>
-                <input asp-for="Inventory.Category" class="form-control" />
-                <span asp-validation-for="Inventory.Category" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Inventory.Destination" class="control-label"></label>
-                <select asp-for="Inventory.Destination" class ="form-control" asp-items="ViewBag.LocationNum"></select>
+                <select asp-for="Inventory.Destination" class ="form-control" asp-items="ViewBag.Destination"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.RefrigerationNeeds" class="control-label">Refrigeration Needs</label>
@@ -97,7 +82,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.Supplier" class="control-label"></label>
-                <select asp-for="Inventory.Supplier" class ="form-control" asp-items="ViewBag.Supplier"></select>
+                <select asp-for="Inventory.Supplier" class="form-control" asp-items="ViewBag.Supplier"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.DateLastOrdered" class="control-label">Date Last Ordered</label>

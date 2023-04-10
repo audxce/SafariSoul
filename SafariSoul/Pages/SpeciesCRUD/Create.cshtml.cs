@@ -5,23 +5,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SafariSoul;
 using SafariSoul.Models;
 
 namespace SafariSoul.Pages.SpeciesCRUD
 {
     public class CreateModel : PageModel
     {
-        private readonly SafariSoul.OfficalZooDbContext _context;
+        private readonly SafariSoul.Models.ZooDbContext _context;
 
-        public CreateModel(SafariSoul.OfficalZooDbContext context)
+        public CreateModel(SafariSoul.Models.ZooDbContext context)
         {
             _context = context;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["ExhibitNo"] = new SelectList(_context.Exhibits, "ExhibitNo", "ExhibitNo");
+            ViewData["ExhibitId"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
             return Page();
         }
 
@@ -34,6 +33,7 @@ namespace SafariSoul.Pages.SpeciesCRUD
         {
           if (!ModelState.IsValid || _context.Species == null || Species == null)
             {
+                ViewData["ExhibitId"] = new SelectList(_context.Exhibits, "ExhibitId", "ExhibitName");
                 return Page();
             }
 

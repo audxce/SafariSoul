@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
 <h1>Index</h1>
@@ -17,22 +18,25 @@
                 @Html.DisplayNameFor(model => model.Customer[0].Fname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Minit)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Customer[0].Lname)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Gender)
+                @Html.DisplayNameFor(model => model.Customer[0].PhoneNo)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].DateOfBirth)
+                @Html.DisplayNameFor(model => model.Customer[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].MembershipLevelNavigation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].IsDonor)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].MembershipLevelNavigation)
+                @Html.DisplayNameFor(model => model.Customer[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].UpdatedAt)
             </th>
             <th></th>
         </tr>
@@ -56,7 +60,28 @@
                 @Html.DisplayFor(modelItem => item.DateOfBirth)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.PhoneNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreditCardNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MembershipStartDate)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.IsDonor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MembershipLevelNavigation.MembershipLevel)
