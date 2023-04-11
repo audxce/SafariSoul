@@ -39,6 +39,12 @@
 @foreach (var item in Model.MaintenanceRequest) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ExhibitNavigation.ExhibitName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Details)
             </td>
             <td>
@@ -49,18 +55,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Urgency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ExhibitNavigation.ExhibitName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.TicketNo">Edit</a> |

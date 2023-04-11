@@ -246,7 +246,6 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Manager).WithOne(p => p.Department)
                 .HasForeignKey<Department>(d => d.ManagerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("MANAGED_BY");
         });
 
@@ -267,8 +266,8 @@ public partial class ZooDbContext : DbContext
             entity.Property(e => e.Email).HasMaxLength(45);
             entity.Property(e => e.EmployeeId).HasColumnName("Employee_ID");
             entity.Property(e => e.Fname).HasMaxLength(20);
-            entity.Property(e => e.Lname).HasMaxLength(20);
             entity.Property(e => e.Gender).HasColumnType("enum('Male','Female')");
+            entity.Property(e => e.Lname).HasMaxLength(20);
             entity.Property(e => e.PhoneNum)
                 .HasMaxLength(10)
                 .IsFixedLength()
@@ -389,7 +388,6 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.DeptNameNavigation).WithMany(p => p.Employees)
                 .HasForeignKey(d => d.DeptName)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("WORKS_IN");
 
             entity.HasOne(d => d.Sup).WithMany(p => p.InverseSup)
@@ -618,7 +616,6 @@ public partial class ZooDbContext : DbContext
             entity.HasIndex(e => e.LocationName, "Location_Name").IsUnique();
 
             entity.Property(e => e.LocationId).HasColumnName("Location_ID");
-            entity.Property(e => e.Capacity).HasColumnName("Capacity");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp")
@@ -1085,7 +1082,7 @@ public partial class ZooDbContext : DbContext
             entity.HasIndex(e => e.EmployeeId, "IS_EMPLOYEE");
 
             entity.Property(e => e.UserName)
-                .HasMaxLength(20)
+                .HasMaxLength(45)
                 .HasColumnName("User_Name");
             entity.Property(e => e.AuthenticationKey).HasColumnName("Authentication_Key");
             entity.Property(e => e.CreatedAt)

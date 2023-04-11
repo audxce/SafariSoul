@@ -36,6 +36,9 @@
 @foreach (var item in Model.EmployeeShift) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Employee.FullName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.ShiftStart)
             </td>
             <td>
@@ -46,15 +49,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LunchEnd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Employee.Fname)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ShiftId">Edit</a> |

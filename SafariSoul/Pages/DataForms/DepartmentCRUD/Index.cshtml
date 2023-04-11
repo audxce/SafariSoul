@@ -29,12 +29,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Department[0].Manager)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Department[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Department[0].UpdatedAt)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -51,19 +45,10 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Budget)
+                @Html.DisplayFor(modelItem => item.Location.LocationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location.LocationId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manager.EmployeeId)
+                @Html.DisplayFor(modelItem => item.Manager.FullName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.DeptName">Edit</a> |

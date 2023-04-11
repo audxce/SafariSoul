@@ -15,10 +15,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Fname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].Lname)
+                @Html.DisplayNameFor(model => model.Customer[0].FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].PhoneNo)
@@ -32,12 +29,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].IsDonor)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer[0].UpdatedAt)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -45,46 +36,19 @@
 @foreach (var item in Model.Customer) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Fname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Minit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
+                @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PhoneNo)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreditCardNo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MembershipStartDate)
+                @Html.DisplayFor(modelItem => item.MembershipLevelNavigation.MembershipLevel)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsDonor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MembershipLevelNavigation.MembershipLevel)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.CustomerId">Edit</a> |

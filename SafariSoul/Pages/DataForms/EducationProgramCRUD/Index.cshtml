@@ -1,5 +1,5 @@
 ﻿@page
-@model SafariSoul.Pages.EducationProgramCRUD.IndexModel
+@model SafariSoul.Pages.DataForms.EducationProgramCRUD.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -31,12 +31,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProgramDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.EducationProgramId">Edit</a> |

@@ -39,12 +39,6 @@
                 @Html.DisplayFor(modelItem => item.ClosingTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
                 <a asp-page="./Edit" asp-route-id="@item.DayId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.DayId">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.DayId">Delete</a>

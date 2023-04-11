@@ -29,12 +29,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.Animal[0].Gender)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Animal[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Animal[0].UpdatedAt)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -45,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.AnimalName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UniqueDescriptors)
+                @Html.DisplayFor(modelItem => item.Species.CommonName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateOfBirth)
@@ -54,31 +48,7 @@
                 @Html.DisplayFor(modelItem => item.DateOfDeath)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CauseOfDeath)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DietaryRestrictions)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Recreation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FatherNavigation.AnimalId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MotherNavigation.AnimalId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Species.SpeciesId)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AnimalId">Edit</a> |

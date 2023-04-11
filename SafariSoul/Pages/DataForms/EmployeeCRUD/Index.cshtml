@@ -27,9 +27,6 @@
                 @Html.DisplayNameFor(model => model.Employee[0].Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Employee[0].Address)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Employee[0].DeptNameNavigation)
             </th>
             <th>
@@ -45,22 +42,7 @@
                 @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Fname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Minit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bdate)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Occupation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Salary)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MobilePhoneNum)
@@ -69,40 +51,10 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmergencyContactName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmergencyContactPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmergencyContactEmail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateJoined)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateLeft)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VacationDaysLeft)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SickDaysLeft)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DeptNameNavigation.DeptName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Sup.EmployeeId)
+                @Html.DisplayFor(modelItem => item.Sup.FullName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.EmployeeId">Edit</a> |

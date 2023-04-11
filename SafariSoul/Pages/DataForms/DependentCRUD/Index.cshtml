@@ -15,19 +15,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Dependent[0].Fname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dependent[0].Lname)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Dependent[0].Employee)
+                @Html.DisplayNameFor(model => model.Dependent[0].FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Dependent[0].PhoneNum)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Dependent[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dependent[0].Employee)
             </th>
             <th></th>
         </tr>
@@ -36,31 +33,13 @@
 @foreach (var item in Model.Dependent) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Fname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bdate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
+                @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PhoneNum)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Employee.FullName)
