@@ -7,7 +7,7 @@ public partial class Department
 {
     public string DeptName { get; set; } = null!;
 
-    public int ManagerId { get; set; }
+    public int? ManagerId { get; set; }
 
     public string? PhoneNum { get; set; }
 
