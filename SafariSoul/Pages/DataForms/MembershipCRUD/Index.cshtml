@@ -36,15 +36,6 @@
                 @Html.DisplayFor(modelItem => item.MembershipFee)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Benefits)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
                 <a asp-page="./Edit" asp-route-id="@item.MembershipLevel">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.MembershipLevel">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.MembershipLevel">Delete</a>

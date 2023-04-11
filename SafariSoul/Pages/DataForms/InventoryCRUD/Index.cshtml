@@ -18,6 +18,9 @@
                 @Html.DisplayNameFor(model => model.Inventory[0].ItemName)
             </th>
             <th>
+                @Html.DisplayFor(model => model.Inventory[0].Price)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Inventory[0].Quantity)
             </th>
             <th>
@@ -25,6 +28,12 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Inventory[0].DestinationNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].SupplierNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Inventory[0].DateLastOrdered)
             </th>
             <th></th>
         </tr>
@@ -39,37 +48,19 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RefrigerationNeeds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HumidityRequirements)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.MeasurementUnits)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ReorderThreshold)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReorderQuantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateLastOrdered)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DestinationNavigation.LocationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SupplierNavigation.VendorId)
+                @Html.DisplayFor(modelItem => item.SupplierNavigation.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateLastOrdered)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ItemId">Edit</a> |

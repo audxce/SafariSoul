@@ -36,19 +36,13 @@
                 @Html.DisplayFor(modelItem => item.DateAndTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
+                @Html.DisplayFor(modelItem => item.Seller.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Customer.FullName) 
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location.LocationName)
-            </td>
-            <td>
-                    @Html.DisplayFor(modelItem => item.Seller.FullName)  
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |

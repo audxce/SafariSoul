@@ -1,37 +1,32 @@
 ﻿@page
-@model SafariSoul.Pages.EducationProgramCRUD.EditModel
+@model SafariSoul.Pages.DataForms.EducationProgramCRUD.EditModel
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<head>
-    <style>
-        .form-group + .form-group {
-            margin-top: 20px;
-        }
-    </style>
-</head>
+<h1>Edit</h1>
 
-<h4>Edit Education Program</h4>
+<h4>EducationProgram</h4>
 <hr />
-<<div class="row">
+<div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EducationProgram.EducationProgramId" />
             <div class="form-group">
-                <label asp-for="EducationProgram.ProgramName" class="control-label">Program Name</label>
+                <label asp-for="EducationProgram.ProgramName" class="control-label"></label>
                 <input asp-for="EducationProgram.ProgramName" class="form-control" />
                 <span asp-validation-for="EducationProgram.ProgramName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="EducationProgram.ProgramDescription" class="control-label">Program Description</label>
+                <label asp-for="EducationProgram.ProgramDescription" class="control-label"></label>
                 <input asp-for="EducationProgram.ProgramDescription" class="form-control" />
                 <span asp-validation-for="EducationProgram.ProgramDescription" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

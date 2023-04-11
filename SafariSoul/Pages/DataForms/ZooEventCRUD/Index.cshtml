@@ -39,31 +39,16 @@
                 @Html.DisplayFor(modelItem => item.EventName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Capacity)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.EventTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AdmissionPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RegistrationDeadline)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
+                @Html.DisplayFor(modelItem => item.EventLocation.LocationName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AnimalProgram.ProgramName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EducationalProgram.ProgramName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EventLocation.LocationName)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.EventId">Edit</a> |

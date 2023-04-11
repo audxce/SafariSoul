@@ -1,5 +1,5 @@
 ﻿@page
-@model SafariSoul.Pages.EducationProgramCRUD.DetailsModel
+@model SafariSoul.Pages.DataForms.EducationProgramCRUD.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
@@ -12,33 +12,19 @@
     <h4>EducationProgram</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EducationProgram.ProgramName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EducationProgram.ProgramName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EducationProgram.ProgramDescription)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EducationProgram.ProgramDescription)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EducationProgram.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EducationProgram.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EducationProgram.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EducationProgram.UpdatedAt)
-        </dd>
+        <dt class="col-md-6">
+        <dt>@Html.DisplayNameFor(model => model.EducationProgram.ProgramName)</dt>
+        <dd>@Html.DisplayFor(model => model.EducationProgram.ProgramName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EducationProgram.ProgramDescription)</dt>
+        <dd>@Html.DisplayFor(model => model.EducationProgram.ProgramDescription)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EducationProgram.CreatedAt)</dt>
+        <dd>@Html.DisplayFor(model => model.EducationProgram.CreatedAt)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.EducationProgram.UpdatedAt)</dt>
+        <dd>@Html.DisplayFor(model => model.EducationProgram.UpdatedAt)</dd>
     </dl>
-</div>
-<div>
     <a asp-page="./Edit" asp-route-id="@Model.EducationProgram?.EducationProgramId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>

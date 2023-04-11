@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SafariSoul.Models;
 
-namespace SafariSoul.Pages.EducationProgramCRUD
+namespace SafariSoul.Pages.DataForms.EducationProgramCRUD
 {
     public class CreateModel : PageModel
     {

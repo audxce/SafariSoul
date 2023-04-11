@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-namespace SafariSoul.Pages.EducationProgramCRUD
+namespace SafariSoul.Pages.DataForms.EducationProgramCRUD
 {
     public class EditModel : PageModel
     {

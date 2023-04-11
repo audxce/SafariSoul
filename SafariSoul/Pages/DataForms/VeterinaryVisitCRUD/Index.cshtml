@@ -36,37 +36,20 @@
 @foreach (var item in Model.VeterinaryVisit) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.TimeScheduled)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeAdmitted)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeDischarged)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Urgency)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnimalCondition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AnimalTreatment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FollowupNeeded)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
+                @Html.DisplayFor(modelItem => item.Vet.FullName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.AnimalNavigation.AnimalName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Vet.Fname) @Html.DisplayFor(modelItem => item.Vet.Lname)
+                @Html.DisplayFor(modelItem => item.TimeScheduled)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalCondition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AnimalTreatment)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.VetVisitId">Edit</a> |

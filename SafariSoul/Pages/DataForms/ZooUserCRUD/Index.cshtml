@@ -15,7 +15,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ZooUser[0].AuthenticationKey)
+                @Html.DisplayNameFor(model => model.ZooUser[0].UserName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ZooUser[0].UserType)
@@ -39,7 +39,7 @@
 @foreach (var item in Model.ZooUser) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.AuthenticationKey)
+                @Html.DisplayFor(modelItem => item.UserName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserType)

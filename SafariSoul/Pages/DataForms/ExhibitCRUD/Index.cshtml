@@ -39,32 +39,10 @@
                 @Html.DisplayFor(modelItem => item.IsIndoors)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.NormalTemperature)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Humidity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FeedingTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MealQuantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.LocationNavigation.LocationName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MealContentNavigation.ItemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZookeeperNavigation.Fname) @Html.DisplayFor(modelItem => item.ZookeeperNavigation.Lname)
-            </td>
+                @Html.DisplayFor(modelItem => item.ZookeeperNavigation.FullName) 
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ExhibitId">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ExhibitId">Details</a> |
