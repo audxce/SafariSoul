@@ -17,8 +17,6 @@ public partial class Location
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-    public int? Capacity { get; set; }
-
     public virtual ICollection<Department> Departments { get; } = new List<Department>();
 
     public virtual ICollection<Exhibit> Exhibits { get; } = new List<Exhibit>();

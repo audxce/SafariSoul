@@ -616,7 +616,6 @@ public partial class ZooDbContext : DbContext
             entity.HasIndex(e => e.LocationName, "Location_Name").IsUnique();
 
             entity.Property(e => e.LocationId).HasColumnName("Location_ID");
-            entity.Property(e => e.Capacity).HasColumnName("capacity");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp")
