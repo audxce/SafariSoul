@@ -1,0 +1,55 @@
+﻿@page
+@model SafariSoul.Pages.EmployeeAnimalHandlerPage.AnimalCareProgramCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayoutEmployeeAnimalHandler.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].ProgramName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].ProgramDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].UpdatedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.AnimalCareProgram) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProgramDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AnimalProgramId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AnimalProgramId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AnimalProgramId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

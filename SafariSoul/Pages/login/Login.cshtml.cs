@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
-using System.Data.SqlClient; //this namespace is for sqlclient server  
-using System.Configuration; // this namespace is add I am adding connection name in web config file config connection name  
 
 namespace SafariSoul.Pages
 {
