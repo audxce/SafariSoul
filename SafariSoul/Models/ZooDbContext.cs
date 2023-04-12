@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace SafariSoul.Models2;
+namespace SafariSoul.Models;
 
 public partial class ZooDbContext : DbContext
 {
