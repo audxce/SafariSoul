@@ -9,10 +9,10 @@ public partial class ZooEventStaffInvolved
     public int MultiStaffId { get; set; }
 
     [DisplayName("Event")]
-    public int EventId { get; set; }
+    public int? EventId { get; set; }
 
     [DisplayName("Employee")]
-    public int EmployeeId { get; set; }
+    public int? EmployeeId { get; set; }
 
     [DisplayName("Created At")]
     public DateTime? CreatedAt { get; set; }
@@ -20,7 +20,7 @@ public partial class ZooEventStaffInvolved
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual Employee Employee { get; set; } = null!;
+    public virtual Employee? Employee { get; set; } = null!;
 
-    public virtual ZooEvent Event { get; set; } = null!;
+    public virtual ZooEvent? Event { get; set; } = null!;
 }

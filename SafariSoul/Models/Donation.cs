@@ -8,7 +8,7 @@ public partial class Donation
 {
     public int DonationId { get; set; }
 
-    public int DonorId { get; set; }
+    public int? DonorId { get; set; }
 
     [DisplayName("Amount Donated")]
     public int AmountDonated { get; set; }
@@ -25,5 +25,5 @@ public partial class Donation
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual Customer Donor { get; set; } = null!;
+    public virtual Customer? Donor { get; set; } = null!;
 }

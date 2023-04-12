@@ -33,13 +33,14 @@
             <div class="form-group">
                 <label asp-for="Inventory.Destination" class="control-label"></label>
                 <select asp-for="Inventory.Destination" class="form-control" asp-items="ViewBag.Destination"></select>
+                <span asp-validation-for="Inventory.Destination" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.RefrigerationNeeds" class="control-label">Refrigeration Needs</label>
                 <select asp-for="Inventory.RefrigerationNeeds" class="form-control">
                     <option value="">-- Select Refrigeration Needs --</option>
                     <option value="None">None</option>
-                    <option value="RoomTemp">Room Temp</option>
+                    <option value="Room Temp">Room Temp</option>
                     <option value="Refrigerated">Refrigerated</option>
                     <option value="Frozen">Frozen</option>
                 </select>
@@ -64,7 +65,7 @@
                 <label asp-for="Inventory.MeasurementUnits" class="control-label">Measurement Units</label>
                 <select asp-for="Inventory.MeasurementUnits" class="form-control">
                     <option value="">-- Select Measurement Units --</option>
-                    <option value="kg">kg</option>
+                    <option value="kg">Kg</option>
                     <option value="L">L</option>
                     <option value="Units">Units</option>
                 </select>
@@ -83,6 +84,7 @@
             <div class="form-group">
                 <label asp-for="Inventory.Supplier" class="control-label"></label>
                 <select asp-for="Inventory.Supplier" class="form-control" asp-items="ViewBag.Supplier"></select>
+                <span asp-validation-for="Inventory.Supplier" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.DateLastOrdered" class="control-label">Date Last Ordered</label>
@@ -90,7 +92,7 @@
                 <span asp-validation-for="Inventory.DateLastOrdered" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

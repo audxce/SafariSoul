@@ -31,7 +31,9 @@ public partial class MaintenanceRequest
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
+    [DisplayName("Exhibit")]
     public virtual Exhibit? ExhibitNavigation { get; set; }
 
+    [DisplayName("Location")]
     public virtual Location? LocationNavigation { get; set; }
 }

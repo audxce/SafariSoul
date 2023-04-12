@@ -9,10 +9,10 @@ public partial class ZooTransactionEventTicket
     public int MultiEventTicketsId { get; set; }
 
     [DisplayName("Event")]
-    public int EventId { get; set; }
+    public int? EventId { get; set; }
 
     [DisplayName("Transaction ID")]
-    public int TransactionId { get; set; }
+    public int? TransactionId { get; set; }
 
     [DisplayName("Ticket Quantity")]
     public int TicketQuantity { get; set; }
@@ -23,7 +23,7 @@ public partial class ZooTransactionEventTicket
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual ZooEvent Event { get; set; } = null!;
+    public virtual ZooEvent? Event { get; set; } = null!;
 
-    public virtual ZooTransaction Transaction { get; set; } = null!;
+    public virtual ZooTransaction? Transaction { get; set; } = null!;
 }

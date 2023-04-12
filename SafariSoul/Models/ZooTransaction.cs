@@ -12,13 +12,13 @@ public partial class ZooTransaction
     public DateTime DateAndTime { get; set; }
 
     [DisplayName("Customer")]
-    public int CustomerId { get; set; }
+    public int? CustomerId { get; set; }
 
     [DisplayName("Seller")]
-    public int SellerId { get; set; }
+    public int? SellerId { get; set; }
 
     [DisplayName("Location")]
-    public int LocationId { get; set; }
+    public int? LocationId { get; set; }
 
     [DisplayName("Created At")]
     public DateTime? CreatedAt { get; set; }
@@ -26,11 +26,11 @@ public partial class ZooTransaction
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual Customer Customer { get; set; } = null!;
+    public virtual Customer? Customer { get; set; } = null!;
 
-    public virtual Location Location { get; set; } = null!;
+    public virtual Location? Location { get; set; } = null!;
 
-    public virtual Employee Seller { get; set; } = null!;
+    public virtual Employee? Seller { get; set; } = null!;
 
     public virtual ICollection<ZooTransactionEventTicket> ZooTransactionEventTickets { get; } = new List<ZooTransactionEventTicket>();
 
