@@ -61,7 +61,7 @@
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
-							<button class="login100-form-btn">
+							<button class="login100-form-btn" onclick="TryLogin">
 								Login
 							</button>
 						</div>
@@ -84,6 +84,31 @@
 
 	<div id="dropDownSelect1"></div>
 
+	protected void TryLogin(object sender, EventArgs e)
+	{
+		try{
+			string uid = email.Text;
+			string pass = pass.Text;
+			con.Open();
+			string qry = "select * from zoo_user where User_Name='" + uid + "' and Authentication_Key='" + pass + "'";
+			SqlCommand cmd = new SqlCommand(qry,con);
+			SqlDataReader sdr = cmd.ExecuteReader();
+			if(sdr.Read())
+			{
+				Label4.Text = "Login Sucess......!!";
+			}
+			else
+			{
+				Label4.Text = "UserId & Password Is not correct Try again..!!";
+			}
+			con.Close();
+		}
+		catch(Exception ex)
+		{
+			Response.Write(ex.Message);
+		}
+	}
+	}
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->

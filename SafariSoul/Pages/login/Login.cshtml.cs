@@ -15,7 +15,7 @@ namespace SafariSoul.Pages
         {
         }
 
-		private readonly SafariSoul.Models.ZooDbContext _context;
+		/*private readonly SafariSoul.Models.ZooDbContext _context;
 
 		public LoginModel(SafariSoul.Models.ZooDbContext context)
 		{
@@ -28,7 +28,9 @@ namespace SafariSoul.Pages
 		{
 			if (_context.ZooUsers != null)
 			{
-				ZooUsers = await _context.ZooUsers.Include(a => a.UserName).ToListAsync();
+				ZooUsers = await _context.ZooUsers
+                .Include(a => a.UserName)
+				.Include(a => a.AuthenticationKey).ToListAsync();
 			}
 		}
 
@@ -39,9 +41,10 @@ namespace SafariSoul.Pages
 
 			if (!String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(password))
 			{
-				//ZooUsers = await _context.ZooUsers.Where(a => a.UserName==username && a => a.AuthenticationKey==password));
+				//if (await _context.ZooUsers.Where(username == a.UserName))
+				//ZooUsers = await _context.ZooUsers.Where(a => a.UserName==username && a => a.AuthenticationKey==password);
 			}
-		}
+		}*/
 	}
 }
 /*
@@ -92,3 +95,41 @@ namespace SafariSoul.Pages.AnimalDefault
     }
 }
  */
+
+/*
+ public async Task OnGetAsync()
+        {
+            if (_context.Animals != null)
+            {
+                Animal = await _context.Animals
+                .Include(a => a.FatherNavigation)
+                .Include(a => a.MotherNavigation)
+                .Include(a => a.Species).ToListAsync();
+            }
+        }
+
+        public async Task OnPostAsync()
+        {
+            var searchName = Request.Form["searchName"];
+            var searchSpecies = Request.Form["searchSpecies"];
+
+            if (!String.IsNullOrEmpty(searchName))
+            {
+                Animal = await _context.Animals
+                .Where(a => a.AnimalName.Contains(searchName))
+                .Include(a => a.FatherNavigation)
+                .Include(a => a.MotherNavigation)
+                .Include(a => a.Species).ToListAsync();
+            }
+            if (!String.IsNullOrEmpty(searchSpecies))
+            {
+                Animal = await _context.Animals
+                .Where(a => a.AnimalName.Contains(searchSpecies))
+                .Include(a => a.FatherNavigation)
+                .Include(a => a.MotherNavigation)
+                .Include(a => a.Species).ToListAsync();
+            }
+        }
+    }
+}
+*/
