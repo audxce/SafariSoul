@@ -29,7 +29,7 @@ namespace SafariSoul.Pages.InventoryCRUD
                 return NotFound();
             }
 
-            var inventory =  await _context.Inventories.FirstOrDefaultAsync(m => m.ItemId == id);
+            var inventory = await _context.Inventories.FirstOrDefaultAsync(m => m.ItemId == id);
             if (inventory == null)
             {
                 return NotFound();
@@ -74,7 +74,7 @@ namespace SafariSoul.Pages.InventoryCRUD
 
         private bool InventoryExists(int id)
         {
-          return (_context.Inventories?.Any(e => e.ItemId == id)).GetValueOrDefault();
+            return (_context.Inventories?.Any(e => e.ItemId == id)).GetValueOrDefault();
         }
     }
 }

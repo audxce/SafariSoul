@@ -8,7 +8,7 @@ public partial class Dependent
 {
     public int DependentId { get; set; }
 
-    public int EmployeeId { get; set; }
+    public int? EmployeeId { get; set; }
 
     [DisplayName("First Name")]
     public string Fname { get; set; } = null!;
@@ -37,7 +37,7 @@ public partial class Dependent
     [DisplayName("Last Name")]
     public string Lname { get; set; } = null!;
 
-    public virtual Employee Employee { get; set; } = null!;
+    public virtual Employee? Employee { get; set; } = null!;
 
     [DisplayName("Full Name")]
     public string FullName

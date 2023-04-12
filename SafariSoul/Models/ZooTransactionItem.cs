@@ -9,10 +9,10 @@ public partial class ZooTransactionItem
     public int MultiItemsId { get; set; }
 
     [DisplayName("Transaction ID")]
-    public int TransactionId { get; set; }
+    public int? TransactionId { get; set; }
 
     [DisplayName("Item")]
-    public int ItemId { get; set; }
+    public int? ItemId { get; set; }
 
     [DisplayName("Item Quantity")]
     public int? ItemQuantity { get; set; }
@@ -23,7 +23,7 @@ public partial class ZooTransactionItem
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual Inventory Item { get; set; } = null!;
+    public virtual Inventory? Item { get; set; } = null!;
 
-    public virtual ZooTransaction Transaction { get; set; } = null!;
+    public virtual ZooTransaction? Transaction { get; set; } = null!;
 }

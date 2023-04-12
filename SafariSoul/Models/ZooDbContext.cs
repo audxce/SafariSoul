@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace SafariSoul.Models;
+namespace SafariSoul.Models2;
 
 public partial class ZooDbContext : DbContext
 {
@@ -279,6 +279,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Employee).WithMany(p => p.Dependents)
                 .HasForeignKey(d => d.EmployeeId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("DEPENDENT_ON");
         });
 
@@ -308,7 +309,6 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Donor).WithMany(p => p.Donations)
                 .HasForeignKey(d => d.DonorId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("IS_DONOR");
         });
 
@@ -402,7 +402,7 @@ public partial class ZooDbContext : DbContext
 
             entity.ToTable("employee_shift");
 
-            entity.HasIndex(e => e.EmployeeId, "Employee_ID");
+            entity.HasIndex(e => e.EmployeeId, "employee_shift_ibfk_1");
 
             entity.Property(e => e.ShiftId).HasColumnName("Shift_ID");
             entity.Property(e => e.CreatedAt)
@@ -429,6 +429,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Employee).WithMany(p => p.EmployeeShifts)
                 .HasForeignKey(d => d.EmployeeId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("employee_shift_ibfk_1");
         });
 
@@ -469,17 +470,14 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.LocationNavigation).WithMany(p => p.Exhibits)
                 .HasForeignKey(d => d.Location)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("IS_LOCATED_IN");
 
             entity.HasOne(d => d.MealContentNavigation).WithMany(p => p.Exhibits)
                 .HasForeignKey(d => d.MealContent)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("IS_FOOD");
 
             entity.HasOne(d => d.ZookeeperNavigation).WithMany(p => p.Exhibits)
                 .HasForeignKey(d => d.Zookeeper)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("IS_THIS_EMPLOYEE");
         });
 
@@ -506,9 +504,7 @@ public partial class ZooDbContext : DbContext
             entity.Property(e => e.ExpenseAmount)
                 .HasColumnType("double(10,2)")
                 .HasColumnName("Expense_Amount");
-            entity.Property(e => e.ExpenseTime)
-                .HasColumnType("datetime")
-                .HasColumnName("Expense_Time");
+            entity.Property(e => e.ExpenseTime).HasColumnName("Expense_Time");
             entity.Property(e => e.InvoiceId).HasColumnName("Invoice_ID");
             entity.Property(e => e.UpdatedAt)
                 .ValueGeneratedOnAddOrUpdate()
@@ -532,9 +528,9 @@ public partial class ZooDbContext : DbContext
 
             entity.ToTable("expense_items");
 
-            entity.HasIndex(e => e.ExpenseId, "Expense_ID");
-
             entity.HasIndex(e => e.ItemId, "ITEM_BOUGHT");
+
+            entity.HasIndex(e => e.ExpenseId, "expense_items_ibfk_1");
 
             entity.Property(e => e.MultiItemsId).HasColumnName("Multi_Items_ID");
             entity.Property(e => e.CreatedAt)
@@ -551,12 +547,10 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Expense).WithMany(p => p.ExpenseItems)
                 .HasForeignKey(d => d.ExpenseId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("expense_items_ibfk_1");
 
             entity.HasOne(d => d.Item).WithMany(p => p.ExpenseItems)
                 .HasForeignKey(d => d.ItemId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ITEM_BOUGHT");
         });
 
@@ -598,12 +592,10 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.DestinationNavigation).WithMany(p => p.Inventories)
                 .HasForeignKey(d => d.Destination)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("PLACE_KEPT");
 
             entity.HasOne(d => d.SupplierNavigation).WithMany(p => p.Inventories)
                 .HasForeignKey(d => d.Supplier)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("SUPPLIED_BY");
         });
 
@@ -805,7 +797,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.Animal, "ANIMAL_TREATED");
 
-            entity.HasIndex(e => e.VetId, "Vet_ID");
+            entity.HasIndex(e => e.VetId, "veterinary_visit_ibfk_1");
 
             entity.Property(e => e.VetVisitId).HasColumnName("Vet_Visit_ID");
             entity.Property(e => e.AnimalCondition)
@@ -837,12 +829,10 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.AnimalNavigation).WithMany(p => p.VeterinaryVisits)
                 .HasForeignKey(d => d.Animal)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ANIMAL_TREATED");
 
             entity.HasOne(d => d.Vet).WithMany(p => p.VeterinaryVisits)
                 .HasForeignKey(d => d.VetId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("veterinary_visit_ibfk_1");
         });
 
@@ -905,7 +895,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.AnimalId, "ANIMAL_INVOLVED");
 
-            entity.HasIndex(e => e.EventId, "Event_ID");
+            entity.HasIndex(e => e.EventId, "zoo_event_animals_involved_ibfk_1");
 
             entity.Property(e => e.MultiAnimalId).HasColumnName("Multi_Animal_ID");
             entity.Property(e => e.AnimalId).HasColumnName("Animal_ID");
@@ -921,11 +911,11 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Animal).WithMany(p => p.ZooEventAnimalsInvolveds)
                 .HasForeignKey(d => d.AnimalId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ANIMAL_INVOLVED");
 
             entity.HasOne(d => d.Event).WithMany(p => p.ZooEventAnimalsInvolveds)
                 .HasForeignKey(d => d.EventId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("zoo_event_animals_involved_ibfk_1");
         });
 
@@ -937,7 +927,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.EmployeeId, "EMPLOYEE_INVOLVED");
 
-            entity.HasIndex(e => e.EventId, "Event_ID");
+            entity.HasIndex(e => e.EventId, "zoo_event_staff_involved_ibfk_1");
 
             entity.Property(e => e.MultiStaffId).HasColumnName("Multi_Staff_ID");
             entity.Property(e => e.CreatedAt)
@@ -953,11 +943,11 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Employee).WithMany(p => p.ZooEventStaffInvolveds)
                 .HasForeignKey(d => d.EmployeeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("EMPLOYEE_INVOLVED");
 
             entity.HasOne(d => d.Event).WithMany(p => p.ZooEventStaffInvolveds)
                 .HasForeignKey(d => d.EventId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("zoo_event_staff_involved_ibfk_1");
         });
 
@@ -991,17 +981,14 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Customer).WithMany(p => p.ZooTransactions)
                 .HasForeignKey(d => d.CustomerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("SOLD_TO");
 
             entity.HasOne(d => d.Location).WithMany(p => p.ZooTransactions)
                 .HasForeignKey(d => d.LocationId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("LOCATION_SOLD");
 
             entity.HasOne(d => d.Seller).WithMany(p => p.ZooTransactions)
                 .HasForeignKey(d => d.SellerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("SOLD_BY");
         });
 
@@ -1013,7 +1000,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.EventId, "FOR_EVENT");
 
-            entity.HasIndex(e => e.TransactionId, "Transaction_ID");
+            entity.HasIndex(e => e.TransactionId, "zoo_transaction_event_tickets_ibfk_1");
 
             entity.Property(e => e.MultiEventTicketsId).HasColumnName("Multi_Event_Tickets_ID");
             entity.Property(e => e.CreatedAt)
@@ -1030,11 +1017,11 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Event).WithMany(p => p.ZooTransactionEventTickets)
                 .HasForeignKey(d => d.EventId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FOR_EVENT");
 
             entity.HasOne(d => d.Transaction).WithMany(p => p.ZooTransactionEventTickets)
                 .HasForeignKey(d => d.TransactionId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("zoo_transaction_event_tickets_ibfk_1");
         });
 
@@ -1046,7 +1033,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.ItemId, "ITEM_WAS_BOUGHT");
 
-            entity.HasIndex(e => e.TransactionId, "Transaction_ID");
+            entity.HasIndex(e => e.TransactionId, "zoo_transaction_items_ibfk_1");
 
             entity.Property(e => e.MultiItemsId).HasColumnName("Multi_Items_ID");
             entity.Property(e => e.CreatedAt)
@@ -1063,11 +1050,11 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Item).WithMany(p => p.ZooTransactionItems)
                 .HasForeignKey(d => d.ItemId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ITEM_WAS_BOUGHT");
 
             entity.HasOne(d => d.Transaction).WithMany(p => p.ZooTransactionItems)
                 .HasForeignKey(d => d.TransactionId)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("zoo_transaction_items_ibfk_1");
         });
 
@@ -1084,7 +1071,9 @@ public partial class ZooDbContext : DbContext
             entity.Property(e => e.UserName)
                 .HasMaxLength(45)
                 .HasColumnName("User_Name");
-            entity.Property(e => e.AuthenticationKey).HasColumnName("Authentication_Key");
+            entity.Property(e => e.AuthenticationKey)
+                .HasMaxLength(45)
+                .HasColumnName("Authentication_Key");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp")

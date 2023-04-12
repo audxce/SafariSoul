@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SafariSoul.Models;
 
@@ -35,22 +37,23 @@ public partial class Inventory
 
     public int Supplier { get; set; }
 
+    [DisplayName("Last Ordered")]
     public DateOnly? DateLastOrdered { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
 
-
     [DisplayName("Destination")]
-    public virtual Location DestinationNavigation { get; set; } = null!;
+    public virtual Location? DestinationNavigation { get; set; } = null!;
 
     public virtual ICollection<Exhibit> Exhibits { get; } = new List<Exhibit>();
 
     public virtual ICollection<ExpenseItem> ExpenseItems { get; } = new List<ExpenseItem>();
 
+    [BindNever]
     [DisplayName("Supplier")]
-    public virtual Vendor SupplierNavigation { get; set; } = null!;
+    public virtual Vendor? SupplierNavigation { get; set; } = null!;
 
     public virtual ICollection<ZooTransactionItem> ZooTransactionItems { get; } = new List<ZooTransactionItem>();
 }

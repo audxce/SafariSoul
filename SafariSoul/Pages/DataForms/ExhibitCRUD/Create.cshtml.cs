@@ -22,7 +22,7 @@ namespace SafariSoul.Pages.ExhibitCRUD
         {
         ViewData["Location"] = new SelectList(_context.Locations, "LocationId", "LocationName");
         ViewData["MealContent"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
-        ViewData["Zookeeper"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+        ViewData["Zookeeper"] = new SelectList(_context.Employees.Where(e => e.Occupation == "Zookeeper"), "EmployeeId", "FullName");
             return Page();
         }
 

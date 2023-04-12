@@ -22,7 +22,7 @@ public partial class VeterinaryVisit
 
     public string? Urgency { get; set; }
 
-    public int Animal { get; set; }
+    public int? Animal { get; set; }
 
     [DisplayName("Animal Condition")]
     public string? AnimalCondition { get; set; }
@@ -40,7 +40,7 @@ public partial class VeterinaryVisit
     public DateTime? UpdatedAt { get; set; }
 
     [DisplayName("Animal")]
-    public virtual Animal AnimalNavigation { get; set; } = null!;
+    public virtual Animal? AnimalNavigation { get; set; } = null!;
 
     public virtual Employee Vet { get; set; } = null!;
 }

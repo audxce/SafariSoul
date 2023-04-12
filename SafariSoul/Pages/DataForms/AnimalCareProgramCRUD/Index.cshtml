@@ -20,12 +20,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.AnimalCareProgram[0].ProgramDescription)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AnimalCareProgram[0].UpdatedAt)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -37,12 +31,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ProgramDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.AnimalProgramId">Edit</a> |

@@ -47,7 +47,6 @@ public partial class Customer
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-
     public virtual ICollection<Donation> Donations { get; } = new List<Donation>();
 
     [DisplayName("Membership Level")]
