@@ -16,7 +16,7 @@ public partial class Inventory
     public double? Price { get; set; }
 
     [DisplayName("Destination")]
-    public int Destination { get; set; }
+    public int? Destination { get; set; }
 
     [DisplayName("Refrigeration Needs")]
     public string RefrigerationNeeds { get; set; } = null!;
@@ -35,7 +35,7 @@ public partial class Inventory
     [DisplayName("Reorder Quantity")]
     public int? ReorderQuantity { get; set; }
 
-    public int Supplier { get; set; }
+    public int? Supplier { get; set; }
 
     [DisplayName("Last Ordered")]
     public DateOnly? DateLastOrdered { get; set; }
@@ -51,7 +51,6 @@ public partial class Inventory
 
     public virtual ICollection<ExpenseItem> ExpenseItems { get; } = new List<ExpenseItem>();
 
-    [BindNever]
     [DisplayName("Supplier")]
     public virtual Vendor? SupplierNavigation { get; set; } = null!;
 
