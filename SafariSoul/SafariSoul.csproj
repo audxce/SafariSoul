@@ -234,11 +234,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models2\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\login\login.html" />
     <None Include="wwwroot\scss\bootstrap.scss" />
     <None Include="wwwroot\scss\bootstrap\scss\bootstrap-grid.scss" />
