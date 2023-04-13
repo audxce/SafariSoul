@@ -30,5 +30,28 @@ namespace SafariSoul.Pages.AnimalCRUD
                 .Include(a => a.Species).ToListAsync();
             }
         }
+
+        public async Task OnPostAsync()
+        {
+            var searchName = Request.Form["searchName"];
+            var searchSpecies = Request.Form["searchSpecies"];
+
+            if (!String.IsNullOrEmpty(searchName))
+            {
+                Animal = await _context.Animals
+                .Where(a => a.AnimalName.Contains(searchName))
+                .Include(a => a.FatherNavigation)
+                .Include(a => a.MotherNavigation)
+                .Include(a => a.Species).ToListAsync();
+            }
+            if (!String.IsNullOrEmpty(searchSpecies))
+            {
+                Animal = await _context.Animals
+                .Where(a => a.AnimalName.Contains(searchSpecies))
+                .Include(a => a.FatherNavigation)
+                .Include(a => a.MotherNavigation)
+                .Include(a => a.Species).ToListAsync();
+            }
+        }
     }
 }

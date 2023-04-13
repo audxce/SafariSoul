@@ -27,5 +27,15 @@ namespace SafariSoul.Pages.AnimalCareProgramCRUD
                 AnimalCareProgram = await _context.AnimalCarePrograms.ToListAsync();
             }
         }
+
+        public async Task OnPostAsync()
+        {
+            var searchName = Request.Form["searchName"];
+
+            if(!String.IsNullOrEmpty(searchName))
+            {
+                AnimalCareProgram = await _context.AnimalCarePrograms.Where(a => a.ProgramName.Contains(searchName)).ToListAsync();
+            }
+        }
     }
 }

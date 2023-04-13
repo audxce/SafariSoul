@@ -8,6 +8,23 @@
 
 <h1>Index</h1>
 
+<form method="post" class="searchName">
+    <p>
+        Name:
+        <input type="text" name="searchName" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </p>
+</form>
+
+<form method="post" class="searchSpecies">
+    <p>
+        Species:
+        <input type="text" name="searchString" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-page="./Index">Back to full list</a>
+    </p>
+</form>
+
 <p>
     <a asp-page="Create">Create New</a>
 </p>
