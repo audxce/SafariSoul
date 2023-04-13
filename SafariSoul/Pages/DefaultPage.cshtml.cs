@@ -7,9 +7,9 @@ namespace SafariSoul.Pages.Shared
 	{
 		public const string SessionKeyName = "_Name";
 
-		private readonly ILogger<DefaultPageModel> _logger;
+		private readonly ILogger<IndexModel> _logger;
 
-		public DefaultPageModel(ILogger<DefaultPageModel> logger)
+		public DefaultPageModel(ILogger<IndexModel> logger)
 		{
 			_logger = logger;
 		}
@@ -27,9 +27,9 @@ namespace SafariSoul.Pages.Shared
         }
         public void OnGet()
 		{
-			if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
+			if (!string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
 			{
-				HttpContext.Session.SetString(SessionKeyName, "The Doctor");
+				HttpContext.Session.SetString(SessionKeyName, "Default");
 			}
 			var name = HttpContext.Session.GetString(SessionKeyName);
 

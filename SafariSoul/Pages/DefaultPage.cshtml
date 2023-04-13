@@ -9,7 +9,7 @@ Successfully logged out!
     <p>
         Name:
         <input type="text" name="Username" />
-        <input type="submit" value="Username" class="btn btn-primary" />
+        <input type="submit" value="Change" class="btn btn-primary" />
     </p>
 </form>
 
@@ -18,7 +18,7 @@ Successfully logged out!
 
 <div class="text-center">
 	<p>
-		<b>Name:</b> @HttpContext.Session.GetString("_Name");
+		<b>Name:</b> @HttpContext.Session.GetString("_Name")
 	</p>
 </div>
 Name: @HttpContext.Session.GetString(SafariSoul.Pages.Shared.DefaultPageModel.SessionKeyName)
