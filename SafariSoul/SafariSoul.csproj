@@ -243,7 +243,6 @@
 
   <ItemGroup>
     <Folder Include="Models2\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 
   <ItemGroup>

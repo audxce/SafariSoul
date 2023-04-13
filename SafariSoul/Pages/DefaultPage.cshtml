@@ -4,3 +4,24 @@
 	Layout = "_NewLayoutDefault";
 }
 Successfully logged out!
+
+<form method="post" class="searchName">
+    <p>
+        Name:
+        <input type="text" name="Username" />
+        <input type="submit" value="Username" class="btn btn-primary" />
+    </p>
+</form>
+
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="text-center">
+	<p>
+		<b>Name:</b> @HttpContext.Session.GetString("_Name");<b>
+			Age:
+
+		</b> @HttpContext.Session.GetInt32("_Age").ToString()
+	</p>
+</div>
+Name: @HttpContext.Session.GetString(SafariSoul.Pages.Shared.DefaultPageModel.SessionKeyName)
