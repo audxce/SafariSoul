@@ -18,10 +18,13 @@
                 @Html.DisplayNameFor(model => model.Species[0].CommonName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Species[0].Exhibit)
+                @Html.DisplayNameFor(model => model.Species[0].Genus)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Species[0].Diet)
+                @Html.DisplayNameFor(model => model.Species[0].Species1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].Exhibit)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Species[0].ActiveHours)
@@ -39,10 +42,13 @@
                 @Html.DisplayFor(modelItem => item.CommonName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Exhibit.ExhibitName)
+                @Html.DisplayFor(modelItem => item.Genus)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Diet)
+                @Html.DisplayFor(modelItem => item.Species1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exhibit.ExhibitName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ActiveHours)
