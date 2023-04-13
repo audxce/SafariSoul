@@ -10,7 +10,7 @@ public partial class ZooUser
     public string UserName { get; set; } = null!;
 
     [DisplayName("Authentication Key")]
-    public int AuthenticationKey { get; set; }
+    public string AuthenticationKey { get; set; }
 
     [DisplayName("User Type")]
     public string? UserType { get; set; }

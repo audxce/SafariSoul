@@ -9,53 +9,36 @@
 <h1>Details</h1>
 
 <div>
-    <h4>EmployeeShift</h4>
+    <h4>Employee Shift</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeShift.ShiftStart)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeShift.ShiftStart)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeShift.ShiftEnd)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeShift.ShiftEnd)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeShift.LunchStart)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeShift.LunchStart)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeShift.LunchEnd)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeShift.LunchEnd)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeShift.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeShift.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeShift.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeShift.UpdatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeShift.Employee)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeShift.Employee.EmployeeId)
-        </dd>
-    </dl>
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt>@Html.DisplayNameFor(model => model.EmployeeShift.ShiftStart)</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeShift.ShiftStart)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.EmployeeShift.ShiftEnd)</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeShift.ShiftEnd)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.EmployeeShift.LunchStart)</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeShift.LunchStart)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.EmployeeShift.LunchEnd)</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeShift.LunchEnd)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.EmployeeShift.Employee)</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeShift.Employee.FullName)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.EmployeeShift.CreatedAt)</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeShift.CreatedAt)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.EmployeeShift.UpdatedAt)</dt>
+                <dd>@Html.DisplayFor(model => model.EmployeeShift.UpdatedAt)</dd>
+            </dl>
+        </div>
+    </div>
 </div>
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.EmployeeShift?.ShiftId">Edit</a> |
     <a asp-page="./Index">Back to List</a>

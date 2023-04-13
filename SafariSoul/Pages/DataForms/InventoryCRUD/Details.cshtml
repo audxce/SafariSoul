@@ -12,84 +12,52 @@
     <h4>Inventory</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.ItemName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.ItemName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.Quantity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.Quantity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.Price)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.Price)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.RefrigerationNeeds)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.RefrigerationNeeds)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.HumidityRequirements)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.HumidityRequirements)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.MeasurementUnits)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.MeasurementUnits)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.ReorderThreshold)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.ReorderThreshold)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.ReorderQuantity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.ReorderQuantity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.DateLastOrdered)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.DateLastOrdered)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.DestinationNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.DestinationNavigation.LocationName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.SupplierNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.SupplierNavigation.VendorName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Inventory.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Inventory.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dl>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.ItemName)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.ItemName)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.Quantity)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.Quantity)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.Price)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.Price)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.RefrigerationNeeds)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.RefrigerationNeeds)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.HumidityRequirements)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.HumidityRequirements)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.MeasurementUnits)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.MeasurementUnits)</dd>
+            </dl>
+        </div>
+
+        <div class="col-md-6">
+            <dl>
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Inventory.DestinationNavigation)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.Inventory.DestinationNavigation.LocationName)</dd>
+
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Inventory.SupplierNavigation)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.Inventory.SupplierNavigation.VendorName)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.ReorderThreshold)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.ReorderThreshold)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.ReorderQuantity)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.ReorderQuantity)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.DateLastOrdered)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.DateLastOrdered)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.CreatedAt)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.CreatedAt)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.UpdatedAt)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.UpdatedAt)</dd>
+            </dl>
+        </div>
     </dl>
 </div>
 <div>
