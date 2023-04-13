@@ -1,9 +1,9 @@
 ﻿@page
-@model SafariSoul.Pages.SpeciesCRUD.IndexModel
+@model SafariSoul.Pages.EmployeeAnimalHandlerPage.SpeciesCRUD.IndexModel
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    Layout = "~/Pages/Shared/_NewLayoutEmployeeAnimalHandler.cshtml";
 }
 
 <h1>Index</h1>
@@ -21,6 +21,11 @@
                 @Html.DisplayNameFor(model => model.Species[0].Exhibit)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Species[0].RegionsFound)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].Diet)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Species[0].ActiveHours)
             </th>
@@ -38,6 +43,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Exhibit.ExhibitName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegionsFound)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ActiveHours)

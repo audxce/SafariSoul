@@ -1,7 +1,7 @@
 ﻿@page
 @model SafariSoul.Pages.LoginModel
 @{
-	Layout = "_NewLayout";
+	Layout = "_NewLayoutDefault";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -84,6 +84,8 @@
 
 	<div id="dropDownSelect1"></div>
 
+
+	}
 	<!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 	<!--===============================================================================================-->
@@ -103,3 +105,22 @@
 
 </body>
 </html>
+
+	<!--
+<form method="post" class="searchName">
+	<p>
+		Name:
+		<input type="text" name="searchName" />
+		<input type="submit" value="Search" class="btn btn-primary" />
+	</p>
+</form>
+
+<form method="post" class="searchSpecies">
+	<p>
+		Species:
+		<input type="text" name="searchSpecies" />
+		<input type="submit" value="Search" class="btn btn-primary" />
+		<a asp-page="./Index">Back to full list</a>
+	</p>
+</form>
+	-->

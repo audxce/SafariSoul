@@ -1,0 +1,46 @@
+﻿@page
+@model SafariSoul.Pages.EmployeeAnimalHandlerPage.EducationProgramCRUD.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_NewLayoutEmployeeAnimalHandler.cshtml";
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<h4>Create Education Program</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EducationProgram.ProgramName" class="control-label">Program Name</label>
+                <input asp-for="EducationProgram.ProgramName" class="form-control" />
+                <span asp-validation-for="EducationProgram.ProgramName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EducationProgram.ProgramDescription" class="control-label">Program Description</label>
+                <input asp-for="EducationProgram.ProgramDescription" class="form-control" />
+                <span asp-validation-for="EducationProgram.ProgramDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

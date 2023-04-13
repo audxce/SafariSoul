@@ -48,10 +48,18 @@
     <None Remove="Pages\login\vendor\bootstrap\css\bootstrap.min.css.map" />
     <None Remove="Pages\login\vendor\bootstrap\js\bootstrap.js" />
     <None Remove="Pages\login\vendor\bootstrap\js\bootstrap.min.js" />
+    <None Remove="Pages\Shared\_NewLayout - Copy.cshtml.css" />
     <None Remove="Pages\Shared\_NewLayout.cshtml.css" />
+    <None Remove="Pages\Shared\_NewLayoutDefault - Copy.cshtml.css" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Include="Pages\Shared\_NewLayoutMaintenance.cshtml.css" />
+    <Compile Include="Pages\Shared\_NewLayoutEmployeeSales.cshtml.css" />
+    <Compile Include="Pages\Shared\_NewLayoutEmployeeHR.cshtml.css" />
+    <Compile Include="Pages\Shared\_NewLayoutEmployeeAccountant.cshtml.css" />
+    <Compile Include="Pages\Shared\_NewLayoutEmployeeAnimalHandler.cshtml.css" />
+    <Compile Include="Pages\Shared\_NewLayoutDefault.cshtml.css" />
     <Compile Include="Pages\Shared\_NewLayout.cshtml.css" />
   </ItemGroup>
 
