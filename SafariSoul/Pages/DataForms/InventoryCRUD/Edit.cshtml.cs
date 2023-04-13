@@ -29,7 +29,7 @@ namespace SafariSoul.Pages.InventoryCRUD
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories.FirstOrDefaultAsync(m => m.ItemId == id);
+            var inventory = await _context.Inventories.FirstOrDefaultAsync(i => i.ItemId == id);
             if (inventory == null)
             {
                 return NotFound();
@@ -51,7 +51,7 @@ namespace SafariSoul.Pages.InventoryCRUD
                 return Page();
             }
 
-            _context.Attach(Inventory).State = EntityState.Modified;
+           _context.Attach(Inventory).State = EntityState.Modified;
 
             try
             {

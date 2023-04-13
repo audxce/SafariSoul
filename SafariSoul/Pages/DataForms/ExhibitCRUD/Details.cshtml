@@ -7,80 +7,55 @@
 }
 
 <h1>Details</h1>
-
 <div>
     <h4>Exhibit</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.ExhibitName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.ExhibitName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.IsIndoors)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.IsIndoors)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.NormalTemperature)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.NormalTemperature)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.Humidity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.Humidity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.FeedingTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.FeedingTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.MealQuantity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.MealQuantity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.UpdatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.LocationNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.LocationNavigation.LocationId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.MealContentNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.MealContentNavigation.ItemId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Exhibit.ZookeeperNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Exhibit.ZookeeperNavigation.EmployeeId)
-        </dd>
-    </dl>
+    <div class="row">
+        <div class="col-md-6">
+            <dl>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.ExhibitName)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.ExhibitName)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.IsIndoors)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.IsIndoors)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.NormalTemperature)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.NormalTemperature)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.Humidity)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.Humidity)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.FeedingTime)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.FeedingTime)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.MealQuantity)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.MealQuantity)</dd>
+            </dl>
+        </div>
+
+        <div class="col-md-6">
+            <dl>
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Exhibit.LocationNavigation)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.Exhibit.LocationNavigation.LocationName)</dd>
+
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Exhibit.MealContentNavigation)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.Exhibit.MealContentNavigation.ItemName)</dd>
+
+                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Exhibit.ZookeeperNavigation)</dt>
+                <dd class="col-sm-7">@Html.DisplayFor(model => model.Exhibit.ZookeeperNavigation.FullName)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.CreatedAt)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.CreatedAt)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Exhibit.UpdatedAt)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Exhibit.UpdatedAt)</dd>
+            </dl>
+        </div>
+    </div>
 </div>
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Exhibit?.ExhibitId">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
+
