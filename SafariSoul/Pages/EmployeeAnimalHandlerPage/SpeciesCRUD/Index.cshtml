@@ -1,0 +1,64 @@
+﻿@page
+@model SafariSoul.Pages.EmployeeAnimalHandlerPage.SpeciesCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_NewLayoutEmployeeAnimalHandler.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].CommonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].Exhibit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].RegionsFound)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].Diet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].ActiveHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Species[0].ConservationStatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Species) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exhibit.ExhibitName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegionsFound)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActiveHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConservationStatus)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.SpeciesId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.SpeciesId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.SpeciesId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

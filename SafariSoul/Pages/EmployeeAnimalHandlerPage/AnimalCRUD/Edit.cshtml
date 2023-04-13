@@ -1,0 +1,82 @@
+﻿@page
+@model SafariSoul.Pages.EmployeeAnimalHandlerPage.AnimalCRUD.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_NewLayoutEmployeeAnimalHandler.cshtml";
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<h4>Edit Animal</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Animal.AnimalName" class="control-label">Animal Name</label>
+                <input asp-for="Animal.AnimalName" class="form-control" />
+                <span asp-validation-for="Animal.AnimalName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.SpeciesId" class="control-label">Species</label>
+                <select asp-for="Animal.SpeciesId" class="form-control" asp-items="ViewBag.SpeciesId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Mother" class="control-label"></label>
+                <select asp-for="Animal.Mother" class="form-control" asp-items="ViewBag.Mother"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Father" class="control-label"></label>
+                <select asp-for="Animal.Father" class="form-control" asp-items="ViewBag.Father"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.UniqueDescriptors" class="control-label">Unique Descriptors</label>
+                <input asp-for="Animal.UniqueDescriptors" class="form-control" />
+                <span asp-validation-for="Animal.UniqueDescriptors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.DateOfBirth" class="control-label">Date of Birth</label>
+                <input asp-for="Animal.DateOfBirth" type="date" class="form-control" />
+                <span asp-validation-for="Animal.DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Gender" class="control-label"></label>
+                <select asp-for="Animal.Gender" class="form-control">
+                    <option value="">-- Select Gender --</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <span asp-validation-for="Animal.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.DietaryRestrictions" class="control-label">Dietary Restrictions</label>
+                <input asp-for="Animal.DietaryRestrictions" class="form-control" />
+                <span asp-validation-for="Animal.DietaryRestrictions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Animal.Recreation" class="control-label"></label>
+                <input asp-for="Animal.Recreation" class="form-control" />
+                <span asp-validation-for="Animal.Recreation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
