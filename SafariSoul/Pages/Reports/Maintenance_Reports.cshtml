@@ -1,0 +1,251 @@
+﻿@page
+@model SafariSoul.Pages.Reports.Maintenance_ReportsModel
+@{
+}
+
+
+<style>
+    /*Table Styling*/
+    * {
+        visibility: visible;
+        animation-delay: 0.3s;
+        animation-name: fadeIn;
+    }
+
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 900px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+
+        .content-table thead tr {
+            background-color: #2EB872;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th, .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd
+        }
+
+            .content-table tbody tr:nth-last-of-type(even) {
+                background-color: #f3f3f3
+            }
+
+            .content-table tbody tr:last-of-type {
+                border-bottom: 2px solid #2EB872
+            }
+
+    /* Button Styling */
+    .reportbtn input[type="submit"],
+    .reportbtn input[type="date"],
+    .reportbtn button {
+        background: #2EB872;
+        color: #ffffff;
+        border-radius: 30px;
+        transition: transform 0.3s ease;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+    }
+
+    .reportbtn button {
+        cursor: pointer;
+    }
+
+    .reportbtn input[type="date"] {
+        width: 150px;
+    }
+
+    .reportbtn input[type="submit"]:hover,
+    .reportbtn button:hover {
+        transform: translate(-12px,-12px);
+    }
+
+        .reportbtn input[type="submit"]:hover::after,
+        .reportbtn button:hover::after {
+            transform: translate(6px,6px);
+        }
+
+        .reportbtn input[type="submit"]:hover::before,
+        .reportbtn button:hover::before {
+            transform: translate(12px,12px);
+        }
+
+    .reportbtn input[type="submit"]:active,
+    .reportbtn button:active {
+        transform: none;
+    }
+
+        .reportbtn input[type="submit"]:active::after,
+        .reportbtn button:active::after {
+            transform: none;
+        }
+
+        .reportbtn input[type="submit"]:active::before,
+        .reportbtn button:active::before {
+            transform: none;
+        }
+</style>
+
+<body>
+    <h1> Maintenance Reports</h1>
+
+    <form method="post" class="reportbtn">
+        <input type="submit" name="reportType" value="Location by Urgency" />
+        <input type="submit" name="reportType" value="Location by Time_Requested" />
+        <input type="submit" name="reportType" value="ByUrg" />
+        <input type="submit" name="reportType" value="ByTime_Requested" />
+        <input type="submit" name="reportType" value="Incomplete" />
+
+    </form>
+    @if (ViewData["MaintenanceReportbyUrg"] != null)
+    {
+
+        <table id="LocbyUrg" class="content-table">
+            <thead>
+                <tr>
+                    <th>Ticket No.</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                    <th>Urgency</th>
+                    <th>Requested At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mainReport in ViewData["MaintenanceReportbyUrg"] as List<MaintenanceReport>)
+                {
+                    <tr>
+                        <td>@mainReport.Ticket_No</td>
+                        <td>@mainReport.Location</td>
+                        <td>@mainReport.Details</td>
+                        <td>@mainReport.Urgency</td>
+                        <td>@mainReport.Time_Requested</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (ViewData["MaintenanceReportbyReq"] != null)
+    {
+
+        <table id="LocbyReq" class="content-table">
+            <thead>
+                <tr>
+                    <th>Ticket No.</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                    <th>Urgency</th>
+                    <th>Requested At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mainReport in ViewData["MaintenanceReportbyReq"] as List<MaintenanceReport>)
+                {
+                    <tr>
+                        <td>@mainReport.Ticket_No</td>
+                        <td>@mainReport.Location</td>
+                        <td>@mainReport.Details</td>
+                        <td>@mainReport.Urgency</td>
+                        <td>@mainReport.Time_Requested</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (ViewData["MaintenanceReportUrg"] != null)
+    {
+
+        <table id="Urg" class="content-table">
+            <thead>
+                <tr>
+                    <th>Ticket No.</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                    <th>Urgency</th>
+                    <th>Requested At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mainReport in ViewData["MaintenanceReportUrg"] as List<MaintenanceReport>)
+                {
+                    <tr>
+                        <td>@mainReport.Ticket_No</td>
+                        <td>@mainReport.Location</td>
+                        <td>@mainReport.Details</td>
+                        <td>@mainReport.Urgency</td>
+                        <td>@mainReport.Time_Requested</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (ViewData["MaintenanceReportReq"] != null)
+    {
+
+        <table id="Urg" class="content-table">
+            <thead>
+                <tr>
+                    <th>Ticket No.</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                    <th>Urgency</th>
+                    <th>Requested At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mainReport in ViewData["MaintenanceReportReq"] as List<MaintenanceReport>)
+                {
+                    <tr>
+                        <td>@mainReport.Ticket_No</td>
+                        <td>@mainReport.Location</td>
+                        <td>@mainReport.Details</td>
+                        <td>@mainReport.Urgency</td>
+                        <td>@mainReport.Time_Requested</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (ViewData["MaintenanceReportIncom"] != null)
+    {
+
+        <table id="Urg" class="content-table">
+            <thead>
+                <tr>
+                    <th>Ticket No.</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                    <th>Urgency</th>
+                    <th>Requested At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mainReport in ViewData["MaintenanceReportIncom"] as List<MaintenanceReport>)
+                {
+                    <tr>
+                        <td>@mainReport.Ticket_No</td>
+                        <td>@mainReport.Location</td>
+                        <td>@mainReport.Details</td>
+                        <td>@mainReport.Urgency</td>
+                        <td>@mainReport.Time_Requested</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</body>
