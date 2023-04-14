@@ -11,11 +11,11 @@
     <div class="container">
         <div class="login form">
             <header>Login</header>
-            <form method="post">
-                <input type="text" placeholder="Enter your email" name="Username">
-                <input type="password" placeholder="Enter your password" name="pass">
+            <form method="post" asp-page-handler="OnPost">
+                <input type="text" id="username" name="username" placeholder="Enter your email" required>
+                <input type="password" id="password "name="password" placeholder="Enter your password" required>
                 <a href="#">Forgot password?</a>
-                <input type="submit" class="button" value="Login">
+                <input type="submit" class="btn btn-primary" value="Login">
             </form>
             <div class="signup">
                 <span class="signup">

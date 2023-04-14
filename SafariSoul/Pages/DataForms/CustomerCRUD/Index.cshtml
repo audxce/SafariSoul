@@ -8,6 +8,31 @@
 
 <h1>Customer Index</h1>
 
+<form method="post" class="searchFname">
+    <p>
+        First Name:
+        <input type="text" name="searchFname" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </p>
+</form>
+
+<form method="post" class="searchLname">
+    <p>
+        Last Name:
+        <input type="text" name="searchLname" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </p>
+</form>
+
+<form method="post" class="searchLevel">
+    <p>
+        Membership Level:
+        <input type="text" name="searchLevel" />
+        <input type="submit" value="Search" class="btn btn-primary" />
+        <a asp-page="./Index">Back to full list</a>
+    </p>
+</form>
+
 <p>
     <a asp-page="Create">Create New</a>
 </p>
