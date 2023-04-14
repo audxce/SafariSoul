@@ -11,24 +11,16 @@
 <div>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.LocationName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Location.LocationName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.CreatedAt)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Location.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.UpdatedAt)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Location.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.Location.LocationName)</dt>
+            <dd>@Html.DisplayFor(model => model.Location.LocationName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Location.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.Location.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Location.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.Location.UpdatedAt)</dd>
+        </div>
     </dl>
 </div>
 <div>

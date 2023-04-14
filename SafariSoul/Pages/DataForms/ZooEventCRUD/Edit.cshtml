@@ -48,15 +48,21 @@
             </div>
             <div class="form-group">
                 <label asp-for="ZooEvent.AnimalProgramId" class="control-label">Animal Program</label>
-                <select asp-for="ZooEvent.AnimalProgramId" class="form-control" asp-items="ViewBag.AnimalProgramId"></select>
+                <select asp-for="ZooEvent.AnimalProgramId" class="form-control" asp-items="ViewBag.AnimalProgramId">
+                    <option value="">-- Select Animal Program --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="ZooEvent.EducationalProgramId" class="control-label">Education Program</label>
-                <select asp-for="ZooEvent.EducationalProgramId" class="form-control" asp-items="ViewBag.EducationalProgramId"></select>
+                <select asp-for="ZooEvent.EducationalProgramId" class="form-control" asp-items="ViewBag.EducationalProgramId">
+                    <option value="">-- Select Educational Program --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="ZooEvent.EventLocationId" class="control-label">Event Location</label>
-                <select asp-for="ZooEvent.EventLocationId" class="form-control" asp-items="ViewBag.EventLocationId"></select>
+                <select asp-for="ZooEvent.EventLocationId" class="form-control" asp-items="ViewBag.EventLocationId">
+                    <option value="">-- Select Location --</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
