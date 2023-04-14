@@ -21,6 +21,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Inventory.ItemId" class="control-label">Item ID</label>
+                <input asp-for="Inventory.ItemId" class="form-control" />
+                <span asp-validation-for="Inventory.ItemId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Inventory.ItemName" class="control-label">Item Name</label>
                 <input asp-for="Inventory.ItemName" class="form-control" />
                 <span asp-validation-for="Inventory.ItemName" class="text-danger"></span>
@@ -88,7 +93,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.DateLastOrdered" class="control-label">Date Last Ordered</label>
-                <input asp-for="Inventory.DateLastOrdered" type="date" class="form-control" />
+                <input asp-for="Inventory.DateLastOrdered" class="form-control" />
                 <span asp-validation-for="Inventory.DateLastOrdered" class="text-danger"></span>
             </div>
             <div class="form-group">
