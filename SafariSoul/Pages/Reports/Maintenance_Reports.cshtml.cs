@@ -16,22 +16,22 @@ namespace SafariSoul.Pages.Reports
 
                 return OnGetLocbyUrg();
             }
-            else if (reportType == "Location by Time_Requested")
+            else if (reportType == "Location by Request Time")
             {
                 // generate expense report
                 return OnGetLocbyReq();
             }
-            else if (reportType == "ByUrg")
+            else if (reportType == "By Urgency")
             {
                 // generate expense report
                 return OnGetbyUrg();
             }
-            else if (reportType == "ByTime_Requested")
+            else if (reportType == "By Request Time")
             {
                 // generate expense report
                 return OnGetbyReq();
             }
-            else if (reportType == "Incomplete")
+            else if (reportType == "Completed Request")
             {
                 // generate expense report
                 return OnGetIncom();
@@ -53,7 +53,7 @@ namespace SafariSoul.Pages.Reports
                                 (case when MR.Location = L.Location_ID then L.Location_Name else 0 end) as Location, 
                                 MR.Details as Details, MR.Urgency as Urgency, MR.Time_Requested as Requested_at
                             FROM maintenance_request MR, location L
-                            WHERE MR.Location = L.Location_ID
+                            WHERE MR.Location = L.Location_ID and MR.Time_Fulfilled IS NULL
                             Order by MR.Urgency and MR.Location", connection))
                 {
 
@@ -100,7 +100,7 @@ namespace SafariSoul.Pages.Reports
                                 (case when MR.Location = L.Location_ID then L.Location_Name else 0 end) as Location, 
                                 MR.Details as Details, MR.Urgency as Urgency, MR.Time_Requested as Requested_at
                             FROM maintenance_request MR, location L
-                            WHERE MR.Location = L.Location_ID
+                            WHERE MR.Location = L.Location_ID and MR.Time_Fulfilled IS NULL
                             Order by MR.Time_Requested and MR.Location", connection))
                 {
 
@@ -145,7 +145,7 @@ namespace SafariSoul.Pages.Reports
                 connection.Open();
                 using (MySqlCommand command = new MySqlCommand(@"SELECT MR.Ticket_No as Ticket_Num, (case when MR.Location = L.Location_ID then L.Location_Name else 0 end) as Location, MR.Details as Details, MR.Urgency as Urgency, MR.Time_Requested as Requested_at
                                         FROM maintenance_request MR, location L
-                                        where MR.Location = L.Location_ID
+                                        where MR.Location = L.Location_ID and MR.Time_Fulfilled IS NULL
                                         Order by  MR.Urgency DESC;", connection))
                 {
 
@@ -189,7 +189,7 @@ namespace SafariSoul.Pages.Reports
                 connection.Open();
                 using (MySqlCommand command = new MySqlCommand(@"SELECT MR.Ticket_No as Ticket_Num, (case when MR.Location = L.Location_ID then L.Location_Name else 0 end) as Location, MR.Details as Details, MR.Urgency as Urgency, MR.Time_Requested as Requested_at
                                         FROM maintenance_request MR, location L
-                                        where MR.Location = L.Location_ID
+                                        where MR.Location = L.Location_ID and MR.Time_Fulfilled IS NULL
                                         Order by  MR.Time_Requested ASC;", connection))
                 {
 
@@ -233,7 +233,7 @@ namespace SafariSoul.Pages.Reports
                 connection.Open();
                 using (MySqlCommand command = new MySqlCommand(@"SELECT MR.Ticket_No as Ticket_Num, (case when MR.Location = L.Location_ID then L.Location_Name else 0 end) as Location, MR.Details as Details, MR.Urgency as Urgency, MR.Time_Requested as Requested_at
                                         FROM maintenance_request MR, location L
-                                        where MR.Location = L.Location_ID and MR.Time_Fulfilled IS NULL
+                                        where MR.Location = L.Location_ID and MR.Time_Fulfilled IS NOT NULL
                                         Order by  MR.Urgency DESC;", connection))
                 {
 

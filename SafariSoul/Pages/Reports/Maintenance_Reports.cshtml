@@ -102,11 +102,11 @@
 
     <form method="post" class="reportbtn">
         <input type="submit" name="reportType" value="Location by Urgency" />
-        <input type="submit" name="reportType" value="Location by Time_Requested" />
-        <input type="submit" name="reportType" value="ByUrg" />
-        <input type="submit" name="reportType" value="ByTime_Requested" />
-        <input type="submit" name="reportType" value="Incomplete" />
-
+        <input type="submit" name="reportType" value="Location by Request Time" />
+        <input type="submit" name="reportType" value="By Urgency" />
+        <input type="submit" name="reportType" value="By Request Time" />
+        <input type="submit" name="reportType" value="Completed Request" />
+        <button type="button" onclick="printTables()">Print Tables</button>
     </form>
     @if (ViewData["MaintenanceReportbyUrg"] != null)
     {
@@ -249,3 +249,8 @@
     }
 
 </body>
+<script>
+    function printTables() {
+        window.print();
+    }
+</script>
