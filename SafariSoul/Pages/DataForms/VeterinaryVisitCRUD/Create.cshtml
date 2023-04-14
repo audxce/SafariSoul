@@ -22,7 +22,9 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VeterinaryVisit.VetId" class="control-label">Veterinarian</label>
-                <select asp-for="VeterinaryVisit.VetId" class ="form-control" asp-items="ViewBag.VetId"></select>
+                <select asp-for="VeterinaryVisit.VetId" class ="form-control" asp-items="ViewBag.VetId">
+                    <option value="">-- Select Veterinarian --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="VeterinaryVisit.TimeScheduled" class="control-label">Time Scheduled</label>

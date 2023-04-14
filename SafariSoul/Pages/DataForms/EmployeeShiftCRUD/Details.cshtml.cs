@@ -27,7 +27,10 @@ namespace SafariSoul.Pages.EmployeeShiftCRUD
                 return NotFound();
             }
 
-            var employeeshift = await _context.EmployeeShifts.FirstOrDefaultAsync(m => m.ShiftId == id);
+            var employeeshift = await _context.EmployeeShifts
+                .Include(e => e.Employee)
+                .FirstOrDefaultAsync(m => m.ShiftId == id);
+
             if (employeeshift == null)
             {
                 return NotFound();

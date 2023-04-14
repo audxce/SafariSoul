@@ -27,7 +27,10 @@ namespace SafariSoul.Pages.DependentCRUD
                 return NotFound();
             }
 
-            var dependent = await _context.Dependents.FirstOrDefaultAsync(m => m.DependentId == id);
+            var dependent = await _context.Dependents
+                .Include(d => d.Employee)
+                .FirstOrDefaultAsync(m => m.DependentId == id);
+
             if (dependent == null)
             {
                 return NotFound();
