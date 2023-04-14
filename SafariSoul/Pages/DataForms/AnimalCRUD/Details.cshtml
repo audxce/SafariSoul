@@ -6,10 +6,9 @@
     Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Animal Details</h1>
 
 <div>
-    <h4>Animal</h4>
     <hr />
     <dl class="row">
         <div class="col-md-6">
@@ -46,13 +45,13 @@
             <dd>@Html.DisplayFor(model => model.Animal.UpdatedAt)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.Animal.FatherNavigation)</dt>
-            <dd>@Html.DisplayFor(model => model.Animal.FatherNavigation.AnimalId)</dd>
+            <dd>@Html.DisplayFor(model => model.Animal.FatherNavigation.AnimalName)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.Animal.MotherNavigation)</dt>
-            <dd>@Html.DisplayFor(model => model.Animal.MotherNavigation.AnimalId)</dd>
+            <dd>@Html.DisplayFor(model => model.Animal.MotherNavigation.AnimalName)</dd>
 
             <dt>@Html.DisplayNameFor(model => model.Animal.Species)</dt>
-            <dd>@Html.DisplayFor(model => model.Animal.Species.SpeciesId)</dd>
+            <dd>@Html.DisplayFor(model => model.Animal.Species.CommonName)</dd>
         </div>
     </dl>
 </div>

@@ -20,6 +20,13 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <input type="hidden" asp-for="EmployeeShift.ShiftId" />
+            <div class="form-group">
+                <label asp-for="EmployeeShift.EmployeeId" class="control-label"></label>
+                <select asp-for="EmployeeShift.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId">
+                    <option value="">-- Select Employee --</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label asp-for="EmployeeShift.ShiftStart" class="control-label"></label>
                 <input asp-for="EmployeeShift.ShiftStart" class="form-control" />

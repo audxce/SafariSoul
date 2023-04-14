@@ -47,11 +47,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Employee.DeptName" class="control-label">Department</label>
-                <select asp-for="Employee.DeptName" class ="form-control" asp-items="ViewBag.DeptName"></select>
+                <select asp-for="Employee.DeptName" class ="form-control" asp-items="ViewBag.DeptName">
+                    <option value="">-- Select Department --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.SupId" class="control-label">Supervisor</label>
-                <select asp-for="Employee.SupId" class ="form-control" asp-items="ViewBag.SupId"></select>
+                <select asp-for="Employee.SupId" class ="form-control" asp-items="ViewBag.SupId">
+                    <option value="">-- Select Supervisor --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.Salary" class="control-label">Salary</label>

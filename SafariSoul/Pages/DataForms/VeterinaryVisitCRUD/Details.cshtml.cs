@@ -27,7 +27,11 @@ namespace SafariSoul.Pages.VeterinaryVisitCRUD
                 return NotFound();
             }
 
-            var veterinaryvisit = await _context.VeterinaryVisits.FirstOrDefaultAsync(m => m.VetVisitId == id);
+            var veterinaryvisit = await _context.VeterinaryVisits
+                .Include(v => v.AnimalNavigation)
+                .Include(v => v.Vet)
+                .FirstOrDefaultAsync(m => m.VetVisitId == id);
+
             if (veterinaryvisit == null)
             {
                 return NotFound();

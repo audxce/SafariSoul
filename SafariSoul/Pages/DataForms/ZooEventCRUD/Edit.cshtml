@@ -20,6 +20,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <input type="hidden" asp-for="ZooEvent.EventId" />
             <div class="form-group">
                 <label asp-for="ZooEvent.EventName" class="control-label">Event Name</label>
                 <input asp-for="ZooEvent.EventName" class="form-control" />
@@ -42,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ZooEvent.RegistrationDeadline" class="control-label">Registration Deadline</label>
-                <input asp-for="ZooEvent.RegistrationDeadline" type="date" class="form-control" />
+                <input asp-for="ZooEvent.RegistrationDeadline" class="form-control" />
                 <span asp-validation-for="ZooEvent.RegistrationDeadline" class="text-danger"></span>
             </div>
             <div class="form-group">
