@@ -108,6 +108,13 @@
                         <a asp-area="" asp-page="/DataForms/ZooUserCRUD/Index" class="dropdown-item">Zoo User</a>
                     </div>
                 </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Reports</a>
+                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                        <a asp-area="" asp-page="/Reports/Accountant_Reports" class="dropdown-item">Accountant</a>
+                        <a asp-area="" asp-page="/Reports/Maintenance_Reports" class="dropdown-item">Maintenance</a>
+                    </div>
+                </div>
             </div>
             <a href="@Url.Page("/Login/login")" class="btn btn-outline-primary ms-3">Login</a>
             <div style="display: inline-block; margin-left: 10px;"></div>
