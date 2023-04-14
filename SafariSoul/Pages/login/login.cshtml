@@ -10,11 +10,11 @@
         <input type="checkbox" id="check">
         <div class="login form">
             <header>Login</header>
-            <form action="#">
-                <input type="text" placeholder="Enter your email">
-                <input type="password" placeholder="Enter your password">
+            <form method="post" asp-page-handler="OnPost">
+                <input type="text" id="username" name="username" placeholder="Enter your email" required>
+                <input type="password" id="password "name="password" placeholder="Enter your password" required>
                 <a href="#">Forgot password?</a>
-                <input type="button" class="button" value="Login">
+                <input type="submit" class="btn btn-primary" value="Login">
             </form>
             <div class="signup">
                 <span class="signup">
