@@ -12,15 +12,15 @@
         <div class="login form">
             <header>Login</header>
             <form method="post">
-                <input type="text" id="LoginEmail" name="LoginEmail" placeholder="Enter your email" required>
-                <input type="password" id="LoginPassword" name="LoginPassword" placeholder="Enter your password" required>
+                <input type="text" placeholder="Enter your email" name="Username">
+                <input type="password" placeholder="Enter your password" name="pass">
                 <a href="#">Forgot password?</a>
                 <input type="submit" class="button" value="Login">
             </form>
             <div class="signup">
                 <span class="signup">
-                    Don't have an account?
-                    <a href="~/Login/Signup">Signup</a>
+                    Don't have an account?Name: @HttpContext.Session.GetString("_Name")
+                    <label for="check">Signup</label>
                 </span>
             </div>
         </div>
