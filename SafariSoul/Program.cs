@@ -7,7 +7,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ZooDbContext>(options => options.UseMySql(builder.Configuration["ConnectionStrings:DefaultConnection"],ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"])));
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+	options.IdleTimeout = TimeSpan.FromSeconds(10);
+	options.Cookie.HttpOnly = true;
+	options.Cookie.IsEssential = true;
+});
 
 var app = builder.Build();
 
@@ -26,7 +36,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.UseSession();
+
 app.MapRazorPages();
+app.MapDefaultControllerRoute();
 
 app.UseEndpoints(endpoints =>
 {
