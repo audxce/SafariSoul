@@ -11,36 +11,22 @@
 <div>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingHour.DayOfWeek)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OperatingHour.DayOfWeek)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingHour.OpeningTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OperatingHour.OpeningTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingHour.ClosingTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OperatingHour.ClosingTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingHour.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OperatingHour.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingHour.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.OperatingHour.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.OperatingHour.DayOfWeek)</dt>
+            <dd>@Html.DisplayFor(model => model.OperatingHour.DayOfWeek)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.OperatingHour.OpeningTime)</dt>
+            <dd>@Html.DisplayFor(model => model.OperatingHour.OpeningTime)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.OperatingHour.ClosingTime)</dt>
+            <dd>@Html.DisplayFor(model => model.OperatingHour.ClosingTime)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.OperatingHour.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.OperatingHour.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.OperatingHour.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.OperatingHour.UpdatedAt)</dd>
+        </div>
     </dl>
 </div>
 <div>
