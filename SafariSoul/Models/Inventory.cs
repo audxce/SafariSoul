@@ -9,8 +9,6 @@ namespace SafariSoul.Models;
 
 public partial class Inventory
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ItemId { get; set; }
 
     [DisplayName("Item Name")]

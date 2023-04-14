@@ -21,6 +21,11 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="Expense.ExpenseId" class="control-label">Expense Id</label>
+                <input asp-for="Expense.ExpenseId" class="form-control" />
+                <span asp-validation-for="Expense.ExpenseId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Expense.ExpenseTime" class="control-label">Expense Time</label>
                 <input asp-for="Expense.ExpenseTime" class="form-control" />
                 <span asp-validation-for="Expense.ExpenseTime" class="text-danger"></span>
