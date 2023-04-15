@@ -20,6 +20,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaintenanceRequest.TicketNo" />
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.Details" class="control-label"></label>
                 <input asp-for="MaintenanceRequest.Details" class="form-control" />
@@ -27,11 +28,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.Exhibit" class="control-label"></label>
-                <select asp-for="MaintenanceRequest.Exhibit" class="form-control" asp-items="ViewBag.Exhibit"></select>
+                <select asp-for="MaintenanceRequest.Exhibit" class="form-control" asp-items="ViewBag.Exhibit">
+                    <option value="">-- Select Exhibit --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.Location" class="control-label"></label>
-                <select asp-for="MaintenanceRequest.Location" class="form-control" asp-items="ViewBag.Location"></select>
+                <select asp-for="MaintenanceRequest.Location" class="form-control" asp-items="ViewBag.Location">
+                    <option value="">-- Select Location --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.TimeRequested" class="control-label">Time Requested</label>

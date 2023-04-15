@@ -1,0 +1,31 @@
+﻿@page
+@model SafariSoul.Pages.Login.SignupModel
+@{
+    ViewData["Title"] = "Si";
+    Layout = "~/Pages/Shared/_LayoutLogin.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+    <div class="container">
+        <div class="signup form">
+            <header>Signup</header>
+            <form method="post">
+                <input type="text" id="Fname" name="Fname" placeholder="First Name" required>
+                <input type="text" id="Lname" name="Lname" placeholder="Last Name" required>
+                <input type="email" id="Email" name="Email" placeholder="Enter your email" required>
+                <input type="text" id="Username" name="Username" placeholder="Username" required>
+                <input type="password" id="AuthenticationKey" name="AuthenticationKey" placeholder="Create a password" required>
+                <input type="submit" class="button" value="Signup">
+            </form>
+            <div class="signup">
+                <span class="signup">
+                    Already have an account?
+                    <a href="~/Login/login">Login</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

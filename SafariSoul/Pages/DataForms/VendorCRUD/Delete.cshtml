@@ -10,38 +10,24 @@
 <div>
     <h4>Vendor</h4>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendor.VendorName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Vendor.VendorName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendor.ProductsAndServices)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Vendor.ProductsAndServices)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendor.ContractInformation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Vendor.ContractInformation)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendor.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Vendor.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Vendor.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Vendor.UpdatedAt)
-        </dd>
-    </dl>
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Vendor.VendorName)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Vendor.VendorName)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Vendor.ProductsAndServices)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Vendor.ProductsAndServices)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Vendor.ContractInformation)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Vendor.ContractInformation)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Vendor.CreatedAt)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Vendor.CreatedAt)</dd>
+
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Vendor.UpdatedAt)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Vendor.UpdatedAt)</dd>
+            </dl>
+        </div>
     
     <form method="post">
         <input type="hidden" asp-for="Vendor.VendorId" />

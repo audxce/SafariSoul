@@ -20,6 +20,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Species.SpeciesId" />
             <div class="form-group">
                 <label asp-for="Species.Kingdom" class="control-label"></label>
                 <input asp-for="Species.Kingdom" class="form-control" />
@@ -62,7 +63,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Species.ExhibitId" class="control-label">Exhibit</label>
-                <select asp-for="Species.ExhibitId" class="form-control" asp-items="ViewBag.ExhibitId"></select>
+                <select asp-for="Species.ExhibitId" class="form-control" asp-items="ViewBag.ExhibitId">
+                    <option value="">-- Select Exhibit --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Species.LifeExpectancy" class="control-label">Life Expectancy</label>

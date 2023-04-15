@@ -27,7 +27,11 @@ namespace SafariSoul.Pages.DepartmentCRUD
                 return NotFound();
             }
 
-            var department = await _context.Departments.FirstOrDefaultAsync(m => m.DeptName == id);
+            var department = await _context.Departments
+                .Include(d => d.Location)
+                .Include(d => d.Manager)
+                .FirstOrDefaultAsync(m => m.DeptName == id);
+
             if (department == null)
             {
                 return NotFound();

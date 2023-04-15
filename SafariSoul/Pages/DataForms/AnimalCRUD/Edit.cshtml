@@ -20,6 +20,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <input type="hidden" asp-for="Animal.AnimalId" />
             <div class="form-group">
                 <label asp-for="Animal.AnimalName" class="control-label">Animal Name</label>
                 <input asp-for="Animal.AnimalName" class="form-control" />

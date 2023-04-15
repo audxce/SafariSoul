@@ -9,8 +9,6 @@ namespace SafariSoul.Models;
 
 public partial class Inventory
 {
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int ItemId { get; set; }
 
     [DisplayName("Item Name")]
@@ -43,8 +41,10 @@ public partial class Inventory
     [DisplayName("Last Ordered")]
     public DateOnly? DateLastOrdered { get; set; }
 
+    [DisplayName("Created At")]
     public DateTime? CreatedAt { get; set; }
 
+    [DisplayName("Created At")]
     public DateTime? UpdatedAt { get; set; }
 
     [DisplayName("Destination")]
