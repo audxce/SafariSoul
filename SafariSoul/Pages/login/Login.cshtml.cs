@@ -9,12 +9,24 @@ using SafariSoul.Models;
 
 namespace SafariSoul.Pages.Login
 {
+
+    public class LinkGeneratorDemoModel : PageModel
+    {
+        private LinkGenerator linkGenerator;
+        public LinkGeneratorDemoModel(LinkGenerator linkGenerator) => this.linkGenerator = linkGenerator;
+        public string PathByPage { get; set; }
+        public string UriByPage { get; set; }
+        public void OnGet()
+        {
+            PathByPage = linkGenerator.GetPathByPage("/AdminPage", null, new { id = 2 });
+            UriByPage = linkGenerator.GetUriByPage(this.HttpContext, "/AdminPage", null, new { id = 2 });
+        }
+    }
     public class LoginModel : PageModel
     {
+        //create a session
         public const string SessionKeyName = "_Name";
-
         private readonly ILogger<PageModel> _logger;
-
         public LoginModel(ILogger<PageModel> logger)
         {
             _logger = logger;
@@ -50,7 +62,26 @@ namespace SafariSoul.Pages.Login
                 HttpContext.Session.SetString(SessionKeyName, username);
                 // Get the user type
                 string userType = reader.GetString("User_Type");
-                switch (userType)
+                Response.Redirect("/AdminPage");
+                if (userType == "Admin")
+                    Response.Redirect("/AdminPage");
+                else if (userType == "Accountant")
+                    Response.Redirect("/AccountantPage");
+                else if(userType == "Animal Handler")
+                    Response.Redirect("/AnimalHandlerPage");
+                else if (userType == "Customer")
+                    Response.Redirect("/CustomerPages/CustomerPage");
+                else if (userType == "Other Employee")
+                    Response.Redirect("/EmployeePage");
+                else if (userType == "Human Resources")
+                    Response.Redirect("/HumanResourcesPage");
+                else if (userType == "Maintenance")
+                    Response.Redirect("/MaintenancePage");
+                else if (userType == "Sales")
+                    Response.Redirect("/SalesPage");
+                else
+                    Response.Redirect("/Error");
+                /*switch (userType)
                 {
                     // since we are still testing, we will just show a message that confirms what type of user is logged in
                     case "Admin":
@@ -71,7 +102,7 @@ namespace SafariSoul.Pages.Login
                         return Content($"Sales Logged in");
                     default:
                         return Content($"Default Logged in");
-                }
+                }*/
             }
             else
             {
