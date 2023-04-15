@@ -9,23 +9,11 @@ using SafariSoul.Models;
 
 namespace SafariSoul.Pages.Login
 {
-
-    public class LinkGeneratorDemoModel : PageModel
-    {
-        private LinkGenerator linkGenerator;
-        public LinkGeneratorDemoModel(LinkGenerator linkGenerator) => this.linkGenerator = linkGenerator;
-        public string PathByPage { get; set; }
-        public string UriByPage { get; set; }
-        public void OnGet()
-        {
-            PathByPage = linkGenerator.GetPathByPage("/AdminPage", null, new { id = 2 });
-            UriByPage = linkGenerator.GetUriByPage(this.HttpContext, "/AdminPage", null, new { id = 2 });
-        }
-    }
     public class LoginModel : PageModel
     {
         //create a session
         public const string SessionKeyName = "_Name";
+        public const string SessionKeyType = "_Type";
         private readonly ILogger<PageModel> _logger;
         public LoginModel(ILogger<PageModel> logger)
         {
@@ -58,11 +46,20 @@ namespace SafariSoul.Pages.Login
             // Check if the username and password are valid
             if (reader.Read())
             {
-                //update the session user
-                HttpContext.Session.SetString(SessionKeyName, username);
                 // Get the user type
                 string userType = reader.GetString("User_Type");
-                Response.Redirect("/AdminPage");
+
+                //update the session user
+                HttpContext.Session.SetString(SessionKeyName, username);
+                var name = HttpContext.Session.GetString(SessionKeyName);
+                _logger.LogInformation("Session Name: {Name}", name);
+
+                //update the session type
+                HttpContext.Session.SetString(SessionKeyType, userType);
+                var type = HttpContext.Session.GetString(SessionKeyType);
+                _logger.LogInformation("Session Name: {Name}", type);
+
+                
                 if (userType == "Admin")
                     Response.Redirect("/AdminPage");
                 else if (userType == "Accountant")
@@ -70,7 +67,7 @@ namespace SafariSoul.Pages.Login
                 else if(userType == "Animal Handler")
                     Response.Redirect("/AnimalHandlerPage");
                 else if (userType == "Customer")
-                    Response.Redirect("/CustomerPages/CustomerPage");
+                    Response.Redirect("/CustomerPages/CustomerHome");
                 else if (userType == "Other Employee")
                     Response.Redirect("/EmployeePage");
                 else if (userType == "Human Resources")
@@ -137,7 +134,7 @@ namespace SafariSoul.Pages.Login
         }
         /*public void OnGet()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
             {
                 HttpContext.Session.SetString(SessionKeyName, "Default");
             }
