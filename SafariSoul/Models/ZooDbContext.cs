@@ -564,9 +564,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.Supplier, "SUPPLIED_BY");
 
-            entity.Property(e => e.ItemId)
-            .HasColumnName("Item_ID");
-
+            entity.Property(e => e.ItemId).HasColumnName("Item_ID");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp")
@@ -813,6 +811,7 @@ public partial class ZooDbContext : DbContext
                 .HasColumnType("timestamp")
                 .HasColumnName("created_at");
             entity.Property(e => e.FollowupNeeded).HasColumnName("Followup_Needed");
+            entity.Property(e => e.Reason).HasColumnType("tinytext");
             entity.Property(e => e.TimeAdmitted)
                 .HasColumnType("datetime")
                 .HasColumnName("Time_Admitted");

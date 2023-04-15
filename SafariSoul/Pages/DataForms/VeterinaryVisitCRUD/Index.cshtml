@@ -21,6 +21,9 @@
                 @Html.DisplayNameFor(model => model.VeterinaryVisit[0].AnimalNavigation)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.VeterinaryVisit[0].Reason)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.VeterinaryVisit[0].TimeScheduled)
             </th>
             <th>
@@ -42,9 +45,11 @@
                 @Html.DisplayFor(modelItem => item.AnimalNavigation.AnimalName)
             </td>
             <td>
+                    @Html.DisplayFor(modelItem => item.Reason)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.TimeScheduled)
             </td>
-
             <td>
                 @Html.DisplayFor(modelItem => item.AnimalCondition)
             </td>
