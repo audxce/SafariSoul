@@ -49,17 +49,17 @@ namespace SafariSoul.Pages.Reports
                 using (MySqlCommand command = new MySqlCommand(@"SELECT V.Vendor_Name as Vendor_Name, V.Vendor_ID as Vendor_ID,
                         SUM(CASE WHEN V.Vendor_ID = E.Vendor_ID AND E.Expense_ID = EI.Expense_ID THEN Expense_Amount ELSE 0 END) AS Total_Spent 
                     FROM vendor V, expense_items EI, expense E
-                    WHERE V.created_at BETWEEN @FromDate AND @ToDate
+                    WHERE (case when V.updated_at IS NULL then V.created_at else V.updated_at end) BETWEEN @FromDate AND @ToDate
                       AND E.Expense_ID = EI.Expense_ID
                       AND V.Vendor_ID = E.Vendor_ID
-                      AND E.created_at BETWEEN @FromDate AND @ToDate
+                      AND (case when E.updated_at IS NULL then E.created_at else E.updated_at end) BETWEEN @FromDate AND @ToDate
                     GROUP BY V.Vendor_ID
 
                     UNION
 
                     SELECT D.Dept_Name as Department_Name, D.Location_ID as Department_Location, D.Budget as Department_Budget
                     FROM department D
-                    WHERE D.created_at BETWEEN @FromDate AND @ToDate;
+                    WHERE (case when D.updated_at IS NULL then D.created_at else D.updated_at end) BETWEEN @FromDate AND @ToDate;
                           ", connection))
                 {
                     command.Parameters.AddWithValue("@FromDate", fromDate);
