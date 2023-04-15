@@ -1,5 +1,6 @@
 ﻿@page
 @model SafariSoul.Pages.Shared.AdminPageModel
 @{
-	Layout = "_Layout";
+	Layout = "_NewLayout";
 }
+Welcome @HttpContext.Session.GetString("_Name")!

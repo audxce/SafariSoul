@@ -12,14 +12,14 @@
         <div class="login form">
             <header>Login</header>
             <form method="post" asp-page-handler="OnPost">
-                <input type="text" id="username" name="username" placeholder="Enter your email" required>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
                 <input type="password" id="password "name="password" placeholder="Enter your password" required>
                 <a href="#">Forgot password?</a>
                 <input type="submit" class="btn btn-primary" value="Login">
             </form>
             <div class="signup">
                 <span class="signup">
-                    Don't have an account?Name: @HttpContext.Session.GetString("_Name")
+                    Don't have an account?Name: @HttpContext.Session.GetString("_Name") Type: @HttpContext.Session.GetString("_Type")
                     <label for="check">Signup</label>
                 </span>
             </div>
