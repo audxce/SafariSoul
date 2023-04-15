@@ -9,10 +9,19 @@ using SafariSoul.Models;
 
 namespace SafariSoul.Pages.Login
 {
-    /*public class LoginModel : PageModel
+    public class LoginModel : PageModel
     {
+        public const string SessionKeyName = "_Name";
+
+        private readonly ILogger<PageModel> _logger;
+
+        public LoginModel(ILogger<PageModel> logger)
+        {
+            _logger = logger;
+        }
         public IActionResult OnPost()
         {
+
             string connectionString = "Server=zoo-db-server.mysql.database.azure.com;UserID=audace;Password='37PE&CWYy9e@';Database=zoo_db;";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
@@ -37,6 +46,8 @@ namespace SafariSoul.Pages.Login
             // Check if the username and password are valid
             if (reader.Read())
             {
+                //update the session user
+                HttpContext.Session.SetString(SessionKeyName, username);
                 // Get the user type
                 string userType = reader.GetString("User_Type");
                 switch (userType)
@@ -44,10 +55,20 @@ namespace SafariSoul.Pages.Login
                     // since we are still testing, we will just show a message that confirms what type of user is logged in
                     case "Admin":
                         return Content($"Admin Logged in");
-                    case "Employee":
-                        return Content($"Employee Logged in");
+                    case "Accountant":
+                        return Content($"Accountant Logged in");
+                    case "Animal Handler":
+                        return Content($"Animal Handler Logged in");
                     case "Customer":
                         return Content($"Customer Logged in");
+                    case "Other Employee":
+                        return Content($"Employee Logged in");
+                    case "Human Resources":
+                        return Content($"HR Logged in");
+                    case "Maintenance":
+                        return Content($"Maintenance Logged in");
+                    case "Sales":
+                        return Content($"Sales Logged in");
                     default:
                         return Content($"Default Logged in");
                 }
@@ -59,15 +80,15 @@ namespace SafariSoul.Pages.Login
 
             return Page();
         }
-    }*/
+    }
 
-    public class LoginModel : PageModel
+    /*public class SessionModel : PageModel
     {
         public const string SessionKeyName = "_Name";
 
         private readonly ILogger<PageModel> _logger;
 
-        public LoginModel(ILogger<PageModel> logger)
+        public SessionModel(ILogger<PageModel> logger)
         {
             _logger = logger;
         }
@@ -92,7 +113,7 @@ namespace SafariSoul.Pages.Login
             var name = HttpContext.Session.GetString(SessionKeyName);
 
             _logger.LogInformation("Session Name: {Name}", name);
-        }*/
-    }
+        }
+    }*/
 
 }
