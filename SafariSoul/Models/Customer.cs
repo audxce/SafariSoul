@@ -20,7 +20,7 @@ public partial class Customer
     public string? Gender { get; set; }
 
     [DisplayName("Date of Birth")]
-    public DateOnly DateOfBirth { get; set; }
+    public DateOnly? DateOfBirth { get; set; }
 
     [DisplayName("Phone Number")]
     public string? PhoneNo { get; set; }

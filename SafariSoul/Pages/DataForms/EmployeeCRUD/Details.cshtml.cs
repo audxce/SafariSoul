@@ -27,7 +27,11 @@ namespace SafariSoul.Pages.EmployeeCRUD
                 return NotFound();
             }
 
-            var employee = await _context.Employees.FirstOrDefaultAsync(m => m.EmployeeId == id);
+            var employee = await _context.Employees
+                .Include(e => e.DeptNameNavigation)
+                .Include(e => e.Sup)
+                .FirstOrDefaultAsync(m => m.EmployeeId == id);
+
             if (employee == null)
             {
                 return NotFound();

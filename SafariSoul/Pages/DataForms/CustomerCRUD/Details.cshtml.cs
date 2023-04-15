@@ -27,7 +27,10 @@ namespace SafariSoul.Pages.CustomerCRUD
                 return NotFound();
             }
 
-            var customer = await _context.Customers.FirstOrDefaultAsync(m => m.CustomerId == id);
+            var customer = await _context.Customers
+                 .Include(c => c.MembershipLevelNavigation)
+                 .FirstOrDefaultAsync(m => m.CustomerId == id);
+
             if (customer == null)
             {
                 return NotFound();

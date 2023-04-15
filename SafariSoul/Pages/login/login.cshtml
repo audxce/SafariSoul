@@ -5,16 +5,17 @@
     Layout = "~/Pages/Shared/_LayoutLogin.cshtml";
 }
 
+<!DOCTYPE html>
+<html>
 <body>
     <div class="container">
-        <input type="checkbox" id="check">
         <div class="login form">
             <header>Login</header>
-            <form method="post">
-                <input type="text" placeholder="Enter your email" name="Username">
-                <input type="password" placeholder="Enter your password" name="pass">
+            <form method="post" asp-page-handler="OnPost">
+                <input type="text" id="username" name="username" placeholder="Enter your email" required>
+                <input type="password" id="password "name="password" placeholder="Enter your password" required>
                 <a href="#">Forgot password?</a>
-                <input type="submit" class="button" value="Login">
+                <input type="submit" class="btn btn-primary" value="Login">
             </form>
             <div class="signup">
                 <span class="signup">
@@ -23,20 +24,6 @@
                 </span>
             </div>
         </div>
-        <div class="registration form">
-            <header>Signup</header>
-            <form action="#">
-                <input type="text" placeholder="Enter your email">
-                <input type="password" placeholder="Create a password">
-                <input type="password" placeholder="Confirm your password">
-                <input type="button" class="button" value="Signup">
-            </form>
-            <div class="signup">
-                <span class="signup">
-                    Already have an account?
-                    <label for="check">Login</label>
-                </span>
-            </div>
-        </div>
     </div>
 </body>
+</html>

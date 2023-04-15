@@ -29,5 +29,18 @@ namespace SafariSoul.Pages.DepartmentCRUD
                 .Include(d => d.Manager).ToListAsync();
             }
         }
+
+        public async Task OnPostAsync()
+        {
+            var searchName = Request.Form["searchName"];
+
+            if (!String.IsNullOrEmpty(searchName))
+            {
+                Department = await _context.Departments
+                .Where(d => d.DeptName.Contains(searchName))
+                .Include(d => d.Location)
+                .Include(d => d.Manager).ToListAsync();
+            }
+        }
     }
 }
