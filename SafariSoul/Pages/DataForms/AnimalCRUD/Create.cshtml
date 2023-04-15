@@ -27,7 +27,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Animal.SpeciesId" class="control-label">Species</label>
-                <select asp-for="Animal.SpeciesId" class ="form-control" asp-items="ViewBag.SpeciesId"></select>
+                <select asp-for="Animal.SpeciesId" class ="form-control" asp-items="ViewBag.SpeciesId">
+                    <option value="">-- Select Species --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Animal.Mother" class="control-label"></label>

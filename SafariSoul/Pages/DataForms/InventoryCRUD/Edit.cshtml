@@ -20,6 +20,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Inventory.ItemId" />
             <div class="form-group">
                 <label asp-for="Inventory.ItemName" class="control-label">Item Name</label>
                 <input asp-for="Inventory.ItemName" class="form-control" />
@@ -32,7 +33,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.Destination" class="control-label"></label>
-                <select asp-for="Inventory.Destination" class="form-control" asp-items="ViewBag.Destination"></select>
+                <select asp-for="Inventory.Destination" class="form-control" asp-items="ViewBag.Destination">
+                    <option value="">-- Select Destination --</option>
+                </select>
                 <span asp-validation-for="Inventory.Destination" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -83,12 +86,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.Supplier" class="control-label"></label>
-                <select asp-for="Inventory.Supplier" class="form-control" asp-items="ViewBag.Supplier"></select>
+                <select asp-for="Inventory.Supplier" class="form-control" asp-items="ViewBag.Supplier">
+                    <option value="">-- Select Supplier --</option>
+                </select>
                 <span asp-validation-for="Inventory.Supplier" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Inventory.DateLastOrdered" class="control-label">Date Last Ordered</label>
-                <input asp-for="Inventory.DateLastOrdered" type="date" class="form-control" />
+                <input asp-for="Inventory.DateLastOrdered" class="form-control" />
                 <span asp-validation-for="Inventory.DateLastOrdered" class="text-danger"></span>
             </div>
             <div class="form-group">

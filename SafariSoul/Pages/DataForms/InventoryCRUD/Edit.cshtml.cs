@@ -51,7 +51,7 @@ namespace SafariSoul.Pages.InventoryCRUD
                 return Page();
             }
 
-           _context.Attach(Inventory).State = EntityState.Modified;
+            _context.Attach(Inventory).State = EntityState.Modified;
 
             try
             {

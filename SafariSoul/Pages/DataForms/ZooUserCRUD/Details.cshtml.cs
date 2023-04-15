@@ -27,7 +27,11 @@ namespace SafariSoul.Pages.ZooUserCRUD
                 return NotFound();
             }
 
-            var zoouser = await _context.ZooUsers.FirstOrDefaultAsync(m => m.UserName == id);
+            var zoouser = await _context.ZooUsers
+                .Include(z => z.Customer)
+                .Include(z => z.Employee)
+                .FirstOrDefaultAsync(m => m.UserName == id);
+
             if (zoouser == null)
             {
                 return NotFound();

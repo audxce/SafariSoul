@@ -811,6 +811,7 @@ public partial class ZooDbContext : DbContext
                 .HasColumnType("timestamp")
                 .HasColumnName("created_at");
             entity.Property(e => e.FollowupNeeded).HasColumnName("Followup_Needed");
+            entity.Property(e => e.Reason).HasColumnType("tinytext");
             entity.Property(e => e.TimeAdmitted)
                 .HasColumnType("datetime")
                 .HasColumnName("Time_Admitted");

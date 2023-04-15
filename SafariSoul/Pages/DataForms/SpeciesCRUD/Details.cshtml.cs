@@ -27,7 +27,10 @@ namespace SafariSoul.Pages.SpeciesCRUD
                 return NotFound();
             }
 
-            var species = await _context.Species.FirstOrDefaultAsync(m => m.SpeciesId == id);
+            var species = await _context.Species
+                .Include(s => s.Exhibit)
+                .FirstOrDefaultAsync(m => m.SpeciesId == id);
+
             if (species == null)
             {
                 return NotFound();

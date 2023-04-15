@@ -6,72 +6,40 @@
     Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Details</h1>
-
+<h1>Zoo Event Details</h1>
 <div>
-    <h4>ZooEvent</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EventName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EventName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.Capacity)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.Capacity)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EventTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EventTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.AdmissionPrice)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.AdmissionPrice)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.RegistrationDeadline)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.RegistrationDeadline)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.AnimalProgram)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.AnimalProgram.ProgramName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EducationalProgram)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EducationalProgram.ProgramName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.EventLocation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.EventLocation.LocationName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooEvent.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooEvent.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EventName)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EventName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EventTime)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EventTime)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EventLocation)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EventLocation.LocationName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.AdmissionPrice)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.AdmissionPrice)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.RegistrationDeadline)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.RegistrationDeadline)</dd>
+        </div>
+
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.AnimalProgram)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.AnimalProgram.ProgramName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EducationalProgram)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EducationalProgram.ProgramName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.UpdatedAt)</dd>
+        </div>
     </dl>
 </div>
 <div>

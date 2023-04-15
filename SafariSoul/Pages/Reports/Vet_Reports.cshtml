@@ -1,0 +1,159 @@
+﻿@page
+@using static SafariSoul.Pages.Reports.Vet_ReportsModel;
+@model SafariSoul.Pages.Reports.Vet_ReportsModel
+@{
+}
+<style>
+    /*Table Styling*/
+    * {
+        visibility: visible;
+        animation-delay: 0.3s;
+        animation-name: fadeIn;
+    }
+
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 900px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+
+        .content-table thead tr {
+            background-color: #2EB872;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th, .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd
+        }
+
+            .content-table tbody tr:nth-last-of-type(even) {
+                background-color: #f3f3f3
+            }
+
+            .content-table tbody tr:last-of-type {
+                border-bottom: 2px solid #2EB872
+            }
+
+    /* Button Styling */
+    .reportbtn input[type="submit"],
+    .reportbtn input[type="date"],
+    .reportbtn button {
+        background: #2EB872;
+        color: #ffffff;
+        border-radius: 30px;
+        transition: transform 0.3s ease;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+    }
+
+    .reportbtn button {
+        cursor: pointer;
+    }
+
+    .reportbtn input[type="date"] {
+        width: 150px;
+    }
+
+    .reportbtn input[type="submit"]:hover,
+    .reportbtn button:hover {
+        transform: translate(-12px,-12px);
+    }
+
+        .reportbtn input[type="submit"]:hover::after,
+        .reportbtn button:hover::after {
+            transform: translate(6px,6px);
+        }
+
+        .reportbtn input[type="submit"]:hover::before,
+        .reportbtn button:hover::before {
+            transform: translate(12px,12px);
+        }
+
+    .reportbtn input[type="submit"]:active,
+    .reportbtn button:active {
+        transform: none;
+    }
+
+        .reportbtn input[type="submit"]:active::after,
+        .reportbtn button:active::after {
+            transform: none;
+        }
+
+        .reportbtn input[type="submit"]:active::before,
+        .reportbtn button:active::before {
+            transform: none;
+        }
+</style>
+
+<body>
+    <h1> Veterinary Reports </h1>
+<form method="post" class="reportbtn">
+    <input type="submit" name="reportType" value="Incomplete Vet Visits" />
+    <input type="submit" name="reportType" value="Completed Vet Visits" />
+    <button type="button" onclick="printTables()">Print Tables</button>
+</form>
+
+
+@if (ViewData["VetReportIncompleted"] != null)
+{
+
+    <table id="Incom" class="content-table">
+        <thead>
+            <tr>
+                <th>Paitent Name</th>
+                <th>Visit ID</th>
+                <th>Condition</th>
+                <th>Urgency</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vetReports in ViewData["VetReportIncompleted"] as List<VetinarianReports>)
+            {
+                <tr>
+                    <td>@vetReports.Animal_Name</td>
+                    <td>@vetReports.Vet_Visit_ID</td>
+                    <td>@vetReports.Animal_Condition</td>
+                    <td>@vetReports.Urgency</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (ViewData["VetReportCompleted"] != null)
+{
+
+    <table id="Comp" class="content-table">
+        <thead>
+            <tr>
+                <th>Paitent Name</th>
+                <th>Visit ID</th>
+                <th>Condition</th>
+                <th>Urgency</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vetReports in ViewData["VetReportCompleted"] as List<VetinarianReports>)
+            {
+                <tr>
+                    <td>@vetReports.Animal_Name</td>
+                    <td>@vetReports.Vet_Visit_ID</td>
+                    <td>@vetReports.Animal_Condition</td>
+                    <td>@vetReports.Urgency</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+</body>

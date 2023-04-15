@@ -20,6 +20,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Exhibit.ExhibitId" />
             <div class="form-group">
                 <label asp-for="Exhibit.ExhibitName" class="control-label">Exhibit Name</label>
                 <input asp-for="Exhibit.ExhibitName" class="form-control" />
@@ -27,7 +28,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.Location" class="control-label"></label>
-                <select asp-for="Exhibit.Location" class="form-control" asp-items="ViewBag.Location"></select>
+                <select asp-for="Exhibit.Location" class="form-control" asp-items="ViewBag.Location">
+                    <option value="">-- Select Location --</option>
+                </select>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -36,7 +39,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.Zookeeper" class="control-label"></label>
-                <select asp-for="Exhibit.Zookeeper" class="form-control" asp-items="ViewBag.Zookeeper"></select>
+                <select asp-for="Exhibit.Zookeeper" class="form-control" asp-items="ViewBag.Zookeeper">
+                     <option value="">-- Select Zookeeper --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.NormalTemperature" class="control-label">Normal Temperature  (°F)</label>
@@ -55,7 +60,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.MealContent" class="control-label">Meal Content</label>
-                <select asp-for="Exhibit.MealContent" class="form-control" asp-items="ViewBag.MealContent"></select>
+                <select asp-for="Exhibit.MealContent" class="form-control" asp-items="ViewBag.MealContent">
+                    <option value="">-- Select Meal Content --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Exhibit.MealQuantity" class="control-label"></label>

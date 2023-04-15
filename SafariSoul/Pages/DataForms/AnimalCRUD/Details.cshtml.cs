@@ -27,7 +27,11 @@ namespace SafariSoul.Pages.AnimalCRUD
                 return NotFound();
             }
 
-            var animal = await _context.Animals.FirstOrDefaultAsync(m => m.AnimalId == id);
+            var animal = await _context.Animals
+                .Include(a => a.FatherNavigation)
+                .Include(a => a.MotherNavigation)
+                .Include(a => a.Species).FirstOrDefaultAsync(m => m.AnimalId == id);
+
             if (animal == null)
             {
                 return NotFound();

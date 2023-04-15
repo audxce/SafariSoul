@@ -22,7 +22,21 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="VeterinaryVisit.VetId" class="control-label">Veterinarian</label>
-                <select asp-for="VeterinaryVisit.VetId" class ="form-control" asp-items="ViewBag.VetId"></select>
+                <select asp-for="VeterinaryVisit.VetId" class ="form-control" asp-items="ViewBag.VetId">
+                    <option value="">-- Select Veterinarian --</option>
+                </select>
+                <span asp-validation-for="VeterinaryVisit.VetId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VeterinaryVisit.Animal" class="control-label"></label>
+                <select asp-for="VeterinaryVisit.Animal" class="form-control" asp-items="ViewBag.Animal">
+                    <option value="">-- Select Animal --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VeterinaryVisit.Reason" class="control-label">Reason</label>
+                <input asp-for="VeterinaryVisit.Reason" class="form-control" />
+                <span asp-validation-for="VeterinaryVisit.Reason" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="VeterinaryVisit.TimeScheduled" class="control-label">Time Scheduled</label>
@@ -50,10 +64,6 @@
                     <option value="5">5</option>
                 </select>
                 <span asp-validation-for="VeterinaryVisit.Urgency" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VeterinaryVisit.Animal" class="control-label"></label>
-                <select asp-for="VeterinaryVisit.Animal" class ="form-control" asp-items="ViewBag.Animal"></select>
             </div>
             <div class="form-group">
                 <label asp-for="VeterinaryVisit.AnimalCondition" class="control-label">Animal Condition</label>

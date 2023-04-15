@@ -11,60 +11,32 @@
     <h4>Expense</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.ExpenseTime)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.ExpenseTime)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.Category)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.Category)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.ExpenseAccount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.ExpenseAccount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.ExpenseAmount)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.ExpenseAmount)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.InvoiceId)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.InvoiceId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.UpdatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.Employee)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.Employee.EmployeeId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Expense.Vendor)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Expense.Vendor.VendorId)
-        </dd>
+        <dt>@Html.DisplayNameFor(model => model.Expense.ExpenseTime)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.ExpenseTime)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.Category)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.Category)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.ExpenseAccount)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.ExpenseAccount)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.ExpenseAmount)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.ExpenseAmount)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.InvoiceId)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.InvoiceId)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.Employee)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.Employee.FullName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.Vendor)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.Vendor.VendorName)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.CreatedAt)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.CreatedAt)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Expense.UpdatedAt)</dt>
+        <dd>@Html.DisplayFor(model => model.Expense.UpdatedAt)</dd>
     </dl>
     
     <form method="post">

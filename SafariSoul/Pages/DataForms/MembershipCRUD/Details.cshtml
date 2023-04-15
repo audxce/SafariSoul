@@ -6,36 +6,27 @@
     Layout = "~/Pages/Shared/_NewLayout.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Membership Details</h1>
 
 <div>
-    <h4>Membership</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Membership.MembershipFee)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Membership.MembershipFee)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Membership.Benefits)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Membership.Benefits)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Membership.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Membership.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Membership.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Membership.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.Membership.MembershipLevel)</dt>
+            <dd>@Html.DisplayFor(model => model.Membership.MembershipLevel)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Membership.MembershipFee)</dt>
+            <dd>@Html.DisplayFor(model => model.Membership.MembershipFee)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Membership.Benefits)</dt>
+            <dd>@Html.DisplayFor(model => model.Membership.Benefits)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Membership.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.Membership.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Membership.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.Membership.UpdatedAt)</dd>
+        </div>
     </dl>
 </div>
 <div>
