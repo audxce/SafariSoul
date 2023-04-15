@@ -8,7 +8,7 @@ public partial class EmployeeShift
 {
     public int ShiftId { get; set; }
 
-    public int EmployeeId { get; set; }
+    public int? EmployeeId { get; set; }
 
     [DisplayName("Shift Start")]
     public DateTime ShiftStart { get; set; }
@@ -28,5 +28,5 @@ public partial class EmployeeShift
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual Employee Employee { get; set; } = null!;
+    public virtual Employee? Employee { get; set; } = null!;
 }

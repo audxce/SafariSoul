@@ -7,43 +7,40 @@
 }
 
 <h1>Zoo Event Details</h1>
-
 <div>
     <hr />
+    <dl class="row">
         <div class="col-md-6">
-            <dl class="row">
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.EventName)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.EventName)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EventName)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EventName)</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.EventTime)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.EventTime)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EventTime)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EventTime)</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.EventLocation)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.EventLocation.LocationName)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EventLocation)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EventLocation.LocationName)</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.AdmissionPrice)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.AdmissionPrice)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.AdmissionPrice)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.AdmissionPrice)</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.RegistrationDeadline)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.RegistrationDeadline)</dd>
-            </dl>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.RegistrationDeadline)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.RegistrationDeadline)</dd>
         </div>
 
         <div class="col-md-6">
-            <dl class="row">
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.AnimalProgram)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.AnimalProgram.ProgramName)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.AnimalProgram)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.AnimalProgram.ProgramName)</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.EducationalProgram)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.EducationalProgram.ProgramName)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.EducationalProgram)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.EducationalProgram.ProgramName)</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.CreatedAt)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.CreatedAt)</dd>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.CreatedAt)</dd>
 
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ZooEvent.UpdatedAt)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.ZooEvent.UpdatedAt)</dd>
-            </dl>
+            <dt>@Html.DisplayNameFor(model => model.ZooEvent.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooEvent.UpdatedAt)</dd>
         </div>
+    </dl>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.ZooEvent?.EventId">Edit</a> |

@@ -36,7 +36,7 @@ namespace SafariSoul.Pages.VeterinaryVisitCRUD
             }
             VeterinaryVisit = veterinaryvisit;
            ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
-           ViewData["VetId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+           ViewData["VetId"] = new SelectList(_context.Employees.Where(e => e.Occupation == "Veterinarian"), "EmployeeId", "FullName");
             return Page();
         }
 
@@ -47,7 +47,7 @@ namespace SafariSoul.Pages.VeterinaryVisitCRUD
             if (!ModelState.IsValid)
             {
                 ViewData["Animal"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
-                ViewData["VetId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+                ViewData["VetId"] = new SelectList(_context.Employees.Where(e => e.Occupation == "Veterinarian"), "EmployeeId", "FullName");
                 return Page();
             }
 
