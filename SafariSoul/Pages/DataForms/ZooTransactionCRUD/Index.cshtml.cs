@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-namespace SafariSoul.Pages.ZooTransactionCRUD
+namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
 {
     public class IndexModel : PageModel
     {

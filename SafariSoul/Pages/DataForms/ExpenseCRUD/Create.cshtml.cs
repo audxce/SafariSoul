@@ -31,7 +31,7 @@ namespace SafariSoul.Pages.ExpenseCRUD
         public Expense Expense { get; set; } = default!;
 
         [BindProperty]
-        public List<ExpenseItem> ExpenseItems { get; set; } = new List<ExpenseItem>();
+        public IList<ExpenseItem> ExpenseItems { get; set; } = new List<ExpenseItem> { new ExpenseItem() };
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
