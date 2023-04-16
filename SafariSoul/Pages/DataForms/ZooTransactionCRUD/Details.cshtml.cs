@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-namespace SafariSoul.Pages.ZooTransactionCRUD
+namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
 {
     public class DetailsModel : PageModel
     {
@@ -27,7 +27,12 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
                 return NotFound();
             }
 
-            var zootransaction = await _context.ZooTransactions.FirstOrDefaultAsync(m => m.TransactionId == id);
+            var zootransaction = await _context.ZooTransactions
+                .Include(z => z.Customer)
+                .Include(z => z.Location)
+                .Include(z => z.Seller)
+                .FirstOrDefaultAsync(m => m.TransactionId == id);
+
             if (zootransaction == null)
             {
                 return NotFound();

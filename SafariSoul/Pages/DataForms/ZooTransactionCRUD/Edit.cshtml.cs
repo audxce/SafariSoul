@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-namespace SafariSoul.Pages.ZooTransactionCRUD
+namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
 {
     public class EditModel : PageModel
     {
@@ -35,9 +35,9 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
                 return NotFound();
             }
             ZooTransaction = zootransaction;
-           ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
-           ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
-           ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+           ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+           ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
+           ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
             return Page();
         }
 
@@ -47,9 +47,6 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
         {
             if (!ModelState.IsValid)
             {
-                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
-                ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
-                ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

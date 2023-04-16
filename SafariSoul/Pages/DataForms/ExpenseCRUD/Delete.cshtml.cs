@@ -28,7 +28,12 @@ namespace SafariSoul.Pages.ExpenseCRUD
                 return NotFound();
             }
 
-            var expense = await _context.Expenses.FirstOrDefaultAsync(m => m.ExpenseId == id);
+            var expense = await _context.Expenses
+                  .Include(e => e.Employee)
+                 .Include(e => e.Vendor)
+          .Include(e => e.ExpenseItems)
+              .ThenInclude(ei => ei.Item)
+          .FirstOrDefaultAsync(m => m.ExpenseId == id);
 
             if (expense == null)
             {

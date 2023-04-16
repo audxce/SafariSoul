@@ -1,23 +1,55 @@
 ﻿@page
 @model SafariSoul.Pages.Login.SignupModel
 @{
-    ViewData["Title"] = "Si";
-    Layout = "~/Pages/Shared/_LayoutLogin.cshtml";
+    ViewData["Title"] = "Signup";
+    Layout = "~/Pages/Shared/_LayoutSignin.cshtml";
 }
 
-<!DOCTYPE html>
-<html>
 <body>
     <div class="container">
         <div class="signup form">
             <header>Signup</header>
             <form method="post">
-                <input type="text" id="Fname" name="Fname" placeholder="First Name" required>
-                <input type="text" id="Lname" name="Lname" placeholder="Last Name" required>
-                <input type="email" id="Email" name="Email" placeholder="Enter your email" required>
-                <input type="text" id="Username" name="Username" placeholder="Username" required>
-                <input type="password" id="AuthenticationKey" name="AuthenticationKey" placeholder="Create a password" required>
-                <input type="submit" class="button" value="Signup">
+                <div class="form-group">
+                    <div>                      
+                        <input asp-for="ZooUserCustomer.Customer.Fname" class="form-control" placeholder="First Name" />
+                        <span asp-validation-for="ZooUserCustomer.Customer.Fname" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <input asp-for="ZooUserCustomer.Customer.Lname" class="form-control" placeholder="Last Name" />
+                        <span asp-validation-for="ZooUserCustomer.Customer.Lname" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <input asp-for="ZooUserCustomer.Customer.Email" type="email" class="form-control" placeholder="Email" />
+                        <span asp-validation-for="ZooUserCustomer.Customer.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="ZooUserCustomer.Customer.PhoneNo" class="form-control" placeholder="Phone Number" />
+                        <span asp-validation-for="ZooUserCustomer.Customer.PhoneNo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <select asp-for="ZooUserCustomer.Customer.Gender" class="form-control">
+                            <option value="">-- Select Gender --</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Do not wish to answer">Do not wish to answer</option>
+                        </select>
+                        <span asp-validation-for="ZooUserCustomer.Customer.Gender" class="text-danger"></span>
+                        <div style="height: 20px;"></div>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="ZooUserCustomer.ZooUser.UserName" class="form-control" placeholder="Username" />
+                        <span asp-validation-for="ZooUserCustomer.ZooUser.UserName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="ZooUserCustomer.ZooUser.AuthenticationKey" type="password" class="form-control" placeholder="Password" />
+                        <span asp-validation-for="ZooUserCustomer.ZooUser.AuthenticationKey" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Signup" class="btn btn-primary" />
+                    </div>
+                <</div>
             </form>
             <div class="signup">
                 <span class="signup">
@@ -28,4 +60,9 @@
         </div>
     </div>
 </body>
-</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
