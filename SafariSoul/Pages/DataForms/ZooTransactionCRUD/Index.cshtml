@@ -1,5 +1,5 @@
 ﻿@page
-@model SafariSoul.Pages.ZooTransactionCRUD.IndexModel
+@model SafariSoul.Pages.DataForms.ZooTransactionCRUD.IndexModel
 
 @{
     ViewData["Title"] = "Index";
@@ -19,7 +19,7 @@
         Layout = "_LayoutSales";
 }
 
-<h1>Transaction Index</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
@@ -31,7 +31,16 @@
                 @Html.DisplayNameFor(model => model.ZooTransaction[0].DateAndTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooTransaction[0].Seller)
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].GeneralTicketQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].GeneralTicketDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].UpdatedAt)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ZooTransaction[0].Customer)
@@ -39,30 +48,46 @@
             <th>
                 @Html.DisplayNameFor(model => model.ZooTransaction[0].Location)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].Seller)
+            </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.ZooTransaction) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateAndTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Seller.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.FullName) 
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location.LocationName)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.TransactionId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.TransactionId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.ZooTransaction)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateAndTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GeneralTicketQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GeneralTicketDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UpdatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.LocationId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seller.EmployeeId)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.TransactionId">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.TransactionId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
