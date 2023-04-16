@@ -20,6 +20,12 @@ public partial class ZooTransaction
     [DisplayName("Location")]
     public int? LocationId { get; set; }
 
+    [DisplayName("General Ticket Quantity")]
+    public int? GeneralTicketQuantity { get; set; }
+
+    [DisplayName("General Ticket Date")]
+    public DateOnly? GeneralTicketDate { get; set; }
+
     [DisplayName("Created At")]
     public DateTime? CreatedAt { get; set; }
 
@@ -31,8 +37,6 @@ public partial class ZooTransaction
     public virtual Location? Location { get; set; } = null!;
 
     public virtual Employee? Seller { get; set; } = null!;
-
-    public virtual ICollection<ZooTransactionEventTicket> ZooTransactionEventTickets { get; } = new List<ZooTransactionEventTicket>();
 
     public virtual ICollection<ZooTransactionItem> ZooTransactionItems { get; } = new List<ZooTransactionItem>();
 }

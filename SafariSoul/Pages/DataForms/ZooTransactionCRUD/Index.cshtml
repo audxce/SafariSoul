@@ -55,39 +55,39 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.ZooTransaction)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateAndTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GeneralTicketQuantity)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.GeneralTicketDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CreatedAt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UpdatedAt)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer.CustomerId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Location.LocationId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Seller.EmployeeId)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.TransactionId">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.TransactionId">Delete</a>
-                </td>
-            </tr>
-        }
+@foreach (var item in Model.ZooTransaction) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneralTicketQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneralTicketDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.LocationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller.EmployeeId)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TransactionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TransactionId">Delete</a>
+            </td>
+        </tr>
+}
+
     </tbody>
 </table>

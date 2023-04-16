@@ -35,9 +35,9 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
                 return NotFound();
             }
             ZooTransaction = zootransaction;
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
-            ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+           ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
+           ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
             return Page();
         }
 

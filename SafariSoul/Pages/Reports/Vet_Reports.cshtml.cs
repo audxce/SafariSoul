@@ -35,7 +35,7 @@ namespace SafariSoul.Pages.Reports
             {
                 connection.Open();
                 using (MySqlCommand command = new MySqlCommand(@"SELECT (case when V.animal = A.Animal_ID then A.Animal_Name else 0 end) As Animal_Name, 
-		                                                        V.Vet_Visit_ID,V.Urgency, V.Animal_Condition
+		                                                        V.Vet_Visit_ID as ID,V.Urgency as Urgency , V.Animal_Condition as Cond
                                                         FROM  veterinary_visit V, animal A
                                                         WHERE V.animal = A.Animal_ID  and V.Time_Discharged IS NULL
                                                         ORDER BY V.Urgency;", connection))
@@ -46,9 +46,9 @@ namespace SafariSoul.Pages.Reports
                         while (reader.Read())
                         {
                             VetinarianReports vetinarianReports = new VetinarianReports();
-                            vetinarianReports.Animal_Name = reader["Location"].ToString();
-                            vetinarianReports.Vet_Visit_ID = Convert.ToInt32(reader["Ticket_Num"]);
-                            vetinarianReports.Animal_Condition = reader["Details"].ToString();
+                            vetinarianReports.Animal_Name = reader["Animal_Name"].ToString();
+                            vetinarianReports.Vet_Visit_ID = Convert.ToInt32(reader["ID"]);
+                            vetinarianReports.Animal_Condition = reader["Cond"].ToString();
                             vetinarianReports.Urgency = Convert.ToInt32(reader["Urgency"]);
                             //vetinarianReports.Time_Requested = Convert.ToDateTime(reader["Requested_at"]);
 

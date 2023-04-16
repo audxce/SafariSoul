@@ -19,8 +19,9 @@
             </form>
             <div class="signup">
                 <span class="signup">
-                    Don't have an account?Name: @HttpContext.Session.GetString("_Name") Type: @HttpContext.Session.GetString("_Type")
-                    <label for="check">Signup</label>
+                    Don't have an account?
+                    <a href="~/Login/signup">Signup</a>
+                    Name: @HttpContext.Session.GetString("_Name") Type: @HttpContext.Session.GetString("_Type")
                 </span>
             </div>
         </div>

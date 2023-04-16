@@ -52,6 +52,32 @@
         <dd>@Html.DisplayFor(model => model.Expense.UpdatedAt)</dd>
     </dl>
 </div>
+@if (Model.Expense.ExpenseItems.Any())
+{
+    <h3>Expense Items</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Measurement Units</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Expense.ExpenseItems)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Item.ItemName)</td>
+                    <td>@item.Item.Price</td>
+                    <td>@item.ItemQuantity</td>
+                    <td>@item.Item.MeasurementUnits</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Expense?.ExpenseId">Edit</a> |
     <a asp-page="./Index">Back to List</a>

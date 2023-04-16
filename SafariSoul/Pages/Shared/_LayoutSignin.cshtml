@@ -2,6 +2,11 @@
 <html lang="en">
 
 <head>
+    <style>
+        .main-container {
+            margin-top: 80px; /* Adjust this value based on your navbar's height */
+        }
+    </style>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -59,7 +64,7 @@
         </div>
     </nav>
     <!-- Navbar End -->
-    <div class="container">
+    <div class="container main-container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
