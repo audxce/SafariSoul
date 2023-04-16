@@ -55,6 +55,7 @@
         border: none;
         padding: 10px 20px;
         margin-right: 10px;
+        width: 200px;
     }
 
     .reportbtn button {
@@ -94,6 +95,11 @@
         .reportbtn button:active::before {
             transform: none;
         }
+
+    .reportbtn div {
+        display: block;
+        margin-bottom: 10px;
+    }
 </style>
 
 <body>
@@ -157,3 +163,9 @@
     </table>
 }
 </body>
+
+<script>
+    function printTables() {
+        window.print();
+    }
+</script>
