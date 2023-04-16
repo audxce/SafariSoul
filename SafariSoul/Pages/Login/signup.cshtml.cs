@@ -40,11 +40,12 @@ namespace SafariSoul.Pages.Login
             await _context.SaveChangesAsync(); // Save the Customer first to generate the CustomerId
 
             // Set the ZooUser.CustomerId equal to the saved Customer.CustomerId
+            ZooUserCustomer.ZooUser.UserType = "Customer";
             ZooUserCustomer.ZooUser.CustomerId = ZooUserCustomer.Customer.CustomerId;
             _context.ZooUsers.Add(ZooUserCustomer.ZooUser);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("~/DefaultPages/Home");
+            return RedirectToPage("/CustomerPages/CustomerHome");
         }
 
     }
