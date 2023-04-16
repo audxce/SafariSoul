@@ -29,7 +29,7 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
                 return NotFound();
             }
 
-            var zootransaction =  await _context.ZooTransactions.FirstOrDefaultAsync(m => m.TransactionId == id);
+            var zootransaction = await _context.ZooTransactions.FirstOrDefaultAsync(m => m.TransactionId == id);
             if (zootransaction == null)
             {
                 return NotFound();
@@ -73,7 +73,7 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
 
         private bool ZooTransactionExists(int id)
         {
-          return (_context.ZooTransactions?.Any(e => e.TransactionId == id)).GetValueOrDefault();
+            return (_context.ZooTransactions?.Any(e => e.TransactionId == id)).GetValueOrDefault();
         }
     }
 }
