@@ -20,20 +20,20 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-        ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
-        ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
+            ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
             return Page();
         }
 
         [BindProperty]
         public ZooTransaction ZooTransaction { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.ZooTransactions == null || ZooTransaction == null)
+            if (!ModelState.IsValid || _context.ZooTransactions == null || ZooTransaction == null)
             {
                 return Page();
             }
