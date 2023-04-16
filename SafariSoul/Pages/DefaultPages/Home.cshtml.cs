@@ -17,7 +17,10 @@ namespace SafariSoul.Pages.DefaultPages
             }
             public void OnGet()
             {
-                HttpContext.Session.SetString(SessionKeyName, "Default");
+                if (!string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
+                {
+                    HttpContext.Session.SetString(SessionKeyName, "Default");            //needs to set the session user to default every time this page is loaded
+                }     
                 var name = HttpContext.Session.GetString(SessionKeyName);
 
                 _logger.LogInformation("Session Name: {Name}", name);
