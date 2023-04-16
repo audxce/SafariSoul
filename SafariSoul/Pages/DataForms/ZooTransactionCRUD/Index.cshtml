@@ -1,0 +1,68 @@
+﻿@page
+@model SafariSoul.Pages.ZooTransactionCRUD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
+}
+
+<h1>Transaction Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].DateAndTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].Seller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ZooTransaction) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAndTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.FullName) 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.LocationName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TransactionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TransactionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

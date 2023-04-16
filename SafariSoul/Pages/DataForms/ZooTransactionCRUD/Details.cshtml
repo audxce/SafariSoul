@@ -1,0 +1,51 @@
+﻿@page
+@model SafariSoul.Pages.ZooTransactionCRUD.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
+}
+
+<h1>Transaction Details</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.ZooTransaction.DateAndTime)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooTransaction.DateAndTime)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooTransaction.Customer)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooTransaction.Customer.FullName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooTransaction.Location)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooTransaction.Location.LocationName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooTransaction.Seller)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooTransaction.Seller.FullName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooTransaction.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooTransaction.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooTransaction.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooTransaction.UpdatedAt)</dd>
+        </div>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ZooTransaction?.TransactionId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

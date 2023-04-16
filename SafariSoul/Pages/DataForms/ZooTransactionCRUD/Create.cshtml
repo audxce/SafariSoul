@@ -1,0 +1,66 @@
+﻿@page
+@model SafariSoul.Pages.ZooTransactionCRUD.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
+}
+
+<head>
+    <style>
+        .form-group + .form-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<h4>Create Zoo Transaction</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ZooTransaction.DateAndTime" class="control-label">Date and Time</label>
+                <input asp-for="ZooTransaction.DateAndTime" class="form-control" />
+                <span asp-validation-for="ZooTransaction.DateAndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZooTransaction.CustomerId" class="control-label">Customer</label>
+                <select asp-for="ZooTransaction.CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZooTransaction.SellerId" class="control-label">Seller</label>
+                <select asp-for="ZooTransaction.SellerId" class ="form-control" asp-items="ViewBag.SellerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZooTransaction.LocationId" class="control-label">Location</label>
+                <select asp-for="ZooTransaction.LocationId" class ="form-control" asp-items="ViewBag.LocationId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
