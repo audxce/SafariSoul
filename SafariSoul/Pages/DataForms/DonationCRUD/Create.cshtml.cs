@@ -20,7 +20,7 @@ namespace SafariSoul.Pages.DonationCRUD
 
         public IActionResult OnGet()
         {
-        ViewData["DonorId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+        ViewData["DonorId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
             return Page();
         }
 
