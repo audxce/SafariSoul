@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Location.LocationId" />
+            <input type="hidden" asp-for="Location.CreatedAt" />
             <div class="form-group">
                 <label asp-for="Location.LocationName" class="control-label">Location Name</label>
                 <input asp-for="Location.LocationName" class="form-control" />
