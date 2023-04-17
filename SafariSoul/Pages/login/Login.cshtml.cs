@@ -58,7 +58,7 @@ namespace SafariSoul.Pages.Login
 				if (userType == "Customer")
 				{
 					int customerId = reader.GetInt32("Customer_Id");
-					HttpContext.Session.SetInt32("CustomerId", customerId);
+					HttpContext.Session.SetInt32(SessionKeyCID, customerId);
 				}
 
 				//update the session user
