@@ -17,7 +17,6 @@
                     <label asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="control-label">Number of Tickets to Purchase</label>
                     <input asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" type="number" class="form-control" />
                     <span asp-validation-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="text-danger"></span>
-                    <p>Total Amount: $<span id="totalAmount">0</span></p>
                 </div>
                 <div class="form-group">
                     <label asp-for="TransactionCustomer.Transaction.GeneralTicketDate" class="control-label">Date of Visit</label>
@@ -59,20 +58,6 @@
     }
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const ticketPrice = 20;
-            const ticketQuantityInput = document.getElementById('ticketQuantity');
-            const totalAmountElement = document.getElementById('totalAmount');
-
-            function updateTotalAmount() {
-                const ticketQuantity = parseInt(ticketQuantityInput.value, 10) || 0;
-                const totalAmount = ticketQuantity * ticketPrice;
-                totalAmountElement.textContent = totalAmount.toFixed(2);
-            }
-
-            ticketQuantityInput.addEventListener('input', updateTotalAmount);
-            updateTotalAmount(); // Update the total amount on page load
-
         document.addEventListener('DOMContentLoaded', function () {
             const today = new Date();
             const minDate = today.toISOString().split('T')[0];
