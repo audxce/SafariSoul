@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using MySql.Data.MySqlClient;
 using SafariSoul.Models;
 
@@ -14,6 +15,8 @@ namespace SafariSoul.Pages.Login
         //create a session
         public const string SessionKeyName = "_Name";
         public const string SessionKeyType = "_Type";
+        public const string SessionKeyCID = "_CustID";
+        public const string SessionKeyEID = "_EmpID";
         private readonly ILogger<PageModel> _logger;
         public LoginModel(ILogger<PageModel> logger)
         {
@@ -46,8 +49,10 @@ namespace SafariSoul.Pages.Login
             // Check if the username and password are valid
             if (reader.Read())
             {
-                // Get the user type
+                // Get the user type and ID
                 string userType = reader.GetString("User_Type");
+                //string customerID = reader.GetString("Customer_ID");
+                //string employeeID = reader.GetString("Employee_ID");
 
 				// Get the CustomerId and store it in the session
 				if (userType == "Customer")
@@ -66,7 +71,17 @@ namespace SafariSoul.Pages.Login
                 var type = HttpContext.Session.GetString(SessionKeyType);
                 _logger.LogInformation("Session Name: {Name}", type);
 
-                
+                //update the session customer ID
+                //HttpContext.Session.SetString(SessionKeyCID, customerID);
+                //var CID = HttpContext.Session.GetString(SessionKeyCID);
+                //_logger.LogInformation("Session Name: {Name}", CID);
+
+                //update the session employee ID
+                //HttpContext.Session.SetString(SessionKeyEID, employeeID);
+                //var EID = HttpContext.Session.GetString(SessionKeyEID);
+                //_logger.LogInformation("Session Name: {Name}", EID);
+
+
                 if (userType == "Admin")
                     Response.Redirect("/AdminPage");
                 else if (userType == "Accountant")
@@ -85,28 +100,6 @@ namespace SafariSoul.Pages.Login
                     Response.Redirect("/SalesPage");
                 else
                     Response.Redirect("/Error");
-                /*switch (userType)
-                {
-                    // since we are still testing, we will just show a message that confirms what type of user is logged in
-                    case "Admin":
-                        return Content($"Admin Logged in");
-                    case "Accountant":
-                        return Content($"Accountant Logged in");
-                    case "Animal Handler":
-                        return Content($"Animal Handler Logged in");
-                    case "Customer":
-                        return Content($"Customer Logged in");
-                    case "Other Employee":
-                        return Content($"Employee Logged in");
-                    case "Human Resources":
-                        return Content($"HR Logged in");
-                    case "Maintenance":
-                        return Content($"Maintenance Logged in");
-                    case "Sales":
-                        return Content($"Sales Logged in");
-                    default:
-                        return Content($"Default Logged in");
-                }*/
             }
             else
             {
@@ -116,39 +109,4 @@ namespace SafariSoul.Pages.Login
             return Page();
         }
     }
-
-    /*public class SessionModel : PageModel
-    {
-        public const string SessionKeyName = "_Name";
-
-        private readonly ILogger<PageModel> _logger;
-
-        public SessionModel(ILogger<PageModel> logger)
-        {
-            _logger = logger;
-        }
-
-        public async Task OnPost()
-        {
-            var username = Request.Form["Username"];
-
-            if (!String.IsNullOrEmpty(username))
-            {
-                HttpContext.Session.SetString(SessionKeyName, username);
-                //if (await _context.ZooUsers.Where(username == a.UserName))
-                //ZooUsers = await _context.ZooUsers.Where(a => a.UserName==username && a => a.AuthenticationKey==password);
-            }
-        }
-        /*public void OnGet()
-        {
-            if (!string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyName)))
-            {
-                HttpContext.Session.SetString(SessionKeyName, "Default");
-            }
-            var name = HttpContext.Session.GetString(SessionKeyName);
-
-            _logger.LogInformation("Session Name: {Name}", name);
-        }
-    }*/
-
 }

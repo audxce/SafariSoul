@@ -1,0 +1,81 @@
+﻿@page
+@model SafariSoul.Pages.MyAccountModel
+@{
+    @if (@HttpContext.Session.GetString("_Type") == "Customer")
+        Layout = "_LayoutCustomer";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
+}
+@if (@HttpContext.Session.GetString("_Type") == "Customer")
+{
+   /* <div class="customer-section">
+        <div>
+            <hr />
+            <dl class="row">
+                <div class="col-md-6">
+                    <dt>@Html.DisplayNameFor(model => model.Customer.FullName)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.FullName)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.Gender)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.Gender)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.DateOfBirth)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.DateOfBirth)</dd>
+
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.Email)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.Email)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.PhoneNo)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.PhoneNo)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.Address)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.Address)</dd>
+
+                </div>
+
+                <div class="col-md-6">
+                    <dt>@Html.DisplayNameFor(model => model.Customer.CreditCardNo)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.CreditCardNo)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.MembershipLevelNavigation)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.MembershipLevelNavigation.MembershipLevel)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.MembershipStartDate)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.MembershipStartDate)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.IsDonor)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.IsDonor)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.CreatedAt)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.CreatedAt)</dd>
+
+                    <dt>@Html.DisplayNameFor(model => model.Customer.UpdatedAt)</dt>
+                    <dd>@Html.DisplayFor(model => model.Customer.UpdatedAt)</dd>
+                </div>
+            </dl>
+            <a asp-page="./Edit" asp-route-id="@Model.Customer?.CustomerId">Edit</a>
+        </div>
+
+    </div>*/
+}
+
+@if (User.IsInRole("Sales"))
+{
+    <div class="salesS-section">
+        <!-- Your admin-specific HTML markup goes here -->
+        This is Sales
+    </div>
+}

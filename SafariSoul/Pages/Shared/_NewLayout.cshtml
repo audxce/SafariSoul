@@ -97,10 +97,13 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Reports</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a asp-area="" asp-page="/Reports/Accountant_Reports" class="dropdown-item">Accountant</a>
+                        <a asp-area="" asp-page="/Reports/Attendance_Reports" class="dropdown-item">Attendance</a>
                         <a asp-area="" asp-page="/Reports/Maintenance_Reports" class="dropdown-item">Maintenance</a>
+                        <a asp-area="" asp-page="/Reports/Vet_Reports" class="dropdown-item">Vet Visits</a>
                     </div>
                 </div>
             </div>
+            <a href="@Url.Page("/MyAccount")" class="btn btn-outline-primary ms-3">My Account</a>
             <a href="@Url.Page("/DefaultPages/Home")" class="btn btn-outline-primary ms-3">Logout</a>
         </div>
     </nav>
