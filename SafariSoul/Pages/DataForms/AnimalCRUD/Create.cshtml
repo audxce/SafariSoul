@@ -33,11 +33,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Animal.Mother" class="control-label"></label>
-                <select asp-for="Animal.Mother" class ="form-control" asp-items="ViewBag.Mother"></select>
+                <select asp-for="Animal.Mother" class ="form-control" asp-items="ViewBag.Mother">
+                    <option value="">-- Select Mother --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Animal.Father" class="control-label"></label>
-                <select asp-for="Animal.Father" class ="form-control" asp-items="ViewBag.Father"></select>
+                <select asp-for="Animal.Father" class ="form-control" asp-items="ViewBag.Father">
+                    <option value="">-- Select Father --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Animal.UniqueDescriptors" class="control-label">Unique Descriptors</label>

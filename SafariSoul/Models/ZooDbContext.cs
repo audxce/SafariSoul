@@ -167,7 +167,7 @@ public partial class ZooDbContext : DbContext
             entity.HasIndex(e => e.MembershipLevel, "IS_MEMBER");
 
             entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
-            entity.Property(e => e.Address).HasMaxLength(45);
+            entity.Property(e => e.Address).HasMaxLength(100);
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp")
