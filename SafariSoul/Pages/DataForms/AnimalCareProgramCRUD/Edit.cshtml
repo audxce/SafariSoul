@@ -28,6 +28,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="AnimalCareProgram.AnimalProgramId" />
+            <input type="hidden" asp-for="AnimalCareProgram.CreatedAt" />
             <div class="form-group">
                 <label asp-for="AnimalCareProgram.ProgramName" class="control-label"></label>
                 <input asp-for="AnimalCareProgram.ProgramName" class="form-control" />

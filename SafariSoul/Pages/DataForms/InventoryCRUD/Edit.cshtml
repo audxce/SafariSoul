@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Inventory.ItemId" />
+            <input type="hidden" asp-for="Inventory.CreatedAt" />
             <div class="form-group">
                 <label asp-for="Inventory.ItemName" class="control-label">Item Name</label>
                 <input asp-for="Inventory.ItemName" class="form-control" />

@@ -32,8 +32,8 @@ namespace SafariSoul.Pages.DefaultPages
 
             _logger.LogInformation("Session Name: {Name}", name);
             _logger.LogInformation("Session Type: {Type}", type);
-            _logger.LogInformation("Session Customer: {ID}", custid);
-            _logger.LogInformation("Session Employee: {ID}", empid);
+            //_logger.LogInformation("Session Customer: {ID}", custid);
+            //_logger.LogInformation("Session Employee: {ID}", empid);
         }
     }
 }

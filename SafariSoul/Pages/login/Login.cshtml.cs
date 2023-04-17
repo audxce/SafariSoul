@@ -74,6 +74,11 @@ namespace SafariSoul.Pages.Login
                 //var EID = HttpContext.Session.GetString(SessionKeyEID);
                 //_logger.LogInformation("Session Name: {Name}", EID);
 
+                _logger.LogInformation("Session Name: {Name}", name);
+                _logger.LogInformation("Session Type: {Type}", type);
+                //_logger.LogInformation("Session Customer: {ID}", CID);
+                //_logger.LogInformation("Session Employee: {ID}", EID);
+
 
                 if (userType == "Admin")
                     Response.Redirect("/AdminPage");

@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Exhibit.ExhibitId" />
+            <input type="hidden" asp-for="Exhibit.CreatedAt" />
             <div class="form-group">
                 <label asp-for="Exhibit.ExhibitName" class="control-label">Exhibit Name</label>
                 <input asp-for="Exhibit.ExhibitName" class="form-control" />

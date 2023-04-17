@@ -28,6 +28,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ZooTransaction.TransactionId" />
+            <input type="hidden" asp-for="ZooTransaction.CreatedAt" />
             <div class="form-group">
                 <label asp-for="ZooTransaction.DateAndTime" class="control-label"></label>
                 <input asp-for="ZooTransaction.DateAndTime" class="form-control" />
