@@ -12,13 +12,6 @@
             <header>Buy Tickets</header>
             <form method="post">
                 <input type="hidden" asp-for="TransactionCustomer.Customer.CustomerId"/>
-                <input type="hidden" asp-for="TransactionCustomer.Customer.Fname" value="TransactionCustomer.Customer.Fname" />
-                <input type="hidden" asp-for="TransactionCustomer.Customer.Minit" value="TransactionCustomer.Customer.Minit" />
-                <input type="hidden" asp-for="TransactionCustomer.Customer.Lname" value="TransactionCustomer.Customer.Lname" />
-                <input type="hidden" asp-for="TransactionCustomer.Customer.Email" value="TransactionCustomer.Customer.Email" />
-                <input type="hidden" asp-for="TransactionCustomer.Customer.Gender" value="TransactionCustomer.Customer.Gender" />
-                <input type="hidden" asp-for="TransactionCustomer.Customer.PhoneNo" value="TransactionCustomer.Customer.PhoneNo" />
-                <input type="hidden" asp-for="TransactionCustomer.Customer.CreatedAt" />
 
                 <div class="form-group">
                     <label asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="control-label">Number of Tickets to Purchase</label>

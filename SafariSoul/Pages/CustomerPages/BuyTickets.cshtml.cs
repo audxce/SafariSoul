@@ -35,9 +35,6 @@ namespace SafariSoul.Pages.CustomerPages
                 return NotFound("Unable to load customer with associated CustomerId.");
             }
 
-            // Populate ViewData with the loaded customer object
-            ViewData["Customer"] = customer;
-
             return Page();
         }
 
@@ -45,12 +42,12 @@ namespace SafariSoul.Pages.CustomerPages
         {
             if (!ModelState.IsValid)
             {
-                foreach (var modelState in ModelState.Values)
+                foreach (var modelState in ModelState)
                 {
-                    foreach (var error in modelState.Errors)
+                    foreach (var error in modelState.Value.Errors)
                     {
                         // Output the validation error to the user
-                        Console.WriteLine(error.ErrorMessage);
+                        Console.WriteLine($"{modelState.Key}: {error.ErrorMessage}");
                     }
                 }
                 return Page();
