@@ -20,7 +20,7 @@ namespace SafariSoul.Pages.DepartmentCRUD
 
         public IActionResult OnGet()
         {
-        ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
+        ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
         ViewData["ManagerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }

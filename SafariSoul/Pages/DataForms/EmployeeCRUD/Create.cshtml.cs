@@ -21,7 +21,7 @@ namespace SafariSoul.Pages.EmployeeCRUD
         public IActionResult OnGet()
         {
         ViewData["DeptName"] = new SelectList(_context.Departments, "DeptName", "DeptName");
-        ViewData["SupId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+        ViewData["SupId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
