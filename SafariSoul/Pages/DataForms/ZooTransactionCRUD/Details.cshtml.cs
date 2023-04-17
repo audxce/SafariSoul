@@ -18,7 +18,7 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
             _context = context;
         }
 
-      public ZooTransaction ZooTransaction { get; set; } = default!; 
+        public ZooTransaction ZooTransaction { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -37,7 +37,7 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
             {
                 return NotFound();
             }
-            else 
+            else
             {
                 ZooTransaction = zootransaction;
             }

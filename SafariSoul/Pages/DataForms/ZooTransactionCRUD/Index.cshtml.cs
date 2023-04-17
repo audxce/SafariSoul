@@ -18,7 +18,7 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
             _context = context;
         }
 
-        public IList<ZooTransaction> ZooTransaction { get;set; } = default!;
+        public IList<ZooTransaction> ZooTransaction { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
@@ -32,3 +32,4 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
         }
     }
 }
+
