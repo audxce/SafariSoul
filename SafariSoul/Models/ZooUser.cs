@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 
@@ -31,3 +32,7 @@ public partial class ZooUser
 
     public virtual Employee? Employee { get; set; }
 }
+
+	public class ApplicationUser : IdentityUser
+	{
+	}

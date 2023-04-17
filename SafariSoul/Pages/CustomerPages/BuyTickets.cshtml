@@ -1,0 +1,78 @@
+﻿@page
+@using SafariSoul.Models;
+@model SafariSoul.Pages.CustomerPages.BuyTicketsModel
+@{
+    ViewData["Title"] = "Buy Tickets";
+    Layout = "~/Pages/Shared/_LayoutSignin.cshtml";
+}
+
+<body>
+    <div class="container">
+        <div class="signup form">
+            <header>Buy Tickets</header>
+            <form method="post">
+                <input type="hidden" asp-for="TransactionCustomer.Customer.CustomerId" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.Fname" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.Minit" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.Lname" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.Email" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.Gender" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.PhoneNo" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.CreatedAt" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.Address" />
+                <input type="hidden" asp-for="TransactionCustomer.Customer.CreditCardNo" />
+
+                <div class="form-group">
+                    <label asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="control-label">Number of Tickets to Purchase</label>
+                    <input asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" type="number" class="form-control" />
+                    <span asp-validation-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TransactionCustomer.Transaction.GeneralTicketDate" class="control-label">Date of Visit</label>
+                    <input asp-for="TransactionCustomer.Transaction.GeneralTicketDate" type="date" class="form-control" min="{{minDate}}" max="{{maxDate}}" />
+                    <span asp-validation-for="TransactionCustomer.Transaction.GeneralTicketDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TransactionCustomer.Customer.CreditCardNo" class="control-label">Credit Card Number</label>
+                    <input asp-for="TransactionCustomer.Customer.CreditCardNo" class="form-control" type="text" inputmode="numeric" pattern="[0-9]{16}" placeholder="xxxxxxxxxxxxxxxx" maxlength="16" required />
+                    <span asp-validation-for="TransactionCustomer.Customer.CreditCardNo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" name="cvv" inputmode="numeric" pattern="[0-9]{3}" placeholder="123" maxlength="3" required>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="exp-date">Expiration Date</label>
+                        <input type="text" id="exp-date" name="exp-date" maxlength="5" placeholder="MM/YY" required>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TransactionCustomer.Customer.Address" class="control-label">Billing Address</label>
+                        <input asp-for="TransactionCustomer.Customer.Address" class="form-control" type = ""placeholder="123 Street, Houston, TX 77204" />
+                        <span asp-validation-for="TransactionCustomer.Customer.Address" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Pay" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const today = new Date();
+            const minDate = today.toISOString().split('T')[0];
+            const maxDate = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+            document.querySelector('input[type="date"]').setAttribute('min', minDate);
+            document.querySelector('input[type="date"]').setAttribute('max', maxDate);
+        });
+    </script>
+
+}
