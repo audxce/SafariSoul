@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
               <input type="hidden" asp-for="Dependent.DependentId" />
+            <input type="hidden" asp-for="Dependent.CreatedAt" />
             <div class="form-group">
                 <label asp-for="Dependent.EmployeeId" class="control-label">Dependent on which Employee?</label>
                 <select asp-for="Dependent.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId">

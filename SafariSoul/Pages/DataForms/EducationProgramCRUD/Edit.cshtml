@@ -28,6 +28,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="EducationProgram.EducationProgramId" />
+            <input type="hidden" asp-for="EducationProgram.CreatedAt" />
             <div class="form-group">
                 <label asp-for="EducationProgram.ProgramName" class="control-label"></label>
                 <input asp-for="EducationProgram.ProgramName" class="form-control" />

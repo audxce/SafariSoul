@@ -33,6 +33,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Membership.CreatedAt" />
             <div class="form-group">
                 <label asp-for="Membership.MembershipLevel" class="control-label">Membership Level</label>
                 <input asp-for="Membership.MembershipLevel" class="form-control" />
