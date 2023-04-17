@@ -51,10 +51,69 @@
                 <a asp-page="/DefaultPages/Home" class="nav-item nav-link">Home</a>
                 <a asp-page="/DefaultPages/Animals" class="nav-item nav-link">Our Animals</a>
                 <a asp-page="/DefaultPages/VisitingHours" class="nav-item nav-link">Visiting Hours</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Create</a>
+                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                        <a asp-area="" asp-page="/DataForms/AnimalCareProgramCRUD/Create" class="dropdown-item">Animal Care Program</a>
+                        <a asp-area="" asp-page="/DataForms/AnimalCRUD/Create" class="dropdown-item">Animal</a>
+                        <a asp-area="" asp-page="/DataForms/CustomerCRUD/Create" class="dropdown-item">Customer</a>
+                        <a asp-area="" asp-page="/DataForms/DepartmentCRUD/Create" class="dropdown-item">Department</a>
+                        <a asp-area="" asp-page="/DataForms/DependentCRUD/Create" class="dropdown-item">Dependent</a>
+                        <a asp-area="" asp-page="/DataForms/DonationCRUD/Create" class="dropdown-item">Donation</a>
+                        <a asp-area="" asp-page="/DataForms/EducationProgramCRUD/Create" class="dropdown-item">Education Program</a>
+                        <a asp-area="" asp-page="/DataForms/EmployeeCRUD/Create" class="dropdown-item">Employee</a>
+                        <a asp-area="" asp-page="/DataForms/EmployeeShiftCRUD/Create" class="dropdown-item">Employee Shift</a>
+                        <a asp-area="" asp-page="/DataForms/ExhibitCRUD/Create" class="dropdown-item">Exhibit</a>
+                        <a asp-area="" asp-page="/DataForms/ExpenseCRUD/Create" class="dropdown-item">Expense</a>
+                        <a asp-area="" asp-page="/DataForms/InventoryCRUD/Create" class="dropdown-item">Inventory</a>
+                        <a asp-area="" asp-page="/DataForms/LocationCRUD/Create" class="dropdown-item">Location</a>
+                        <a asp-area="" asp-page="/DataForms/MaintenanceRequestCRUD/Create" class="dropdown-item">Maintenance Request</a>
+                        <a asp-area="" asp-page="/DataForms/MembershipCRUD/Create" class="dropdown-item">Membership</a>
+                        <a asp-area="" asp-page="/DataForms/SpeciesCRUD/Create" class="dropdown-item">Species</a>
+                        <a asp-area="" asp-page="/DataForms/VendorCRUD/Create" class="dropdown-item">Vendor</a>
+                        <a asp-area="" asp-page="/DataForms/VeterinaryVisitCRUD/Create" class="dropdown-item">Veterinary Visit</a>
+                        <a asp-area="" asp-page="/DataForms/ZooEventCRUD/Create" class="dropdown-item">Zoo Event</a>
+                        <a asp-area="" asp-page="/DataForms/ZooTransactionCRUD/Create" class="dropdown-item">Zoo Transaction</a>
+                        <a asp-area="" asp-page="/DataForms/ZooUserCRUD/Create" class="dropdown-item">Zoo User</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Indexes</a>
+                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                        <a asp-area="" asp-page="/DataForms/AnimalCareProgramCRUD/Index" class="dropdown-item">Animal Care Program</a>
+                        <a asp-area="" asp-page="/DataForms/AnimalCRUD/Index" class="dropdown-item">Animal</a>
+                        <a asp-area="" asp-page="/DataForms/CustomerCRUD/Index" class="dropdown-item">Customer</a>
+                        <a asp-area="" asp-page="/DataForms/DepartmentCRUD/Index" class="dropdown-item">Department</a>
+                        <a asp-area="" asp-page="/DataForms/DependentCRUD/Index" class="dropdown-item">Dependent</a>
+                        <a asp-area="" asp-page="/DataForms/DonationCRUD/Index" class="dropdown-item">Donation</a>
+                        <a asp-area="" asp-page="/DataForms/EducationProgramCRUD/Index" class="dropdown-item">Education Program</a>
+                        <a asp-area="" asp-page="/DataForms/EmployeeCRUD/Index" class="dropdown-item">Employee</a>
+                        <a asp-area="" asp-page="/DataForms/EmployeeShiftCRUD/Index" class="dropdown-item">Employee Shift</a>
+                        <a asp-area="" asp-page="/DataForms/ExhibitCRUD/Index" class="dropdown-item">Exhibit</a>
+                        <a asp-area="" asp-page="/DataForms/ExpenseCRUD/Index" class="dropdown-item">Expense</a>
+                        <a asp-area="" asp-page="/DataForms/InventoryCRUD/Index" class="dropdown-item">Inventory</a>
+                        <a asp-area="" asp-page="/DataForms/LocationCRUD/Index" class="dropdown-item">Location</a>
+                        <a asp-area="" asp-page="/DataForms/MaintenanceRequestCRUD/Index" class="dropdown-item">Maintenance Request</a>
+                        <a asp-area="" asp-page="/DataForms/MembershipCRUD/Index" class="dropdown-item">Membership</a>
+                        <a asp-area="" asp-page="/DataForms/SpeciesCRUD/Index" class="dropdown-item">Species</a>
+                        <a asp-area="" asp-page="/DataForms/VendorCRUD/Index" class="dropdown-item">Vendor</a>
+                        <a asp-area="" asp-page="/DataForms/VeterinaryVisitCRUD/Index" class="dropdown-item">Veterinary Visit</a>
+                        <a asp-area="" asp-page="/DataForms/ZooEventCRUD/Index" class="dropdown-item">Zoo Event</a>
+                        <a asp-area="" asp-page="/DataForms/ZooTransactionCRUD/Index" class="dropdown-item">Zoo Transaction</a>
+                        <a asp-area="" asp-page="/DataForms/ZooUserCRUD/Index" class="dropdown-item">Zoo User</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Reports</a>
+                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                        <a asp-area="" asp-page="/Reports/Accountant_Reports" class="dropdown-item">Accountant</a>
+                        <a asp-area="" asp-page="/Reports/Maintenance_Reports" class="dropdown-item">Maintenance</a>
+                    </div>
+                </div>
             </div>
             <a href="@Url.Page("/Login/login")" class="btn btn-outline-primary ms-3">Login</a>
             <div style="display: inline-block; margin-left: 10px;"></div>
-            <a href="" class="btn btn-primary">Buy Tickets<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="@Url.Page("/Login/signup")" class="btn btn-primary">Signup<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
