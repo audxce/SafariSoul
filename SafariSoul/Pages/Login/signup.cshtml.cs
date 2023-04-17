@@ -50,7 +50,7 @@ namespace SafariSoul.Pages.Login
             _context.ZooUsers.Add(ZooUserCustomer.ZooUser);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("/CustomerPages/CustomerHome");
+            return RedirectToPage("./login");
         }
 
     }
