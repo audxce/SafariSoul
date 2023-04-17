@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MySqlConnector;
+using SafariSoul.Models;
+using System.Text.RegularExpressions;
 
 namespace SafariSoul.Pages.Reports
 {
@@ -102,17 +104,16 @@ namespace SafariSoul.Pages.Reports
             using (MySqlConnection connection = new MySqlConnection("Server=zoo-db-server.mysql.database.azure.com;UserID=audace;Password='37PE&CWYy9e@';Database=zoo_db;"))
             {
                 connection.Open();
-                using (MySqlCommand command = new MySqlCommand(@"SELECT ZE.Event_Name as Source_Name, 
-                           ZE.Event_ID as Source_ID, 
-                           sum(case when ZTT.Event_ID =ZE.Event_ID then ZTT.Ticket_Quantity * ZE.Admission_Price else 0 end )  as Total_Revenue
-                        FROM zoo_event ZE
-                        JOIN zoo_transaction_event_tickets ZTT ON ZE.Event_ID = ZTT.Event_ID
-                        WHERE ZE.created_at BETWEEN @FromDate AND @ToDate
-                        GROUP BY ZE.Event_ID
+                using (MySqlCommand command = new MySqlCommand(@"SELECT CONCAT('Tickets Purchased by ', C.Fname, ' ', C.Lname) as Source_Name,
+                            C.Customer_ID as Source_ID, SUM(General_Ticket_Quantity)*20 as Ticket
+                        FROM zoo_transaction ZE
+                        JOIN customer C ON C.Customer_ID = ZE.Customer_ID
+                        WHERE ZE.created_at BETWEEN @FromDate AND  @ToDate
+                       GROUP BY C.Customer_ID
 
                         UNION
 
-                        SELECT CONCAT(C.Fname, ' ', C.Lname) as Source_Name, 
+                        SELECT CONCAT('Donated by ',C.Fname, ' ', C.Lname) as Source_Name, 
                                D.Donor_ID as Source_ID, 
                                sum(D.Amount_Donated) as Total_Revenue
                         FROM donation D
@@ -130,7 +131,7 @@ namespace SafariSoul.Pages.Reports
                             RevenueReport revenueReport = new RevenueReport();
                             revenueReport.Source_Name = reader["Source_Name"].ToString();
                             revenueReport.Source_ID = Convert.ToInt32(reader["Source_ID"]);
-                            revenueReport.Total_Revenue = Convert.ToInt32(reader["Total_Revenue"]);
+                            revenueReport.Total_Revenue = Convert.ToInt32(reader["Ticket"]);
                             //revenueReport.Location_ID = Convert.ToInt32(reader["Department_Location"]);
                             //revenueReport.Department_Name = reader["Department_Name"].ToString();
                             //revenueReport.Department_Budget = Convert.ToInt32(reader["Department_Budget"]);

@@ -79,7 +79,7 @@ namespace SafariSoul.Pages.Reports
                 using (MySqlCommand command = new MySqlCommand(@"SELECT (case when V.animal = A.Animal_ID then A.Animal_Name else 0 end) As Animal_Name, 
 		                                                        V.Vet_Visit_ID as VID,V.Urgency as UGC, V.Animal_Condition as CON
                                                         FROM  veterinary_visit V, animal A
-                                                        WHERE V.animal = A.Animal_ID  and V.Time_Discharged IS NULL
+                                                        WHERE V.animal = A.Animal_ID  and V.Time_Discharged IS NOT NULL
                                                         ORDER BY V.Urgency;", connection))
                 {
 
