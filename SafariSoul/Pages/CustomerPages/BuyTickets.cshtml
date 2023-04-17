@@ -14,10 +14,15 @@
                 <input type="hidden" asp-for="TransactionCustomer.Customer.CustomerId"/>
 
                 <div class="form-group">
-                    <label asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="control-label">Number of Tickets to Purchase</label>
-                    <input asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" type="number" class="form-control" />
+                    <label asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="control-label">Number of Tickets to Purchase ($20.00 each)</label>
+                    <input asp-for="TransactionCustomer.Transaction.GeneralTicketQuantity" type="number" class="form-control" id="ticket-quantity" />
                     <span asp-validation-for="TransactionCustomer.Transaction.GeneralTicketQuantity" class="text-danger"></span>
+                </div>               
+                <div class="form-group">
+                    <label>Total</label>
+                    <span id="total-price">$0.00</span>
                 </div>
+                <div style="height: 20px;"></div>
                 <div class="form-group">
                     <label asp-for="TransactionCustomer.Transaction.GeneralTicketDate" class="control-label">Date of Visit</label>
                     <input asp-for="TransactionCustomer.Transaction.GeneralTicketDate" type="date" class="form-control" min="{{minDate}}" max="{{maxDate}}" />
@@ -64,6 +69,17 @@
             const maxDate = new Date(today.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
             document.querySelector('input[type="date"]').setAttribute('min', minDate);
             document.querySelector('input[type="date"]').setAttribute('max', maxDate);
+
+            // Ticket quantity and total price calculation code
+            const ticketQuantityInput = document.getElementById('ticket-quantity');
+            const totalPriceElement = document.getElementById('total-price');
+
+            ticketQuantityInput.addEventListener('input', function () {
+                const ticketQuantity = parseInt(ticketQuantityInput.value) || 0;
+                const totalPrice = (ticketQuantity * 20).toFixed(2);
+                totalPriceElement.textContent = '$' + totalPrice;
+            });
+
         });
     </script>
 
