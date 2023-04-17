@@ -23,6 +23,7 @@ namespace SafariSoul.Pages.CustomerPages
 
         public IActionResult OnGet()
         {
+
             int? customerId = HttpContext.Session.GetInt32(LoginModel.SessionKeyCID);
             if (customerId == null)
             {
@@ -34,6 +35,11 @@ namespace SafariSoul.Pages.CustomerPages
             {
                 return NotFound("Unable to load customer with associated CustomerId.");
             }
+
+            TransactionCustomer = new TransactionCustomerViewModel
+            {
+                Customer = customer
+            };
 
             return Page();
         }
