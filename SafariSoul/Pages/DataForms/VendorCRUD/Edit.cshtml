@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Vendor.VendorId" />
+            <input type="hidden" asp-for="Vendor.CreatedAt" />
             <div class="form-group">
                 <label asp-for="Vendor.VendorName" class="control-label">Vendor Name</label>
                 <input asp-for="Vendor.VendorName" class="form-control" />

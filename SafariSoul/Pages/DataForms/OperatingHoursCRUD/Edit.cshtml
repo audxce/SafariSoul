@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="OperatingHour.DayId" />
+            <input type="hidden" asp-for="OperatingHour.CreatedAt" />
             <div class="form-group">
                 <label asp-for="OperatingHour.DayOfWeek" class="control-label">Day of Week</label>
                 <select asp-for="OperatingHour.DayOfWeek" class="form-control">

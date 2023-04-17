@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="MaintenanceRequest.TicketNo" />
+            <input type="hidden" asp-for="MaintenanceRequest.CreatedAt" />
             <div class="form-group">
                 <label asp-for="MaintenanceRequest.Details" class="control-label"></label>
                 <input asp-for="MaintenanceRequest.Details" class="form-control" />

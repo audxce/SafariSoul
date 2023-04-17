@@ -34,6 +34,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
               <input type="hidden" asp-for="Donation.DonationId" />
+            <input type="hidden" asp-for="Donation.CreatedAt" />
             <div class="form-group">
                 <label asp-for="Donation.DonorId" class="control-label">Donor</label>
                 <select asp-for="Donation.DonorId" class="form-control" asp-items="ViewBag.DonorId">
