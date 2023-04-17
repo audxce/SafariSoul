@@ -18,7 +18,7 @@ namespace SafariSoul.Pages.InventoryCRUD
             _context = context;
         }
 
-      public Inventory Inventory { get; set; } = default!; 
+      public Inventory Inventory { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -27,7 +27,11 @@ namespace SafariSoul.Pages.InventoryCRUD
                 return NotFound();
             }
 
-            var inventory = await _context.Inventories.FirstOrDefaultAsync(m => m.ItemId == id);
+            var inventory = await _context.Inventories
+            .Include(i => i.DestinationNavigation) // Include the related Location entity
+            .Include(i => i.SupplierNavigation) // Include the related Vendor entity
+            .FirstOrDefaultAsync(m => m.ItemId == id);
+
             if (inventory == null)
             {
                 return NotFound();

@@ -3,7 +3,20 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <head>
@@ -32,21 +45,30 @@
             </div>
             <div class="form-group">
                 <label asp-for="ZooUser.UserType" class="control-label"></label>
-                <input asp-for="ZooUser.UserType" class="form-control" />
+                <select asp-for="ZooUser.UserType" class="form-control">
+                    <option value="">-- Select User Type --</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Accountant">Accountant</option>
+                    <option value="Animal Handler">Animal Handler</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Default">Default</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Other Employee">Other Employee</option>
+                    <option value="Sales">Sales</option>
+                </select>
                 <span asp-validation-for="ZooUser.UserType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ZooUser.EmployeeId" class="control-label"></label>
                 <select asp-for="ZooUser.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId">
-                    <option value="">--Select Employee--</option>
-                    <!-- add other options here -->
+                    <option value="">-- Select Employee --</option>
                 </select>
             </div>
             <div class="form-group">
                 <label asp-for="ZooUser.CustomerId" class="control-label"></label>
                 <select asp-for="ZooUser.CustomerId" class="form-control" asp-items="ViewBag.CustomerId">
-                    <option value="">--Select Customer--</option>
-                    <!-- add other options here -->
+                    <option value="">-- Select Customer --</option>
                 </select>
             </div>
             <div class="form-group">

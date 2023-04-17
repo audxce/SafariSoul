@@ -12,46 +12,46 @@ namespace SafariSoul.Pages.Login
 {
     public class SignupModel : PageModel
     {
-        public IActionResult OnPost()
+        private readonly SafariSoul.Models.ZooDbContext _context;
+
+        public SignupModel (SafariSoul.Models.ZooDbContext context)
         {
-            string connectionString = "Server=zoo-db-server.mysql.database.azure.com;UserID=audace;Password='37PE&CWYy9e@';Database=zoo_db;";
-            MySqlConnection connection = new MySqlConnection(connectionString);
-
-            // get the information from the form
-            string Email = Request.Form["Email"];
-            string Username = Request.Form["Username"];
-            string AuthenticationKey = Request.Form["AuthenticationKey"];
-            string ConfirmAuthenticationKey = Request.Form["ConfirmAuthenticationKey"];
-
-            // first check if the authentication keys match
-            if (AuthenticationKey != ConfirmAuthenticationKey)
-            {
-                return Content($"Passwords do not match");
-            }
-
-            // check if the username is already taken
-            connection.Open();
-            MySqlCommand checkUsernameCmd = new MySqlCommand("SELECT * FROM zoo_user WHERE User_Name=@username", connection);
-            checkUsernameCmd.Parameters.AddWithValue("@username", Username);
-            checkUsernameCmd.ExecuteNonQuery();
-            MySqlDataReader reader = checkUsernameCmd.ExecuteReader();
-            if (reader.HasRows)
-            {
-                return Content($"Username is already taken");
-            }
-            //close the connection
-            connection.Close();
-
-            // if we get here, we can add the user to the database
-            connection.Open();
-            MySqlCommand command = new MySqlCommand("INSERT INTO zoo_user (User_Name, Authentication_Key, User_Type) VALUES (@Username, @AuthenticationKey, 'Customer')", connection);
-            command.Parameters.AddWithValue("@Username", Username);
-            command.Parameters.AddWithValue("@AuthenticationKey", AuthenticationKey);
-            command.ExecuteNonQuery();
-            connection.Close();
-
-            // once the user is added, return them to the login page
-            return RedirectToPage("/Login/Login");
+            _context = context;
         }
+
+        public IActionResult OnGet()
+        {
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+            ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+            ViewData["MembershipLevel"] = new SelectList(_context.Memberships, "MembershipLevel", "MembershipLevel");
+            return Page();
+        }
+
+        [BindProperty]
+        public ZooUserCustomerViewModel ZooUserCustomer { get; set; } = default!;
+
+        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (!ModelState.IsValid || _context.ZooUsers == null || ZooUserCustomer.ZooUser == null || _context.Customers == null || ZooUserCustomer.Customer == null)
+            {
+                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+                ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+                ViewData["MembershipLevel"] = new SelectList(_context.Memberships, "MembershipLevel", "MembershipLevel");
+                return Page();
+            }
+
+            _context.Customers.Add(ZooUserCustomer.Customer);
+            await _context.SaveChangesAsync(); // Save the Customer first to generate the CustomerId
+
+            // Set the ZooUser.CustomerId equal to the saved Customer.CustomerId
+            ZooUserCustomer.ZooUser.UserType = "Customer";
+            ZooUserCustomer.ZooUser.CustomerId = ZooUserCustomer.Customer.CustomerId;
+            _context.ZooUsers.Add(ZooUserCustomer.ZooUser);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("/CustomerPages/CustomerHome");
+        }
+
     }
 }

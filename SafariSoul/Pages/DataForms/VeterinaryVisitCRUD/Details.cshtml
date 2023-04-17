@@ -3,81 +3,66 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
-<h1>Details</h1>
+<h1>Veterinary Visit Details</h1>
 
 <div>
-    <h4>VeterinaryVisit</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.TimeScheduled)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.TimeScheduled)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.TimeAdmitted)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.TimeAdmitted)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.TimeDischarged)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.TimeDischarged)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.Urgency)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.Urgency)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.AnimalCondition)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.AnimalCondition)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.AnimalTreatment)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.AnimalTreatment)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.FollowupNeeded)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.FollowupNeeded)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.AnimalNavigation)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.AnimalNavigation.AnimalName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.Vet)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.Vet.FullName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.VeterinaryVisit.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.VeterinaryVisit.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.Vet)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.Vet.FullName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.AnimalNavigation)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.AnimalNavigation.AnimalName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.Reason)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.Reason)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.TimeScheduled)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.TimeScheduled)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.TimeAdmitted)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.TimeAdmitted)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.TimeDischarged)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.TimeDischarged)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.Urgency)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.Urgency)</dd>
+        </div>
+
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.AnimalCondition)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.AnimalCondition)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.AnimalTreatment)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.AnimalTreatment)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.FollowupNeeded)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.FollowupNeeded)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.VeterinaryVisit.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.VeterinaryVisit.UpdatedAt)</dd>
+        </div>
     </dl>
 </div>
 <div>

@@ -12,8 +12,19 @@ namespace SafariSoul.Pages.Login
 {
     public class LoginModel : PageModel
     {
+        //create a session
+        public const string SessionKeyName = "_Name";
+        public const string SessionKeyType = "_Type";
+        public const string SessionKeyCID = "_CustID";
+        public const string SessionKeyEID = "_EmpID";
+        private readonly ILogger<PageModel> _logger;
+        public LoginModel(ILogger<PageModel> logger)
+        {
+            _logger = logger;
+        }
         public IActionResult OnPost()
         {
+
             string connectionString = "Server=zoo-db-server.mysql.database.azure.com;UserID=audace;Password='37PE&CWYy9e@';Database=zoo_db;";
             MySqlConnection connection = new MySqlConnection(connectionString);
 
@@ -38,27 +49,57 @@ namespace SafariSoul.Pages.Login
             // Check if the username and password are valid
             if (reader.Read())
             {
-                // Get the user type
+                // Get the user type and ID
                 string userType = reader.GetString("User_Type");
-                switch (userType)
-                {
-                    // since we are still testing, we will just show a message that confirms what type of user is logged in
-                    case "Admin":
-                        return Content($"Admin Logged in");
-                    case "Employee":
-                        return Content($"Employee Logged in");
-                    case "Customer":
-                        return Content($"Customer Logged in");
-                    default:
-                        return Content($"Default Logged in");
-                }
+                //string customerID = reader.GetString("Customer_ID");
+                //string employeeID = reader.GetString("Employee_ID");
+
+                //update the session user
+                HttpContext.Session.SetString(SessionKeyName, username);
+                var name = HttpContext.Session.GetString(SessionKeyName);
+                _logger.LogInformation("Session Name: {Name}", name);
+
+                //update the session type
+                HttpContext.Session.SetString(SessionKeyType, userType);
+                var type = HttpContext.Session.GetString(SessionKeyType);
+                _logger.LogInformation("Session Name: {Name}", type);
+
+                //update the session customer ID
+                //HttpContext.Session.SetString(SessionKeyCID, customerID);
+                //var CID = HttpContext.Session.GetString(SessionKeyCID);
+                //_logger.LogInformation("Session Name: {Name}", CID);
+
+                //update the session employee ID
+                //HttpContext.Session.SetString(SessionKeyEID, employeeID);
+                //var EID = HttpContext.Session.GetString(SessionKeyEID);
+                //_logger.LogInformation("Session Name: {Name}", EID);
+
+
+                if (userType == "Admin")
+                    Response.Redirect("/AdminPage");
+                else if (userType == "Accountant")
+                    Response.Redirect("/AccountantPage");
+                else if(userType == "Animal Handler")
+                    Response.Redirect("/AnimalHandlerPage");
+                else if (userType == "Customer")
+                    Response.Redirect("/CustomerPages/CustomerHome");
+                else if (userType == "Other Employee")
+                    Response.Redirect("/EmployeePage");
+                else if (userType == "Human Resources")
+                    Response.Redirect("/HumanResourcesPage");
+                else if (userType == "Maintenance")
+                    Response.Redirect("/MaintenancePage");
+                else if (userType == "Sales")
+                    Response.Redirect("/SalesPage");
+                else
+                    Response.Redirect("/Error");
             }
             else
             {
                 ModelState.AddModelError(string.Empty, "Invalid username or password.");
-                return Page();
             }
+
+            return Page();
         }
     }
-
 }

@@ -43,12 +43,14 @@ public partial class Animal
     [DisplayName("Updated At")]
     public DateTime? UpdatedAt { get; set; }
 
+    [DisplayName("Father")]
     public virtual Animal? FatherNavigation { get; set; }
 
     public virtual ICollection<Animal> InverseFatherNavigation { get; } = new List<Animal>();
 
     public virtual ICollection<Animal> InverseMotherNavigation { get; } = new List<Animal>();
 
+    [DisplayName("Mother")]
     public virtual Animal? MotherNavigation { get; set; }
 
     public virtual Species? Species { get; set; }

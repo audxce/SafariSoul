@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using SafariSoul.Models;
 
-namespace SafariSoul.Pages.ZooTransactionCRUD
+namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
 {
     public class CreateModel : PageModel
     {
@@ -20,24 +20,21 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
 
         public IActionResult OnGet()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
-            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
-            ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
+            ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
+            ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
             return Page();
         }
 
         [BindProperty]
         public ZooTransaction ZooTransaction { get; set; } = default!;
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.ZooTransactions == null || ZooTransaction == null)
+            if (!ModelState.IsValid || _context.ZooTransactions == null || ZooTransaction == null)
             {
-                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
-                ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
-                ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 

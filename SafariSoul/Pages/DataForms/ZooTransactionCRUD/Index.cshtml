@@ -1,9 +1,22 @@
 ﻿@page
-@model SafariSoul.Pages.ZooTransactionCRUD.IndexModel
+@model SafariSoul.Pages.DataForms.ZooTransactionCRUD.IndexModel
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <h1>Index</h1>
@@ -18,13 +31,25 @@
                 @Html.DisplayNameFor(model => model.ZooTransaction[0].DateAndTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ZooTransaction[0].Seller)
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].GeneralTicketQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].GeneralTicketDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].UpdatedAt)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ZooTransaction[0].Customer)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ZooTransaction[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZooTransaction[0].Seller)
             </th>
             <th></th>
         </tr>
@@ -36,13 +61,25 @@
                 @Html.DisplayFor(modelItem => item.DateAndTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Seller.FullName)
+                @Html.DisplayFor(modelItem => item.GeneralTicketQuantity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Customer.FullName) 
+                @Html.DisplayFor(modelItem => item.GeneralTicketDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location.LocationName)
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.LocationId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller.EmployeeId)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |
@@ -51,5 +88,6 @@
             </td>
         </tr>
 }
+
     </tbody>
 </table>

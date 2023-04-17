@@ -3,23 +3,29 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
-<h1>Details</h1>
+<h1>Employee Details</h1>
 <div>
-    <h4>Employee</h4>
     <hr />
             <dl class="row">
             <div class="col-md-6">
-                <dt>@Html.DisplayNameFor(model => model.Employee.Fname)</dt>
-                <dd>@Html.DisplayFor(model => model.Employee.Fname)</dd>
-
-                <dt>@Html.DisplayNameFor(model => model.Employee.Minit)</dt>
-                <dd>@Html.DisplayFor(model => model.Employee.Minit)</dd>
-
-                <dt>@Html.DisplayNameFor(model => model.Employee.Lname)</dt>
-                <dd>@Html.DisplayFor(model => model.Employee.Lname)</dd>
+                <dt>@Html.DisplayNameFor(model => model.Employee.FullName)</dt>
+                <dd>@Html.DisplayFor(model => model.Employee.FullName)</dd>
 
                 <dt>@Html.DisplayNameFor(model => model.Employee.Bdate)</dt>
                 <dd>@Html.DisplayFor(model => model.Employee.Bdate)</dd>
@@ -27,14 +33,21 @@
                 <dt>@Html.DisplayNameFor(model => model.Employee.Occupation)</dt>
                 <dd>@Html.DisplayFor(model => model.Employee.Occupation)</dd>
 
+                <dt>@Html.DisplayNameFor(model => model.Employee.DeptName)</dt>
+                <dd>@Html.DisplayFor(model => model.Employee.DeptNameNavigation.DeptName)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.Employee.SupId)</dt>
+                <dd>@Html.DisplayFor(model => model.Employee.Sup.FullName)</dd>
+
                 <dt>@Html.DisplayNameFor(model => model.Employee.Salary)</dt>
                 <dd>@Html.DisplayFor(model => model.Employee.Salary)</dd>
 
-                <dt>@Html.DisplayNameFor(model => model.Employee.MobilePhoneNum)</dt>
-                <dd>@Html.DisplayFor(model => model.Employee.MobilePhoneNum)</dd>
 
                 <dt>@Html.DisplayNameFor(model => model.Employee.Email)</dt>
                 <dd>@Html.DisplayFor(model => model.Employee.Email)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.Employee.MobilePhoneNum)</dt>
+                <dd>@Html.DisplayFor(model => model.Employee.MobilePhoneNum)</dd>
             </div>
 
             <div class="col-md-6">
@@ -61,6 +74,9 @@
 
                 <dt>@Html.DisplayNameFor(model => model.Employee.SickDaysLeft)</dt>
                 <dd>@Html.DisplayFor(model => model.Employee.SickDaysLeft)</dd>
+
+                <dt>@Html.DisplayNameFor(model => model.Employee.UpdatedAt)</dt>
+                <dd>@Html.DisplayFor(model => model.Employee.UpdatedAt)</dd>
             </div>
         </dl>
     <a asp-page="./Edit" asp-route-id="@Model.Employee?.EmployeeId">Edit</a> |

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
 
-namespace SafariSoul.Pages.ZooTransactionCRUD
+namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
 {
     public class IndexModel : PageModel
     {
@@ -18,7 +18,7 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
             _context = context;
         }
 
-        public IList<ZooTransaction> ZooTransaction { get;set; } = default!;
+        public IList<ZooTransaction> ZooTransaction { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
@@ -32,3 +32,4 @@ namespace SafariSoul.Pages.ZooTransactionCRUD
         }
     }
 }
+

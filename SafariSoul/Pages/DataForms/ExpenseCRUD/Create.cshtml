@@ -3,7 +3,20 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <head>
@@ -31,29 +44,37 @@
                 <span asp-validation-for="Expense.Category" class="text-danger"></span>
             </div>
             <div style="height: 20px;"></div>
-            <div id="expenseItems">
-                @foreach (var expenseItem in Model.ExpenseItems)
-                {
-                    <div class="row expense-item">
-                        <div class="col-md-6 form-group">
-                            <label asp-for="@expenseItem.ItemId" class="control-label">Item</label>
-                            <select asp-for="@expenseItem.ItemId" class="form-control" asp-items="ViewBag.ItemId"></select>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <label asp-for="@expenseItem.ItemQuantity" class="control-label">Quantity</label>
-                            <input asp-for="@expenseItem.ItemQuantity" class="form-control" />
-                            <span asp-validation-for="@expenseItem.ItemQuantity" class="text-danger"></span>
-                        </div>
+            <!-- Add the new form-group elements for ItemId and ItemQuantity -->
+            <div class="row">
+                <!-- Add the new form-group elements for ItemId -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ExpenseItems[0].ItemId" class="control-label">Item</label>
+                        <select asp-for="ExpenseItems[0].ItemId" class="form-control item-id" asp-items="ViewBag.ItemId">
+                            <option value="">-- Select Item --</option>
+                        </select>
                     </div>
-                }
+                </div>
+                <!-- Add the new form-group elements for ItemQuantity and MeasurementUnit -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ExpenseItems[0].ItemQuantity" class="control-label">Item Quantity</label>
+                        <input asp-for="ExpenseItems[0].ItemQuantity" class="form-control item-quantity" />
+                    </div>
+                </div>
             </div>
+            <!-- Add a container div to store the dynamically added input pairs -->
+            <div id="additional-items-container"></div>
+
+            <div style="height: 20px;"></div>
+            <!-- Add a button to generate a new pair of input fields -->
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="addItem">Add Item</button>
+            </div>
+
             <div style="height: 20px;"></div>
             <div class="form-group">
-                <button type="button" id="addItem" class="btn btn-primary">Add Item</button>
-            </div>
-            <div style="height: 20px;"></div>
-            <div class="form-group">
-                <label asp-for="Expense.ExpenseAccount" class="control-label">Expense Account</label>
+                <label asp-for="Expense.ExpenseAccount" class="control-label">Expense Account Number</label>
                 <input asp-for="Expense.ExpenseAccount" class="form-control" />
                 <span asp-validation-for="Expense.ExpenseAccount" class="text-danger"></span>
             </div>
@@ -66,12 +87,16 @@
             <div style="height: 20px;"></div>
             <div class="form-group">
                 <label asp-for="Expense.VendorId" class="control-label">Vendor</label>
-                <select asp-for="Expense.VendorId" class ="form-control" asp-items="ViewBag.VendorId"></select>
+                <select asp-for="Expense.VendorId" class ="form-control" asp-items="ViewBag.VendorId">
+                        <option value="">-- Select Vendor --</option>
+                </select>
             </div>
             <div style="height: 20px;"></div>
             <div class="form-group">
                 <label asp-for="Expense.EmployeeId" class="control-label">Employee</label>
-                <select asp-for="Expense.EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId"></select>
+                <select asp-for="Expense.EmployeeId" class ="form-control" asp-items="ViewBag.EmployeeId">
+                      <option value="">-- Select Item --</option>
+                </select>
             </div>
             <div style="height: 20px;"></div>
             <div class="form-group">
@@ -95,19 +120,67 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        var itemIndex = 1;
+
+        document.getElementById("addItem").addEventListener("click", function () {
+            var container = document.getElementById("additional-items-container");
+
+            // Create a div with class "row" to wrap the input fields
+            var rowDiv = document.createElement("div");
+            rowDiv.setAttribute("class", "row");
+
+            rowDiv.style.marginTop = "20px";
+            rowDiv.style.marginBottom = "20px";
+
+            // Create a div with class "col-md-6" for the ItemId select element
+            var colDivItemId = document.createElement("div");
+            colDivItemId.setAttribute("class", "form-group col-md-6");
+
+            // Create a div with class "col-md-6" for the ItemQuantity input element
+            var colDivItemQuantity = document.createElement("div");
+            colDivItemQuantity.setAttribute("class", "form-group col-md-6");
+
+            // Create a new ItemId select element
+            var newItemId = document.createElement("select");
+            newItemId.setAttribute("class", "form-control item-id");
+            newItemId.setAttribute("name", "ExpenseItems[" + itemIndex + "].ItemId");
+
+            // Copy the options from the existing select element
+            var existingItemId = document.querySelector(".item-id");
+            for (var i = 0; i < existingItemId.options.length; i++) {
+                newItemId.options.add(existingItemId.options[i].cloneNode(true));
+            }
+
+            // Create a new ItemQuantity input element
+            var newItemQuantity = document.createElement("input");
+            newItemQuantity.setAttribute("type", "number");
+            newItemQuantity.setAttribute("class", "form-control item-quantity");
+            newItemQuantity.setAttribute("name", "ExpenseItems[" + itemIndex + "].ItemQuantity");
+
+            // Append the ItemId select element to the colDivItemId
+            colDivItemId.appendChild(newItemId);
+
+            // Append the ItemQuantity input element to the colDivItemQuantity
+            colDivItemQuantity.appendChild(newItemQuantity);
+
+            // Append the colDivItemId and colDivItemQuantity to the rowDiv
+            rowDiv.appendChild(colDivItemId);
+            rowDiv.appendChild(colDivItemQuantity);
+
+            // Append the rowDiv to the container
+            container.appendChild(rowDiv);
+
+            itemIndex++;
+        });
+    </script>
 
     <script>
         $(document).ready(function () {
-            let index = 0; // Initialize index counter
-            $("#addItem").click(function () {
-                let newItem = $(".expense-item").first().clone();
-                newItem.find("input").val(""); // Clear the input values
-                newItem.find("input").each(function () {
-                    let inputName = $(this).attr("name");
-                    $(this).attr("name", inputName.replace("[0]", "[" + (index + 1) + "]"));
-                });
-                index++; // Increment index counter
-                $("#expenseItems").append(newItem);
+            // When a new item is selected, update the corresponding measurement unit field
+            $('.item-id').change(function () {
+                var measurementUnit = $(this).find(':selected').data('measurement-unit');
+                $(this).closest('.row').find('.measurement-unit').val(measurementUnit);
             });
         });
     </script>

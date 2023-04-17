@@ -3,7 +3,20 @@
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <head>
@@ -20,6 +33,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Species.SpeciesId" />
             <div class="form-group">
                 <label asp-for="Species.Kingdom" class="control-label"></label>
                 <input asp-for="Species.Kingdom" class="form-control" />
@@ -62,7 +76,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Species.ExhibitId" class="control-label">Exhibit</label>
-                <select asp-for="Species.ExhibitId" class="form-control" asp-items="ViewBag.ExhibitId"></select>
+                <select asp-for="Species.ExhibitId" class="form-control" asp-items="ViewBag.ExhibitId">
+                    <option value="">-- Select Exhibit --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Species.LifeExpectancy" class="control-label">Life Expectancy</label>

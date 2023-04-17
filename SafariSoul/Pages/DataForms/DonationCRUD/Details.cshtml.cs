@@ -27,7 +27,10 @@ namespace SafariSoul.Pages.DonationCRUD
                 return NotFound();
             }
 
-            var donation = await _context.Donations.FirstOrDefaultAsync(m => m.DonationId == id);
+            var donation = await _context.Donations
+                .Include(d => d.Donor)
+                .FirstOrDefaultAsync(m => m.DonationId == id);
+
             if (donation == null)
             {
                 return NotFound();

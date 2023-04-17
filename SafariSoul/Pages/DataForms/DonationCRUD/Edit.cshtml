@@ -3,7 +3,20 @@
 
 @{
     ViewData["Title"] = "Edit";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <head>
@@ -20,9 +33,12 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+              <input type="hidden" asp-for="Donation.DonationId" />
             <div class="form-group">
                 <label asp-for="Donation.DonorId" class="control-label">Donor</label>
-                <select asp-for="Donation.DonorId" class="form-control" asp-items="ViewBag.DonorId"></select>
+                <select asp-for="Donation.DonorId" class="form-control" asp-items="ViewBag.DonorId">
+                    <option value="">-- Select Donor --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Donation.AmountDonated" class="control-label"></label>

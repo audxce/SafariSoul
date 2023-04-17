@@ -3,7 +3,20 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <h4>Set Operating Hours</h4>
@@ -15,7 +28,7 @@
             <div class="form-group">
                 <label asp-for="OperatingHour.DayOfWeek" class="control-label">Day of Week</label>
                 <select asp-for="OperatingHour.DayOfWeek" class="form-control">
-                    <option value="">--Select Day--</option>
+                    <option value="">-- Select Day --</option>
                     <option value="Monday">Mon</option>
                     <option value="Tuesday">Tues</option>
                     <option value="Wednesday">Wed</option>

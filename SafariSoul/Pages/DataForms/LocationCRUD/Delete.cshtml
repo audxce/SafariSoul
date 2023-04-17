@@ -3,7 +3,20 @@
 
 @{
     ViewData["Title"] = "Delete";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <h3>Are you sure you want to delete this?</h3>
@@ -11,24 +24,16 @@
     <h4>Location</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.LocationName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location.LocationName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Location.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Location.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.Location.LocationName)</dt>
+            <dd>@Html.DisplayFor(model => model.Location.LocationName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Location.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.Location.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.Location.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.Location.UpdatedAt)</dd>
+        </div>
     </dl>
     
     <form method="post">

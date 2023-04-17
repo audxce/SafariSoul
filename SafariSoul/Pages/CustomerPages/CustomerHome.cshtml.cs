@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SafariSoul.Pages
+namespace SafariSoul.Pages.CustomerPages
 {
-    public class CustomerPageModel : PageModel
+    public class CustomerHomeModel : PageModel
     {
         public void OnGet()
         {

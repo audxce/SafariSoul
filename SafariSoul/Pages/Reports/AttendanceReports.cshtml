@@ -1,0 +1,223 @@
+﻿@page
+@model SafariSoul.Pages.Reports.AttendanceReportsModel
+@{
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
+}
+@{
+    ViewData["Title"] = "Attendance Report";
+}
+
+
+<style>
+    /*Table Styling*/
+    * {
+        visibility: visible;
+        animation-delay: 0.3s;
+        animation-name: fadeIn;
+    }
+
+    .content-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 800px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+
+        .content-table thead tr {
+            background-color: #2EB872;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .content-table th, .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddd
+        }
+
+            .content-table tbody tr:nth-last-of-type(even) {
+                background-color: #f3f3f3
+            }
+
+            .content-table tbody tr:last-of-type {
+                border-bottom: 2px solid #2EB872
+            }
+
+    /* Button Styling */
+    .reportbtn input[type="submit"],
+    .reportbtn input[type="date"],
+    .reportbtn button {
+        background: #2EB872;
+        color: #ffffff;
+        border-radius: 30px;
+        transition: transform 0.3s ease;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        width : 200px;
+    }
+
+    .reportbtn button {
+        cursor: pointer;
+    }
+
+    .reportbtn input[type="date"] {
+        width: 200px;
+    }
+
+    .reportbtn input[type="submit"]:hover,
+    .reportbtn button:hover {
+        transform: translate(-12px,-12px);
+    }
+
+        .reportbtn input[type="submit"]:hover::after,
+        .reportbtn button:hover::after {
+            transform: translate(6px,6px);
+        }
+
+        .reportbtn input[type="submit"]:hover::before,
+        .reportbtn button:hover::before {
+            transform: translate(12px,12px);
+        }
+
+    .reportbtn input[type="submit"]:active,
+    .reportbtn button:active {
+        transform: none;
+    }
+
+        .reportbtn input[type="submit"]:active::after,
+        .reportbtn button:active::after {
+            transform: none;
+        }
+
+        .reportbtn input[type="submit"]:active::before,
+        .reportbtn button:active::before {
+            transform: none;
+        }
+
+    .reportbtn input[type="date"] {
+        background-color: #ffffff;
+        border: 1px solid #000000;
+        color: #000000;
+    }
+
+    .reportbtn div {
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>
+<body>
+    <form method="post" class="reportbtn">
+        <div>
+        <input type="date" name="FromDate" />
+        <input type="date" name="ToDate" />
+        </div>
+        <div>
+            <input type="submit" name="reportType" value="By Day of Week" />
+        
+            <input type="submit" name="reportType" value="By Month of Year" />
+        </div>
+        <div>
+            <input type="submit" name="reportType" value="By Quarter of Year" />
+        
+            <button type="button" onclick="printTables()">Print Tables</button>
+        </div>
+    </form>
+
+
+@if (ViewData["AttendancebyWeek"] != null)
+{
+
+    <table id="attendanceByWeek" class="content-table">
+        <thead>
+            <tr>
+                <th>Day of Week</th>
+                <th>Total Gen. Add. Tickets Sold</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var expReport in ViewData["AttendancebyWeek"] as List<AttendanceReport>)
+            {
+                <tr>
+                    <td>@expReport.Day</td>
+                    <td>@expReport.NumOfTick</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+    @if (ViewData["AttendancebyMonth"] != null)
+    {
+
+        <table id="attendanceByWeek" class="content-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Total Gen. Add. Tickets Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var expReport in ViewData["AttendancebyMonth"] as List<AttendanceReport>)
+                {
+                    <tr>
+                        <td>@expReport.Year</td>
+                        <td>@expReport.Month</td>
+                        <td>@expReport.NumOfTick</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @if (ViewData["AttendancebyQuarter"] != null)
+    {
+
+        <table id="attendanceByWeek" class="content-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Quarter</th>
+                    <th>Total Gen. Add. Tickets Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var expReport in ViewData["AttendancebyQuarter"] as List<AttendanceReport>)
+                {
+                    <tr>
+                        <td>@expReport.Year</td>
+                        <td>@expReport.Quarters</td>
+                        <td>@expReport.NumOfTick</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</body>
+
+<script>
+    function printTables() {
+        window.print();
+    }
+</script>

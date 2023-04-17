@@ -63,8 +63,6 @@ public partial class ZooDbContext : DbContext
 
     public virtual DbSet<ZooTransaction> ZooTransactions { get; set; }
 
-    public virtual DbSet<ZooTransactionEventTicket> ZooTransactionEventTickets { get; set; }
-
     public virtual DbSet<ZooTransactionItem> ZooTransactionItems { get; set; }
 
     public virtual DbSet<ZooUser> ZooUsers { get; set; }
@@ -564,9 +562,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.Supplier, "SUPPLIED_BY");
 
-            entity.Property(e => e.ItemId)
-            .HasColumnName("Item_ID");
-
+            entity.Property(e => e.ItemId).HasColumnName("Item_ID");
             entity.Property(e => e.CreatedAt)
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .HasColumnType("timestamp")
@@ -813,6 +809,7 @@ public partial class ZooDbContext : DbContext
                 .HasColumnType("timestamp")
                 .HasColumnName("created_at");
             entity.Property(e => e.FollowupNeeded).HasColumnName("Followup_Needed");
+            entity.Property(e => e.Reason).HasColumnType("tinytext");
             entity.Property(e => e.TimeAdmitted)
                 .HasColumnType("datetime")
                 .HasColumnName("Time_Admitted");
@@ -974,6 +971,8 @@ public partial class ZooDbContext : DbContext
             entity.Property(e => e.DateAndTime)
                 .HasColumnType("datetime")
                 .HasColumnName("Date_and_Time");
+            entity.Property(e => e.GeneralTicketDate).HasColumnName("General_Ticket_Date");
+            entity.Property(e => e.GeneralTicketQuantity).HasColumnName("General_Ticket_Quantity");
             entity.Property(e => e.LocationId).HasColumnName("Location_ID");
             entity.Property(e => e.SellerId).HasColumnName("Seller_ID");
             entity.Property(e => e.UpdatedAt)
@@ -994,39 +993,6 @@ public partial class ZooDbContext : DbContext
                 .HasConstraintName("SOLD_BY");
         });
 
-        modelBuilder.Entity<ZooTransactionEventTicket>(entity =>
-        {
-            entity.HasKey(e => e.MultiEventTicketsId).HasName("PRIMARY");
-
-            entity.ToTable("zoo_transaction_event_tickets");
-
-            entity.HasIndex(e => e.EventId, "FOR_EVENT");
-
-            entity.HasIndex(e => e.TransactionId, "zoo_transaction_event_tickets_ibfk_1");
-
-            entity.Property(e => e.MultiEventTicketsId).HasColumnName("Multi_Event_Tickets_ID");
-            entity.Property(e => e.CreatedAt)
-                .HasDefaultValueSql("CURRENT_TIMESTAMP")
-                .HasColumnType("timestamp")
-                .HasColumnName("created_at");
-            entity.Property(e => e.EventId).HasColumnName("Event_ID");
-            entity.Property(e => e.TicketQuantity).HasColumnName("Ticket_Quantity");
-            entity.Property(e => e.TransactionId).HasColumnName("Transaction_ID");
-            entity.Property(e => e.UpdatedAt)
-                .ValueGeneratedOnAddOrUpdate()
-                .HasColumnType("timestamp")
-                .HasColumnName("updated_at");
-
-            entity.HasOne(d => d.Event).WithMany(p => p.ZooTransactionEventTickets)
-                .HasForeignKey(d => d.EventId)
-                .HasConstraintName("FOR_EVENT");
-
-            entity.HasOne(d => d.Transaction).WithMany(p => p.ZooTransactionEventTickets)
-                .HasForeignKey(d => d.TransactionId)
-                .OnDelete(DeleteBehavior.Cascade)
-                .HasConstraintName("zoo_transaction_event_tickets_ibfk_1");
-        });
-
         modelBuilder.Entity<ZooTransactionItem>(entity =>
         {
             entity.HasKey(e => e.MultiItemsId).HasName("PRIMARY");
@@ -1035,7 +1001,7 @@ public partial class ZooDbContext : DbContext
 
             entity.HasIndex(e => e.ItemId, "ITEM_WAS_BOUGHT");
 
-            entity.HasIndex(e => e.TransactionId, "zoo_transaction_items_ibfk_1");
+            entity.HasIndex(e => e.TransactionId, "Transaction_ID");
 
             entity.Property(e => e.MultiItemsId).HasColumnName("Multi_Items_ID");
             entity.Property(e => e.CreatedAt)
@@ -1052,11 +1018,11 @@ public partial class ZooDbContext : DbContext
 
             entity.HasOne(d => d.Item).WithMany(p => p.ZooTransactionItems)
                 .HasForeignKey(d => d.ItemId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("ITEM_WAS_BOUGHT");
 
             entity.HasOne(d => d.Transaction).WithMany(p => p.ZooTransactionItems)
                 .HasForeignKey(d => d.TransactionId)
-                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("zoo_transaction_items_ibfk_1");
         });
 
@@ -1087,7 +1053,7 @@ public partial class ZooDbContext : DbContext
                 .HasColumnType("timestamp")
                 .HasColumnName("updated_at");
             entity.Property(e => e.UserType)
-                .HasColumnType("enum('Admin','Employee','Customer','Default')")
+                .HasColumnType("enum('Admin','Accountant','Animal Handler','Customer','Default','Human Resources','Maintenance','Other Employee','Sales')")
                 .HasColumnName("User_Type");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.ZooUsers)

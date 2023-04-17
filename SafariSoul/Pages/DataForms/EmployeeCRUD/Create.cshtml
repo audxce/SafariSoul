@@ -3,7 +3,20 @@
 
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
 <head>
@@ -47,11 +60,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Employee.DeptName" class="control-label">Department</label>
-                <select asp-for="Employee.DeptName" class ="form-control" asp-items="ViewBag.DeptName"></select>
+                <select asp-for="Employee.DeptName" class ="form-control" asp-items="ViewBag.DeptName">
+                    <option value="">-- Select Department --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.SupId" class="control-label">Supervisor</label>
-                <select asp-for="Employee.SupId" class ="form-control" asp-items="ViewBag.SupId"></select>
+                <select asp-for="Employee.SupId" class ="form-control" asp-items="ViewBag.SupId">
+                    <option value="">-- Select Supervisor --</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.Salary" class="control-label">Salary</label>

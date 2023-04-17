@@ -3,13 +3,24 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Inventory</h4>
+    <h1>Inventory Details</h1>
     <hr />
     <dl class="row">
         <div class="col-md-6">
@@ -20,6 +31,9 @@
                 <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.Quantity)</dt>
                 <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.Quantity)</dd>
 
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.MeasurementUnits)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.MeasurementUnits)</dd>
+
                 <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.Price)</dt>
                 <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.Price)</dd>
 
@@ -28,19 +42,16 @@
 
                 <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.HumidityRequirements)</dt>
                 <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.HumidityRequirements)</dd>
-
-                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.MeasurementUnits)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.MeasurementUnits)</dd>
             </dl>
         </div>
 
         <div class="col-md-6">
             <dl>
-                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Inventory.DestinationNavigation)</dt>
-                <dd class="col-sm-7">@Html.DisplayFor(model => model.Inventory.DestinationNavigation.LocationName)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.DestinationNavigation.LocationName)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.DestinationNavigation.LocationName)</dd>
 
-                <dt class="col-sm-5">@Html.DisplayNameFor(model => model.Inventory.SupplierNavigation)</dt>
-                <dd class="col-sm-7">@Html.DisplayFor(model => model.Inventory.SupplierNavigation.VendorName)</dd>
+                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.SupplierNavigation.VendorName)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.SupplierNavigation.VendorName)</dd>
 
                 <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Inventory.ReorderThreshold)</dt>
                 <dd class="col-sm-8">@Html.DisplayFor(model => model.Inventory.ReorderThreshold)</dd>

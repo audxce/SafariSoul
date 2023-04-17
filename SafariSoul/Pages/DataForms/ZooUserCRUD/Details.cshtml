@@ -3,50 +3,46 @@
 
 @{
     ViewData["Title"] = "Details";
-    Layout = "~/Pages/Shared/_NewLayout.cshtml";
+    @if (@HttpContext.Session.GetString("_Type") == "Admin")
+        Layout = "_NewLayout";
+    @if (@HttpContext.Session.GetString("_Type") == "Other Employee")
+        Layout = "_LayoutEmployee";
+    @if (@HttpContext.Session.GetString("_Type") == "Animal Handler")
+        Layout = "_LayoutAnimalHandler";
+    @if (@HttpContext.Session.GetString("_Type") == "Accountant")
+        Layout = "_LayoutAccountant";
+    @if (@HttpContext.Session.GetString("_Type") == "Human Resources")
+        Layout = "_LayoutHumanResources";
+    @if (@HttpContext.Session.GetString("_Type") == "Maintenance")
+        Layout = "_LayoutMaintenance";
+    @if (@HttpContext.Session.GetString("_Type") == "Sales")
+        Layout = "_LayoutSales";
 }
 
-<h1>Details</h1>
+<h1>Zoo User Details</h1>
 
 <div>
-    <h4>ZooUser</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooUser.AuthenticationKey)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooUser.AuthenticationKey)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooUser.UserType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooUser.UserType)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooUser.Customer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooUser.Customer.FullName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooUser.Employee)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooUser.Employee.FullName)
-        </dd>
-            @Html.DisplayNameFor(model => model.ZooUser.CreatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooUser.CreatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooUser.UpdatedAt)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooUser.UpdatedAt)
-        </dd>
+        <div class="col-md-6">
+            <dt>@Html.DisplayNameFor(model => model.ZooUser.AuthenticationKey)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooUser.AuthenticationKey)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooUser.UserType)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooUser.UserType)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooUser.Customer)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooUser.Customer.FullName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooUser.Employee)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooUser.Employee.FullName)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooUser.CreatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooUser.CreatedAt)</dd>
+
+            <dt>@Html.DisplayNameFor(model => model.ZooUser.UpdatedAt)</dt>
+            <dd>@Html.DisplayFor(model => model.ZooUser.UpdatedAt)</dd>
+        </div>
     </dl>
 </div>
 <div>
