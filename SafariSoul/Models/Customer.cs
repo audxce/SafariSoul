@@ -9,13 +9,13 @@ public partial class Customer
     public int CustomerId { get; set; }
 
     [DisplayName("First Name")]
-    public string Fname { get; set; } = null!;
+    public string? Fname { get; set; } = null!;
 
     [DisplayName("Middle Initial")]
     public string? Minit { get; set; }
 
     [DisplayName("Last Name")]
-    public string Lname { get; set; } = null!;
+    public string? Lname { get; set; } = null!;
 
     public string? Gender { get; set; }
 
@@ -57,7 +57,7 @@ public partial class Customer
     public virtual ICollection<ZooUser> ZooUsers { get; } = new List<ZooUser>();
 
     [DisplayName("Full Name")]
-    public string FullName
+    public string? FullName
     {
         get { return Fname + " " + Lname; }
     }

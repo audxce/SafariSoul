@@ -2,7 +2,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
+using System.Transactions;
 
 namespace SafariSoul.Pages.CustomerPages
 {
@@ -15,9 +17,12 @@ namespace SafariSoul.Pages.CustomerPages
             _context = context;
         }
 
+        [BindProperty]
+        public TransactionCustomerViewModel TransactionCustomer { get; set; }
+
         public IActionResult OnGet()
         {
-            int? customerId = HttpContext.Session.GetInt32("CustomerId");
+            int? customerId = HttpContext.Session.GetInt32("_CustID");
             if (customerId == null)
             {
                 return NotFound("Unable to load user with associated CustomerId.");
@@ -35,13 +40,18 @@ namespace SafariSoul.Pages.CustomerPages
             return Page();
         }
 
-        [BindProperty]
-        public TransactionCustomerViewModel TransactionCustomer { get; set; } = default!;
-
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                foreach (var modelState in ModelState.Values)
+                {
+                    foreach (var error in modelState.Errors)
+                    {
+                        // Output the validation error to the user
+                        Console.WriteLine(error.ErrorMessage);
+                    }
+                }
                 return Page();
             }
 
@@ -52,8 +62,6 @@ namespace SafariSoul.Pages.CustomerPages
             }
 
             // Update the transaction's date and time and customer ID
-            TransactionCustomer.Transaction.DateAndTime = DateTime.Now;
-            TransactionCustomer.Transaction.CustomerId = customerId.Value;
 
             // Update the customer's credit card number and address
             var customer = await _context.Customers.FindAsync(customerId.Value);
@@ -62,14 +70,37 @@ namespace SafariSoul.Pages.CustomerPages
                 return NotFound("Unable to load customer with associated CustomerId.");
             }
 
-            customer.CreditCardNo = TransactionCustomer.Customer.CreditCardNo;
-            customer.Address = TransactionCustomer.Customer.Address;
+            TransactionCustomer.Transaction.CustomerId = customerId.Value;
 
             _context.ZooTransactions.Add(TransactionCustomer.Transaction);
-            _context.Customers.Update(customer); // Update the existing customer object
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Successful");
+            customer.Address = TransactionCustomer.Customer.Address;
+            customer.CreditCardNo = TransactionCustomer.Customer.CreditCardNo;
+            _context.Attach(customer).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CustomerExists(customer.CustomerId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToPage("./Successful"); // Redirect to a confirmation page or the main page
+        }
+
+        private bool CustomerExists(int id)
+        {
+            return _context.Customers.Any(e => e.CustomerId == id);
         }
     }
 }

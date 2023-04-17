@@ -9,7 +9,7 @@ public partial class ZooTransaction
     public int TransactionId { get; set; }
 
     [DisplayName("Date and Time")]
-    public DateTime DateAndTime { get; set; }
+    public DateTime? DateAndTime { get; set; }
 
     [DisplayName("Customer")]
     public int? CustomerId { get; set; }
