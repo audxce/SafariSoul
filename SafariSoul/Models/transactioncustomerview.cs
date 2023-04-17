@@ -8,4 +8,5 @@ public partial class TransactionCustomerViewModel
 {
     public ZooTransaction Transaction { get; set; } = default!;
     public Customer Customer { get; set; } = default!;
+
 }

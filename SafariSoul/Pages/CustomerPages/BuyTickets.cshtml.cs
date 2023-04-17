@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SafariSoul.Models;
+using SafariSoul.Pages.Login;
 using System.Transactions;
 
 namespace SafariSoul.Pages.CustomerPages
@@ -22,7 +23,7 @@ namespace SafariSoul.Pages.CustomerPages
 
         public IActionResult OnGet()
         {
-            int? customerId = HttpContext.Session.GetInt32("_CustID");
+            int? customerId = HttpContext.Session.GetInt32(LoginModel.SessionKeyCID);
             if (customerId == null)
             {
                 return NotFound("Unable to load user with associated CustomerId.");
@@ -34,9 +35,6 @@ namespace SafariSoul.Pages.CustomerPages
                 return NotFound("Unable to load customer with associated CustomerId.");
             }
 
-            // Populate ViewData with the loaded customer object
-            ViewData["Customer"] = customer;
-
             return Page();
         }
 
@@ -44,18 +42,18 @@ namespace SafariSoul.Pages.CustomerPages
         {
             if (!ModelState.IsValid)
             {
-                foreach (var modelState in ModelState.Values)
+                foreach (var modelState in ModelState)
                 {
-                    foreach (var error in modelState.Errors)
+                    foreach (var error in modelState.Value.Errors)
                     {
                         // Output the validation error to the user
-                        Console.WriteLine(error.ErrorMessage);
+                        Console.WriteLine($"{modelState.Key}: {error.ErrorMessage}");
                     }
                 }
                 return Page();
             }
 
-            int? customerId = HttpContext.Session.GetInt32("CustomerId");
+            int? customerId = HttpContext.Session.GetInt32(LoginModel.SessionKeyCID);
             if (customerId == null)
             {
                 return NotFound("Not able to load user with associated CustomerId.");
