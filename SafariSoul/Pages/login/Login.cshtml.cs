@@ -54,15 +54,17 @@ namespace SafariSoul.Pages.Login
                 //string customerID = reader.GetString("Customer_ID");
                 //string employeeID = reader.GetString("Employee_ID");
 
-				// Get the CustomerId and store it in the session
-				if (userType == "Customer")
-				{
-					int customerId = reader.GetInt32("Customer_Id");
-					HttpContext.Session.SetInt32(SessionKeyCID, customerId);
-				}
+                // Get the CustomerId and store it in the session
+                // Get the CustomerId and store it in the session
+                if (userType == "Customer")
+                {
+                    int customerId = reader.GetInt32("Customer_Id");
+                    HttpContext.Session.SetInt32(SessionKeyCID, customerId);
+                }
 
-				//update the session user
-				HttpContext.Session.SetString(SessionKeyName, username);
+
+                //update the session user
+                HttpContext.Session.SetString(SessionKeyName, username);
                 var name = HttpContext.Session.GetString(SessionKeyName);
                 _logger.LogInformation("Session Name: {Name}", name);
 
