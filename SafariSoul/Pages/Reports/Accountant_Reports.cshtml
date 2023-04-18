@@ -132,22 +132,23 @@
     <h1> Monetary Reports</h1>
     <form method="post" class="reportbtn">
         <div>
-        <input type="date" name="FromDate" />
-        <input type="date" name="ToDate" />
+            <input type="date" name="FromDate" id="FromDate" />
+            <input type="date" name="ToDate" id="ToDate" />
         </div>
         <div>
-        <input type="submit" name="reportType" value="Revenue Report" />
-        <input type="submit" name="reportType" value="Expense Report" />
+            <input type="submit" name="reportType" value="Revenue Report" />
+            <input type="submit" name="reportType" value="Expense Report" />
         </div>
         <div>
-        <button type="button" onclick="printTables()">Print Tables</button>
+            <button type="button" onclick="printTables()">Print Tables</button>
         </div>
     </form>
 
     @if (ViewData["ExpenseReport"] != null)
     {
-
+        <h3><span id="tableCaption">Expense Report for @Request.Form["FromDate"] - @Request.Form["ToDate"]</span></h3>
         <table id="expenseTable" class="content-table">
+           
             <thead>
                 <tr>
                     <th>Source ID</th>
@@ -170,31 +171,45 @@
 
     @if (ViewData["RevenueReport"] != null)
     {
-
-        <table id="revenueTable" class="content-table">
-            <thead>
-                <tr>
-                    <th>Source Name</th>
-                    <th>Source ID</th>
-                    <th>Source Revenue</th>                 
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var revReport in ViewData["RevenueReport"] as List<RevenueReport>)
-                {
+        @if (Request.Form["reportType"] == "Revenue Report")
+        {
+            <h3><span id="tableCaption"> Revenue Report for @Request.Form["FromDate"] - @Request.Form["ToDate"]</span></h3>
+            <table id="revenueTable" class="content-table">
+               
+                <thead>
                     <tr>
-                        <td>@revReport.Source_Name</td>
-                        <td>@revReport.Source_ID</td>
-                        <td>@revReport.Total_Revenue</td>
+                        <th>Source Name</th>
+                        <th>Source ID</th>
+                        <th>Source Revenue</th>
                     </tr>
-                }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach (var revReport in ViewData["RevenueReport"] as List<RevenueReport>)
+                    {
+                        <tr>
+                            <td>@revReport.Source_Name</td>
+                            <td>@revReport.Source_ID</td>
+                            <td>@revReport.Total_Revenue</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
     }
 
+    <script>
+        function printTables() {
+            window.print();
+        }
+
+        function updateTableCaption() {
+            var from = document.getElementById("FromDate").value;
+            var to = document.getElementById("ToDate").value;
+            var caption = document.getElementById("tableCaption");
+            caption.textContent = "Revenue Report for " + from + " - " + to;
+        }
+
+        document.getElementById("FromDate").addEventListener("change", updateTableCaption);
+        document.getElementById("ToDate").addEventListener("change", updateTableCaption);
+    </script>
 </body>
-<script>
-    function printTables() {
-        window.print();
-    }
-</script>
