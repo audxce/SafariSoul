@@ -19,10 +19,8 @@
         Layout = "_LayoutSales";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>ZooTransaction</h4>
+    <h4>Zoo Transaction Details</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -44,6 +42,24 @@
             @Html.DisplayFor(model => model.ZooTransaction.GeneralTicketDate)
         </dd>
         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooTransaction.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooTransaction.Customer.CustomerId)
+        </dd>
+         <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooTransaction.Seller)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooTransaction.Seller.EmployeeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZooTransaction.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZooTransaction.Location.LocationId)
+        </dd>
+         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.ZooTransaction.CreatedAt)
         </dt>
         <dd class="col-sm-10">
@@ -54,24 +70,6 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ZooTransaction.UpdatedAt)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooTransaction.Customer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooTransaction.Customer.CustomerId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooTransaction.Location)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooTransaction.Location.LocationId)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ZooTransaction.Seller)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.ZooTransaction.Seller.EmployeeId)
         </dd>
     </dl>
 </div>
