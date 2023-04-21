@@ -132,6 +132,7 @@ namespace SafariSoul.Pages.Reports
                             revenueReport.Source_Name = reader["Source_Name"].ToString();
                             revenueReport.Source_ID = Convert.ToInt32(reader["Source_ID"]);
                             revenueReport.Total_Revenue = Convert.ToInt32(reader["Ticket"]);
+                            
                             //revenueReport.Location_ID = Convert.ToInt32(reader["Department_Location"]);
                             //revenueReport.Department_Name = reader["Department_Name"].ToString();
                             //revenueReport.Department_Budget = Convert.ToInt32(reader["Department_Budget"]);
@@ -146,7 +147,7 @@ namespace SafariSoul.Pages.Reports
                 }
 
                 ViewData["RevenueReport"] = revReport;
-
+                
                 return Page();
             }
         }
@@ -160,6 +161,8 @@ namespace SafariSoul.Pages.Reports
             public string Department_Name { get; set; }
             public int Location_ID { get; set; }
             public int Department_Budget { get; set; }
+
+            
         }
 
         public class RevenueReport
@@ -167,6 +170,7 @@ namespace SafariSoul.Pages.Reports
             public string Source_Name { get; set; }
             public int Source_ID { get; set; }
             public int Total_Revenue { get; set; }
+            
         }
 
 

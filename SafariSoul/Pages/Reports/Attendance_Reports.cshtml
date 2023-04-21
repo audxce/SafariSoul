@@ -146,7 +146,7 @@
 
 @if (ViewData["AttendancebyWeek"] != null)
 {
-
+        <h3><span id="tableCaption"> Attendance by Week Report for @Request.Form["FromDate"] - @Request.Form["ToDate"]</span></h3>
     <table id="attendanceByWeek" class="content-table">
         <thead>
             <tr>
@@ -168,7 +168,7 @@
 
     @if (ViewData["AttendancebyMonth"] != null)
     {
-
+        <h3><span id="tableCaption"> Attendance by Month Report for @Request.Form["FromDate"] - @Request.Form["ToDate"]</span></h3>
         <table id="attendanceByWeek" class="content-table">
             <thead>
                 <tr>
@@ -192,7 +192,7 @@
 
     @if (ViewData["AttendancebyQuarter"] != null)
     {
-
+        <h3><span id="tableCaption"> Attendance by Quarter Report for @Request.Form["FromDate"] - @Request.Form["ToDate"]</span></h3>
         <table id="attendanceByWeek" class="content-table">
             <thead>
                 <tr>
@@ -214,10 +214,21 @@
         </table>
     }
 
+    <script>
+        function printTables() {
+            window.print();
+        }
+
+        function updateTableCaption() {
+            var from = document.getElementById("FromDate").value;
+            var to = document.getElementById("ToDate").value;
+            var caption = document.getElementById("tableCaption");
+            caption.textContent = "Revenue Report for " + from + " - " + to;
+        }
+
+        document.getElementById("FromDate").addEventListener("change", updateTableCaption);
+        document.getElementById("ToDate").addEventListener("change", updateTableCaption);
+    </script>
 </body>
 
-<script>
-    function printTables() {
-        window.print();
-    }
-</script>
+
