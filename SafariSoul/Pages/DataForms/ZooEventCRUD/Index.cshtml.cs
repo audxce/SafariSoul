@@ -26,7 +26,7 @@ namespace SafariSoul.Pages.ZooEventCRUD
             {
                 ZooEvent = await _context.ZooEvents
                 .Include(z => z.AnimalProgram)
-                .Include(z => z.EducationalProgram)
+                .Include(z => z.EducationalProgram)               
                 .Include(z => z.EventLocation).ToListAsync();
             }
         }

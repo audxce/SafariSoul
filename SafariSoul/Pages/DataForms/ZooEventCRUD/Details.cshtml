@@ -55,6 +55,49 @@
         </div>
     </dl>
 </div>
+@if (Model.ZooEvent.ZooEventAnimalsInvolveds.Any())
+{
+    <h3>Animals Involved</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Animal Name</th>
+                <th>Species</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ZooEvent.ZooEventAnimalsInvolveds)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Animal.AnimalName)</td>
+                    <td>@item.Animal.Species.CommonName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@if (Model.ZooEvent.ZooEventStaffInvolveds.Any())
+{
+    <h3>Staff Involved</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Employee Name</th>
+                <th>Occupation</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ZooEvent.ZooEventStaffInvolveds)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Employee.FullName)</td>
+                    <td>@item.Employee.Occupation</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.ZooEvent?.EventId">Edit</a> |
     <a asp-page="./Index">Back to List</a>

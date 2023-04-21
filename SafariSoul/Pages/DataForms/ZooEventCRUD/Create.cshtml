@@ -70,6 +70,45 @@
                     <option value="">-- Select Educational Program --</option>
                 </select>
             </div>
+            <div style="height: 20px;"></div>
+            <!-- Add the new form-group elements for AnimalId -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AnimalsInvolved[0].AnimalId" class="control-label">Animal Involved</label>
+                        <select asp-for="AnimalsInvolved[0].AnimalId" class="form-control animal-id" asp-items="ViewBag.AnimalId">
+                            <option value="">-- Select Animal --</option>
+                        </select>
+                    </div>
+                    <!-- Add a container div to store the dynamically added input pairs for animals -->
+                    <div id="additional-animals-container"></div>
+                    <div style="height: 20px;"></div>
+                    <!-- Add a button to generate new input fields for animals -->
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="addAnimal">Add Animal</button>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 20px;"></div>
+            <!-- Add the new form-group elements for EmployeeId -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="StaffInvolved[0].EmployeeId" class="control-label">Staff Involved</label>
+                        <select asp-for="StaffInvolved[0].EmployeeId" class="form-control employee-id" asp-items="ViewBag.EmployeeId">
+                            <option value="">-- Select Staff  --</option>
+                        </select>
+                    </div>
+                    <!-- Add a container div to store the dynamically added input pairs for staff -->
+                    <div id="additional-staff-container"></div>
+                    <div style="height: 20px;"></div>
+                    <!-- Add a button to generate new input fields for staff -->
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="addStaff">Add Staff </button>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 20px;"></div>
             <div class="form-group">
                 <label asp-for="ZooEvent.EventLocationId" class="control-label">Event Location</label>
                 <select asp-for="ZooEvent.EventLocationId" class ="form-control" asp-items="ViewBag.EventLocationId">
@@ -89,4 +128,84 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        var animalIndex = 1;
+        var staffIndex = 1;
+
+        document.getElementById("addAnimal").addEventListener("click", function () {
+            var container = document.getElementById("additional-animals-container");
+
+            // Create a div with class "row" to wrap the input fields
+            var rowDiv = document.createElement("div");
+            rowDiv.setAttribute("class", "row");
+
+            rowDiv.style.marginTop = "20px";
+            rowDiv.style.marginBottom = "20px";
+
+            // Create a div with class "col-md-12" for the AnimalId select element
+            var colDivAnimalId = document.createElement("div");
+            colDivAnimalId.setAttribute("class", "form-group col-md-12");
+
+            // Create a new AnimalId select element
+            var newAnimalId = document.createElement("select");
+            newAnimalId.setAttribute("class", "form-control animal-id");
+            newAnimalId.setAttribute("name", "AnimalsInvolved[" + animalIndex + "].AnimalId");
+
+            // Copy the options from the existing select element
+            var existingAnimalId = document.querySelector(".animal-id");
+            for (var i = 0; i < existingAnimalId.options.length; i++) {
+                newAnimalId.options.add(existingAnimalId.options[i].cloneNode(true));
+            }
+
+            // Append the AnimalId select element to the colDivAnimalId
+            colDivAnimalId.appendChild(newAnimalId);
+
+            // Append the colDivAnimalId to the rowDiv
+            rowDiv.appendChild(colDivAnimalId);
+
+            // Append the rowDiv to the container
+            container.appendChild(rowDiv);
+
+            animalIndex++;
+        });
+
+        document.getElementById("addStaff").addEventListener("click", function () {
+            var container = document.getElementById("additional-staff-container");
+
+            // Create a div with class "row" to wrap the input fields
+            var rowDiv = document.createElement("div");
+            rowDiv.setAttribute("class", "row");
+
+            rowDiv.style.marginTop = "20px";
+            rowDiv.style.marginBottom = "20px";
+
+            // Create a div with class "col-md-12" for the EmployeeId select element
+            var colDivEmployeeId = document.createElement("div");
+            colDivEmployeeId.setAttribute("class", "form-group col-md-12");
+
+            // Create a new EmployeeId select element
+            var newEmployeeId = document.createElement("select");
+            newEmployeeId.setAttribute("class", "form-control employee-id");
+            newEmployeeId.setAttribute("name", "StaffInvolved[" + staffIndex + "].EmployeeId");
+
+            // Copy the options from the existing select element
+            var existingEmployeeId = document.querySelector(".employee-id");
+            for (var i = 0; i < existingEmployeeId.options.length; i++) {
+                newEmployeeId.options.add(existingEmployeeId.options[i].cloneNode(true));
+            }
+
+            // Append the EmployeeId select element to the colDivEmployeeId
+            colDivEmployeeId.appendChild(newEmployeeId);
+
+            // Append the colDivEmployeeId to the rowDiv
+            rowDiv.appendChild(colDivEmployeeId);
+
+            // Append the rowDiv to the container
+            container.appendChild(rowDiv);
+
+            staffIndex++;
+        });
+    </script>
+
 }

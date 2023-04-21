@@ -22,6 +22,11 @@ namespace SafariSoul.Pages.ZooEventCRUD
         [BindProperty]
         public ZooEvent ZooEvent { get; set; } = default!;
 
+        [BindProperty]
+        public IList<ZooEventAnimalsInvolved> AnimalsInvolved { get; set; } = new List<ZooEventAnimalsInvolved> { new ZooEventAnimalsInvolved() };
+
+        [BindProperty]
+        public IList<ZooEventStaffInvolved> StaffInvolved { get; set; } = new List<ZooEventStaffInvolved> { new ZooEventStaffInvolved() };
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.ZooEvents == null)
@@ -38,6 +43,8 @@ namespace SafariSoul.Pages.ZooEventCRUD
            ViewData["AnimalProgramId"] = new SelectList(_context.AnimalCarePrograms, "AnimalProgramId", "ProgramName");
            ViewData["EducationalProgramId"] = new SelectList(_context.EducationPrograms, "EducationProgramId", "ProgramName");
            ViewData["EventLocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+           ViewData["AnimalId"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
+           ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
             return Page();
         }
 
@@ -50,6 +57,8 @@ namespace SafariSoul.Pages.ZooEventCRUD
                 ViewData["AnimalProgramId"] = new SelectList(_context.AnimalCarePrograms, "AnimalProgramId", "ProgramName");
                 ViewData["EducationalProgramId"] = new SelectList(_context.EducationPrograms, "EducationProgramId", "ProgramName");
                 ViewData["EventLocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+                ViewData["AnimalId"] = new SelectList(_context.Animals, "AnimalId", "AnimalName");
+                ViewData["EmployeeId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
                 return Page();
             }
 
