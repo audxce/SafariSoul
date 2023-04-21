@@ -27,7 +27,16 @@ namespace SafariSoul.Pages.ZooEventCRUD
                 return NotFound();
             }
 
-            var zooevent = await _context.ZooEvents.FirstOrDefaultAsync(m => m.EventId == id);
+            var zooevent = await _context.ZooEvents
+             .Include(z => z.ZooEventAnimalsInvolveds)
+             .ThenInclude(zi => zi.Animal)
+             .ThenInclude(zi => zi.Species)
+             .Include(z => z.ZooEventStaffInvolveds)
+             .ThenInclude(zi => zi.Employee)
+             .Include(z => z.AnimalProgram)
+             .Include(z => z.EducationalProgram)
+             .Include(z => z.EventLocation)           
+             .FirstOrDefaultAsync(m => m.EventId == id);
             if (zooevent == null)
             {
                 return NotFound();

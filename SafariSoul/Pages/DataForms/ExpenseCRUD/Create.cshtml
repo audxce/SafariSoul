@@ -175,13 +175,4 @@
         });
     </script>
 
-    <script>
-        $(document).ready(function () {
-            // When a new item is selected, update the corresponding measurement unit field
-            $('.item-id').change(function () {
-                var measurementUnit = $(this).find(':selected').data('measurement-unit');
-                $(this).closest('.row').find('.measurement-unit').val(measurementUnit);
-            });
-        });
-    </script>
 }

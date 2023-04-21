@@ -22,6 +22,9 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
         [BindProperty]
         public ZooTransaction ZooTransaction { get; set; } = default!;
 
+        [BindProperty]
+        public IList<ZooTransactionItem> TransactionItems { get; set; } = new List<ZooTransactionItem> { new ZooTransactionItem() };
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.ZooTransactions == null)
@@ -35,9 +38,10 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
                 return NotFound();
             }
             ZooTransaction = zootransaction;
-           ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-           ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationId");
-           ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "EmployeeId");
+           ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+           ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+           ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+           ViewData["ItemId"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
             return Page();
         }
 
@@ -47,6 +51,10 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
         {
             if (!ModelState.IsValid)
             {
+                ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "FullName");
+                ViewData["LocationId"] = new SelectList(_context.Locations, "LocationId", "LocationName");
+                ViewData["SellerId"] = new SelectList(_context.Employees, "EmployeeId", "FullName");
+                ViewData["ItemId"] = new SelectList(_context.Inventories, "ItemId", "ItemName");
                 return Page();
             }
 

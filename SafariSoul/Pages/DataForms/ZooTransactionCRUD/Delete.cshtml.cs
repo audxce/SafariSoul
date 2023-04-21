@@ -32,6 +32,8 @@ namespace SafariSoul.Pages.DataForms.ZooTransactionCRUD
                 .Include(z => z.Customer)
                 .Include(z => z.Location)
                 .Include(z => z.Seller)
+                .Include(z => z.ZooTransactionItems)
+                .ThenInclude(zi => zi.Item)
                 .FirstOrDefaultAsync(m => m.TransactionId == id);
 
             if (zootransaction == null)
