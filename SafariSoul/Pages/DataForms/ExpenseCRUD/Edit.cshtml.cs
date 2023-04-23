@@ -31,6 +31,7 @@ namespace SafariSoul.Pages.ExpenseCRUD
             {
                 return NotFound();
             }
+            ExpenseItems = await _context.ExpenseItems.Where(ei => ei.ExpenseId == id).ToListAsync();
 
             var expense =  await _context.Expenses.FirstOrDefaultAsync(m => m.ExpenseId == id);
             if (expense == null)
@@ -57,6 +58,13 @@ namespace SafariSoul.Pages.ExpenseCRUD
             }
 
             _context.Attach(Expense).State = EntityState.Modified;
+
+            // Update the related ExpenseItem objects
+            foreach (var expenseItem in ExpenseItems)
+            {
+                _context.Update(expenseItem);
+                await _context.SaveChangesAsync();
+            }
 
             try
             {

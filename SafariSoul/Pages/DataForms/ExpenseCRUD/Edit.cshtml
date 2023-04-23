@@ -19,14 +19,6 @@
         Layout = "_LayoutSales";
 }
 
-<head>
-    <style>
-        .form-group + .form-group {
-            margin-top: 20px;
-        }
-    </style>
-</head>
-
 <h4>Edit Expense</h4>
 <hr />
 <div class="row">
@@ -52,22 +44,29 @@
             </div>
             <div style="height: 20px;"></div>
             <!-- Add the new form-group elements for ItemId and ItemQuantity -->
-            <div class="row">
-                <!-- Add the new form-group elements for ItemId -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="ExpenseItems[0].ItemId" class="control-label">Item</label>
-                        <select asp-for="ExpenseItems[0].ItemId" class="form-control item-id" asp-items="ViewBag.ItemId"></select>
+            @{
+                int index = 0;
+            }
+            @foreach (var item in Model.ExpenseItems)
+            {
+                index = Model.ExpenseItems.IndexOf(item);
+                <div class="row">
+                    <input type="hidden" asp-for="@item.MultiItemsId" name="ExpenseItems[@index].MultiItemsId" />
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="@item.ItemId" class="control-label">Item</label>
+                            <select asp-for="@item.ItemId" class="form-control item-id" asp-items="ViewBag.ItemId" name="ExpenseItems[@index].ItemId"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="@item.ItemQuantity" class="control-label">Item Quantity</label>
+                            <input asp-for="@item.ItemQuantity" class="form-control item-quantity" name="ExpenseItems[@index].ItemQuantity" />
+                        </div>
                     </div>
                 </div>
-                <!-- Add the new form-group elements for ItemQuantity -->
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="ExpenseItems[0].ItemQuantity" class="control-label">Item Quantity</label>
-                        <input asp-for="ExpenseItems[0].ItemQuantity" class="form-control item-quantity" />
-                    </div>
-                </div>
-            </div>
+                index++;
+            }
             <!-- Add a container div to store the dynamically added input pairs -->
             <div id="additional-items-container"></div>
 
@@ -111,7 +110,7 @@
             </div>
             <div style="height: 20px;"></div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
