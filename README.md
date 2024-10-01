@@ -6,5 +6,5 @@ The razor pages we created can be located in the Pages folder which is inside th
 dbcontext file. The wwwroot folder contains the css, javascript, images, etc. that are referenced in our pages. 
 The official website is safarisoulzoo.com
 
-https://github.com/user-attachments/assets/59b97053-c70f-4902-ae6c-8eaed3f9a3f2
+https://github.com/user-attachments/assets/7f707d9a-8c3d-4540-8db7-82acfb165e81
 
