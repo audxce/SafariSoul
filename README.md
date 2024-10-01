@@ -5,3 +5,6 @@ granted complete control to manage the database information. This project was pr
 The razor pages we created can be located in the Pages folder which is inside the SafariSoul folder. The Models folder contains the schema entities as well as the
 dbcontext file. The wwwroot folder contains the css, javascript, images, etc. that are referenced in our pages. 
 The official website is safarisoulzoo.com
+
+https://github.com/user-attachments/assets/59b97053-c70f-4902-ae6c-8eaed3f9a3f2
+
